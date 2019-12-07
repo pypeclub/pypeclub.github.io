@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "allowJs": true,
+        "noEmit": true
+    },
+    "exclude": [
+        "node_modules",
+        "i18n"
+
+    ],
+    "typeAcquisition": {
+        "enable": true,
+        "include": [
+            "static",
+            "pages",
+            "core"
+        ]
+    }
+}
