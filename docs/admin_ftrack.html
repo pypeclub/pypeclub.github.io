@@ -1,0 +1,186 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Ftrack · PYPE</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Ftrack is currently the main project management option for Pype. This documentaion assumes that you are familiar with Ftrack and it&#x27;s basic principles. If you&#x27;re new to Ftrack, we recommend having a thorough look at [Ftrack Official Documentation](http://ftrack.rtd.ftrack.com/en/stable/)."/><meta name="docsearch:version" content="2.3.6"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Ftrack · PYPE"/><meta property="og:type" content="website"/><meta property="og:url" content="https://pype.club/"/><meta property="og:description" content="Ftrack is currently the main project management option for Pype. This documentaion assumes that you are familiar with Ftrack and it&#x27;s basic principles. If you&#x27;re new to Ftrack, we recommend having a thorough look at [Ftrack Official Documentation](http://ftrack.rtd.ftrack.com/en/stable/)."/><meta property="og:image" content="https://pype.club//img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://pype.club//img/docusaurus.png"/><link rel="shortcut icon" href="/img/favicon/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css"/><link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto"/><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"/><link rel="stylesheet" href="https://use.typekit.net/zcf6xee.css"/><script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/favicon/P.png" alt="PYPE"/><h2 class="headerTitleWithLogo">PYPE</h2></a><a href="/versions"><h3>2.3.6</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/features" target="_self">Features</a></li><li class=""><a href="/docs/artist_getting_started" target="_self">Artist</a></li><li class=""><a href="/docs/manager_naming" target="_self">Manager</a></li><li class="siteNavGroupActive"><a href="/docs/admin_config" target="_self">Admin</a></li><li class=""><a href="/docs/api" target="_self">API</a></li><li class=""><a target="_self"></a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Presets</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Setup</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/admin_getting_started">Getting Started</a></li><li class="navListItem"><a class="navItem" href="/docs/admin_install">Pype Setup</a></li><li class="navListItem"><a class="navItem" href="/docs/admin_pype_commands">Pype commands overview</a></li><li class="navListItem"><a class="navItem" href="/docs/admin_config">Configuration</a></li><li class="navListItem"><a class="navItem" href="/docs/admin_anatomy">Folder Structure</a></li><li class="navListItem"><a class="navItem" href="/docs/admin_setup_troubleshooting">Setup Troubleshooting</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Presets</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/admin_presets_nukestudio">Nukestudio</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/admin_ftrack">Ftrack</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Release Notes</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/changelog">Release Notes</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Ftrack</h1></header><article><div><span><p>Ftrack is currently the main project management option for Pype. This documentaion assumes that you are familiar with Ftrack and it's basic principles. If you're new to Ftrack, we recommend having a thorough look at <a href="http://ftrack.rtd.ftrack.com/en/stable/">Ftrack Official Documentation</a>.</p>
+<h1><a class="anchor" aria-hidden="true" id="ftrack-configuration"></a><a href="#ftrack-configuration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Ftrack Configuration</h1>
+<h2><a class="anchor" aria-hidden="true" id="prepare-ftrack-for-pype"></a><a href="#prepare-ftrack-for-pype" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Prepare Ftrack for Pype</h2>
+<p>If you want to connect Ftrack to Pype you will probably need to make few changes in Ftrack settings. These changes would take a long time to do manually, so we prepared a few Ftrack actions to help you out. First you'll need to launch Pype's tray application and set <a href="#credentials">Ftrack credentials</a> to be able to run our Ftrack actions.</p>
+<p>The only action that really <strong>must</strong> be launched is <a href="manager_ftrack_actions#create-update-avalon-attributes">Pype Admin - Create/Update Avalon Attributes</a> to set Custom Attributes necessary for pipeline. If you want to use pipeline only for new projects then you should read about best practice with <a href="#new-project">new project</a>.</p>
+<p>Otherwise if you want to add to the pipeline already running projects you'll need to launch also <a href="manager_ftrack_actions#custom-attr-doc">Pype Doctor - Custom attr doc</a>.</p>
+<h2><a class="anchor" aria-hidden="true" id="event-server"></a><a href="#event-server" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Event Server</h2>
+<p>Event server is key to automation of many tasks like <em>status change</em>, <em>thumbnail update</em>, <em>automatic synchronization to Avalon database</em> and many more. Event server must run to be able do these things and it is not possible to do them backwards.</p>
+<h3><a class="anchor" aria-hidden="true" id="how-to-run-event-server"></a><a href="#how-to-run-event-server" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How to run event server</h3>
+<p>Pype has specific launch arguments for event server. With <code>$PYPE_SETUP/pype eventserver</code> you can launch event server but probably will terminate immediately. Reason is that event server requires 3 information: <em>Ftrack server url</em>, <em>paths to events</em> and <em>Credentials (Username and API key)</em>. Ftrack server URL and Event path are by default set by Pype's environments.</p>
+<p>There are 2 ways how you can set these information.
+1. With additional arguments</p>
+<ul>
+<li><code>--ftrack-user &quot;your.username&quot;</code> - Ftrack Username</li>
+<li><code>--ftrack-api-key &quot;00000aaa-11bb-22cc-33dd-444444eeeee&quot;</code> - User's API key</li>
+<li><code>--store-crededentials</code> - Entered credentials will be stored for next launch with this argument <em>(It is not needed to enter <strong>ftrackuser</strong> and <strong>ftrackapikey</strong> args on next launch)</em></li>
+<li><code>--no-stored-credentials</code> - Stored credentials are loaded first so if you want to change credentials use this argument</li>
+<li><code>--ftrack-url &quot;https://yourdomain.ftrackapp.com/&quot;</code> - Ftrack server URL <em>(it is not needed to enter if you have set <code>FTRACK_SERVER</code> in Pype' environments)</em></li>
+<li><code>--ftrack-events-path &quot;//Paths/To/Events/&quot;</code> - Paths to events folder. May contain multiple paths separated by <code>;</code>. <em>(it is not needed to enter if you have set <code>FTRACK_EVENTS_PATH</code> in Pype' environments)</em></li>
+</ul>
+<p>So if you want to use Pype's environments then you can launch event server for first time with these arguments <code>$PYPE_SETUP/pype eventserver --ftrack-user &quot;my.username&quot; --ftrack-api-key &quot;00000aaa-11bb-22cc-33dd-444444eeeee&quot; --store-credentials</code>. Since that time, if everything was entered correctly, you can launch event server with <code>$PYPE_SETUP/pype eventserver</code>.</p>
+<ol start="2">
+<li>With environments</li>
+</ol>
+<ul>
+<li><code>FTRACK_API_USER</code> - Username <em>(&quot;your.username&quot;)</em></li>
+<li><code>FTRACK_API_KEY</code> - User's API key <em>(&quot;00000aaa-11bb-22cc-33dd-444444eeeee&quot;)</em></li>
+<li><code>FTRACK_SERVER</code> - Ftrack server url <em>(&quot;<a href="https://yourdomain.ftrackapp.com/%22">https://yourdomain.ftrackapp.com/&quot;</a>)</em></li>
+<li><code>FTRACK_EVENTS_PATH</code> - Paths to events <em>(&quot;//Paths/To/Events/&quot;)</em>
+We do not recommend you this way.</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="where-to-run-event-server"></a><a href="#where-to-run-event-server" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Where to run event server</h3>
+<p>We recommend you to run event server on stable server machine with ability to connect to Avalon database and Ftrack web server. Best practice we recommend is to run event server as service.</p>
+
+    <div class="admonition admonition-important">
+      <div class="admonition-heading">
+        <h5><div class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"/></svg></div> important</h5>
+      </div>
+      <div class="admonition-content">
+    <p>Event server should <strong>not</strong> run more than once! It may cause big pipeline issues.</p>
+</div></div><h3><a class="anchor" aria-hidden="true" id="which-user-to-use"></a><a href="#which-user-to-use" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Which user to use</h3>
+<ul>
+<li>must have at least <code>Administrator</code> role</li>
+<li>same user should not be used by an artist</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="run-linux-service---step-by-step"></a><a href="#run-linux-service---step-by-step" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Run Linux service - step by step</h3>
+<ol>
+<li><p>create file:
+<code>sudo vi /opt/pype/run_event_server.sh</code></p></li>
+<li><p>add content to the file:</p></li>
+</ol>
+<pre><code class="hljs css language-sh"><span class="hljs-built_in">export</span> PYPE_DEBUG=3
+<span class="hljs-built_in">pushd</span> /mnt/pipeline/prod/pype-setup
+. pype eventserver --ftrack-user &lt;pype-admin-user&gt; --ftrack-api-key &lt;api-key&gt;
+</code></pre>
+<ol start="3">
+<li><p>create service file:
+<code>sudo vi /etc/systemd/system/pype-ftrack-event-server.service</code></p></li>
+<li><p>add content to the service file</p></li>
+</ol>
+<pre><code class="hljs css language-toml"><span class="hljs-section">[Unit]</span>
+<span class="hljs-attr">Description</span>=Run Pype Ftrack Event Server Service
+<span class="hljs-attr">After</span>=network.target
+<span class="hljs-section">
+[Service]</span>
+<span class="hljs-attr">Type</span>=idle
+<span class="hljs-attr">ExecStart</span>=/opt/pype/run_event_server.sh
+<span class="hljs-attr">Restart</span>=<span class="hljs-literal">on</span>-failure
+<span class="hljs-attr">RestartSec</span>=<span class="hljs-number">10</span>s
+<span class="hljs-section">
+[Install]</span>
+<span class="hljs-attr">WantedBy</span>=multi-user.target
+</code></pre>
+<ol start="5">
+<li><p>change file permission:
+<code>sudo chmod 0755 /etc/systemd/system/pype-ftrack-event-server.service</code></p></li>
+<li><p>enable service:
+<code>sudo systemctl enable pype-ftrack-event-server</code></p></li>
+<li><p>start service:
+<code>sudo systemctl start pype-ftrack-event-server</code></p></li>
+</ol>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="ftrack-events"></a><a href="#ftrack-events" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Ftrack events</h2>
+<p>Events are helpers to automation. They react to Ftrack Web Server events like change entity attribute, create of entity, etc. .</p>
+<h3><a class="anchor" aria-hidden="true" id="delete-avalon-id-from-new-entity-_delavalonidfromnew_"></a><a href="#delete-avalon-id-from-new-entity-_delavalonidfromnew_" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Delete Avalon ID from new entity <em>(DelAvalonIdFromNew)</em></h3>
+<p>Is used to remove value from <code>Avalon/Mongo Id</code> Custom Attribute when entity is created.</p>
+<p><code>Avalon/Mongo Id</code> Custom Attribute stores id of synchronized entities in pipeline database. When user <em>Copy -&gt; Paste</em> selection of entities to create similar hierarchy entities, values from Custom Attributes are copied too. That causes issues during synchronization because there are multiple entities with same value of <code>Avalon/Mongo Id</code>. To avoid this error we preventively remove these values when entity is created.</p>
+<h3><a class="anchor" aria-hidden="true" id="next-task-update-_nexttaskupdate_"></a><a href="#next-task-update-_nexttaskupdate_" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Next Task update <em>(NextTaskUpdate)</em></h3>
+<p>Change status of next task from <code>Not started</code> to <code>Ready</code> when previous task is approved.</p>
+<p>Multiple detailed rules for next task update can be configured in the presets.</p>
+<h3><a class="anchor" aria-hidden="true" id="synchronization-to-avalon-database-_sync_to_avalon_"></a><a href="#synchronization-to-avalon-database-_sync_to_avalon_" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Synchronization to Avalon database <em>(Sync_to_Avalon)</em></h3>
+<p>Automatic <a href="manager_ftrack#synchronization-to-avalon-database">synchronization to pipeline database</a>.</p>
+<p>This event updates entities on their changes Ftrack. When new entity is created or existing entity is modified. Interface with listing information is shown to users when <a href="manager_ftrack#synchronization-rules">synchronization rules</a> are not met. This event may also undo changes when they might break pipeline. Namely <em>change name of synchronized entity</em>, <em>move synchronized entity in hierarchy</em>.</p>
+
+    <div class="admonition admonition-important">
+      <div class="admonition-heading">
+        <h5><div class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"/></svg></div> important</h5>
+      </div>
+      <div class="admonition-content">
+    <p>Deleting an entity by Ftrack's default is not processed for security reasons <em>(to delete entity use <a href="manager_ftrack_actions#delete-asset-subset">Delete Asset/Subset action</a>)</em>.</p>
+</div></div><h3><a class="anchor" aria-hidden="true" id="synchronize-hierarchical-attributes-_synchierarchicalattrs_"></a><a href="#synchronize-hierarchical-attributes-_synchierarchicalattrs_" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Synchronize hierarchical attributes <em>(SyncHierarchicalAttrs)</em></h3>
+<p>Auto-synchronization of hierarchical attributes from Ftrack entities.</p>
+<p>Related to <a href="#synchronization-to-avalon-database">Synchronize to Avalon database</a> event <em>(without it, it makes no sense to use this event)</em>. Hierarchical attributes must be synchronized with special way so we needed to split synchronization into 2 parts. There are <a href="manager_ftrack#synchronization-rules">synchronization rules</a> for hierarchical attributes that must be met otherwise interface with messages about not meeting conditions is shown to user.</p>
+<h3><a class="anchor" aria-hidden="true" id="thumbnails-update-_thumbnailevents_"></a><a href="#thumbnails-update-_thumbnailevents_" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Thumbnails update <em>(ThumbnailEvents)</em></h3>
+<p>Updates thumbnail of Task and it's parent when new Asset Version with thumbnail is created.</p>
+<p>This is normally done by Ftrack Web server when Asset Version is created with Drag&amp;Drop but not when created with Ftrack API.</p>
+<h3><a class="anchor" aria-hidden="true" id="version-to-task-status-_versiontotaskstatus_"></a><a href="#version-to-task-status-_versiontotaskstatus_" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Version to Task status <em>(VersionToTaskStatus)</em></h3>
+<p>Updates Task status based on status changes on it's <code>AssetVersion</code>.</p>
+<p>The issue this solves is when Asset version's status is changed but the artist assigned to Task is looking at the task status, thus not noticing the review.</p>
+<p>This event makes sure statuses Asset Version get synced to it's task. After changing a status on version, this event first tries to set identical status to version's parent (usually task). At this moment there are a few more status mappings hardcoded into the system. If Asset version's status was changed to:</p>
+<ul>
+<li><code>Reviewed</code> then Task's status will be changed to <code>Change requested</code></li>
+<li><code>Approved</code> then Task's status will be changed to <code>Complete</code></li>
+</ul>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="credentials"></a><a href="#credentials" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Credentials</h2>
+<p>If you want to be able use Ftrack actions with Pype tray or <a href="#event-server">event server</a> you need to enter credentials. The credentials required for Ftrack are <code>Username</code> and <code>API key</code>.</p>
+<h3><a class="anchor" aria-hidden="true" id="credentials-in-tray"></a><a href="#credentials-in-tray" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Credentials in tray</h3>
+<p>How to handle with credentials in tray is described <a href="#artist_ftrack#first-use-best-case-scenario">here</a>.</p>
+<h3><a class="anchor" aria-hidden="true" id="credentials-in-event-server"></a><a href="#credentials-in-event-server" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Credentials in event server</h3>
+<p>How to enter credentials to event server is described <a href="#how-to-run-event-server">here</a>.</p>
+<h3><a class="anchor" aria-hidden="true" id="where-to-find-api-key"></a><a href="#where-to-find-api-key" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Where to find API key</h3>
+<p>Please check the <a href="http://ftrack.rtd.ftrack.com/en/backlog-scaling-ftrack-documentation-story/developing/api_keys.html">official documentation</a>.</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/admin_presets_nukestudio"><span class="arrow-prev">← </span><span>Nukestudio</span></a><a class="docs-next button" href="/docs/changelog"><span>Release Notes</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#prepare-ftrack-for-pype">Prepare Ftrack for Pype</a></li><li><a href="#event-server">Event Server</a><ul class="toc-headings"><li><a href="#how-to-run-event-server">How to run event server</a></li><li><a href="#where-to-run-event-server">Where to run event server</a></li><li><a href="#which-user-to-use">Which user to use</a></li><li><a href="#run-linux-service---step-by-step">Run Linux service - step by step</a></li></ul></li><li><a href="#ftrack-events">Ftrack events</a><ul class="toc-headings"><li><a href="#delete-avalon-id-from-new-entity-_delavalonidfromnew_">Delete Avalon ID from new entity <em>(DelAvalonIdFromNew)</em></a></li><li><a href="#next-task-update-_nexttaskupdate_">Next Task update <em>(NextTaskUpdate)</em></a></li><li><a href="#synchronization-to-avalon-database-_sync_to_avalon_">Synchronization to Avalon database <em>(Sync_to_Avalon)</em></a></li><li><a href="#synchronize-hierarchical-attributes-_synchierarchicalattrs_">Synchronize hierarchical attributes <em>(SyncHierarchicalAttrs)</em></a></li><li><a href="#thumbnails-update-_thumbnailevents_">Thumbnails update <em>(ThumbnailEvents)</em></a></li><li><a href="#version-to-task-status-_versiontotaskstatus_">Version to Task status <em>(VersionToTaskStatus)</em></a></li></ul></li><li><a href="#credentials">Credentials</a><ul class="toc-headings"><li><a href="#credentials-in-tray">Credentials in tray</a></li><li><a href="#credentials-in-event-server">Credentials in event server</a></li><li><a href="#where-to-find-api-key">Where to find API key</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon/P.png" alt="PYPE" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/artist_getting_started">Artist</a><a href="/docs/en/manager_ftrack">Manager</a><a href="/docs/en/admin_config">Admin</a></div><div><h5>Community</h5><a href="https://gitter.im/getavalon/Lobby">Avalon Chat</a><a href="https://gitter.im/pyblish/pyblish">Pyblish Chat</a><a href="https://discord.gg/cfkbAHM">Pype Chat</a></div><div><h5>More</h5><a href="https://github.com/pypeclub">Github/Pype.club</a><a href="https://github.com/getavalon">Github/Avalon</a><a href="https://github.com/pyblish">Github/Pyblish</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2019 Orbi Tools</section></footer></div></body></html>

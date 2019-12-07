@@ -1,0 +1,358 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Ftrack Actions · PYPE</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Actions are small useful tools that help artists, managers and administrators."/><meta name="docsearch:version" content="next"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Ftrack Actions · PYPE"/><meta property="og:type" content="website"/><meta property="og:url" content="https://pype.club/"/><meta property="og:description" content="Actions are small useful tools that help artists, managers and administrators."/><meta property="og:image" content="https://pype.club//img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://pype.club//img/docusaurus.png"/><link rel="shortcut icon" href="/img/favicon/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css"/><link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto"/><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"/><link rel="stylesheet" href="https://use.typekit.net/zcf6xee.css"/><script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/favicon/P.png" alt="PYPE"/><h2 class="headerTitleWithLogo">PYPE</h2></a><a href="/versions"><h3>next</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/features" target="_self">Features</a></li><li class=""><a href="/docs/next/artist_getting_started" target="_self">Artist</a></li><li class="siteNavGroupActive"><a href="/docs/next/manager_naming" target="_self">Manager</a></li><li class=""><a href="/docs/next/admin_config" target="_self">Admin</a></li><li class=""><a href="/docs/next/api" target="_self">API</a></li><li class=""><a target="_self"></a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Setup</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Setup</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/next/manager_naming">Naming Conventions</a></li><li class="navListItem"><a class="navItem" href="/docs/next/manager_ftrack">Ftrack</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/next/manager_ftrack_actions">Ftrack actions</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Ftrack Actions</h1></header><article><div><span><p>Actions are small useful tools that help artists, managers and administrators.
+To avoid overfilled action menu some actions are filtered by entity types and some of them by user roles permissions.</p>
+<p>In most cases actions filtered by entity type:</p>
+<ul>
+<li>Project</li>
+<li>Typed Context
+<ul>
+<li>Folder</li>
+<li>Episode</li>
+<li>Sequence</li>
+<li>Shot</li>
+<li>Library</li>
+<li>Asset Build</li>
+<li>Asset Variant</li>
+<li>Epic</li>
+<li>Milestone</li>
+</ul></li>
+<li>Task</li>
+<li>Asset Version</li>
+<li>Component</li>
+<li>Review Session</li>
+</ul>
+<p><em>Typed Context</em> is global Ftrack entity for hierarchical types representing all of them. Hierarchical types can be used for filtering too, but because they are dynamic <em>(you can add, modify and remove them)</em>, <em>Typed Context</em> is used to be more general.</p>
+<p>So if you do not see action you need to use check if action is available for selected <em>entity type</em> or ask <em>administrator</em> to check if you have permissions to use it.</p>
+
+    <div class="admonition admonition-important">
+      <div class="admonition-heading">
+        <h5><div class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"/></svg></div> important</h5>
+      </div>
+      <div class="admonition-content">
+    <p>Filtering can be more complicated for example a lot of actions can be shown only when one particular entity is selected.</p>
+</div></div><hr>
+<h2><a class="anchor" aria-hidden="true" id="applications"></a><a href="#applications" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Applications</h2>
+<h3><a class="anchor" aria-hidden="true" id="dcc-applications-nuke-maya-houdini-fusion-etc"></a><a href="#dcc-applications-nuke-maya-houdini-fusion-etc" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>DCC applications (Nuke, Maya, Houdini, Fusion etc.)</h3>
+<ul>
+<li>Entity types: Task</li>
+<li>User roles: All</li>
+</ul>
+<p>These actions <em>launch application with Pype initiated</em> and <em>start timer</em> for the selected Task. We recommend you to launch application this way.</p>
+
+    <div class="admonition admonition-important">
+      <div class="admonition-heading">
+        <h5><div class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"/></svg></div> important</h5>
+      </div>
+      <div class="admonition-content">
+    <p>Project Manager or Supervisor must set project's applications during project preparation otherwise you won't see them.</p>
+</div></div><h3><a class="anchor" aria-hidden="true" id="rv"></a><a href="#rv" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>RV</h3>
+<ul>
+<li>Entity types: All</li>
+<li>User roles: All</li>
+</ul>
+<p>You can launch RV player with playable components from selected entities. You can choose which components will be played.</p>
+
+    <div class="admonition admonition-important">
+      <div class="admonition-heading">
+        <h5><div class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"/></svg></div> important</h5>
+      </div>
+      <div class="admonition-content">
+    <p>You must have RV player installed and licensed and have correct RV environments set to be able use this action.</p>
+</div></div><h3><a class="anchor" aria-hidden="true" id="djv-view"></a><a href="#djv-view" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>DJV View</h3>
+<ul>
+<li>Entity types: Task, Asset Version</li>
+<li>User roles: All</li>
+</ul>
+<p>You can launch DJV View with one playable component from selected entities. You can choose which component will be played.</p>
+
+    <div class="admonition admonition-important">
+      <div class="admonition-heading">
+        <h5><div class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"/></svg></div> important</h5>
+      </div>
+      <div class="admonition-content">
+    <p>You must have DJV View installed and configured in studio-config to be able use this action.</p>
+</div></div><hr>
+<div class="ImagePanel" data-image-align='right'>
+<div class="ImagePanel.content">
+<h2><a class="anchor" aria-hidden="true" id="pype-admin"></a><a href="#pype-admin" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Pype Admin</h2>
+</div>
+<div class="ImagePanel.image">
+<p><img src="/docs/assets/ftrack/ftrack-pype_admin-icon.png" alt="pype_admin-icon"></p>
+</div>
+</div>
+<p>A group of actions that are used for Pype Administration.</p>
+<h3><a class="anchor" aria-hidden="true" id="createupdate-avalon-attributes"></a><a href="#createupdate-avalon-attributes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Create/Update Avalon Attributes</h3>
+<ul>
+<li>Entity types: All</li>
+<li>User roles: Pypeclub, Administrator</li>
+</ul>
+<p>Action creates and updates Ftrack's Custom Attributes that are needed to manage and run Pype within Ftrack. Most of custom attribute configurations are stored in Pype presets (<em>~/presets/ftrack/ftrack_custom_attributes.json</em>). It is not recommended to modify values stored in the file unless your studio used completely custom configuration.</p>
+<h3><a class="anchor" aria-hidden="true" id="sync-to-avalon"></a><a href="#sync-to-avalon" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Sync to Avalon</h3>
+<ul>
+<li>Entity types: Project, Typed Context</li>
+<li>User roles: Pypeclub, Administrator, Project manager</li>
+</ul>
+<p>Synchronization to Avalon is key process to keep Pype data updated. Action updates selected entities (Project, Shot, Sequence, etc.) and all nested entities to Avalon database. If action is successfully finished <a href="#sync-hier-attrs">Sync Hier Attrs</a> action is triggered.</p>
+<p>There are 2 versions of <strong>Sync to Avalon</strong> first labeled as <strong>server</strong> second as <strong>local</strong>.</p>
+<ul>
+<li><strong>server</strong> version will be processed with <a href="admin_ftrack#event-server">event server</a></li>
+<li><strong>local</strong> version will be processed with user's Pype tray application</li>
+</ul>
+<p>It is recommended to use <strong>local</strong> version if possible to avoid unnecessary deceleration of event server.</p>
+<h3><a class="anchor" aria-hidden="true" id="sync-hier-attrs"></a><a href="#sync-hier-attrs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Sync Hier Attrs</h3>
+<ul>
+<li>Entity types: Project, Typed Context</li>
+<li>User roles: Pypeclub, Administrator, Project manager</li>
+</ul>
+<p>Synchronization to Avalon of Ftrack's hierarchical Custom attributes is a bit complicated so we decided to split synchronization process into 2 actions. This action updates hierarchical Custom attributes of selected  entities (Project, Shot, Sequence, etc.) and all their nested entities to pipeline database. This action is also triggered automatically after successfully finished <a href="#sync-to-avalon">Sync To Avalon</a> action.</p>
+<p>There are 2 versions of <strong>Sync Hier Attrs</strong> first labeled as <strong>server</strong> second as <strong>local</strong>.</p>
+<ul>
+<li><strong>server</strong> version will be processed with <a href="admin_ftrack#event-server">event server</a></li>
+<li><strong>local</strong> version will be processed with user's Pype tray application</li>
+</ul>
+<p>It is recommended to use <strong>local</strong> version if possible to avoid unnecessary deceleration of event server.</p>
+<h3><a class="anchor" aria-hidden="true" id="job-killer"></a><a href="#job-killer" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Job Killer</h3>
+<ul>
+<li>Entity types: All</li>
+<li>User roles: Pypeclub, Administrator</li>
+</ul>
+<p>Custom Jobs in Ftrack help to track process and status of triggered actions but sometimes unexpected failure of action may happen <em>(Please let us know when happens)</em>. The failure will cause that job's status will remain set to <strong>Running</strong> which may cause issues in future.</p>
+<p>This action gives ability to <em>stop running jobs</em>. When action is triggered, an interface with all running jobs with checkbox next to each is shown. Status of checked jobs will be set to <strong>Failure</strong> on submit.</p>
+<h3><a class="anchor" aria-hidden="true" id="delete-assets-by-name"></a><a href="#delete-assets-by-name" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Delete Assets by Name</h3>
+<ul>
+<li>Entity types: Typed Context, Task</li>
+<li>User roles: Pypeclub, Administrator</li>
+</ul>
+<p>With this action it's possible to delete up to 15 entities at once from active project in pipeline database. Entered names must match exactly the names stored in database. These entities also must not have children entities <em>(Sequence must not have Shots but Task is not entity)</em>.</p>
+<hr>
+<div class="ImagePanel" data-image-align='right'>
+<div class="ImagePanel.content">
+<h2><a class="anchor" aria-hidden="true" id="thumbnail"></a><a href="#thumbnail" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Thumbnail</h2>
+</div>
+<div class="ImagePanel.image">
+<p><img src="/docs/assets/ftrack/ftrack-thumbnail-icon.png" alt="thumbnail-icon"></p>
+</div>
+</div>
+<p>A group of actions for thumbnail management.</p>
+<h3><a class="anchor" aria-hidden="true" id="thumbnail-to-parent"></a><a href="#thumbnail-to-parent" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Thumbnail to Parent</h3>
+<p>Propagates the thumbnail of the selected entity to its parent.</p>
+<h3><a class="anchor" aria-hidden="true" id="thumbnail-to-children"></a><a href="#thumbnail-to-children" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Thumbnail to Children</h3>
+<p>Propagates the thumbnail of the selected entity to its first direct children entities.</p>
+<hr>
+<div class="ImagePanel" data-image-align='right'>
+<div class="ImagePanel.content">
+<h2><a class="anchor" aria-hidden="true" id="pype-doctor"></a><a href="#pype-doctor" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Pype Doctor</h2>
+</div>
+<div class="ImagePanel.image">
+<p><img src="/docs/assets/ftrack/ftrack-pype_doctor-icon.png" alt="pype_doctor-icon"></p>
+</div>
+</div>
+<p>A group of actions that are used after significant workflow or Pype codebase changes. They are mostly single-use.</p>
+<h3><a class="anchor" aria-hidden="true" id="custom-attr-doc-deprecated"></a><a href="#custom-attr-doc-deprecated" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Custom attr doc (deprecated)</h3>
+<p>This action is project specific and fixes some custom attributes after previous significant and backwards incompatible changes introduced during early Pype development.</p>
+<p>Pype requires few changes in Ftrack's default custom attributes, specifically <strong>Frame start</strong>, <strong>Frame end</strong> and <strong>Handles</strong> <em>(fstart, fend, handles)</em>. This action modifies them based on these requirements. Splits <strong>Handles</strong> to <strong>Frame handles start</strong> and <strong>Frame handles end</strong> <em>(handleStart, handleEnd)</em> and sets <strong>Frame start</strong> and <strong>Frame end</strong> as hierarchical. Action is time-consuming hence it is possible to make changes only on specific projects. It also keeps a backup of values on older projects by adding <strong>_old</strong> suffix to the names of default custom attributes <em>(e.g. fstart_old)</em>.</p>
+
+    <div class="admonition admonition-warning">
+      <div class="admonition-heading">
+        <h5><div class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"/></svg></div> warning</h5>
+      </div>
+      <div class="admonition-content">
+    <p>Do not remove Custom attributes with supplement <strong>_old</strong> if you didn't convert all projects. You'll lose that data if you do.</p>
+</div></div><h3><a class="anchor" aria-hidden="true" id="attrs-remap-deprecated"></a><a href="#attrs-remap-deprecated" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Attrs remap (deprecated)</h3>
+<p>This action helps with changes of attributes that happened during early Pype development.</p>
+<p>Fixes are made in pipeline database. Action is required when you update Pype pipeline to version 2.1.0 or higher. You can totally ignore this action if you never used an older version of Pype pipeline than version 2.1.0 .</p>
+<hr>
+<div class="ImagePanel" data-image-align='right'>
+<div class="ImagePanel.content">
+<h2><a class="anchor" aria-hidden="true" id="prepare-project"></a><a href="#prepare-project" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Prepare Project</h2>
+</div>
+<div class="ImagePanel.image">
+<p><img src="/docs/assets/ftrack/ftrack-prepare_project-icon.png" alt="prepare_project-icon"></p>
+</div>
+</div>
+<ul>
+<li>Entity types: Project</li>
+<li>User roles: Pypeclub, Administrator, Project manager</li>
+</ul>
+<p>Allows project managers and coordinator to <em>set basic project attributes</em> needed for Pype to operate, <em>Create project folders</em> if you want and especially <em>prepare Project specific <a href="admin_config#anatomy">anatomy</a> and <a href="admin_config#presets">presets</a></em> files for you.</p>
+
+    <div class="admonition admonition-tip">
+      <div class="admonition-heading">
+        <h5><div class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"/></svg></div> tip</h5>
+      </div>
+      <div class="admonition-content">
+    <p>It is possible to use this action during the lifetime of a project but we recommend using it only once at the start of the project.</p>
+</div></div><p><img src="/docs/assets/ftrack/ftrack-prepare_project_1-small.png" alt="prepare_project_1"></p>
+<hr>
+<div class="ImagePanel" data-image-align='right'>
+<div class="ImagePanel.content">
+<h2><a class="anchor" aria-hidden="true" id="multiple-notes"></a><a href="#multiple-notes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Multiple Notes</h2>
+</div>
+<div class="ImagePanel.image">
+<p><img src="/docs/assets/ftrack/ftrack-multiple_notes-icon.png" alt="multiple_notes-icon"></p>
+</div>
+</div>
+<ul>
+<li>Entity types: Asset Version</li>
+<li>User roles: All</li>
+</ul>
+<p>You can add same note to multiple Asset Versions at once with this action.
+<img src="/docs/assets/ftrack/ftrack-multiple_notes_1-small.png" alt="multiple_notes_1"></p>
+<hr>
+<div class="ImagePanel" data-image-align='right'>
+<div class="ImagePanel.content">
+<h2><a class="anchor" aria-hidden="true" id="delete-assetsubset"></a><a href="#delete-assetsubset" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Delete Asset/Subset</h2>
+</div>
+<div class="ImagePanel.image">
+<p><img src="/docs/assets/ftrack/ftrack-delete_asset-icon.png" alt="delete_asset-icon"></p>
+</div>
+</div>
+<ul>
+<li>Entity types: Typed Context, Task</li>
+<li>User roles: Pypeclub, Administrator</li>
+</ul>
+<p>Action deletes Entities and Asset Versions from Ftrack and Avalon database.</p>
+<p>You should use this action if you need to delete Entities or Asset Versions otherwise deletion will not take effect in Avalon database. Currently the action allows to only delete one entity at the time. Entity also must not have any children.</p>
+<hr>
+<div class="ImagePanel" data-image-align='right'>
+<div class="ImagePanel.content">
+<h2><a class="anchor" aria-hidden="true" id="create-project-structure"></a><a href="#create-project-structure" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Create Project Structure</h2>
+</div>
+<div class="ImagePanel.image">
+<p><img src="/docs/assets/ftrack/ftrack-create_project_folders-icon.png" alt="create_project_folders-icon"></p>
+</div>
+</div>
+<ul>
+<li>Entity types: Project</li>
+<li>User roles: Pypeclub, Administrator</li>
+</ul>
+<p><em>Create Project Structure</em> helps to create basic folder structure and may create the main ftrack entities for the project.</p>
+<p>Structure is loaded from <a href="admin_config#presets">presets</a> <em>(~/presets/tools/project_folder_structure.json)</em>. You should examine that preset to see how it works. Preset may contain dictionaries of nested dictionaries where each key represents a folder name. Key and all it's parents will be also created in Ftrack if the key ends with <code>[ftrack]</code>. Default Ftrack entity type is <em>Folder</em> but entity type can be specified using <code>[ftrack.{entity type}]</code>. To create <em>Sequence</em> with name <em>Seq_001</em> key should look like <code>Seq_001[ftrack.Sequence]</code>.</p>
+
+    <div class="admonition admonition-note">
+      <div class="admonition-heading">
+        <h5><div class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"/></svg></div> note</h5>
+      </div>
+      <div class="admonition-content">
+    <p>Please keep in mind this action is meant to make your project setup faster at the very beginning, but it does not create folders for each shot and asset. For creating asset folder refer to <code>Create Folders</code> Action</p>
+</div></div><hr>
+<div class="ImagePanel" data-image-align='right'>
+<div class="ImagePanel.content">
+<h2><a class="anchor" aria-hidden="true" id="create-folders"></a><a href="#create-folders" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Create Folders</h2>
+</div>
+<div class="ImagePanel.image">
+<p><img src="/docs/assets/ftrack/ftrack-create_folders-icon.png" alt="create_folders-icon"></p>
+</div>
+</div>
+<ul>
+<li>Entity types: Typed Context, Task</li>
+<li>User roles: All</li>
+</ul>
+<p>Creates folders for a selected asset in based on project <a href="admin_config#anatomy">Anatomy</a> templates.</p>
+<p>It is usually not necessary to launch this action because folders are created automatically every time you start working on a task. However it can be handy if you need to create folders before any work begins or you want to use applications that don't have pipeline implementation.</p>
+
+    <div class="admonition admonition-tip">
+      <div class="admonition-heading">
+        <h5><div class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"/></svg></div> tip</h5>
+      </div>
+      <div class="admonition-content">
+    <p>If your Anatomy contains <code>{app}</code> you can set which app folders will be created for specific task types with <a href="admin_config#presets">presets</a> <em>(~/presets/tools/sw_folders.json)</em>.</p>
+</div></div><hr>
+<div class="ImagePanel" data-image-align='right'>
+<div class="ImagePanel.content">
+<h2><a class="anchor" aria-hidden="true" id="open-file"></a><a href="#open-file" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Open File</h2>
+</div>
+<div class="ImagePanel.image">
+<p><img src="/docs/assets/ftrack/ftrack-component_open-icon.png" alt="component_open-icon"></p>
+</div>
+</div>
+<ul>
+<li>Entity types: File Component</li>
+<li>User roles: All</li>
+</ul>
+<p>This action will open folder of selected <em>Component</em> on <em>Asset Version</em>.</p>
+
+    <div class="admonition admonition-warning">
+      <div class="admonition-heading">
+        <h5><div class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"/></svg></div> warning</h5>
+      </div>
+      <div class="admonition-content">
+    <p>Does not work for components uploaded to Ftrack Web server.</p>
+</div></div><p><img src="/docs/assets/ftrack/ftrack-component_open_1-small.png" alt="component_open_1"></p>
+
+    <div class="admonition admonition-warning">
+      <div class="admonition-heading">
+        <h5><div class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"/></svg></div> warning</h5>
+      </div>
+      <div class="admonition-content">
+    <p>Component's path must be accessible by current OS.</p>
+</div></div><hr>
+<h2><a class="anchor" aria-hidden="true" id="sort-review"></a><a href="#sort-review" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Sort Review</h2>
+<ul>
+<li>Entity types: Review Session</li>
+<li>User roles: All</li>
+</ul>
+<p>Helps you sort <em>Asset Versions</em> in <em>Client Review Session</em>.</p>
+<p>Asset Versions are sorted by <em>Version number</em>, <em>Task name</em> and <em>Version name</em>.</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/next/manager_ftrack"><span class="arrow-prev">← </span><span>Ftrack</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#applications">Applications</a><ul class="toc-headings"><li><a href="#dcc-applications-nuke-maya-houdini-fusion-etc">DCC applications (Nuke, Maya, Houdini, Fusion etc.)</a></li><li><a href="#rv">RV</a></li><li><a href="#djv-view">DJV View</a></li></ul></li><li><a href="#pype-admin">Pype Admin</a><ul class="toc-headings"><li><a href="#createupdate-avalon-attributes">Create/Update Avalon Attributes</a></li><li><a href="#sync-to-avalon">Sync to Avalon</a></li><li><a href="#sync-hier-attrs">Sync Hier Attrs</a></li><li><a href="#job-killer">Job Killer</a></li><li><a href="#delete-assets-by-name">Delete Assets by Name</a></li></ul></li><li><a href="#thumbnail">Thumbnail</a><ul class="toc-headings"><li><a href="#thumbnail-to-parent">Thumbnail to Parent</a></li><li><a href="#thumbnail-to-children">Thumbnail to Children</a></li></ul></li><li><a href="#pype-doctor">Pype Doctor</a><ul class="toc-headings"><li><a href="#custom-attr-doc-deprecated">Custom attr doc (deprecated)</a></li><li><a href="#attrs-remap-deprecated">Attrs remap (deprecated)</a></li></ul></li><li><a href="#prepare-project">Prepare Project</a></li><li><a href="#multiple-notes">Multiple Notes</a></li><li><a href="#delete-assetsubset">Delete Asset/Subset</a></li><li><a href="#create-project-structure">Create Project Structure</a></li><li><a href="#create-folders">Create Folders</a></li><li><a href="#open-file">Open File</a></li><li><a href="#sort-review">Sort Review</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon/P.png" alt="PYPE" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/artist_getting_started">Artist</a><a href="/docs/en/manager_ftrack">Manager</a><a href="/docs/en/admin_config">Admin</a></div><div><h5>Community</h5><a href="https://gitter.im/getavalon/Lobby">Avalon Chat</a><a href="https://gitter.im/pyblish/pyblish">Pyblish Chat</a><a href="https://discord.gg/cfkbAHM">Pype Chat</a></div><div><h5>More</h5><a href="https://github.com/pypeclub">Github/Pype.club</a><a href="https://github.com/getavalon">Github/Avalon</a><a href="https://github.com/pyblish">Github/Pyblish</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2019 Orbi Tools</section></footer></div></body></html>

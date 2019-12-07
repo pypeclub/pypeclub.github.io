@@ -1,0 +1,263 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Pype Configuration · PYPE</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="All of the studio specific configurations are stored as simple JSON files in the **pype-config** repository."/><meta name="docsearch:version" content="next"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Pype Configuration · PYPE"/><meta property="og:type" content="website"/><meta property="og:url" content="https://pype.club/"/><meta property="og:description" content="All of the studio specific configurations are stored as simple JSON files in the **pype-config** repository."/><meta property="og:image" content="https://pype.club//img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://pype.club//img/docusaurus.png"/><link rel="shortcut icon" href="/img/favicon/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css"/><link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto"/><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"/><link rel="stylesheet" href="https://use.typekit.net/zcf6xee.css"/><script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/favicon/P.png" alt="PYPE"/><h2 class="headerTitleWithLogo">PYPE</h2></a><a href="/versions"><h3>next</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/features" target="_self">Features</a></li><li class=""><a href="/docs/next/artist_getting_started" target="_self">Artist</a></li><li class=""><a href="/docs/next/manager_naming" target="_self">Manager</a></li><li class="siteNavGroupActive siteNavItemActive"><a href="/docs/next/admin_config" target="_self">Admin</a></li><li class=""><a href="/docs/next/api" target="_self">API</a></li><li class=""><a target="_self"></a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Setup</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Setup</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/next/admin_getting_started">Getting Started</a></li><li class="navListItem"><a class="navItem" href="/docs/next/admin_install">Pype Setup</a></li><li class="navListItem"><a class="navItem" href="/docs/next/admin_pype_commands">Pype commands overview</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/next/admin_config">Configuration</a></li><li class="navListItem"><a class="navItem" href="/docs/next/admin_anatomy">Folder Structure</a></li><li class="navListItem"><a class="navItem" href="/docs/next/admin_setup_troubleshooting">Setup Troubleshooting</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Presets</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/next/admin_presets_nukestudio">Nukestudio</a></li><li class="navListItem"><a class="navItem" href="/docs/next/admin_ftrack">Ftrack</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Release Notes</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/next/changelog">Release Notes</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Pype Configuration</h1></header><article><div><span><p>All of the studio specific configurations are stored as simple JSON files in the <strong>pype-config</strong> repository.</p>
+<p>Config is split into multiple sections described below.</p>
+<h2><a class="anchor" aria-hidden="true" id="anatomy"></a><a href="#anatomy" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Anatomy</h2>
+<p>Defines how folders and files are created for all the project data.</p>
+<p>We have a few required anatomy templates for Pype to work properly, however we can keep adding more when needed.</p>
+<p>required templates:</p>
+<pre><code class="hljs css language-yaml"><span class="hljs-attr">work:</span>
+  <span class="hljs-attr">folder:</span> <span class="hljs-string">"{root}/{project[name]}/{hierarchy}/{asset}/work/{task}"</span>
+  <span class="hljs-attr">file:</span> <span class="hljs-string">"{project[code]}_{asset}_{task}_v{version:0&gt;3}&lt;_{comment}&gt;.{ext}"</span>
+  <span class="hljs-attr">path:</span> <span class="hljs-string">"{root}/{project[name]}/{hierarchy}/{asset}/work/{task}/{project[code]}_{asset}_{task}_v{version:0&gt;3}&lt;_{comment}&gt;.{ext}"</span>
+
+<span class="hljs-attr">publish:</span>
+  <span class="hljs-attr">path:</span> <span class="hljs-string">"{root}/{project[name]}/{hierarchy}/{asset}/publish/{family}/{subset}/v{version:0&gt;3}/{project[code]}_{asset}_{subset}_v{version:0&gt;3}&lt;.{frame}&gt;.{representation}"</span>
+</code></pre>
+<p>Folder holds path template for the directory where the files are stored, File only holds the filename and path combines the two together for quicker access.</p>
+<h2><a class="anchor" aria-hidden="true" id="environments"></a><a href="#environments" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Environments</h2>
+<p>Here is where all the environment variables are set up. Each software has it's own environment file where we set all variables needed for it to function correctly. This is also a place where any extra in-house variables should be added. All of these individual configs and then loaded additively as needed based on current context.</p>
+<p>For example when launching Pype Tray, Global and Avalon envs are loaded first. If the studio uses also <em>Deadline</em> and <em>Ftrack</em>, both of those environments get added at the same time. This set the base environment for the rest of the pipeline that will be inherited by all the applications launched from this point on.</p>
+<p>When user launches an application for a task, it's general and versioned env files get added to the base before the software launches. When launching <em>Maya 2019</em>, both <code>maya.json</code> and maya_2019.json will be added.</p>
+<p>If the project or task also has extra tools configured, say <em>Arnold Mtoa 3.1.1</em>, a config JSON with the same name will be added too.</p>
+<p>This way the environment is completely dynamic with possibility of overrides on a granular level, from project all the way to task overrides.</p>
+<h2><a class="anchor" aria-hidden="true" id="launchers"></a><a href="#launchers" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Launchers</h2>
+<p>Considering that different studios use different ways of deploying software to their workstations, we need to tell Pype how to launch all the individual applications available in the studio.</p>
+<p>Each software need multiple files prepare for it to function correctly.</p>
+<pre><code class="hljs css language-text">application_name.toml
+</code></pre>
+<p>This file tell Pype how to work with the application across the board. Icons, Label in GUI, <em>Ftrack</em> settings but most importantly it defines what executable to run. These executable are store in the windows and linux subfolder in the launchers folder. If <code>application_name.toml</code> defines that executable to run is <code>application_name</code>, Pype assumes that a <code>.bat</code> and <code>.sh</code> files under that name exist in the linux and windows folders in launchers. Correct version is picked automatically based on the platform Pype is running on.</p>
+<p>These <code>.bat</code> and <code>.sh</code> scripts have only one job then. They have to point to the exact executable path on the system, or to a command that will launch the app we want. Version granularity is up to the studio to decide. We can show artists Nuke 11.3, while specifying the particular version 11.3v4 only in the .bat file, so the artist doesn't need to deal with it, or we can present him with 11.3v4 directly. the choice is mostly between artist control vs more configuration files on the system.</p>
+<h2><a class="anchor" aria-hidden="true" id="presets"></a><a href="#presets" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Presets</h2>
+<p>This is where most of the functions configuration of the pipeline happens. Colorspace, data types, burnin setting, geometry naming conventions, ftrack attributes, playblast settings, types of exports and lot's of other settings.</p>
+<p>Presets are categorized in folders based on what they control or what host (DCC application) they are for. We're slowly working on documenting them all, but new ones are being created regularly as well. Hopefully the categories and names and sufficiently self-explanatory.</p>
+<h3><a class="anchor" aria-hidden="true" id="colorspace"></a><a href="#colorspace" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>colorspace</h3>
+<p>defines all available color spaces in the studio. These configs not only tell the system what OCIO to use, but also how exactly it needs to be applied in the give application. From loading the data, trough previewing it all the way to rendered</p>
+<h3><a class="anchor" aria-hidden="true" id="dataflow"></a><a href="#dataflow" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Dataflow</h3>
+<p>Defines allowed file types and data formats across the pipeline including their particular coded and compression settings.</p>
+<h3><a class="anchor" aria-hidden="true" id="plugins"></a><a href="#plugins" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Plugins</h3>
+<p>All the creator, loader and publisher configurations are stored here. We can override any properties of the default plugin values and more.</p>
+<h4><a class="anchor" aria-hidden="true" id="how-does-it-work"></a><a href="#how-does-it-work" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How does it work</h4>
+<p>Overriding plugin properties is as simple as adding what needs to be changed to
+JSON file along with plugin name.</p>
+<p>Say you have name validating plugin:</p>
+<pre><code class="hljs css language-python"><span class="hljs-keyword">import</span> pyblish.api
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ValidateModelName</span><span class="hljs-params">(pyblish.api.InstancePlugin)</span>:</span>
+
+    order = pype.api.ValidateContentsOrder
+    hosts = [<span class="hljs-string">'maya'</span>]
+    families = [<span class="hljs-string">'model'</span>]
+    label = <span class="hljs-string">'Validate Mesh Name'</span>
+
+    <span class="hljs-comment"># check for: 'foo_001_bar_GEO`</span>
+    regex = <span class="hljs-string">r'.*_\d*_.*_GEO'</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">process</span><span class="hljs-params">(self, instance)</span>:</span>
+      <span class="hljs-comment"># pseudocode to get nodes</span>
+      models = get_models(instance.data.get(<span class="hljs-string">"setMembers"</span>, <span class="hljs-literal">None</span>))
+      r = re.compile(self.regex)
+      <span class="hljs-keyword">for</span> model <span class="hljs-keyword">in</span> models:
+            m = r.match(obj)
+            <span class="hljs-keyword">if</span> m <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span>:
+              <span class="hljs-keyword">raise</span> RuntimeError(<span class="hljs-string">"invalid name on {}"</span>.format(model))
+
+</code></pre>
+<p><em>This is just non-functional example</em></p>
+<p>Instead of creating new plugin with different regex, you can put:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-string">"ValidateModelName"</span>: {
+  <span class="hljs-string">"regex"</span>: <span class="hljs-string">".*\\d*_.*_geometry"</span>
+}
+</code></pre>
+<p>and put it into <code>repos/pype-config/presets/plugins/maya/publish.json</code>. There can be more entries
+like that for how many plugins you need.</p>
+<p>That will effectively replace regex defined in plugin during runtime with the one you've just
+defined in JSON file. This way you can change any properties defined in plugin.</p>
+
+    <div class="admonition admonition-tip">
+      <div class="admonition-heading">
+        <h5><div class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"/></svg></div>  loader and creators</h5>
+      </div>
+      <div class="admonition-content">
+    <p>Similar way exist for <em>Loaders</em> and <em>Creators</em>. Use files <code>create.json</code> for Creators, <code>load.json</code>
+for Loaders and <code>publish.json</code> for <strong>Pyblish</strong> plugins like extractors, validators, etc.</p>
+<p>Preset resolution works by getting host name (for example <em>Maya</em>) and then looking inside
+<code>repos/pype-config/presets/plugins/&lt;host&gt;/publish.json</code> path. If plugin is not found, then</p>
+<p><code>repos/pype-config/presets/plugins/global/publish.json</code> is tried.</p>
+</div></div>
+    <div class="admonition admonition-tip">
+      <div class="admonition-heading">
+        <h5><div class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"/></svg></div>  Per project plugin override</h5>
+      </div>
+      <div class="admonition-content">
+    <p>You can override plugins per project. See <a href="#per-project-configuration">Per-project configuration</a></p>
+</div></div><h3><a class="anchor" aria-hidden="true" id="aws-thinkbox-deadline"></a><a href="#aws-thinkbox-deadline" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>AWS Thinkbox Deadline</h3>
+<p>To support <a href="https://www.awsthinkbox.com/deadline">AWS Thinkbox Deadline</a> you just need to enable it in
+<strong>init_env</strong> key of your <code>deploy.json</code> file:</p>
+<pre><code class="hljs css language-javascript">{
+  <span class="hljs-string">"PYPE_CONFIG"</span>: <span class="hljs-string">"{PYPE_ROOT}/repos/pype-config"</span>,
+  <span class="hljs-string">"init_env"</span>: [<span class="hljs-string">"global"</span>, <span class="hljs-string">"avalon"</span>, <span class="hljs-string">"ftrack"</span>, <span class="hljs-string">"deadline"</span>],
+  ...
+}
+</code></pre>
+<p>Then edit <code>repos/pype-config/environments/deadline.json</code> and change <code>DEADLINE_REST_URL</code> to point to
+your Deadline Web API service.</p>
+<p>See <a href="https://docs.thinkboxsoftware.com/products/deadline/10.0/1_User%20Manual/manual/web-service.html">here</a> for
+more details how to setup <em>Deadline Web API service</em></p>
+<h3><a class="anchor" aria-hidden="true" id="muster"></a><a href="#muster" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Muster</h3>
+<p>There is support for <a href="https://www.vvertex.com/">Muster</a>. To enable it, add <code>muster</code> to <strong>init_env</strong> to your <code>deploy.json</code>
+file:</p>
+<pre><code class="hljs css language-javascript">{
+  <span class="hljs-string">"PYPE_CONFIG"</span>: <span class="hljs-string">"{PYPE_ROOT}/repos/pype-config"</span>,
+  <span class="hljs-string">"init_env"</span>: [<span class="hljs-string">"global"</span>, <span class="hljs-string">"avalon"</span>, <span class="hljs-string">"ftrack"</span>, <span class="hljs-string">"muster"</span>],
+  ...
+}
+</code></pre>
+<p>You need to configure URL to Muster Web API - in <code>repos/pype-config/environments/muster.json</code>. There you need to set
+<code>MUSTER_REST_URL</code> to correct value.</p>
+<p>User will be asked for it's Muster login credentials during Pype startup or any time later
+if its authentication token expires.</p>
+<h4><a class="anchor" aria-hidden="true" id="template-mapping"></a><a href="#template-mapping" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Template mapping</h4>
+<p>Muster template mapping maps Muster template ID to name of renderer. Initially it is set Muster defaults.
+About templates and Muster se <a href="https://www.vvertex.com/wiki900/doku.php?id=muster:9.0">Muster Documentation</a>.
+Mapping is defined in:</p>
+<p><code>repos/pype-config/muster/templates_mapping.json</code></p>
+<p>Keys are renderer names and values are templates IDs.</p>
+<h2><a class="anchor" aria-hidden="true" id="schema"></a><a href="#schema" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Schema</h2>
+<p>Holds all database schemas for <em>mongoDB</em>, that we use. In practice these are never changed on a per studio basis, however we included them in the config for cases where a particular project might need a very individual treatment.</p>
+<h2><a class="anchor" aria-hidden="true" id="system"></a><a href="#system" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>System</h2>
+<p>In system configuration we set up all the storages in the studio. All entries are organized hierarchically and when PYPE launches they get parsed for correct platform and saved in to environment variable that can be used in any paths down the line.</p>
+<p>Most importantly they are used in anatomy templates for project folders.</p>
+<p>For example following config would create these environment variables when Pype runs on windows computer.</p>
+<pre><code class="hljs css language-sh">    PYPE_STUDIO_PROJECT_PATH = <span class="hljs-string">"//UNC_shared_path/projects"</span>
+    PYPE_STUDIO_PROJECT_MOUNT = <span class="hljs-string">"P:/projects"</span>
+    PYPE_STUDIO_CORE_PATH = <span class="hljs-string">"//192.168.1.10/share/core"</span>
+    PYPE_STUDIO_CORE_MOUNT = <span class="hljs-string">"K:/core"</span>
+</code></pre>
+<pre><code class="hljs css language-json">{
+  <span class="hljs-attr">"studio"</span>: {
+    <span class="hljs-attr">"projects"</span>: {
+      <span class="hljs-attr">"path"</span>: {
+        <span class="hljs-attr">"windows"</span>: <span class="hljs-string">"//UNC_shared_path/projects"</span>,
+        <span class="hljs-attr">"darwin"</span>: <span class="hljs-string">""</span>,
+        <span class="hljs-attr">"linux"</span>: <span class="hljs-string">"//UNC_shared_path/projects"</span>
+      },
+      <span class="hljs-attr">"mount"</span>: {
+        <span class="hljs-attr">"windows"</span>: <span class="hljs-string">"P:/projects"</span>,
+        <span class="hljs-attr">"darwin"</span>: <span class="hljs-string">""</span>,
+        <span class="hljs-attr">"linux"</span>: <span class="hljs-string">"/mnt/share/core"</span>
+      }
+    },
+    <span class="hljs-attr">"core"</span>: {
+      <span class="hljs-attr">"path"</span>: {
+        <span class="hljs-attr">"windows"</span>: <span class="hljs-string">"//192.168.1.10/share/core"</span>,
+        <span class="hljs-attr">"darwin"</span>: <span class="hljs-string">""</span>,
+        <span class="hljs-attr">"linux"</span>: <span class="hljs-string">"//192.168.1.10/share/core"</span>
+      },
+      <span class="hljs-attr">"mount"</span>: {
+        <span class="hljs-attr">"windows"</span>: <span class="hljs-string">"K:/core"</span>,
+        <span class="hljs-attr">"darwin"</span>: <span class="hljs-string">""</span>,
+        <span class="hljs-attr">"linux"</span>: <span class="hljs-string">"/mnt/share/core"</span>
+      }
+    }
+  }
+}
+</code></pre>
+<p><br></p>
+<p><strong>There are 2 storages that are required for PYPE to be functional</strong></p>
+<h3><a class="anchor" aria-hidden="true" id="projects-storages"></a><a href="#projects-storages" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Projects storages</h3>
+<p>This should point to the shared storage where projects are saved. A folder per project will be created in here.</p>
+<h3><a class="anchor" aria-hidden="true" id="core-storage"></a><a href="#core-storage" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Core storage</h3>
+<p>A shared storage where pipeline, shared scripts and tools are stored. This is where Pype should be installed and all the users must have at least &quot;read&quot; permissions here.</p>
+<h2><a class="anchor" aria-hidden="true" id="per-project-configuration"></a><a href="#per-project-configuration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Per-project configuration</h2>
+<p>You can have per-project configuration with Pype. This allows you to have for example different
+validation requirements, file naming, etc.</p>
+<p>This is very easy to set up - point <code>PYPE_PROJECT_CONFIGS</code> environment variable to place
+where you want those per-project configurations. Then just create directory with project name and
+that's almost it. Inside, you can follow hierarchy of <strong>pype-config</strong> presets. Everything put there
+will override stuff in <strong>pype-config</strong>.</p>
+<h3><a class="anchor" aria-hidden="true" id="example"></a><a href="#example" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h3>
+<p>You have project where you need to disable some validators - let's say overlapping
+UVs validator in Maya.</p>
+<p>Project name is <em>FooProject</em>.
+Your <code>PYPE_PROJECT_CONFIGS</code> points to <code>/studio/pype/projects</code>.</p>
+<p>Create projects settings directory:</p>
+<pre><code class="hljs css language-sh">mkdir <span class="hljs-variable">$PYPE_PROJECT_CONFIGS</span>/FooProject
+</code></pre>
+<p>Now you can use plugin overrides to disable validator:</p>
+<p>Put:</p>
+<pre><code class="hljs css language-javascript">{
+  <span class="hljs-string">"ValidateMeshHasOverlappingUVs"</span>: {
+    <span class="hljs-string">"enabled"</span>: <span class="hljs-literal">false</span>
+  }
+}
+</code></pre>
+<p>into:</p>
+<pre><code class="hljs css language-sh"><span class="hljs-variable">$PYPE_PROJECT_CONFIGS</span>/FooPoject/presets/plugins/maya/publish.json
+</code></pre>
+<p>And its done. <strong>ValidateMeshHasOverlappingUVs</strong> is a class name of validator - you can
+find that name by looking into python file containing validator code, or in Pyblish GUI.</p>
+<p>That way you can make it optional or set whatever properties you want on plugins and those
+settings will take precedence over the default site-wide settings.</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/next/admin_pype_commands"><span class="arrow-prev">← </span><span>Pype commands overview</span></a><a class="docs-next button" href="/docs/next/admin_anatomy"><span>Folder Structure</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#anatomy">Anatomy</a></li><li><a href="#environments">Environments</a></li><li><a href="#launchers">Launchers</a></li><li><a href="#presets">Presets</a><ul class="toc-headings"><li><a href="#colorspace">colorspace</a></li><li><a href="#dataflow">Dataflow</a></li><li><a href="#plugins">Plugins</a></li><li><a href="#aws-thinkbox-deadline">AWS Thinkbox Deadline</a></li><li><a href="#muster">Muster</a></li></ul></li><li><a href="#schema">Schema</a></li><li><a href="#system">System</a><ul class="toc-headings"><li><a href="#projects-storages">Projects storages</a></li><li><a href="#core-storage">Core storage</a></li></ul></li><li><a href="#per-project-configuration">Per-project configuration</a><ul class="toc-headings"><li><a href="#example">Example</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon/P.png" alt="PYPE" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/artist_getting_started">Artist</a><a href="/docs/en/manager_ftrack">Manager</a><a href="/docs/en/admin_config">Admin</a></div><div><h5>Community</h5><a href="https://gitter.im/getavalon/Lobby">Avalon Chat</a><a href="https://gitter.im/pyblish/pyblish">Pyblish Chat</a><a href="https://discord.gg/cfkbAHM">Pype Chat</a></div><div><h5>More</h5><a href="https://github.com/pypeclub">Github/Pype.club</a><a href="https://github.com/getavalon">Github/Avalon</a><a href="https://github.com/pyblish">Github/Pyblish</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2019 Orbi Tools</section></footer></div></body></html>
