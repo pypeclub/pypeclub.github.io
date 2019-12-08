@@ -4,18 +4,12 @@ title: Presets > NukeStudio
 sidebar_label: Nukestudio
 ---
 
-## Tags
+## TAGS.json
 
-Each tag has defines defaults in `.json` file. You can follow below paths to find `tags.json`. Inside of the file focus on changes in values as shown in example (`>>>"10001"<<<`). Please be careful and do not alter the `family` value.
+path: `pype-config/presets/nukestudio/tags.json`
 
-:::note Basic file properties
+Each tag has defines defaults in `.json` file. You can follow below paths to find `tags.json`. Inside of the file focus on changes in values as shown in example (`>>>"1001"<<<`). Please be careful and do not alter the `family` value.
 
-| property        | value                          |
-| --------------- | ------------------------------ |
-| repository path | `pype-setup/repos/pype-config` |
-| file path       | `presets/nukestudio/tags.json` |
-
-:::
 
 ```python
 "Frame start": {
@@ -26,7 +20,7 @@ Each tag has defines defaults in `.json` file. You can follow below paths to fin
     },
     "metadata": {
         "family": "frameStart",
-        "number": >>>"10001"<<<
+        "number": >>>"1001"<<<
     }
 }
 ```

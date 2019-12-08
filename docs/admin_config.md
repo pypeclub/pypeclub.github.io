@@ -1,7 +1,7 @@
 ---
 id: admin_config
-title: Pype Configuration
-sidebar_label: Configuration
+title: Studio Config
+sidebar_label: Studio Config
 ---
 
 All of the studio specific configurations are stored as simple JSON files in the **pype-config** repository.
@@ -12,9 +12,9 @@ Config is split into multiple sections described below.
 
 Defines how folders and files are created for all the project data.
 
-We have a few required anatomy templates for Pype to work properly, however we can keep adding more when needed.
+We have a few required anatomy templates for Pype to work properly, however we  keep adding more when needed.
 
-required templates:
+### Required templates
 
 ```yaml
 work:
@@ -32,25 +32,27 @@ Folder holds path template for the directory where the files are stored, File on
 
 Here is where all the environment variables are set up. Each software has it's own environment file where we set all variables needed for it to function correctly. This is also a place where any extra in-house variables should be added. All of these individual configs and then loaded additively as needed based on current context.
 
-For example when launching Pype Tray, Global and Avalon envs are loaded first. If the studio uses also *Deadline* and *Ftrack*, both of those environments get added at the same time. This set the base environment for the rest of the pipeline that will be inherited by all the applications launched from this point on.
+For example when launching Pype Tray, **Global** and **Avalon** envs are loaded first. If the studio uses also *Deadline* and *Ftrack*, both of those environments get added at the same time. This sets the base environment for the rest of the pipeline that will be inherited by all the applications launched from this point on.
 
-When user launches an application for a task, it's general and versioned env files get added to the base before the software launches. When launching *Maya 2019*, both `maya.json` and maya_2019.json will be added.
+When user launches an application for a task, its general and versioned env files get added to the base before the software launches. When launching *Maya 2019*, both `maya.json` and `maya_2019.json` will be added.
 
 If the project or task also has extra tools configured, say *Arnold Mtoa 3.1.1*, a config JSON with the same name will be added too.
 
-This way the environment is completely dynamic with possibility of overrides on a granular level, from project all the way to task overrides.
+This way the environment is completely dynamic with possibility of overrides on a granular level, from project all the way down to task.
 
 ## Launchers
 
 Considering that different studios use different ways of deploying software to their workstations, we need to tell Pype how to launch all the individual applications available in the studio.
 
-Each software need multiple files prepare for it to function correctly.
+Each software need multiple files prepared for it to function correctly.
 
 ```text
 application_name.toml
+application_name.bat
+application_name.sh
 ```
 
-This file tell Pype how to work with the application across the board. Icons, Label in GUI, *Ftrack* settings but most importantly it defines what executable to run. These executable are store in the windows and linux subfolder in the launchers folder. If `application_name.toml` defines that executable to run is `application_name`, Pype assumes that a `.bat` and `.sh` files under that name exist in the linux and windows folders in launchers. Correct version is picked automatically based on the platform Pype is running on.
+TOML file tells Pype how to work with the application across the board. Icons, Label in GUI, *Ftrack* settings but most importantly it defines what executable to run. These executable are store in the windows and linux subfolder in the launchers folder. If `application_name.toml` defines that executable to run is `application_name`, Pype assumes that a `.bat` and `.sh` files under that name exist in the linux and windows folders in launchers. Correct version is picked automatically based on the platform Pype is running on.
 
 These `.bat` and `.sh` scripts have only one job then. They have to point to the exact executable path on the system, or to a command that will launch the app we want. Version granularity is up to the studio to decide. We can show artists Nuke 11.3, while specifying the particular version 11.3v4 only in the .bat file, so the artist doesn't need to deal with it, or we can present him with 11.3v4 directly. the choice is mostly between artist control vs more configuration files on the system.
 
@@ -62,7 +64,7 @@ Presets are categorized in folders based on what they control or what host (DCC 
 
 ### colorspace
 
-defines all available color spaces in the studio. These configs not only tell the system what OCIO to use, but also how exactly it needs to be applied in the give application. From loading the data, trough previewing it all the way to rendered
+Defines all available color spaces in the studio. These configs not only tell the system what OCIO to use, but also how exactly it needs to be applied in the give application. From loading the data, trough previewing it all the way to rendered
 
 ### Dataflow
 
@@ -130,54 +132,6 @@ Preset resolution works by getting host name (for example *Maya*) and then looki
 :::tip Per project plugin override
 You can override plugins per project. See [Per-project configuration](#per-project-configuration)
 :::
-
-### AWS Thinkbox Deadline
-
-To support [AWS Thinkbox Deadline](https://www.awsthinkbox.com/deadline) you just need to enable it in
-**init_env** key of your `deploy.json` file:
-
-```javascript
-{
-  "PYPE_CONFIG": "{PYPE_ROOT}/repos/pype-config",
-  "init_env": ["global", "avalon", "ftrack", "deadline"],
-  ...
-}
-```
-
-Then edit `repos/pype-config/environments/deadline.json` and change `DEADLINE_REST_URL` to point to
-your Deadline Web API service.
-
-See [here](https://docs.thinkboxsoftware.com/products/deadline/10.0/1_User%20Manual/manual/web-service.html) for
-more details how to setup *Deadline Web API service*
-
-
-### Muster
-
-There is support for [Muster](https://www.vvertex.com/). To enable it, add `muster` to **init_env** to your `deploy.json`
- file:
-
-```javascript
-{
-  "PYPE_CONFIG": "{PYPE_ROOT}/repos/pype-config",
-  "init_env": ["global", "avalon", "ftrack", "muster"],
-  ...
-}
-```
-You need to configure URL to Muster Web API - in `repos/pype-config/environments/muster.json`. There you need to set
-`MUSTER_REST_URL` to correct value.
-
-User will be asked for it's Muster login credentials during Pype startup or any time later
-if its authentication token expires.
-
-#### Template mapping
-
-Muster template mapping maps Muster template ID to name of renderer. Initially it is set Muster defaults.
-About templates and Muster se [Muster Documentation](https://www.vvertex.com/wiki900/doku.php?id=muster:9.0).
-Mapping is defined in:
-
-`repos/pype-config/muster/templates_mapping.json`
-
-Keys are renderer names and values are templates IDs.
 
 
 ## Schema

@@ -83,6 +83,29 @@ article a:hover {
   font-weight: 500;
 }
 
+
+
+.container .wrapper h2 {
+    color: #282c34;
+    margin-bottom: 30px;
+    padding: 10px 10px;
+    text-align: center;
+}
+
+.noTopMargin {
+    margin-top: 0px;
+}
+
+.container .wrapper h3 {
+      margin-top: 2em
+}
+
+.container .wrapper .imageAlignSide p {
+    margin: 0;
+    margin-bottom: 20px;
+    max-width: 560px;
+}
+
 .lightBackground {
     background: linear-gradient(-135deg,
             transparent 0,
@@ -128,6 +151,7 @@ article a:hover {
 .post {
     padding: 50px 0px
 }
+
 
 .homeSplashFade {
     text-align: center;
@@ -186,6 +210,42 @@ article a:hover {
     background: $secondaryColor;
     color: #fff;
 }
+
+
+.mainContainer {
+    padding: 0px
+}
+
+.docMainWrapper, .navPusher, .post {
+    background: #ffffff url(../img/doc_background_light.jpg);
+    background-repeat: repeat;
+    background-position: 50% 0;
+    background-size: 30px 30px;
+    position: relative;
+}
+
+.projectTitle {
+    font-size: 60px;
+    color: $secondaryColor;
+    line-height: 1;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.projectTitle .tagline {
+    font-size: 30px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.projectTitle img {
+  border-style: none;
+  box-sizing: content-box;
+  max-width: 350px;
+  width:80%
+}
+
 
 /* START productShowcaseSection */
 
@@ -393,58 +453,6 @@ article a:hover {
 
 /* END cardsList */
 
-
-.mainContainer {
-    padding: 0px
-}
-
-.docMainWrapper, .navPusher, .post {
-    background: #ffffff url(../img/doc_background_light.jpg);
-    background-repeat: repeat;
-    background-position: 50% 0;
-    background-size: 30px 30px;
-    position: relative;
-}
-
-
-.container .wrapper h2 {
-    color: #282c34;
-    margin-top: 20px;
-    padding: 10px 10px;
-    text-align: center;
-}
-
-.container .wrapper h3 {
-      margin-top: 1em
-}
-
-.container .wrapper .imageAlignSide p {
-    margin: 0;
-    margin-bottom: 20px;
-    max-width: 560px;
-}
-
-.projectTitle {
-    font-size: 60px;
-    color: $secondaryColor;
-    line-height: 1;
-    margin-top: 40px;
-    margin-bottom: 20px;
-    font-weight: 700;
-}
-
-.projectTitle .tagline {
-    font-size: 30px;
-    font-weight: 600;
-    color: #fff;
-}
-
-.projectTitle img {
-  border-style: none;
-  box-sizing: content-box;
-  max-width: 350px;
-  width:80%
-}
 
 
 .promoRow .pluginRowBlock img {

@@ -77,7 +77,7 @@ class Section extends React.Component {
       padding={['bottom', 'top']}
       id={this.props.id}
       background={this.props.background}>
-        <h2>{this.props.title}</h2>
+        <h2 class="noTopMargin">{this.props.title}</h2>
           {this.props.children}
     </Container>
   );
@@ -88,7 +88,7 @@ class Featurecard extends React.Component {
   render() {
     const title = this.props.label
     // const link = "docs/" + (this.props.name || title)
-    const link = ""
+    const link = (this.props.link || "javascript:void(0);")
     // const thumbnail = "doc/img/features/" + this.props.name + ".png"
     // const thumbnail = "https://picsum.photos/400/250"
     const thumbnail = ""
@@ -108,7 +108,11 @@ class Featurecard extends React.Component {
           <a href={link} class="cards-list-item-excerpt">{description}</a>
 
           <div class="cards-list-item-more">
-            <a href={link} class="more-item url ml-auto">MORE <i class="fa fa-chevron-right"></i></a>
+
+          {link != "javascript:void(0);" &&
+                <a href={link} class="more-item url ml-auto">MORE <i class="fa fa-chevron-right"></i></a>
+              }
+
           </div>
 
         </div>
@@ -120,8 +124,7 @@ class Featurecard extends React.Component {
 class FeaturecardMedium extends React.Component {
   render() {
     const title = this.props.label
-    // const link = "docs/" + (this.props.name || title)
-    const link = ""
+    const link = (this.props.link || "javascript:void(0);")
     const description = this.props.description
 
     return (
@@ -135,7 +138,9 @@ class FeaturecardMedium extends React.Component {
           class="cards-list-item-excerpt">{description}</a>
 
           <div class="cards-list-item-more">
+          {link != "javascript:void(0);" &&
             <a href={link} class="more-item url ml-auto">MORE <i class="fa fa-chevron-right"></i></a>
+          }
           </div>
 
         </div>
@@ -147,7 +152,7 @@ class FeaturecardMedium extends React.Component {
 class FeaturecardSmall extends React.Component {
   render() {
     const title = this.props.label
-    const link = ""
+    const link = (this.props.link || "javascript:void(0);")
     const description = this.props.description
 
     return (
@@ -188,26 +193,31 @@ class Index extends React.Component {
 
           <Featurecard
             label="Creator"
+            link="docs/artist_tools#creator"
             description="Universal GUI for defining content for publishing from your DCC app.">
           </Featurecard>
 
           <Featurecard
             label="Loader"
+            link="docs/artist_tools#loader"
             description="Universal GUI for loading published assets into your DCC app.">
           </Featurecard>
 
           <Featurecard
             label="Publisher"
+            link="docs/artist_tools#publisher"
             description="Universal GUI for validating and publishng content from your DCC app.">
           </Featurecard>
 
           <Featurecard
             label="Inventory"
+            link="docs/artist_tools#inventory"
             description="Universal GUI for managing versions of assets loaded into your working scene.">
           </Featurecard>
 
           <Featurecard
             label="Look Assigner"
+            link="docs/artist_tools#look-assigner"
             description="GUI Assingning published looks to geometry or caches.">
           </Featurecard>
 
@@ -309,6 +319,7 @@ class Index extends React.Component {
           <div class="cards-list">
             <FeaturecardMedium
               label="Look Management"
+              link="docs/artist_hosts_maya#look-development"
               description="Publish maya shading networks with textures and assign them to all assets in the scen at once">
             </FeaturecardMedium>
 
@@ -319,6 +330,7 @@ class Index extends React.Component {
 
             <FeaturecardMedium
               label="Playblasts"
+              link="docs/artist_hosts_maya#reviews"
               description="Makes sure all your playblasts are consistent, with burnins and and correct viewport settings">
             </FeaturecardMedium>
 
@@ -334,7 +346,9 @@ class Index extends React.Component {
             <FeaturecardSmall label="Model"></FeaturecardSmall>
             <FeaturecardSmall label="Look"></FeaturecardSmall>
             <FeaturecardSmall label="Rig"></FeaturecardSmall>
-            <FeaturecardSmall label="Setdress"></FeaturecardSmall>
+            <FeaturecardSmall label="Setdress"
+                              link="docs/artist_hosts_maya#set-dressing-in-maya">
+            </FeaturecardSmall>
             <FeaturecardSmall label="Animation"></FeaturecardSmall>
             <FeaturecardSmall label="Point Cache"></FeaturecardSmall>
             <FeaturecardSmall label="VDB Cache"></FeaturecardSmall>

@@ -95,11 +95,6 @@ function Versions(props) {
                         </a>
                       </td>
                       <td>
-                        <a href={`${repoUrl}/releases/tag/v${version}`}>
-                          Release Notes
-                        </a>
-                      </td>
-                      <td>
                         <a href={`${siteConfig.baseUrl}${siteConfig.docsUrl}/${
                           props.language ? props.language + '/' : ''
                         }${version}/changelog#${version}`}>

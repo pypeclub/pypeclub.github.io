@@ -16,6 +16,8 @@ _**release date:** 9 Dec 2019_
 - _(ftrack)_ sync to avalon action has been also re-writen. It is now much faster (up to 100 times depending on a project structure), has much better logging and reporting on encountered problems, and is able to handle much more complex situations.
 - _(ftrack)_ sync to avalon trigger by checking `auto-sync` toggle on ftrack [PYPE-504]
 - _(pype)_ various new features in the REST api
+- _(pype)_ new visual identity used across pype
+- _(pype)_ started moving all requirements to pip installation rather than vendorising them in pype repository. Due to a few yet unreleased packages, this means that pype can temporarily be only installed in the offline mode.
 
 **new:**
 - _(nuke)_ support for publishing gizmos and loading them as viewer processes
@@ -24,7 +26,7 @@ _**release date:** 9 Dec 2019_
   - use keys `{frame_start}`, `{frame_end}` and `{current_frame}` in burnin preset to use them. [PYPS-44,PYPS-73, PYPE-602]
 - _(pype)_ option to filter logs by user and level in loggin GUI
 - _(pype)_ image family added to standalone publisher [PYPE-574]
-- _(pype)_ image family added to standalone publisher [PYPE-574]
+- _(pype)_ matchmove family added to standalone publisher [PYPE-574]
 - _(nuke)_ validator for comparing arbitrary knobs with values from presets
 - _(maya)_ option to force maya to copy textures in the new look publish rather than hardlinking them
 - _(pype)_ comments from pyblish GUI are now being added to ftrack version
@@ -34,13 +36,14 @@ _**release date:** 9 Dec 2019_
 **fix**:
 - _(pype)_ burnins were not respecting codec of the input video
 - _(nuke)_ lot's of various nuke and nuke studio fixes across the board [PYPS-45]
-- _(pype)_ workfiles app is not not launching with the start of the app by defaul [PYPE-569]
+- _(pype)_ workfiles app is not launching with the start of the app by default [PYPE-569]
 - _(ftrack)_ ftrack integration during publishing was failing under certain situations [PYPS-66]
 - _(pype)_ minor fixes in REST api
 - _(ftrack)_ status change event was crashing when the target status was missing [PYPS-68]
 - _(ftrack)_ actions will try to reconnect if they fail for some reason
 - _(maya)_ problems with fps mapping when using float FPS values
 - _(deadline)_ overall improvements to deadline publishing
+- _(setup)_ environment variables are now remapped on the fly based on the platform pype is running on. This fixes many issues in mixed platform environments.
 
 
 <a name="2.3.6"></a>

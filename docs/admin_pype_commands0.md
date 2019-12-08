@@ -20,9 +20,11 @@ pype <command> --help
 
 --------------------
 
-## `install`
+## Installation
 
 To install Pype:
+
+### `install`
 
 ```sh
 pype install
@@ -49,7 +51,9 @@ pype install --offline --force
 
 --------------------
 
-## `deploy`
+## Deployment
+
+### `deploy`
 
 To deploy Pype:
 ```sh
@@ -62,9 +66,8 @@ To force re-deploy:
 ```sh
 pype deploy --force
 ```
----------------------------
 
-## `validate`
+### `validate`
 
 To validate deployment:
 ```sh
@@ -73,7 +76,9 @@ pype validate
 
 --------------------
 
-## `tray`
+## Pype Tray
+
+### `tray`
 
 To launch Tray:
 ```sh
@@ -89,7 +94,9 @@ pype tray --debug
 
 --------------------
 
-## `download`
+## Download dependencies
+
+### `download`
 
 To download required dependencies:
 ```sh
@@ -98,7 +105,9 @@ pype download
 
 --------------------
 
-## `mongodb`
+## Testing mongodb
+
+### `mongodb`
 
 To run testing mongodb database (requires mongoDB installed on the workstation):
 ```sh
@@ -107,7 +116,7 @@ pype mongodb
 
 --------------------
 
-## `eventserver`
+## Ftrack event server
 
 This command launches ftrack event server.
 
@@ -117,6 +126,8 @@ on linux and window service).
 You have to set either proper environment variables to provide URL and
 credentials or use option to specify them. If you use `--store_credentials`
 provided credentials will be stored for later use.
+
+### `eventserver`
 
 To run ftrack event server:
 ```sh
@@ -146,7 +157,9 @@ pype eventserver --ftrack-url=<url> --ftrack-user=<user> --ftrack-api-key=<key> 
 
 --------------------
 
-## `publish`
+## Publish from CLI
+
+### `publish`
 
 Pype takes JSON from provided path and use it to publish data in it.
 ```sh
@@ -161,7 +174,9 @@ pype publish <PATH_TO_JSON>
 
 --------------------
 
-## `texturecopy`
+## Texture copy
+
+### `texturecopy`
 
 Copy specified textures to provided asset path.
 
@@ -185,7 +200,9 @@ pype texturecopy --project <PROJECT_NAME> --asset <ASSET_NAME> --path <PATH_TO_J
 
 --------------------
 
-## `test`
+## Tests
+
+### `test`
 
 ### `--pype`
 - without this option, tests are run on *pype-setup* only.
@@ -196,7 +213,9 @@ pype test --pype
 ```
 --------------------
 
-## `coverage`
+## Coverage
+
+### `coverage`
 
 ### `--pype`
 - without this option, tests are run on *pype-setup* only.
@@ -208,7 +227,9 @@ pype coverage --pype
 
 --------------------
 
-## `make_docs`
+## Make API documentation
+
+### `make_docs`
 
 Generate API documentation into `docs/build`
 ```sh
@@ -217,7 +238,9 @@ pype make_docs
 
 --------------------
 
-## `update-requirements`
+## Add dependencies to requirements.txt
+
+### `update-requirements`
 
 Synchronize dependecies in your virtual environment with requirement.txt file.
 Equivalent of running `pip freeze > pypeapp/requirements.txt` from your virtual

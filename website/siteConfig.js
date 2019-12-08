@@ -105,7 +105,7 @@ const siteConfig = {
     { page: 'features', label: 'Features' },
     { doc: 'artist_getting_started', label: 'Artist' },
     { doc: 'manager_naming', label: 'Manager' },
-    { doc: 'admin_config', label: 'Admin' },
+    { doc: 'admin_getting_started', label: 'Admin' },
     { doc: 'api', label: 'API' },
     { search: true },
     { languages: true }

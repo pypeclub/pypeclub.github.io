@@ -176,7 +176,7 @@ class Index extends React.Component {
 
         <div class="container lightBackground paddingBottom paddingTop">
           <div class="wrapper">
-              <h2>Services</h2>
+              <h2 class="noTopMargin">Services</h2>
             <div class="gridBlock">
 
               <div class="blockElement alignCenter fourByGridBlock">
@@ -196,7 +196,7 @@ class Index extends React.Component {
                     Consulting
                   </h3>
                   <div>
-                      <p>An outside, independent point of view. We’ll work with you on all fronts to get you productions running smoothly.</p></div>
+                      <p>An outside, independent point of view. We’ll work with you on all fronts to get your productions running smoothly.</p></div>
                 </div>
               </div>
               <div class="blockElement alignCenter fourByGridBlock">

@@ -3,11 +3,8 @@
         "Workflow": [
             "artist_getting_started",
             "artist_concepts",
-            "artist_publish"
-        ],
-        "Technical": [
-            "artist_tools",
-            "artist_hosts"
+            "artist_publish",
+            "artist_tools"
         ],
         "Hosts": [
             "artist_hosts_nukestudio",
@@ -27,14 +24,19 @@
         "Setup": [
             "admin_getting_started",
             "admin_install",
-            "admin_pype_commands",
             "admin_config",
             "admin_anatomy",
+            "admin_ftrack",
+            "admin_hosts",
+            "admin_pype_commands",
             "admin_setup_troubleshooting"
         ],
         "Presets": [
             "admin_presets_nukestudio",
-            "admin_ftrack"
+            "admin_presets_ftrack",
+            "admin_presets_maya",
+            "admin_presets_plugins",
+            "admin_presets_tools"
         ],
         "Release Notes": [
             "changelog"
