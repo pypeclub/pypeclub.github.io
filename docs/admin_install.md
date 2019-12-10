@@ -4,42 +4,44 @@ title: Pype Setup
 sidebar_label: Pype Setup
 ---
 
-## Advanced installation methods
+## Introduction
 
+The general approach to pype deployment is installing central repositories on a shared network storage which can be accessed by all artists in the studio. Simple shortcuts to launchers are then distributed to all workstations for artists to use. This approach ensures easy maintenance and updates.
 
-### Introduction
-Basic installation process is described in [Getting started](artist_getting_started). More about
-installation and deployment can be found documented here.
+When artist first runs pype all the required python packages get installed automatically to his local workstation and updated everytime there is a change in the central installation.
 
 :::note
-If Pype is not installed on computer and Pype command is run, it will try to automatically install it's environment by itself. This will not work in offline scenarios.
+Automatic workstation installation and updates will not work in offline scenarios. In these case `pype install --force --offline` command must be triggered explicitly on the workstation
 :::
 
-### Requirements
+## Requirements
 
-#### Python 3.6+
+### Python 3.6+
 
-Pype requires Python 3.6 and late to be installed on each workstation running Pype. Windows version can be
-easily grabbed at [python.org](https://www.python.org/downloads/). Install location doesn't matter but
+Pype requires Python 3.6 or later to be installed on each workstation running Pype.
+
+:::note
+If you want to use pype with Blender, you need to upgrade your python to 3.7 or higher.
+:::
+
+Windows version of Python can be easily grabbed at [python.org](https://www.python.org/downloads/). Install location doesn't matter but
 python executable should be in `PATH` environment variable.
 
+:::important Linux
 On linux it is somehow different and all depends on linux distribution in use.
 
-:::important Linux
 Some linux variants (for example *Ubuntu*) need **python-dev** variant of python package that includes python headers and developer tools. This is needed because some of **Pype** requirements need to compile themselves against python during their installation. Please, refer to your distribution community to find out how to install that package.
+:::
 
-On *Ubuntu* just run:
-```sh
-sudo apt install build-essential
-```
+:::neutral Distro Specifics
+<!--DOCUSAURUS_CODE_TABS-->
 
-On *Centos*:
+<!--Centos-->
+
 ```sh
 sudo yum group install "Development Tools"
 ```
-:::
 
-:::tip CentOS 7
 Python 3.6 is not part of official distribution. Easiest way is to add it with the help of *SCL* - Software Collection project.
 This has advantage that it won't replace system version of python.
 
@@ -64,13 +66,13 @@ Check it with:
 python --version
 ```
 
-You'll also need developer tools installed for some of the dependencies so:
-```sh
-sudo yum groupinstall "Development Tools"
-```
-:::
 
-:::tip Ubuntu
+<!--Ubuntu-->
+```sh
+sudo apt install build-essential
+```
+
+
 Some versions of Ubuntu already has python 3.6 installed, check it with:
 ```sh
 python3 --version
@@ -83,9 +85,15 @@ sudo apt-get install python3-dev
 Please be aware that even if your system already has python 3.6, than if that
 didn't come from **python3-dev** package, Pype will most likely fail to install
 it's dependencies.
+
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
 :::
 
-#### MongoDB
+--------------
+
+### MongoDB
 
 Pype needs site-wide installation of **MongoDB**. It should be installed on
 reliable server all workstations (and possibly render nodes) can connect. This
@@ -102,7 +110,7 @@ add to the `PATH`. On Windows, Pype tries to find it in standard installation de
 
 To run **mongoDB** on server, use your server distribution tools to set it up (on Linux).
 
-#### Git
+### Git
 
 To be able to deploy Pype, **git** is need. It will clone all required repositories and
 control versions so future updates are easier. Git is however only requirent on admin workstation for global studio updates.
@@ -111,7 +119,7 @@ See [how to install git](https://git-scm.com/book/en/v2/Getting-Started-Installi
 
 To access private repositories, you'll need other optional stuff like ssh key agents, etc.
 
-#### PowerShell (on Windows only)
+### PowerShell (on Windows only)
 
 PowerShell is now included in recent versions of Windows. **Pype** requires at least
 version 5.0, included in Windows 10 from beginning and available for Windows 7 SP1,
@@ -124,7 +132,7 @@ $PSVersionTable
  If you need to install PowerShell or update it, please refer to:
  [Installing powershell on windows](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-6)
 
-#### Other
+### Other
 :::warning Linux headless server
 If you need to run Pype's **ftrack event server** on headless linux server, be aware that due Qt dependencies, you'll need to install OpenGL support there even if server doesn't have any real use for it.
 :::
@@ -137,7 +145,7 @@ Before you install Pype, first clone **pype-setup** repository to place you want
 you probably want that destination to be on shared network drive so all users can access it.
 
 :::tip production and development branch
-We recommend to maintain two *versions* of Pype. First is **production** branch - one you use everyday for your work. Second one is **development** version you should use for testing new features and as testing playground. That branch should point to different Avalon database and use its own **ftrack event server**. More on that in [Pype Configuration](admin_config)
+We recommend to maintain two *versions* of Pype. The first is **production** branch - the one your artists use everyday for their work. The second one is **development** version you should use for testing new features and as development sandbox. Development branch can point to a different Avalon database and use its own **ftrack event server**. More on that in [Pype Configuration](admin_config)
 
 ```text
 Shared Network Drive
@@ -146,22 +154,22 @@ Shared Network Drive
       └─── dev
 ```
 
-so it should be like:
+To prepare this structure, you can use:
 ```sh
 cd /shared_drive/pype
-git clone --branch 2.2.0 https://github.com/pypeclub/pype-setup.git prod
-git clone --branch 2.2.0 https://github.com/pypeclub/pype-setup.git dev
+git clone --tag 2.4.0 https://bitbucket.com/pypeclub/pype-setup.git prod
+git clone --tag 2.4.0 https://bitbucket.com/pypeclub/pype-setup.git dev
 ```
 :::
 
-Specify your version after `--branch` option.
+Specify your version after `--branch` or `--tag` option.
 
 :::note
 You should always use tags to checkout to get specific release, otherwise you end up with *develop* branch that can be unstable.
 :::
 
 :::warning
-By default, both branches will use the same virtual environment. Be careful when modifying your requirements in **dev** version because then it will influence **prod** version as well. Too be safe, modify `PYPE_ENV` environment variable before using **dev** Pype commands.
+By default, both branches will use the same virtual environment. Be careful when modifying your requirements in **dev** version because then it will influence **prod** version as well. To be safe, modify `PYPE_ENV` environment variable before using **dev** Pype commands.
 :::
 
 ### Installation
@@ -175,16 +183,16 @@ cd /location/of/pype
 Pype commands are the same on both Windows and Linux, only Pype invocation  differs slightly. On Windows, Pype is run using `.\pype.bat` and on Linux using `. pype`. From now on
 just substitute `pype` for whatever is relevant for your platform.
 
-**Pype** can be installed with following command:
+Once you have p`pype-setup` cloned, **Pype** can be installed with the following command:
 
 ```sh
 pype install
 ```
 
-What it basically does:
+What it basically does is:
 1) Create python virtual environment on path: `C:\Users\Public\pype_env2` on Windows or `/opt/pype/pype_env2` on Linux.
 This can be overridden by setting `PYPE_ENV` to different path. Logic behind this is that this directory on Windows can be shared
-between users on one machine - it only stores Pype dependencies, not personal setting or credentials.
+between users on one machine - it only stores Pype dependencies, not any personal setting or credentials.
 
 2) Then it will install all python dependencies defined in `pypeapp\requirements.txt` into this virtual environment.
 
@@ -192,17 +200,17 @@ between users on one machine - it only stores Pype dependencies, not personal se
 On linux it is necessary to adjust user permissions to `/opt/pype/pype_env2` or whatever you set in `PYPE_ENV` and for that you need to be **root**.
 :::
 
-This will use your internet connection to download all necessary requirements.
+Default installation will use your internet connection to download all necessary requirements.
 
 #### Offline installation
 
-You can install Pype in offline scenarios:
+You can also install Pype in offline scenarios:
 
 ```sh
 pype install --offline
 ```
 
-This will use dependencies downloaded into `pype-setup/vendor/packages` rather than pulling directly from pypi. Those packages must first be
+This will use dependencies downloaded into `pype-setup/vendor/packages` rather than pulling directly from the internet. Those packages must, however, first be
 downloaded on a machine connected to the internet using:
 
 ```sh
@@ -210,11 +218,11 @@ pype download
 ```
 
 :::warning multiple platforms
-`pype download` will download packages only for current running platform. So if you run it on Windows machine, only windows packages get downloaded (along with many universal ones). If you run `pype install --offline` on Linux machine then, it will probably fail as Linux specific packages will be missing. In multiplatform environments we recommend to run `pype download` on all used platform to combine all necessary packages into `vendor/packages`.
+`pype download` will only download packages for currently running platform. So if you run it on Windows machine, only windows packages get downloaded (along with many universal ones). If you then run `pype install --offline` on Linux machine, it will probably fail as Linux specific packages will be missing. In multiplatform environments we recommend to run `pype download` on all used platform to combine all necessary packages into `vendor/packages`.
 :::
 
 :::caution multiplatform caveat
-There can be problem when using multiplatform environments with libraries compatibility. For example if using **PyQt 5.12**, there seems to be no problem on Windows, but using it on **Centos Linux 7** will cause problems because Centos ships with some older dependent libraries that will not work with aforementioned PyQt version.
+There can be problems with libraries compatibility, when using multiplatform environments. For example if using **PyQt 5.12**, there seems to be no problem on Windows, but using it on **Centos Linux 7** will cause problems because Centos ships with some older dependent libraries that will not work with aforementioned PyQt version.
 :::
 
 #### Forcing Installation
@@ -237,7 +245,7 @@ This is useful if Pype is misbehaving as first line of debugging. You can of cou
 ### Deployment
 
 After Pype is cloned and installed, it is necessary to *deploy* all repositories used by Pype. This must be done on a computer with
-Interent access.
+Internet access.
 
 ```sh
 pype deploy
@@ -249,10 +257,10 @@ This command will process all repositories specified in `deploy/deploy.json` and
 pype deploy --force
 ```
 
-will deploy repositories, overwriting existing ones if they exists, setting them to state specified in *deploy.json*.
+will deploy repositories, overwriting existing ones if they exists and setting them to state specified in *deploy.json*.
 
 :::note customizing deployment
-You can customize your deployment by your needs. Everything specified in `deploy/deploy.json` is considered as default and can be overridden by creating your own *deploy.json* in sub directory.
+You can customize your deployment to some extend. Everything specified in `deploy/deploy.json` is considered as default and can be overridden by creating your own *deploy.json* in sub directory.
 ```text
 pype
  ├─── pypeapp
@@ -268,7 +276,7 @@ pype
 In such configuration, `deploy/my_studio_override/deploy.json` will take precedence over the default one.
 :::
 
-To validate if Pype deployment is ok use:
+To validate if Pype deployment is ok, run:
 
 ```sh
 pype validate
@@ -278,21 +286,21 @@ pype validate
 
 There are a few features in `deploy.json` that needs to be explained in further detail.
 
-This is list of keys used and their function:
+Here is a list of keys used and their function:
 
 - `PYPE_CONFIG` - path to Pype configuration repository.
-- `init_env` - these are environment file in Pype configuration repository that
-  are loaded immediately after Pype starts. These contains basic functionality.
+- `init_env` - these are environment files in Pype configuration repository that
+  are loaded immediately after Pype starts. They define basic functionality.
   ```js
   "init_env": ["global", "avalon", "ftrack", "deadline"]
   ```
-  For example, if you don't use *Deadline* but you need *Muster* support, change `deadline` -> `muster`.
+  For example, if you don't use *Deadline* but you need *Muster* support, change `deadline` to `muster`.
   Pype will then load `{PYPE_CONFIG}/environments/muster.json` and set environment variables there.
 - `repositories`: this is list of repositories that will be deployed to `repos/`. There are few options
   for each repository:
 
   - `name`: name of repository will be used as directory name
-  - `url`: url of git repository
+  - `url`: url of the git repository
   - `branch` or `tag`: this specify either branch - it's *HEAD* will be checked out, or
     `tag` - commit tagged with specified tag will be checked out.
 
@@ -307,7 +315,7 @@ This is list of keys used and their function:
 
 #### Offline Deployment
 
-In offline scenarios it is up to you to replicate what `pype deploy` do. Easiest way
+In offline scenarios it is up to you to replicate what `pype deploy` does. The easiest way
 to go is to run `pype deploy` on machine, get everything in `repos/` and move it you
 your studio install location:
 
@@ -316,4 +324,4 @@ cd pype-setup
 tar cvzf pype_repos.tgz repos/
 ```
 
-do the same for those things deployed to *vendor*.
+do the same for things deployed to *vendor*.

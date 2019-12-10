@@ -289,6 +289,11 @@ class Index extends React.Component {
             </a>
 
             <a class="link" href="">
+              <img src="/img/app_houdini.png" alt="" title=""></img>
+              <span class="caption">Houdini</span>
+            </a>
+
+            <a class="link" href="">
               <img src="/img/app_fusion.png" alt="" title=""></img>
               <span class="caption">Fusion</span>
             </a>
@@ -327,10 +332,6 @@ class Index extends React.Component {
               <span class="caption">Blender</span>
             </a>
 
-            <a class="link" href="http://localhost:3000/features#nuke">
-              <img src="/img/app_houdini.png" alt="" title=""></img>
-              <span class="caption">Houdini</span>
-            </a>
 
             <a class="link" href="http://localhost:3000/features#nuke">
               <img src="/img/app_unreal.png" alt="" title=""></img>

@@ -103,3 +103,16 @@
   stroke: #f1c40f;
   fill: #f1c40f;
 }
+
+.admonition-neutral {
+  background-color: rgba(128, 128, 128, 0.1);
+}
+
+.admonition-neutral h5 {
+  color: #484848;
+}
+
+.admonition-neutral .admonition-icon svg {
+  stroke: #484848;
+  fill: #484848;
+}

@@ -8,39 +8,56 @@ Ftrack is currently the main project management option for Pype. This documentai
 
 ## Prepare Ftrack for Pype
 
-If you want to connect Ftrack to Pype you will probably need to make few changes in Ftrack settings. These changes would take a long time to do manually, so we prepared a few Ftrack actions to help you out. First you'll need to launch Pype's tray application and set [Ftrack credentials](#credentials) to be able to run our Ftrack actions.
+If you want to connect Ftrack to Pype you might need to make few changes in Ftrack settings. These changes would take a long time to do manually, so we prepared a few Ftrack actions to help you out. First, you'll need to launch Pype's tray application and set [Ftrack credentials](#credentials) to be able to run our Ftrack actions.
 
-The only action that really **must** be launched is [Pype Admin - Create/Update Avalon Attributes](manager_ftrack_actions#create-update-avalon-attributes) to set Custom Attributes necessary for pipeline. If you want to use pipeline only for new projects then you should read about best practice with [new project](#new-project).
+The only action that is strictly required is [Pype Admin - Create/Update Avalon Attributes](manager_ftrack_actions#create-update-avalon-attributes), which creates and sets the Custom Attributes necessary needed for Pype to function. If you want to use pype only for new projects then you should read about best practice with [new project](#new-project).
 
-Otherwise if you want to add to the pipeline already running projects you'll need to launch also [Pype Doctor - Custom attr doc](manager_ftrack_actions#custom-attr-doc).
+If you want to switch projects that are already in production, you might also need to run [Pype Doctor - Custom attr doc](manager_ftrack_actions#custom-attr-doc).
+
+:::caution
+Keep in mind that **Custom attr doc** action will migrate certain attributes from ftrack default ones to our custom attributes. Some attributes will also be renamed. We make backup of the values, but be very carefull with this option and consults us before running it.
+:::
 
 ## Event Server
 
-Event server is key to automation of many tasks like _status change_, _thumbnail update_, _automatic synchronization to Avalon database_ and many more. Event server must run to be able do these things and it is not possible to do them backwards.
+Ftrack Event Server is the key to automation of many tasks like _status change_, _thumbnail update_, _automatic synchronization to Avalon database_ and many more. Event server should run at all times to perform all the required processing as it is not possible to catch some of them retrospectively with enough certainty.
 
-### How to run event server
+### Running event serevr
 
-Pype has specific launch arguments for event server. With `$PYPE_SETUP/pype eventserver` you can launch event server but probably will terminate immediately. Reason is that event server requires 3 information: _Ftrack server url_, _paths to events_ and _Credentials (Username and API key)_. Ftrack server URL and Event path are by default set by Pype's environments.
+There are specific launch arguments for event server. With `$PYPE_SETUP/pype eventserver` you can launch event server but without prior preparation it will terminate immediately. The reason is that event server requires 3 pieces of information: _Ftrack server url_, _paths to events_ and _Credentials (Username and API key)_. Ftrack server URL and Event path are set from Pype's environments by default, but the credentials must be done separatelly for security reasons.
 
-There are 2 ways how you can set these information.
-1\. With additional arguments
+There are 2 ways of passing your credentials to event server.
 
--   `--ftrack-user "your.username"` - Ftrack Username
--   `--ftrack-api-key "00000aaa-11bb-22cc-33dd-444444eeeee"` - User's API key
--   `--store-crededentials` - Entered credentials will be stored for next launch with this argument _(It is not needed to enter **ftrackuser** and **ftrackapikey** args on next launch)_
--   `--no-stored-credentials` - Stored credentials are loaded first so if you want to change credentials use this argument
--   `--ftrack-url "https://yourdomain.ftrackapp.com/"` - Ftrack server URL _(it is not needed to enter if you have set `FTRACK_SERVER` in Pype' environments)_
--   `--ftrack-events-path "//Paths/To/Events/"` - Paths to events folder. May contain multiple paths separated by `;`. _(it is not needed to enter if you have set `FTRACK_EVENTS_PATH` in Pype' environments)_
+:::neutral There are 2 ways of passing your credentials to event server.
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--1. Additional Arguments-->
+<br>
+-  **`--ftrack-user "your.username"`** : Ftrack Username
+-   **`--ftrack-api-key "00000aaa-11bb-22cc-33dd-444444eeeee"`** : User's API key
+-   **`--store-crededentials`** : Entered credentials will be stored for next launch with this argument _(It is not needed to enter **ftrackuser** and **ftrackapikey** args on next launch)_
+-   **`--no-stored-credentials`** : Stored credentials are loaded first so if you want to change credentials use this argument
+-   `--ftrack-url "https://yourdomain.ftrackapp.com/"` : Ftrack server URL _(it is not needed to enter if you have set `FTRACK_SERVER` in Pype' environments)_
+-   `--ftrack-events-path "//Paths/To/Events/"` : Paths to events folder. May contain multiple paths separated by `;`. _(it is not needed to enter if you have set `FTRACK_EVENTS_PATH` in Pype' environments)_
 
 So if you want to use Pype's environments then you can launch event server for first time with these arguments `$PYPE_SETUP/pype eventserver --ftrack-user "my.username" --ftrack-api-key "00000aaa-11bb-22cc-33dd-444444eeeee" --store-credentials`. Since that time, if everything was entered correctly, you can launch event server with `$PYPE_SETUP/pype eventserver`.
 
-2.  With environments
+
+<!--2. Environments Variables-->
+<br>
 
 -   `FTRACK_API_USER` - Username _("your.username")_
 -   `FTRACK_API_KEY` - User's API key _("00000aaa-11bb-22cc-33dd-444444eeeee")_
 -   `FTRACK_SERVER` - Ftrack server url _("<https://yourdomain.ftrackapp.com/">)_
 -   `FTRACK_EVENTS_PATH` - Paths to events _("//Paths/To/Events/")_
     We do not recommend you this way.
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+:::
+
+:::warning
+We do not recommend setting your ftrack user and api key environments in a persistent way, for security reasons. Option 1. passing them as arguments is substantially safer.
+:::
 
 ### Where to run event server
 

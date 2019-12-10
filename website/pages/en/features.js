@@ -54,6 +54,7 @@ class HomeSplash extends React.Component {
             <Button href={'#ftrack'}>Ftrack</Button>
             <Button href={'#maya'}>Maya</Button>
             <Button href={'#nuke'}>Nuke</Button>
+            <Button href={'#houdini'}>Houdini</Button>
           </PromoSection>
         </div>
       </SplashContainer>
@@ -216,19 +217,13 @@ class Index extends React.Component {
           </Featurecard>
 
           <Featurecard
-            label="Look Assigner"
-            link="docs/artist_tools#look-assigner"
-            description="GUI Assingning published looks to geometry or caches.">
+            label="Context Switcher"
+            description="Universal GUI switching between assets, shots and tasks directly from DCC app.">
           </Featurecard>
 
           <Featurecard
             label="Tray Publisher"
             description="A standalone GUI for publishing data into pipeline without going though DCC app.">
-          </Featurecard>
-
-          <Featurecard
-            label="Context Switcher"
-            description="Universal GUI switching between assets, shots and tasks directly from DCC app.">
           </Featurecard>
 
           <Featurecard
@@ -320,7 +315,7 @@ class Index extends React.Component {
             <FeaturecardMedium
               label="Look Management"
               link="docs/artist_hosts_maya#look-development"
-              description="Publish maya shading networks with textures and assign them to all assets in the scen at once">
+              description="Publish maya shading networks with textures and assign them to all assets in the scene at once">
             </FeaturecardMedium>
 
             <FeaturecardMedium
@@ -337,6 +332,11 @@ class Index extends React.Component {
             <FeaturecardMedium
               label="Model > Render"
               description="We cover full project data flow from model throght animation, till final render.">
+            </FeaturecardMedium>
+
+            <FeaturecardMedium
+              label="Plugins Support"
+              description="Full production workflows support for Arnold, Vray, Redshift and Yeti. With more added upon client requests.">
             </FeaturecardMedium>
 
           </div>
@@ -406,6 +406,24 @@ class Index extends React.Component {
           <FeaturecardSmall label="Workfile"></FeaturecardSmall>
           <FeaturecardSmall label="LUT"></FeaturecardSmall>
           <FeaturecardSmall label="Cache"></FeaturecardSmall>
+        </div>
+
+      </Section>
+
+      <Section background="light" title="Side FX Houdini"
+        id="nuke">
+
+        <p class="sectionDescription">versions 16.5 and higher</p>
+
+
+        <h3 class="alignCenter"> Supported Families </h3>
+        <div class="cards-list">
+          <FeaturecardSmall label="Model"></FeaturecardSmall>
+          <FeaturecardSmall label="Animation"></FeaturecardSmall>
+          <FeaturecardSmall label="Pointcache"></FeaturecardSmall>
+          <FeaturecardSmall label="VDB"></FeaturecardSmall>
+          <FeaturecardSmall label="Workfile"></FeaturecardSmall>
+          <FeaturecardSmall label="Camera"></FeaturecardSmall>
         </div>
 
       </Section>

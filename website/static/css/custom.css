@@ -68,6 +68,7 @@ article a:hover {
   text-decoration: underline;
 }
 
+
 .alignCenter {
   text-align: center;
 }
@@ -82,8 +83,6 @@ article a:hover {
   text-align: center;
   font-weight: 500;
 }
-
-
 
 .container .wrapper h2 {
     color: #282c34;
