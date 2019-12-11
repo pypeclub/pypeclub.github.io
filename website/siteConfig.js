@@ -111,6 +111,12 @@ const siteConfig = {
     { languages: true }
   ],
 
+  algolia: {
+    apiKey: '5e01ee3bfbb744ca6f25d4b281ce38a9',
+    indexName: 'pype',
+    algoliaOptions: {} // Optional, if provided by Algolia
+  },
+
   // If you have users set above, you add it here:
   users,
 
