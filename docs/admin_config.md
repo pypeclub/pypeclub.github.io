@@ -28,6 +28,57 @@ publish:
 
 Folder holds path template for the directory where the files are stored, File only holds the filename and path combines the two together for quicker access.
 
+### Available keys
+| Context key | Description |
+| --- | --- |
+| root | Path to root folder |
+| project[name] | Project's full name. |
+| project[code] | Project's code. |
+| hierarchy | All hierarchical parents as subfolders. |
+| asset | Name of asset or shot. |
+| task | Name of task. |
+| version | Version number. |
+| subset | Subset name. |
+| family | Main family name. |
+| ext | File extention. (Possible to use only in `work` template atm.) |
+| representation | Representation name. (Is used instead of `ext` except `work` template atm.) |
+| frame | Frame number for sequence files. |
+| output |  |
+| comment |  |
+
+:::note
+It is recommended to set padding for `version` which is possible with additional expression in template. Entered key `{version:0<3}` will result into `001` if version `1` is published.
+**Explanation:** Expression `0<3` will add `"0"` char to the beginning(`<`) until string has `3` characters.
+:::
+
+| Date-Time key | Example result | Description |
+| --- | --- | --- |
+| d | 1, 30 | Day of month in shortest possible way. |
+| dd | 01, 30 | Day of month with 2 digits. |
+| ddd | Mon | Shortened week day name. |
+| dddd | Monday | Full week day name. |
+| m | 1, 12 | Month number in shortest possible way. |
+| mm | 01, 12 | Month number with 2 digits. |
+| mmm | Jan | Shortened month name. |
+| mmmm | January | Full month name. |
+| yy | 20 | Shortened year. |
+| yyyy | 2020 | Full year. |
+| H | 4, 17 | Shortened 24-hour number. |
+| HH | 04, 17 | 24-hour number with 2 digits. |
+| h | 5 | Shortened 12-hour number. |
+| hh | 05 | 12-hour number with 2 digits. |
+| ht | AM, PM | Midday part. |
+| M | 0 | Shortened minutes number. |
+| MM | 00 | Minutes number with 2 digits. |
+| S | 0 | Shortened seconds number. |
+| SS | 00 | Seconds number with 2 digits. |
+
+### Optional keys
+Keys may be optional for some reason when are wrapped with `<` and `>`. But it is recommended to use only for these specific keys with obvious reasons:
+- `output`, `comment` are optional to fill
+- `frame` is used only for sequences.
+
+
 ## Environments
 
 Here is where all the environment variables are set up. Each software has it's own environment file where we set all variables needed for it to function correctly. This is also a place where any extra in-house variables should be added. All of these individual configs and then loaded additively as needed based on current context.
