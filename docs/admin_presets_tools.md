@@ -108,7 +108,16 @@ You can set following functions:
 - **datetime**
   - variables based on standard python datetime library
 - **text**
-  - `{project}`, `{asset}`, `{task}`, `{username}`, `{version}`
+  - `{project[name]}`, `{project[code]}`, `{asset}`, `{subset}` , `{version}`, `{representation}`, `{task}`, `{username}`, `{resolution_width}`, `{resolution_height}`, `{fps}`, `{root}`, `{hierarchy}`, `{family}`, `{frame_start}`, `{frame_end}`, `{duration}`, `{version}`, `{comment}`, `{intent}`
+  - It is also possible to use [Anatomy templates](admin_config#anatomy) in burning.
+  ### Anatomy example
+  ```yaml
+  work:
+    folder: "{root}/{project[name]}/{hierarchy}/{asset}/work/{task}"
+    file: "{project[code]}_{asset}_{task}_v{version:0>3}<_{comment}>.{ext}"
+  ```
+  To get `folder` template of `work` anatomy, use key: `{anatomy[work][folder]}`
+
 - **frame_numbers**
   - available keys are `{frame_start}`, `{frame_end}`, `{current_frame}`
 
