@@ -118,6 +118,12 @@ Available positions: `TOP_LEFT`, `BOTTOM_CENTERED`, `TOP_RIGHT`, `BOTTOM_LEFT`, 
   | duration | Count number of frames. |
   | resolution_width | Resolution width. |
   | resolution_height | Resolution height. |
+  | fps | Fps of an output. |
+  | timecode | Timecode by frame start and fps. |
+
+:::warning
+`timecode` is specific key that can be **only at the end of content**. (`"BOTTOM_RIGHT": "TC: {timecode}"`)
+:::
 
 **Example**
 ```python
