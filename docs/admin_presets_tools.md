@@ -103,47 +103,31 @@ Specifies all the individual burn-ins, their positions and content
 
 Available positions: `TOP_LEFT`, `BOTTOM_CENTERED`, `TOP_RIGHT`, `BOTTOM_LEFT`, `BOTTOM_CENTERED`, `BOTTOM_RIGHT`
 
-You can set following functions:
+**Available keys**
 
-- **datetime**
-  - variables based on standard python datetime library
-- **text**
-  - `{project[name]}`, `{project[code]}`, `{asset}`, `{subset}` , `{version}`, `{representation}`, `{task}`, `{username}`, `{resolution_width}`, `{resolution_height}`, `{fps}`, `{root}`, `{hierarchy}`, `{family}`, `{frame_start}`, `{frame_end}`, `{duration}`, `{version}`, `{comment}`, `{intent}`
-  - It is also possible to use [Anatomy templates](admin_config#anatomy) in burning.
-  ### Anatomy example
-  ```yaml
-  work:
-    folder: "{root}/{project[name]}/{hierarchy}/{asset}/work/{task}"
-    file: "{project[code]}_{asset}_{task}_v{version:0>3}<_{comment}>.{ext}"
-  ```
-  To get `folder` template of `work` anatomy, use key: `{anatomy[work][folder]}`
+- It is possible to use same keys as in [Anatomy](admin_config#available-keys).
 
-- **frame_numbers**
-  - available keys are `{frame_start}`, `{frame_end}`, `{current_frame}`
+- It is allowed to use [Anatomy templates](admin_config#anatomy) themselves in burnins if they can be filled with available data.
 
+- Additional keys in burnins:
+  | Burnin key | Description |
+  | --- | --- |
+  | frame_start | First frame number. |
+  | frame_end | Last frame number. |
+  | current_frame | Frame number for each frame. |
+  | duration | Count number of frames. |
+  | resolution_width | Resolution width. |
+  | resolution_height | Resolution height. |
 
-
+**Example**
 ```python
 "burnins":{
-    "TOP_LEFT": {
-        "function": "datetime",
-        "format": "%d.%m.%Y"
-    },
-    "TOP_RIGHT": {
-        "function": "text",
-        "text": "{version}"
-    },
-    "BOTTOM_LEFT": {
-        "function": "frame_numbers"
-    },
-    "BOTTOM_CENTERED": {
-        "function": "text",
-        "text": "{asset}"
-    },
-    "BOTTOM_RIGHT": {
-        "function": "text",
-        "text": "{username}"
-    }
+    "TOP_LEFT": "{dd}.{mm}.{yyyy}",
+    "TOP_CENTER": "anatomy[publish][path]",
+    "TOP_RIGHT": "v{version:0>3}", # "0>3" adds padding to version number to have 3 digits.
+    "BOTTOM_LEFT": "{frame_start}-{current_frame}-{frame_end}",
+    "BOTTOM_CENTERED": "{asset}",
+    "BOTTOM_RIGHT": "{username}"
 }
 ```
 
