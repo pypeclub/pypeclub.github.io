@@ -4,6 +4,60 @@ title: Release Notes
 sidebar_label: Release Notes
 ---
 
+<a name="2.5"></a>
+## 2.5.0 ##
+
+_**release date:** 11 Feb 2020_
+
+**changed:**
+- _(pype)_ added many logs for easier debugging
+- _(pype)_ review presets can now be separated between 2d and 3d renders [PYPE-693]
+- _(pype)_ anatomy module has been greatly improved to allow for more dynamic pulblishing and faster debugging [PYPE-685]
+- _(pype)_ avalon schemas have been moved from `pype-config` to `pype` repository, for simplification. [PYPE-670]
+- _(ftrack)_ updated to latest ftrack API
+- _(ftrack)_ publishing comments now appear in ftrack also as a note on version with customisable category [PYPE-645]
+- _(ftrack)_ delete asset/subset action had been improved. It is now able to remove multiple entities and descendants of the selected entities [PYPE-361, PYPS-72]
+- _(workfiles)_ added date field to workfiles app [PYPE-603]
+- _(maya)_ old deprecated loader have been removed in favour of a single unified reference loader (old scenes will upgrade automatically to the new loader upon opening) [PYPE-633, PYPE-697]
+- _(avalon)_ core updated to 5.5.15 [PYPE-671]
+- _(nuke)_ library loader is now available in nuke [PYPE-698]
+
+
+**new:**
+- _(pype)_ added pype render wrapper to allow rendering on mixed platform farms. [PYPE-634]
+- _(pype)_ added `pype launch` command. It let's admin run applications with dynamically built environment based on the given context. [PYPE-634]
+- _(pype)_ added support for extracting review sequences with burnins [PYPE-657]
+- _(publish)_ users can now set intent next to a comment when publishing. This will then be reflected on an attribute in ftrack. [PYPE-632]
+- _(burnin)_ timecode can now be added to burnin
+- _(burnin)_ datetime keys can now be added to burnin and anatomy [PYPE-651]
+- _(burnin)_ anatomy templates can now be used in burnins. [PYPE=626]
+- _(nuke)_ new validator for render resolution
+- _(nuke)_ support for attach slate to nuke renders [PYPE-630]
+- _(nuke)_ png sequences were added to loaders
+- _(maya)_ added maya 2020 compatibility [PYPE-677]
+- _(maya)_ ability to publish and load .ASS standin sequences [PYPS-54]
+- _(pype)_ thumbnails can now be published and are visible in the loader. `AVALON_THUMBNAIL_ROOT` environment variable needs to be set for this to work  [PYPE-573, PYPE-132]
+- _(blender)_ base implementation of blender was added with publishing and loading of .blend files [PYPE-612]
+- _(ftrack)_ new action for preparing deliveries [PYPE-639]
+
+
+**fix**:
+- _(burnin)_ more robust way of finding ffmpeg for burnins.
+- _(pype)_ improved UNC paths remapping when sending to farm.
+- _(pype)_ float frames sometimes made their way to representation context in database, breaking loaders [PYPE-668]
+- _(pype)_ `pype install --force` was failing sometimes [PYPE-600]
+- _(pype)_ padding in published files got calculated wrongly sometimes. It is now instead being always read from project anatomy. [PYPE-667]
+- _(publish)_ comment publishing was failing in certain situations
+- _(ftrack)_ multiple edge case scenario fixes in auto sync and sync-to-avalon action
+- _(ftrack)_ sync to avalon now works on empty projects
+- _(ftrack)_ thumbnail update event was failing when deleting entities [PYPE-561]
+- _(nuke)_ loader applies proper colorspaces from Presets
+- _(nuke)_ publishing handles didn't always work correctly [PYPE-686]
+- _(maya)_ assembly publishing and loading wasn't working correctly
+
+
+
+
 <a name="2.4.0"></a>
 ## 2.4.0 ##
 
