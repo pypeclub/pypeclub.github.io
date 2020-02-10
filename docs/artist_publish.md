@@ -38,13 +38,13 @@ Here's a list of supported families
 | [Model](#model)       | Cleaned geo without materials                    | main, proxy, broken       |
 | [Look](#look)         | Package of shaders, assignments and textures     | main, wet, dirty          |
 | [Rig](#rig)           | Characters or props with animation controls      | main, deform, sim         |
-| [Assembly](#assembly) | Characters or props with animation controls      | main, deform, sim         |
+| [Assembly](#assembly) | A complex model made from multiple other models. | main, deform, sim         |
 | [Setdress](#setdress) | Environment containing only referenced assets    | main,                     |
-| Camera                | May contain trackers or proxy geo                | main, tracked, anim       |
-| Cache                 | Animated Alembic cache                           | rest, ROM , pose01        |
-| MayaAscii             | Publish subsets that don't fit other categories  |                           |
-| Groom                 | Hair and fur setups                              | hair, bear, bodyfur       |
-| Render                | Rendered frames from CG or Comp                  |                           |
+| [Camera](#camera)     | May contain trackers or proxy geo                | main, tracked, anim       |
+| [Animation](#animation)     | Animation exported from a rig.             | characterA, vehicleB      |
+| [Cache](#cache)       | Arbitrary animated geometry or fx cache          | rest, ROM , pose01        |
+| MayaAscii             | Maya publishes that don't fit other categories   |                           |
+| [Render](#render)     | Rendered frames from CG or Comp                  |                           |
 | Plate                 | Ingested, transcode, conformed footage           | raw, graded, imageplane   |
 | Write                 | Nuke write nodes for rendering                   |                           |
 | Image                 | Any non-plate image to be used by artists        | Reference, ConceptArt     |
@@ -97,7 +97,7 @@ Example Subsets:
 `lookMain`, `lookProxy`, `lookWet`, `lookDirty`, `lookBlue`, `lookRed`
 
 Example Representations:
-`.MA`, `.JSON`, `.MTLX (yet unsupported)`, `.BLEND`
+`.MA + .JSON`, `.MTLX (yet unsupported)`, `.BLEND`
 
 Please note that a look is almost never a single representation, but a combination of multiple.
 For example in Maya a look consists of `.ma` file with the shaders, `.json` file which
@@ -115,6 +115,9 @@ contains the attributes and assignments and `/resources` folder with all the req
 ### Rig
 
 Characters or props with animation controls or other parameters, ready to be referenced into a scene and animated. Animation Rigs tend to be very software specific, but in general they tend to consist of Geometry, Bones or Joints, Controllers and Deformers. Pype in maya supports both, self-contained rigs, that include everything in one file, but also rigs that use nested references to bring in geometry, or even skeleton. By default we bake rigs into a single file during publishing, but that behaviour can be turned off to keep the nested references live in the animation scenes.
+
+Example Subsets:
+`rigMain`, `rigMocap`, `rigSim`, `rigCamera`, `rigMuscle`
 
 Example Representations:
 `.MA`, `.MB`, `.BLEND`, `.HDA`
@@ -136,11 +139,21 @@ Example Representations:
 A subset created by combining two or more smaller subsets into a composed bigger asset.
 A good example would be a restaurant table asset with the cutlery and chairs included,
 that will eventually be loaded into a restaurant Set. Instead of loading each individual
-fork and knife for each table in the restaurant, we can first prepare `assemblyTable` subset
+fork and knife for each table in the restaurant, we can first prepare `assemblyRestaurantTable` subset
 which will contain the table itself, with cutlery, flowers, plates and chairs nicely arranged.
 
 This table can then be loaded multiple times into the restaurant for easier scene management
 and updates.
+
+Extracted assembly doesn't contain any geometry directly, but rather information about all the individual subsets that are inside the assembly, their version and transformations. On top of that and alembic is exported which only holds any extra transforms and groups that are needed to fully re-create the original assembled scene.
+
+Assembly ca also be used as a sort of collection of elements that are often used together in the shots. For example if we're set dressing lot's of forest shots, it would make sense to make and assembly of all the forest elements for scattering so we don't have to load them individually into each shot.
+
+Example Subsets:
+`assemblyTable`, `assemblyForestElements`, `assemblyRoof`
+
+Example Representations:
+`.ABC + .JSON`
 
 :::tip Assembly MUST:
 - Be only build using other pre-published subsets.
@@ -153,6 +166,65 @@ individual elements.
 
 ### Setdress
 
+Fully prepared environment scene assembled from other previously published assets. Setdress should be ready for rendering as is, including any instancing, material assignments and other complex setups the environment requires. Due to this complexity, setdress is currently only publishable in the native file format of the host where it was created. In maya that would be `.ma` or `.mb` file.
+
+:::tip Setdress:
+- MAY contain geometry built direcly in the scene.
+- MUST be ready to render once loaded into a shot.
+- MUST be grouped under top level transform (group or locator)
+- MAY use particles, instancing or any other tools for achieving the final look of the scene
+:::
 
 
 ### Camera
+
+Clean virtual camera without any proprietary rigging, or host specific information. Considering how widely across the hosts published cameras are used in production, published camera should ideally be as simple and clean as possible to ensure consistency when loaded into various hosts.
+
+
+Example Representations:
+`.MA`, `.ABC`
+
+:::tip Camera:
+- MUST Have all the animation baked in.
+- MUST Have name ending with `_CAM`
+- MAY contain extra geometry or locators (to mark tracking data for example)
+:::
+
+
+### Cache
+
+Geometry or effect with baked animation. Cache is usually exported as alembic,
+but can be potentially any other representation that makes sense in the given scenario.
+Cache is defined by the artist directly in the fx or animation scene.
+
+Example Subsets:
+`assemblyTable`, `assemblyForestElements`, `assemblyRoof`
+
+Example Representations:
+`.ABC`, `.VDB`, `.BGEO`
+
+
+### Animation
+
+Published result of an animation created with a rig. Animation can be extracted
+as animation curves, cached out geometry or even fully animated rig with all the controllers.  
+Animation cache is usually defined by a rigger in the rig file of a character or
+by FX TD in the effects rig, to ensure consistency of outputs.
+
+Example Subsets:
+`animationBob_01`, `animationJack_02`, `animationVehicleA`
+
+Example Representations:
+`.MA`, `.ABC`, `.JSON`
+
+
+### Yeti Cache
+
+Cached out yeti fur simulation that originates from a yeti rig applied in the shot context.
+
+
+### Yeti Rig
+
+Yeti groom setup ready to be applied to a cached out character in the shot context.
+
+### Render

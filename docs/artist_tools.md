@@ -11,11 +11,11 @@ sidebar_label: Tools
 
 <div class="ImagePanel.content">
 
-Any time your host app is open in defined context it can be changed to different hierarchy, asset or task within a project. This will allow you to use open session of app for different contexts. This is good particularly in case your host takes time to start.
+Any time your host app is open in defined context it can be changed to different hierarchy, asset or task within a project. This will allow you to change your opened session to any other asset, shot and tasks within the same project. This is useful particularly in cases where your host takes long time to start.
 
 :::note
 
-Notice the window is not closing and confirming the context has been changed after you hit `Accept`. This is a normal behavior as you can keep the window open perhaps on the other monitor.
+Notice that the window doesn't close after hitting `Accept` and confirming the change of context. This behaviour let's you keep the window open and change the context multiple times in a row.
 
 :::
 
