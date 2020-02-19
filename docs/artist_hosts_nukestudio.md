@@ -1,60 +1,32 @@
 ---
 id: artist_hosts_nukestudio
-title: NukeStudio
-sidebar_label: NukeStudio
+title: Hiero
+sidebar_label: Hiero
 ---
 
 :::note
-All the following info applies also for _Hiero_. We are supporting only version above `11.0`.
+All the information applies also for _Hiero_. We are supporting only versions  `11.0` and above.
 :::
 
-:::tip Used elements terminology
+:::tip Terminology
 For mode details about the element click on its name.
 
-[asset](artist_concepts.md#asset) - In our context we usually mean **shot** and that is how we will call it bellow in the text (`shot01`).
+[shot](artist_concepts.md#asset) - Shot object that will be created in the database or ftrack.
 
-[subset](artist_concepts.md#subset) - a clip on timeline which is part of a particular shot for example _foreground_, _main_, _background_, _reference_ (`shot01_main`)
+[subset](artist_concepts.md#subset) - a named clip on timeline tagged for publishing _foreground_, _main_, _background_, _reference_
 
-[version](artist_concepts.md#version) - version of shot's subset (`shot01_main_v001`)
-
-[representation](artist_concepts.md#representation) - file type of version (`shot01_main_v001.mov`)
-
-[family](artist_concepts.md#family) - Publisher plugin filtering keyword, (if `ftrack` in family, publishing to ftrack will be performed)
+[representation](artist_concepts.md#representation) - File type of a subset. A plate could for example be published as .exr sequence and .mov, these would be 2 representations
 
 :::
 
-## Basics of workflow
-
-At this moment we **do not support encoding** on the fly during publishing so
-all publishable clips has to be previously encoded.
-
-This is Tag related workflow so anything you wish to influence need to pick related tag in tag bin. Adjust the tag by your needs and then drop it to a clip(s) as it is explained in section [Tagging](#tagging).
-
-<div id="noHeadline" class="ImagePanel" data-image-align='left'>
-<div class="ImagePanel.content">
-
-Name for all parts (subsets) of one shot - usually clips stacked in pile - has to be the same to be recognized by publisher (as it is shown in image).
-
-Notice the layer **review** is holding `plateMainReview`.
-The review in here is just h264 in 1920x1080 formated video for Ftrack preview
-of `plateMain` subset. How to work with review tag is explained bellow in [**Reviewing**](#reviewing).
-
-</div>
-<div class="ImagePanel.image Screenshot">
-
-![Clips naming](assets/nukestudio_basic_clipNaming.png)
-
-</div>
-</div>
-
-## NukeStudio specific tools
+## Hiero specific tools
 
 ### Create Default Tags
 
 <div class="ImagePanel" data-image-align='right'>
 <div class="ImagePanel.content">
 
-This tools will recreate all available tags from [config file](admin_presets_nukestudio.md#tags). It is usually run at start of the app so it is created by default. Use this tool in case you are not sure the Tags are correct. Remove all tags in Tag Bin and run select `Create Default Tags..`.
+This tool will recreate all necessary pype tags defined in [config file](admin_presets_nukestudio.md#tags). It is automatically run at start of the hiero. Use this tool to manually re-create all the tags if you accidentaly delete them, or you want to reset them to default values.
 
 #### Result
 
@@ -69,68 +41,45 @@ This tools will recreate all available tags from [config file](admin_presets_nuk
 </div>
 </div>
 
-## Pype global tools
 
-### Set Context
+## Publishing Shots
 
-<div class="ImagePanel" data-image-align='right'>
+There are two ways to `Publish` data from hiero. Use either context menu on right clicking selected clips or go to top `menu > Pype > Publish`.
+
+Keep in mind that the publishing currently works on selected shots
+
+Currently we **do not support encoding** on the fly during publishing so
+all clips have to be previously encoded and cut to correct length.
+
+<div id="noHeadline" class="ImagePanel" data-image-align='left'>
 <div class="ImagePanel.content">
 
-In any case of need for changing context to another task we recommend to simply close the current `.hrox` (`CTRL`+`W`) and then change the context within a database project, then use **Work Files tool** to open a file on the context.
-
-Look [here](artist_tools.md#set-context) for more details.
+Shot names for all the related plates that you want to publish (subsets) has to be the same to be correctly paired together (as it is shown in image).
+Note the layer **review** which contains `plateMainReview`.
+This media is just h264,1920x1080 video for tha will be used as preview of the actua `plateMain` subset and will be uploaded to Ftrack. We explain how to work with review tag in [**Reviewing**](#reviewing).
 
 </div>
 <div class="ImagePanel.image Screenshot">
 
-![Set Context](assets/nukestudio_setContext.png)
+![Clips naming](assets/nukestudio_basic_clipNaming.png)
 
 </div>
 </div>
 
-### Work Files
-
-Basic introduction of Work Files tools [here](artist_tools.md#workfiles).
-
-Any time you open project in pype the Work files dialog window will popup. In case there is none workfile available just `Save As`. We realize there is a bug at the moment which will always ask you if you want to save as the open file even it is `untitled` and unedited project - simply say `No` (picture bellow).
-
-:::note The bug fix
-
-This happens in case `untitled` project at start. If you have open any project which you want to save just hit `Yes`.
-
-<div class="ImagePanel.image Screenshot">
-
-<figure>
-
-![Opening file Work Files with bug](assets/nukestudio_workfiles_openingLimit.png)
-
-<figcaption>
-
-1.  open files
-2.  untitled project at project bin
-3.  selecting `No` is all solved
-
-</figcaption>
-</figure>
-</div>
+:::important
+To to successfuly publish a shot from hiero:
+1. At least one clip of your shot must be tagged with `Hierarchy`, `subset` and `handleStart/End`.
+2. Your source media must be pre-cut to correct length (including handles)
 :::
-
-### Publish
-
-There are two ways you can run `Publish` from. Use either context menu on RMBC selected clips or `menu > Pype > Publish`.
-
-:::warning
-To be able to publish anything you have to select at least one clip with minimal tags presence of `Hierarchy`, `subset>plateMain`, `handleStart/End(0)`, `task>Compositing`.
-:::
-
-## Basic concepts
 
 ### Tagging
 
 <div class="ImagePanel" data-image-align='right'>
 <div class="ImagePanel.content">
 
-Our own Tags are used for defining shot parts ([subsets](artist_concepts.md#subset)) parameters.
+Pype's custom tags are used for defining shot parameters and to define which clips and how they are going to be published.
+
+If you want to add any properties to your clips you'll need to adjust values on the given tag and then drag it onto the clip.
 
 </div>
 <div class="ImagePanel.image Screenshot">
@@ -151,8 +100,8 @@ Our own Tags are used for defining shot parts ([subsets](artist_concepts.md#subs
 </div>
 </div>
 
-:::caution
-Only clips with `subset` tag are accepted during publishing. This doesn't apply to `review` clip in track named `review`.
+:::important
+Only clips with `subset` will be directly processed for publishing.
 :::
 
 ### Custom Tags Details
