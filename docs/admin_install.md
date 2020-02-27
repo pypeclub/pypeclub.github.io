@@ -165,6 +165,23 @@ git clone --tag 2.4.0 https://bitbucket.com/pypeclub/pype-setup.git dev
 Specify your version after `--branch` or `--tag` option.
 
 :::note
+It is possible to distinguish `dev` and `prod` by changing Pype icon color to orange. To do so, you have to create `config.ini` file with content:
+```text
+[DEFAULT]
+dev=true
+```
+
+And put the file to:
+```text
+Shared Network Drive
+├─── pype
+      └─── dev
+            └───pypeapp
+                    └───config.ini
+```
+:::
+
+:::note
 You should always use tags to checkout to get specific release, otherwise you end up with *develop* branch that can be unstable.
 :::
 
