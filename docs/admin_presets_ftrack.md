@@ -83,3 +83,43 @@ mapping of status that propagate automatically from published version to it's ta
     }
 }
 ```
+
+### FirstVersionStatus [event]
+
+This event handler set status to first created Asset Version.
+Status is set by task name or task type's name assigned to Asset Version.
+
+Example of one item.
+```json
+{
+    "status": "In Progress",
+    "name": "compositing",
+    "key": "task"
+}
+```
+- __status__ status to set if `key` and `name` match.
+- __name__ name of task or task's type.
+- __key__ specify where to look for name. There are two variants where to look:
+  1.) "task" - task's name
+  2.) "task_type" - task type's name
+  - `key` is optional. Default is "task"
+
+It doesn't matter if values are lowered, capitalized.
+
+Where to set: `~/pype-config/presets/ftrack/server.json`
+```json
+{
+    "...": "{...}",
+
+    "FirstVersionStatus": {
+        "task_status_map": [{
+            "key": "task",
+            "name": "compositing",
+            "status": "Blocking"
+        }, {
+            "MORE ITEMS...": "MORE VALUES..."
+        }]
+    },
+    "...": "{...}"
+}
+```

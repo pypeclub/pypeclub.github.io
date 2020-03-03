@@ -22,7 +22,7 @@ Keep in mind that **Custom attr doc** action will migrate certain attributes fro
 
 Ftrack Event Server is the key to automation of many tasks like _status change_, _thumbnail update_, _automatic synchronization to Avalon database_ and many more. Event server should run at all times to perform all the required processing as it is not possible to catch some of them retrospectively with enough certainty.
 
-### Running event serevr
+### Running event server
 
 There are specific launch arguments for event server. With `$PYPE_SETUP/pype eventserver` you can launch event server but without prior preparation it will terminate immediately. The reason is that event server requires 3 pieces of information: _Ftrack server url_, _paths to events_ and _Credentials (Username and API key)_. Ftrack server URL and Event path are set from Pype's environments by default, but the credentials must be done separatelly for security reasons.
 
