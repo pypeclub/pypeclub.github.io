@@ -22,7 +22,7 @@ Keep in mind that **Custom attr doc** action will migrate certain attributes fro
 
 Ftrack Event Server is the key to automation of many tasks like _status change_, _thumbnail update_, _automatic synchronization to Avalon database_ and many more. Event server should run at all times to perform all the required processing as it is not possible to catch some of them retrospectively with enough certainty.
 
-### Running event serevr
+### Running event server
 
 There are specific launch arguments for event server. With `$PYPE_SETUP/pype eventserver` you can launch event server but without prior preparation it will terminate immediately. The reason is that event server requires 3 pieces of information: _Ftrack server url_, _paths to events_ and _Credentials (Username and API key)_. Ftrack server URL and Event path are set from Pype's environments by default, but the credentials must be done separatelly for security reasons.
 
@@ -164,6 +164,15 @@ This event makes sure statuses Asset Version get synced to it's task. After chan
 
 -   `Reviewed` then Task's status will be changed to `Change requested`
 -   `Approved` then Task's status will be changed to `Complete`
+
+
+### Update First Version status _(FirstVersionStatus)_
+
+This event handler allows setting of different status to a first created Asset Version in ftrack.
+
+This is usefull for example if first version publish doesn't contain any actual reviewable work, but is only used for roundtrip conform check, in which case this version could receive status `pending conform` instead of standard `pending review`
+
+Behaviour can be filtered by `name` or `type` of the task assigned to the Asset Version. Configuration can be found in [ftrack presets](admin_presets_ftrack#first_version_status-dict)
 
 * * *
 

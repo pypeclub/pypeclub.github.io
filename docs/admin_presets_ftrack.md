@@ -72,6 +72,7 @@ Key specifies the resulting status and value is a list of statuses from which we
 
 mapping of status that propagate automatically from published version to it's task. By default we search for identical status, however this preset let's you remap between different statuses on versions and tasks.
 
+
 `status_version_to_task` [dict]:
 
 ```json
@@ -81,5 +82,38 @@ mapping of status that propagate automatically from published version to it's ta
         "in progress": "in progress",
         "approved": "approved"
     }
+}
+```
+
+## SERVER.json
+
+path: `pype-config/presets/ftrack/server.json`
+
+### `first_version_status` [dict]
+
+`task_status_map` [list]: List of dictionaires specifying individual mappings
+
+`status` [string]: status to set if `key` and `name` match.
+
+`name` [string]: name of task or task's type.
+
+`key` [enumerator]: _optional_ specify where to look for name. There are two possible value:
+  1. `task`: task's name (default)
+  2. `task_type`: task type's name
+
+It doesn't matter if values are lowered or capitalized.
+
+```json
+{
+    "FirstVersionStatus": {
+        "task_status_map": [{
+            "key": "task",
+            "name": "compositing",
+            "status": "Blocking"
+        }, {
+            "MORE ITEMS...": "MORE VALUES..."
+        }]
+    },
+    "...": "{...}"
 }
 ```
