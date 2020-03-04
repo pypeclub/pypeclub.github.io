@@ -165,6 +165,15 @@ This event makes sure statuses Asset Version get synced to it's task. After chan
 -   `Reviewed` then Task's status will be changed to `Change requested`
 -   `Approved` then Task's status will be changed to `Complete`
 
+
+### Update First Version status _(FirstVersionStatus)_
+
+This event handler allows setting of different status to a first created Asset Version in ftrack.
+
+This is usefull for example if first version publish doesn't contain any actual reviewable work, but is only used for roundtrip conform check, in which case this version could receive status `pending conform` instead of standard `pending review`
+
+Behaviour can be filtered by `name` or `type` of the task assigned to the Asset Version. Configuration can be found in [ftrack presets](admin_presets_ftrack#first_version_status-dict)
+
 * * *
 
 ## Credentials
