@@ -174,8 +174,8 @@ dev=true
 And put the file to:
 ```text
 Shared Network Drive
-├─── pype
-      └─── dev
+├─── dev
+      └─── pype-setup
             └───pypeapp
                     └───config.ini
 ```
