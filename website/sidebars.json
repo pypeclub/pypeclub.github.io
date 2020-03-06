@@ -38,7 +38,8 @@
             "admin_presets_tools"
         ],
         "Release Notes": [
-            "changelog"
+            "changelog",
+            "upgrade_notes"
         ]
     }
 }

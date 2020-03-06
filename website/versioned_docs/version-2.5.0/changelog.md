@@ -1,55 +1,16 @@
 ---
-id: changelog
+id: version-2.5.0-changelog
 title: Release Notes
 sidebar_label: Release Notes
+original_id: changelog
 ---
-
-<a name="2.6.0"></a>
-## 2.6.0 ##
-
-_**release date:** 9 March 2020_
-
-**change:**
-- _(maya)_ render publishing has been simplified and made more robust. Render setup layers are now automatically added to publishing subsets and `render globals` family has been replaced with simple `render` [PYPE-570]
-- _(avalon)_ change context and workfiles apps, have been merged into one, that allows both actions to be performed at the same time. [PYPE-747]
-- _(pype)_ thumbnails are now automatically propagate to asset from the last published subset in the loader
-- _(ftrack)_ publishing comment and intent are now being published to ftrack note as well as describtion. [PYPE-727]
-- _(pype)_ when overriding existing version new old representations are now overriden, instead of the new ones just being appended. (to allow this behaviour, the version validator need to be disabled. [PYPE-690])
-- _(pype)_ burnin preset has been significantly simplified. It now doesn't require passing function to each field, but only need the actual text template. to use this, all the current burnin PRESETS MUST BE UPDATED for all the projects.
-- _(ftrack)_ credentials are now stored on a per server basis, so it's possible to switch between ftrack servers without having to log in and out. [PYPE-723]
-
-
-**new:**
-- _(pype)_ production and development deployments now have different colour of the tray icon. Orange for Dev and Green for production [PYPE-718]
-- _(maya)_ renders can now be attached to a publishable subset rather than creating their own subset. For example it is possible to create a reviewable `look` or `model` render and have it correctly attached as a representation of the subsets [PYPE-451]
-- _(maya)_ after saving current scene into a new context (as a new shot for instance), all the scene publishing subsets data gets re-generated automatically to match the new context [PYPE-532]
-- _(pype)_ we now support project specific publish, load and create plugins [PYPE-740]
-- _(ftrack)_ new action that allow archiving/deleting old published versions. User can keep how many of the latest version to keep when the action is ran. [PYPE-748, PYPE-715]
-- _(ftrack)_ it is now possible to monitor and restart ftrack event server using ftrack action. [PYPE-658]
-- _(pype)_ validator that prevent accidental overwrites of previously published versions. [PYPE-680]
-- _(avalon)_ avalon core updated to version 5.6.0
-- _(maya)_ added validator to make sure that relative paths are used when publishing arnold standins.
-- _(nukestudio)_ it is now possible to extract and publish audio family from clip in nuke studio [PYPE-682]
-
-**fix**:
-- _(maya)_ maya set framerange button was ignoring handles [PYPE-719]
-- _(ftrack)_ sync to avalon was sometime crashing when ran on empty project
-- _(nukestudio)_ publishing same shots after they've been previously archived/deleted would result in a crash. [PYPE-737]
-- _(nuke)_ slate workflow was breaking in certain scenarios. [PYPE-730]
-- _(pype)_ rendering publish workflow has been significantly improved to prevent error resulting from implicit render collection. [PYPE-665, PYPE-746]
-- _(pype)_ launching application on a non-synced project resulted in obscure [PYPE-528]
-- _(pype)_ missing keys in burnins no longer result in an error. [PYPE-706]
-- _(ftrack)_ create folder structure action was sometimes failing for project managers due to wrong permissions.
-- _(Nukestudio)_ using `source` in the start frame tag could result in wrong frame range calculation
-- _(ftrack)_ sync to avalon action and event have been improved by catching more edge cases and provessing them properly.
-
 
 <a name="2.5"></a>
 ## 2.5.0 ##
 
 _**release date:** 11 Feb 2020_
 
-**change:**
+**changed:**
 - _(pype)_ added many logs for easier debugging
 - _(pype)_ review presets can now be separated between 2d and 3d renders [PYPE-693]
 - _(pype)_ anatomy module has been greatly improved to allow for more dynamic pulblishing and faster debugging [PYPE-685]
@@ -103,7 +64,7 @@ _**release date:** 11 Feb 2020_
 
 _**release date:** 9 Dec 2019_
 
-**change:**
+**changed:**
 - _(ftrack)_ version to status ftrack event can now be configured from Presets
   - based on preset `presets/ftracc/ftrack_config.json["status_version_to_task"]`
 - _(ftrack)_ sync to avalon event has been completely re-written. It now supports most of the project management situations on ftrack including moving, renaming and deleting entities, updating attributes and working with tasks.
