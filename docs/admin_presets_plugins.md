@@ -55,6 +55,18 @@ sidebar_label: Plugins
 }
 ```
 
+### `ProcessSubmittedJobOnFarm` ###
+
+```python
+"ProcessSubmittedJobOnFarm": {
+    "aov_filter": {
+        "host": ["aov_name"],
+        "maya": ["beauty"]
+    }
+    "deadline_pool": ""
+}
+```
+
 
 ## Maya ##
 
@@ -92,14 +104,6 @@ maya outliner colours for various families
     "enabled": false,
     "material_file": "/path/to/shader_name_definition.txt",
     "regex": "(.*)_(\\d)*_(?P<shader>.*)_(GEO)"
-},
-```
-
-### `ValidateAssemblyName` ###
-
-```python
-"ValidateAssemblyName": {
-    "enabled": false
 },
 ```
 
