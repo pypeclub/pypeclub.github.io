@@ -343,6 +343,11 @@ class Index extends React.Component {
               <span class="caption">Photoshop</span>
             </a>
 
+            <a class="link" href="http://localhost:3000/features#nuke">
+              <img src="/img/app_toonboom.png" alt="" title=""></img>
+              <span class="caption">Toon Boom</span>
+            </a>
+
           </div>
 
         </div>
