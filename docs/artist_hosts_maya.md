@@ -472,9 +472,9 @@ When render is finished, this other job triggers in and run publish again, but t
 
 ### Attaching render to subset
 
-You can create render not just for itself, but lets assume for example that you want to have rendered preview for your model. Doing it is easy.
-In scene from where you want to publish your model create *Render instance*. Create your render layer as you need and then drag
-model instance under corresponding `LAYER_` set under *Render instance*. During publish, it will submit this render to farm and
+You can create render that will be attached to another subset you are publishing, rather than being published on it's own. Let's assume, you want to render a model turnaround.
+In the scene from where you want to publish your model create *Render subset*. Prepare your render layer as needed and then drag
+model subset (maya set node) under corresponding `LAYER_` set under *Render instance*. During publish, it will submit this render to farm and
 after it is rendered, it will be attached to your model subset.
 
 ## Render Setups
