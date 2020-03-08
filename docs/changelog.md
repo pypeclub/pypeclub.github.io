@@ -1,7 +1,7 @@
 ---
 id: changelog
-title: Release Notes
-sidebar_label: Release Notes
+title: Changelog
+sidebar_label: Changelog
 ---
 
 <a name="2.6.0"></a>
