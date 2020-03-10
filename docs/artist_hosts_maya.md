@@ -367,29 +367,40 @@ tweaks on it.
 
 #### Prepare scene for submission
 
-Ok, now we have working simple scene. We need to do few more things to be able to submit it.
-First, we need to create *RenderGlobals instance*. This is special kind of instance that is
-not designed to hold other objects or mark them as publishable. This instance holds data needed
-for render farm submission.
+As we have working simple scene we can start preparing it for rendering. Pype is fully utilizing
+Render Setup layers for this. First of all, we need to create *Render instance* to tell Pype what
+to do with renders. You can easily render locally or on render farm without it, but *Render instance*
+is here to mark render layers you want to publish.
 
-Lets create it. Go **Pype → Create...**. There select **Render Globals** from list. Now, no
-matter if you use *Deadline* or *Muster*, Pype will try to connect to render farm and
+Lets create it. Go **Pype → Create...**. There select **Render** from list. If you keep
+checked **Use selection** it will use your current Render Layers (if you have them). Otherwise,
+if no render layers is present in scene, it will create one for you named **Main** and under it
+default collection with `*` selector.
+
+No matter if you use *Deadline* or *Muster*, Pype will try to connect to render farm and
 fetch machine pool list.
 
 :::note Muster login
-This might fail on *Muster* in the event that you have expired authentication token. In
-that case, you'll be presented with login window. Nothing will be created in the scene until
-you log in again and do create **Render Globals** again.
+This might fail on *Muster* in the event that you have expired authentication token. In that case, you'll be presented with login window. Nothing will be created in the scene until you log in again and do create **Render** again.
 :::
-So my scene now looks like this:
 
-My scene looks like this:
+So now my scene now looks like this:
 
 ![Maya - Render scene Setup](assets/maya-render_setup.jpg)
 
-And `renderglobalsMain` in **Attributes Editor**:
+You can see that it created `renderingMain` set and under it `LAYER_Main`. This set corresponds to
+**Main** render layer in Render Setup. This was automatically created because I had not created any
+render layers in scene before. If you already have layers and you use **Use selection**, they will
+appear here, prefixed with `LAYER_`. Those layer set are created whenever you create new layer in
+Render Setup and are deleted if you delete layer in Render Setup. However if you delete `LAYER_` set,
+layer in Render Setup isn't deleted. It just means it won't be published.
 
-![Maya - RenderGlobals attributes](assets/maya-renderglobals.jpg)
+Creating *Render instance* will also set image prefix in render settings to Pype defaults based on
+renderer you use - for example if you render with Arnold, it is `maya/<Scene>/<RenderLayer>/<RenderLayer>_<RenderPass>`.
+
+There are few setting on *Render instance* `renderingMain` in **Attributes Editor**:
+
+![Maya - Render attributes](assets/maya-renderglobals.jpg)
 
 Few options that needs explaining:
 
@@ -399,27 +410,13 @@ but is in *waiting* state.
 * `Extend Frames` - if checked it will add new frames to previous render, so you can
 extend previous image sequence.
 * `Override Existing Frame` - will overwrite file in destination if they exists
-* `Use Legacy Render Layers` - this currently does nothing as Legacy Render Layers
-are not supported and will probably never be.
 * `Priority` is priority of job on farm
 * `Frames Per Task` is number of sequence division between individual tasks (chunks)
 making one job on farm.
 
-If you now try to publish render, you notice that Publish seems to be totally
-ignorant about the fact you want to submit something to render on farm.
-
-This is because our scene is missing defined render layers. Their presence is signal
-for publish to consider it for submission.
-
-As legacy layers are not supported, lets open **Render Setup** window.
-
-I've created new layer, named it `Main` and simple Collection including all in the scene.
-
-![Maya - Render Setup detail](assets/maya-render_setup_window.jpg)
-
 Now if you run publish, you notice there is in right column new item called
-`Render Layers` and in it there is our new layer `Main (foo) [1-10]`. First part is
-layer name, second (`(foo)`) is asset name and rest is frame range.
+`Render Layers` and in it there is our new layer `Main (999_abc_0010) [1-10]`. First part is
+layer name, second `(999_abc_0010)` is asset name and rest is frame range.
 
 ![Maya - Render Publish errors](assets/maya-render_publish_detail1.jpg)
 
@@ -427,28 +424,42 @@ You see I already tried to run publish but was stopped by few errors. Lets go
 through them one by one just to see what we need to set up further in scene for
 successful publish.
 
-**Render Single Camera** and **No Default Cameras Renderable** can be resolved by
-simple change in *Main* layer render settings. As I created new camera from
-`persp`, Maya added it to renderable cameras for that layer. All I have to do is
-just remove the `persp` camera from render settings.
+**No Default Cameras Renderable** is telling me:
+
+```fix
+Renderable default cameras found: [u'|persp|perspShape']
+```
+
+and so can be resolved by simple change in *Main* layer render settings.
+All I have to do is just remove the `persp` camera from render settings and add there correct camera.
 
 This leaves me only with **Render Settings** error. If I click on it to see
-details, I see it has problem with animation not being enabled and with file
-name prefix.
+details, I see it has problem with animation not being enabled:
+
+```fix
+Animation needs to be enabled. Use the same frame for start and end to render single frame
+```
 
 Go to **Render Settings**, select your render layer and in **Common** tab change
 in **File Output** `Frame/Animation ext` to whatever you want, just not _Single Frame_.
-Set **Frame Range** `Start frame` and `End frame` according your needs and at the top in
-**File Output** set `File name prefix` to:
+Set **Frame Range** `Start frame` and `End frame` according your needs.
+
+If you run into problems with *image file prefix* - this should be set correctly when
+creating *Render instance*, but you can tweak it. It needs to begin with `maya/<Scene>` token
+to avoid render conflicts between DCCs. It needs to have `<RenderLayer>` or `<Layer>` (vray) and
+`<RenderPass>` or `<Aov>` (vray). If you have more then one renderable cameras, add `<Camera>` token.
+
+Sane default for arnold, redshift or renderman is:
 
 ```fix
 maya/<RenderLayer>/<RenderLayer>_<RenderPass>
 ```
-for default Arnold, and:
+
+and for vray:
+
 ```fix
 maya/<Layer>/<Layer>
 ```
-for VRay.
 
 Doing **Pype → Reset Resolution** will set correct resolution on camera.
 
@@ -456,8 +467,15 @@ Scene is now ready for submission and should publish without errors.
 
 :::tip what happens when I publish my render scene
 When publishing is finished, job is created on farm. This job has one more dependent job connected to itself.
-When render is finished, this other job triggers in and run publish again, but this time it is publishing rendered image sequence and creating quicktime movie for preview from it.
+When render is finished, this other job triggers in and run publish again, but this time it is publishing rendered image sequence and creating quicktime movie for preview from it. Only those rendered sequences that have **beauty** AOV get preview as it doesn't make sense to make it for example from cryptomatte.
 :::
+
+### Attaching render to subset
+
+You can create render that will be attached to another subset you are publishing, rather than being published on it's own. Let's assume, you want to render a model turnaround.
+In the scene from where you want to publish your model create *Render subset*. Prepare your render layer as needed and then drag
+model subset (maya set node) under corresponding `LAYER_` set under *Render instance*. During publish, it will submit this render to farm and
+after it is rendered, it will be attached to your model subset.
 
 ## Render Setups
 
