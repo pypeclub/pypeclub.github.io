@@ -18,17 +18,7 @@ Each plugin in the json should be added as name of the class. There are some def
 }
 ```
 
-### `ProcessSubmittedJobOnFarm` ###
-
-```python
-"ProcessSubmittedJobOnFarm": {
-    "aov_filter": {
-        "host": ["aov_name"],
-        "maya": ["beauty"]
-    }
-    "deadline_pool": ""
-}
-```
+### `ExtractReview`
 
 Plugin responsible for auto FFMPEG conversion to variety of formats.
 
@@ -66,7 +56,7 @@ Each preset is completed from following attributes:
 
 #### Preset examples:
 
-All following examples are contest of `outputs` plugin attribute.
+All following examples are content of `outputs` plugin attribute.
 
 <br>
 
@@ -99,11 +89,11 @@ Codec is defined as yuv420p and input conversion to gamma 2.2 is pushing video g
 
 ##### Avid Editor's video file:
 
-This video is usualy used in Avid editing software but could be also used in other favorite editing or colorgrading software. It is data level 10bit 444 mxf video.
+This video is usually used in Avid editing software but could be also used in other favorite editing or color grading software. It is data level 10bit 444 mxf video.
 
 This will be active only for 2D rendering such as Nuke compositing job. Also as we could se there is `slate-frame` so -1 frame before first frame of render will be placed image with printed task and shot metadata. This is only possible with SLATE node above write node of Nuke workfile at the moment.
 
-The resolution of this file is the original shot definition as seen in Nuke workfile.
+The resolution of this file is the original shot definition as seen in Nuke workfile because it has no `reformat` tag.
 
 ```json
 {
@@ -124,6 +114,12 @@ The resolution of this file is the original shot definition as seen in Nuke work
 }
 ```
 
+<br>
+
+##### ProRes 422:
+
+File which is usually used for client review delivery so it is only generated from 2d renders. It is having slate frame included; having applied screen space LUT; reformatted to defined proxy resolution; with burned metadata into image.
+
 ```json
 {
     "wipmov": {
@@ -138,6 +134,12 @@ The resolution of this file is the original shot definition as seen in Nuke work
 }
 ```
 
+<br>
+
+##### ProRes 422:
+
+File which is usually used for client review delivery so it is only generated from 2d renders. It is having slate frame included; having applied screen space LUT; reformatted to defined proxy resolution; with burned metadata into image.
+
 ```json
 {
     "png": {
@@ -150,6 +152,22 @@ The resolution of this file is the original shot definition as seen in Nuke work
         "codec": [
             "-vcodec png"
         ]
+    }
+}
+```
+
+<br>
+
+### `ProcessSubmittedJobOnFarm`
+
+```json
+{
+    "ProcessSubmittedJobOnFarm": {
+        "aov_filter": {
+            "host": ["aov_name"],
+            "maya": ["beauty"]
+        },
+        "deadline_pool": ""
     }
 }
 ```
@@ -193,7 +211,7 @@ maya outliner colours for various families
 },
 ```
 
-### `ValidateShaderName` ###
+### `ValidateShaderName`
 
 ```python
 "ValidateShaderName": {
