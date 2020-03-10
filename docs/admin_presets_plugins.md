@@ -4,53 +4,16 @@ title: Presets > Plugins
 sidebar_label: Plugins
 ---
 
-## Global ###
+## Global
 
-### publish.json ###
+### publish.json
 
-### `ExtractReview` ###
+Each plugin in the json should be added as name of the class. There are some default attributes recommended to use in case you wish a plugin to be switched off for some projects in `project overwrites` like `enabled: false`. So for example if you wish to switch off plugin class name `PluginName(pyblish.api.contextPlugin)` if file `name_of_plugin_file.py`, it could be done only by adding following text into root level of publish.json file:
 
-```python
-"ExtractReview": {
-    "ext_filter": ["exr", "jpg", "jpeg", "mov", "png", "dpx", "mp4"],
-    "outputs": {
-        "h264": {
-            "families": ["write", "ftrack"],
-            "input": [
-                "-gamma 2.2"
-            ],
-            "letter_box": 2.35,
-            "output": [
-                "-pix_fmt yuv420p",
-                "-crf 18"
-            ],
-            "tags": ["preview", "burnin"],
-            "ext": "mov"
-        },
-        "edit": {
-            "families": ["write"],
-            "output": [
-                "-vf scale=1920x1080",
-                "-vcodec dnxhd",
-                "-pix_fmt yuv422p",
-                "-b:v 120M",
-                "-ar 48000",
-                "-ac 2",
-                "-qmax 51"
-            ],
-            "ext": "mxf"
-        },
-        "wipmov": {
-            "families": ["write"],
-            "letter_box": 2.35,
-            "output": [
-                "-vf scale=1920x1080",
-                "-c:v prores_ks",
-                "-profile:v 3"
-            ],
-            "tags": ["burnin"],
-            "ext": "mov"
-        }
+```json
+{
+    "PluginName": {
+        "enabled": false
     }
 }
 ```
@@ -67,12 +30,135 @@ sidebar_label: Plugins
 }
 ```
 
+Plugin responsible for auto FFMPEG conversion to variety of formats.
 
-## Maya ##
+#### Plugin attributes [required]&#x3A;
 
-### load.json ###
+-   **ext_filter** - list of strings where each of the string is refering to extension of used file. It can be used either for single file video format or multiple sequence named image files. Example:
 
-### `colors` ###
+        "ext_filter": ["exr", "jpg", "jpeg", "mov", "png", "dpx", "mp4"]
+
+-   **outputs** - dictionary of presets where key is name of preset and value is dictionary with preset attributes
+
+-   **\_\_documentation\_\_** - url address to this documentation
+
+<br>
+
+#### Preset attributes
+
+Each preset is completed from following attributes:
+
+-   **families** [required] - instance families which should be the preset active on. Example: my instance is part of `model` family, so I add `model` to preset and any time publishing with `review` is executed this preset will be active of processed representations, if they also satisfy other required properties.
+-   **input** - ffmpeg input arguments. Example: `-gamma 2.2`
+-   **codec** [required] - ffmpeg codec arguments. Example: `-vcodec dnxhd`
+-   **output** - ffmpeg ouput arguments. Example: video filters, drawn boxes, text
+-   **letter_box** - value is float
+-   **tags**:
+    -   **burnin** - will add metadata info to image
+    -   **preview** -  will be used as preview in ftrack
+    -   **reformat** - rescale up to 1920x1080
+    -   **bake-lut** - bake LUT into pixels (available path in data)
+    -   **slate-frame** - adding slate frame at beggining of video
+    -   **sequence** - let ffmpeg create sequence of png or jpg (ext needs to be set to png or jpg/jpeg)
+-   **ext** [required]
+
+<br>
+
+#### Preset examples:
+
+All following examples are contest of `outputs` plugin attribute.
+
+<br>
+
+##### Ftrack review preview:
+
+Preset name is `h264` and this will be used in file name. This video is dedicated to be uploded to ftrack as version preview. In tags can be seen `burnin`, `preview`, `reformat`, `bake-lut`, it means the video will be reformated into HDTV format with burnin information and uploaded to ftrack. `bake-lut` for screenspace baked colorspace.
+
+This preset will be active only if `render` family is present in instance and `ftrack` along with `preview` tag is enabling Ftrack preview upload.
+
+Codec is defined as yuv420p and input conversion to gamma 2.2 is pushing video gamma curve as original baked video space is in linear.
+
+```json
+{
+    "h264": {
+        "ext": "mov",
+        "families": ["render", "ftrack"],
+        "tags": ["burnin", "preview", "reformat", "bake-lut"],
+        "input": [
+            "-gamma 2.2"
+        ],
+        "codec": [
+            "-pix_fmt yuv420p",
+            "-crf 18"
+        ]
+    }
+}
+```
+
+<br>
+
+##### Avid Editor's video file:
+
+This video is usualy used in Avid editing software but could be also used in other favorite editing or colorgrading software. It is data level 10bit 444 mxf video.
+
+This will be active only for 2D rendering such as Nuke compositing job. Also as we could se there is `slate-frame` so -1 frame before first frame of render will be placed image with printed task and shot metadata. This is only possible with SLATE node above write node of Nuke workfile at the moment.
+
+The resolution of this file is the original shot definition as seen in Nuke workfile.
+
+```json
+{
+    "edit": {
+        "ext": "mxf",
+        "families": ["render2d"],
+        "tags": ["slate-frame"],
+        "codec": [
+            "-vcodec dnxhd",
+            "-profile:v dnxhr_444",
+            "-pix_fmt yuv444p10le",
+            "-b:v 185M",
+            "-ar 48000",
+            "-ac 2",
+            "-qmax 51"
+        ]
+    }
+}
+```
+
+```json
+{
+    "wipmov": {
+        "ext": "mov",
+        "families": ["render2d"],
+        "tags": ["burnin", "reformat", "bake-lut", "slate-frame"],
+        "codec": [
+            "-c:v prores_ks",
+            "-profile:v 3"
+        ]
+    }
+}
+```
+
+```json
+{
+    "png": {
+        "ext": "png",
+        "families": ["render3d"],
+        "tags": ["burnin", "reformat", "bake-lut", "sequence"],
+        "input": [
+            "-gamma 2.2"
+        ],
+        "codec": [
+            "-vcodec png"
+        ]
+    }
+}
+```
+
+## Maya
+
+### load.json
+
+### `colors`
 
 maya outliner colours for various families
 
@@ -95,9 +181,9 @@ maya outliner colours for various families
 }
 ```
 
-### publish.json ###
+### publish.json
 
-### `ValidateModelName` ###
+### `ValidateModelName`
 
 ```python
 "ValidateModelName": {
@@ -116,11 +202,11 @@ maya outliner colours for various families
 }
 ```
 
-## Nuke ##
+## Nuke
 
-### create.json ###
+### create.json
 
-### `CreateWriteRender` ###
+### `CreateWriteRender`
 
 ```python
 "CreateWriteRender": {
@@ -128,10 +214,9 @@ maya outliner colours for various families
 }
 ```
 
+### publish.json
 
-### publish.json ###
-
-### `ExtractReviewData` ###
+### `ExtractReviewData`
 
 ```python
 "ExtractReviewData": {
@@ -144,13 +229,12 @@ maya outliner colours for various families
 }
 ```
 
+## NukeStudio
 
-## NukeStudio ##
+### Create
 
-### Create ###
+### Load
 
-### Load ###
+### Publish
 
-### Publish ###
-
-## Standalone Publisher ##
+## Standalone Publisher
