@@ -18,6 +18,9 @@ Each plugin in the json should be added as name of the class. There are some def
 }
 ```
 
+<br>
+<br>
+
 ### `ExtractReview`
 
 Plugin responsible for auto FFMPEG conversion to variety of formats.
