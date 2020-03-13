@@ -237,4 +237,16 @@ maya outliner colours for various families
 
 ### Publish
 
+### `CollectInstanceVersion`
+
+In case a need for synchronized version of project workfile with published subset plugin there has to be activate plugin for injecting workfile version into instance.
+
+Alter following code in `presets/plugins/nukestudio/publish.json`.
+
+```python
+"CollectInstanceVersion": {
+    "enabled": true
+}
+```
+
 ## Standalone Publisher
