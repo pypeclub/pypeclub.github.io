@@ -103,6 +103,7 @@
 <li><strong>reformat</strong> - rescale up to 1920x1080</li>
 <li><strong>bake-lut</strong> - bake LUT into pixels (available path in data)</li>
 <li><strong>slate-frame</strong> - adding slate frame at beggining of video</li>
+<li><strong>no-handles</strong> - generate output format with no handles</li>
 <li><strong>sequence</strong> - let ffmpeg create sequence of png or jpg (ext needs to be set to png or jpg/jpeg)</li>
 </ul></li>
 <li><strong>ext</strong> [required]</li>
@@ -125,7 +126,8 @@
         ],
         <span class="hljs-attr">"codec"</span>: [
             <span class="hljs-string">"-pix_fmt yuv420p"</span>,
-            <span class="hljs-string">"-crf 18"</span>
+            <span class="hljs-string">"-crf 18"</span>,
+            <span class="hljs-string">"-intra"</span>
         ]
     }
 }
