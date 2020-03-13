@@ -59,6 +59,7 @@ Each preset is completed from following attributes:
     -   **reformat** - rescale up to 1920x1080
     -   **bake-lut** - bake LUT into pixels (available path in data)
     -   **slate-frame** - adding slate frame at beggining of video
+    -   **no-handles** - generate output format with no handles
     -   **sequence** - let ffmpeg create sequence of png or jpg (ext needs to be set to png or jpg/jpeg)
 -   **ext** [required]
 
@@ -89,7 +90,8 @@ Codec is defined as yuv420p and input conversion to gamma 2.2 is pushing video g
         ],
         "codec": [
             "-pix_fmt yuv420p",
-            "-crf 18"
+            "-crf 18",
+            "-intra"
         ]
     }
 }
