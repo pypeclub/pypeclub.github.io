@@ -38,6 +38,10 @@ Plugin responsible for auto FFMPEG conversion to variety of formats.
 
         "ext_filter": ["exr", "jpg", "jpeg", "mov", "png", "dpx", "mp4"]
 
+-   **to_width** - if tag `reformat` is used in preset this is forcing output resolution to defined integer value
+
+-   **to_height** - if tag `reformat` is used in preset this is forcing output resolution to defined integer value
+
 -   **outputs** - dictionary of presets where key is name of preset and value is dictionary with preset attributes
 
 -   **\_\_documentation\_\_** - url address to this documentation
