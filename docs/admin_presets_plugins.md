@@ -23,11 +23,11 @@ Each plugin in the json should be added as name of the class. There are some def
 
 ### `ExtractReview`
 
-Plugin responsible for auto FFMPEG conversion to variety of formats.
+Plugin responsible for automatic FFMPEG conversion to variety of formats.
 
 #### Plugin attributes [required]&#x3A;
 
--   **ext_filter** - list of strings where each of the string is refering to extension of used file. It can be used either for single file video format or multiple sequence named image files. Example:
+-   **ext_filter** - list of extension that can be processed.
 
         "ext_filter": ["exr", "jpg", "jpeg", "mov", "png", "dpx", "mp4"]
 
@@ -35,44 +35,69 @@ Plugin responsible for auto FFMPEG conversion to variety of formats.
 
 -   **to_height** - output height resolution if tag `reformat` is used.
 
--   **outputs** - dictionary of presets where key is name of preset and value is dictionary with preset attributes.
+-   **outputs** - dictionary of presets where, each defining a new review output that will be generated.
 
-<br>
+**full preset example**
+
+```json
+{
+"ExtractReview": {
+    "ext_filter": ["exr", "jpg", "jpeg", "mov", "png", "dpx", "mp4"],
+    "to_width": 1280,
+    "to_height": 720,
+    "outputs": {
+      "h264": {
+        "families": ["render", "ftrack"],
+        "input": [
+          "-gamma 2.2"
+        ],
+        "codec": [
+          "-pix_fmt yuv420p",
+          "-crf 18"
+        ],
+        "output": [],
+        "tags": ["burnin", "preview", "reformat"],
+        "ext": "mov"
+      }
+    }
+  }
+}
+```
 
 #### Preset attributes
 
-Each preset is completed from following attributes:
+Each preset consists of the following attributes:
 
--   **families** [required] - instance families which should be the preset active on. Example: my instance is part of `model` family, so I add `model` to preset and any time publishing with `review` is executed this preset will be active of processed representations, if they also satisfy other required properties.
+-   **families** [required] - subset families this preset will work on.
 -   **input** - ffmpeg input arguments. Example: `-gamma 2.2`
 -   **codec** [required] - ffmpeg codec arguments. Example: `-vcodec dnxhd`
 -   **output** - ffmpeg ouput arguments. Example: video filters, drawn boxes, text
--   **letter_box** - value is float
--   **tags**:
-    -   **burnin** - will add metadata info to image
+-   **letter_box** - float value describing the ratio of the letterbox, if required
+-   **tags**: Tags alter the review process behaviour and can be combined
+    -   **burnin** - add metadata info into the image
     -   **preview** -  will be used as preview in ftrack
-    -   **reformat** - rescale up to 1920x1080
-    -   **bake-lut** - bake LUT into pixels (available path in data)
-    -   **slate-frame** - adding slate frame at beggining of video
-    -   **no-handles** - generate output format with no handles
-    -   **sequence** - let ffmpeg create sequence of png or jpg (ext needs to be set to png or jpg/jpeg)
+    -   **reformat** - rescale to format based on `to_height` and `to_width` attributes
+    -   **bake-lut** - bake LUT into the image (available path in data)
+    -   **slate-frame** - addi slate frame at the beggining of video
+    -   **no-handles** - remove the shot handles from the output
+    -   **sequence** - generate a sequence of png or jpg instead of a video (ext needs to be set to png or jpg/jpeg)
 -   **ext** [required]
 
 <br>
 
-#### Preset examples:
+#### Review Output Preset examples:
 
 All following examples are content of `outputs` plugin attribute.
 
 <br>
 
-##### Ftrack review preview:
+##### h264 for online preview:
 
-Preset name is `h264` and this will be used in file name. This video is dedicated to be uploded to ftrack as version preview. In tags can be seen `burnin`, `preview`, `reformat`, `bake-lut`, it means the video will be reformated into HDTV format with burnin information and uploaded to ftrack. `bake-lut` for screenspace baked colorspace.
+This preset will crate a simple `h264` video which will also be uploded to ftrack for online review. YOu can see `burnin`, `preview`, `reformat` in tags, which means that the output will be reformated into HD format with burnin baked in and uploaded to ftrack. `bake-lut` will apply screenspace baked colorspace.
 
-This preset will be active only if `render` family is present in instance and `ftrack` along with `preview` tag is enabling Ftrack preview upload.
+This preset will be active only if `render` or `ftrack` family is present on the instance being processed. `preview` tag is enabling Ftrack preview upload.
 
-Codec is defined as yuv420p and input conversion to gamma 2.2 is pushing video gamma curve as original baked video space is in linear.
+Codec is defined as yuv420p and input conversion to gamma 2.2 applies the gamma curve to convert from linear colour space.
 
 ```json
 {
@@ -94,11 +119,11 @@ Codec is defined as yuv420p and input conversion to gamma 2.2 is pushing video g
 
 <br>
 
-##### Avid Editor's video file:
+##### Editorial video file:
 
-This video is usually used in Avid editing software but could be also used in other favorite editing or color grading software. It is data level 10bit 444 mxf video.
+This output is generated for the use in the final edit. It is data level 10bit 444 mxf video.
 
-This will be active only for 2D rendering such as Nuke compositing job. Also as we could se there is `slate-frame` so -1 frame before first frame of render will be placed image with printed task and shot metadata. This is only possible with SLATE node above write node of Nuke workfile at the moment.
+It is will be active only for 2D rendering such as Nuke compositing job. Also there is `slate-frame` which will be add the slate with metadata before the rendered range and attach it to the video. This is only possible with SLATE node above write node of Nuke workfile at the moment.
 
 The resolution of this file is the original shot definition as seen in Nuke workfile because it has no `reformat` tag.
 
@@ -125,39 +150,17 @@ The resolution of this file is the original shot definition as seen in Nuke work
 
 ##### ProRes 422:
 
-File which is usually used for client review delivery so it is only generated from 2d renders. It is having slate frame included; having applied screen space LUT; reformatted to defined proxy resolution; with burned metadata into image.
+This output will be in Prores 422 format, will include slate frame, screen space LUT will be applied, it will be reformatted to resolution defined by `to_height` and `to_width` attributes and will have metadata burned into the image.
 
 ```json
 {
-    "wipmov": {
+    "prores": {
         "ext": "mov",
         "families": ["render2d"],
         "tags": ["burnin", "reformat", "bake-lut", "slate-frame"],
         "codec": [
             "-c:v prores_ks",
             "-profile:v 3"
-        ]
-    }
-}
-```
-
-<br>
-
-##### ProRes 422:
-
-File which is usually used for client review delivery so it is only generated from 2d renders. It is having slate frame included; having applied screen space LUT; reformatted to defined proxy resolution; with burned metadata into image.
-
-```json
-{
-    "png": {
-        "ext": "png",
-        "families": ["render3d"],
-        "tags": ["burnin", "reformat", "bake-lut", "sequence"],
-        "input": [
-            "-gamma 2.2"
-        ],
-        "codec": [
-            "-vcodec png"
         ]
     }
 }
