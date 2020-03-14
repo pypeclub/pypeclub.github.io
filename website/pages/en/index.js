@@ -293,6 +293,11 @@ class Index extends React.Component {
               <span class="caption">Houdini</span>
             </a>
 
+            <a class="link" href="http://localhost:3000/features#maya">
+              <img src="/img/app_blender.png" alt="" title=""></img>
+              <span class="caption">Blender</span>
+            </a>
+
             <a class="link" href="">
               <img src="/img/app_fusion.png" alt="" title=""></img>
               <span class="caption">Fusion</span>
@@ -327,11 +332,6 @@ class Index extends React.Component {
           <p> <span>In development by us or a community of <a href="https://github.com/getavalon/core/pulls">avalon core</a> developers.</span></p>
 
           <div class="showcase">
-            <a class="link" href="http://localhost:3000/features#maya">
-              <img src="/img/app_blender.png" alt="" title=""></img>
-              <span class="caption">Blender</span>
-            </a>
-
 
             <a class="link" href="http://localhost:3000/features#nuke">
               <img src="/img/app_unreal.png" alt="" title=""></img>
@@ -341,6 +341,11 @@ class Index extends React.Component {
             <a class="link" href="http://localhost:3000/features#nuke">
               <img src="/img/app_photoshop.png" alt="" title=""></img>
               <span class="caption">Photoshop</span>
+            </a>
+
+            <a class="link" href="http://localhost:3000/features#nuke">
+              <img src="/img/app_toonboom.png" alt="" title=""></img>
+              <span class="caption">Toon Boom</span>
             </a>
 
           </div>

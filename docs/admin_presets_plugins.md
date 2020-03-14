@@ -31,9 +31,11 @@ Plugin responsible for auto FFMPEG conversion to variety of formats.
 
         "ext_filter": ["exr", "jpg", "jpeg", "mov", "png", "dpx", "mp4"]
 
--   **outputs** - dictionary of presets where key is name of preset and value is dictionary with preset attributes
+-   **to_width** - output width resolution if tag `reformat` is used.
 
--   **\_\_documentation\_\_** - url address to this documentation
+-   **to_height** - output height resolution if tag `reformat` is used.
+
+-   **outputs** - dictionary of presets where key is name of preset and value is dictionary with preset attributes.
 
 <br>
 
@@ -52,6 +54,7 @@ Each preset is completed from following attributes:
     -   **reformat** - rescale up to 1920x1080
     -   **bake-lut** - bake LUT into pixels (available path in data)
     -   **slate-frame** - adding slate frame at beggining of video
+    -   **no-handles** - generate output format with no handles
     -   **sequence** - let ffmpeg create sequence of png or jpg (ext needs to be set to png or jpg/jpeg)
 -   **ext** [required]
 
@@ -82,7 +85,8 @@ Codec is defined as yuv420p and input conversion to gamma 2.2 is pushing video g
         ],
         "codec": [
             "-pix_fmt yuv420p",
-            "-crf 18"
+            "-crf 18",
+            "-intra"
         ]
     }
 }
@@ -252,10 +256,18 @@ maya outliner colours for various families
 
 ## NukeStudio
 
-### Create
+### Publish.json
 
-### Load
+### `CollectInstanceVersion`
 
-### Publish
+Activate this plugin if you want your published plates to always have the same version as the hiero project they were published from. If this plugin is off, plate versioning automatically finds the next available version in the database.
+
+Alter following code in `presets/plugins/nukestudio/publish.json`.
+
+```python
+"CollectInstanceVersion": {
+    "enabled": true
+}
+```
 
 ## Standalone Publisher
