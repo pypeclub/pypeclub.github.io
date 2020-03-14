@@ -233,10 +233,18 @@ maya outliner colours for various families
 
 ## NukeStudio
 
-### Create
+### Publish.json
 
-### Load
+### `CollectInstanceVersion`
 
-### Publish
+Activate this plugin if you want your published plates to always have the same version as the hiero project they were published from. If this plugin is off, plate versioning automatically finds the next available version in the database.
+
+Alter following code in `presets/plugins/nukestudio/publish.json`.
+
+```python
+"CollectInstanceVersion": {
+    "enabled": true
+}
+```
 
 ## Standalone Publisher
