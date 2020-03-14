@@ -69,54 +69,71 @@
     }
 }
 </code></pre>
-<h3><a class="anchor" aria-hidden="true" id="processsubmittedjobonfarm"></a><a href="#processsubmittedjobonfarm" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>ProcessSubmittedJobOnFarm</code></h3>
-<pre><code class="hljs css language-python"><span class="hljs-string">"ProcessSubmittedJobOnFarm"</span>: {
-    <span class="hljs-string">"aov_filter"</span>: {
-        <span class="hljs-string">"host"</span>: [<span class="hljs-string">"aov_name"</span>],
-        <span class="hljs-string">"maya"</span>: [<span class="hljs-string">"beauty"</span>]
-    }
-    <span class="hljs-string">"deadline_pool"</span>: <span class="hljs-string">""</span>
-}
-</code></pre>
-<p>Plugin responsible for auto FFMPEG conversion to variety of formats.</p>
+<p><br>
+<br></p>
+<h3><a class="anchor" aria-hidden="true" id="extractreview"></a><a href="#extractreview" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>ExtractReview</code></h3>
+<p>Plugin responsible for automatic FFMPEG conversion to variety of formats.</p>
 <h4><a class="anchor" aria-hidden="true" id="plugin-attributes-requiredx3a"></a><a href="#plugin-attributes-requiredx3a" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Plugin attributes [required]:</h4>
 <ul>
-<li><p><strong>ext_filter</strong> - list of strings where each of the string is refering to extension of used file. It can be used either for single file video format or multiple sequence named image files. Example:</p>
+<li><p><strong>ext_filter</strong> - list of extension that can be processed.</p>
 <pre><code class="hljs">&quot;ext_filter&quot;: [&quot;exr&quot;, &quot;jpg&quot;, &quot;jpeg&quot;, &quot;mov&quot;, &quot;png&quot;, &quot;dpx&quot;, &quot;mp4&quot;]
 </code></pre></li>
 <li><p><strong>to_width</strong> - output width resolution if tag <code>reformat</code> is used.</p></li>
 <li><p><strong>to_height</strong> - output height resolution if tag <code>reformat</code> is used.</p></li>
-<li><p><strong>outputs</strong> - dictionary of presets where key is name of preset and value is dictionary with preset attributes.</p></li>
+<li><p><strong>outputs</strong> - dictionary of presets where, each defining a new review output that will be generated.</p></li>
 </ul>
-<p><br></p>
+<p><strong>full preset example</strong></p>
+<pre><code class="hljs css language-json">{
+<span class="hljs-attr">"ExtractReview"</span>: {
+    <span class="hljs-attr">"ext_filter"</span>: [<span class="hljs-string">"exr"</span>, <span class="hljs-string">"jpg"</span>, <span class="hljs-string">"jpeg"</span>, <span class="hljs-string">"mov"</span>, <span class="hljs-string">"png"</span>, <span class="hljs-string">"dpx"</span>, <span class="hljs-string">"mp4"</span>],
+    <span class="hljs-attr">"to_width"</span>: <span class="hljs-number">1280</span>,
+    <span class="hljs-attr">"to_height"</span>: <span class="hljs-number">720</span>,
+    <span class="hljs-attr">"outputs"</span>: {
+      <span class="hljs-attr">"h264"</span>: {
+        <span class="hljs-attr">"families"</span>: [<span class="hljs-string">"render"</span>, <span class="hljs-string">"ftrack"</span>],
+        <span class="hljs-attr">"input"</span>: [
+          <span class="hljs-string">"-gamma 2.2"</span>
+        ],
+        <span class="hljs-attr">"codec"</span>: [
+          <span class="hljs-string">"-pix_fmt yuv420p"</span>,
+          <span class="hljs-string">"-crf 18"</span>
+        ],
+        <span class="hljs-attr">"output"</span>: [],
+        <span class="hljs-attr">"tags"</span>: [<span class="hljs-string">"burnin"</span>, <span class="hljs-string">"preview"</span>, <span class="hljs-string">"reformat"</span>],
+        <span class="hljs-attr">"ext"</span>: <span class="hljs-string">"mov"</span>
+      }
+    }
+  }
+}
+</code></pre>
 <h4><a class="anchor" aria-hidden="true" id="preset-attributes"></a><a href="#preset-attributes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Preset attributes</h4>
-<p>Each preset is completed from following attributes:</p>
+<p>Each preset consists of the following attributes:</p>
 <ul>
-<li><strong>families</strong> [required] - instance families which should be the preset active on. Example: my instance is part of <code>model</code> family, so I add <code>model</code> to preset and any time publishing with <code>review</code> is executed this preset will be active of processed representations, if they also satisfy other required properties.</li>
+<li><strong>families</strong> [required] - subset families this preset will work on.</li>
 <li><strong>input</strong> - ffmpeg input arguments. Example: <code>-gamma 2.2</code></li>
 <li><strong>codec</strong> [required] - ffmpeg codec arguments. Example: <code>-vcodec dnxhd</code></li>
 <li><strong>output</strong> - ffmpeg ouput arguments. Example: video filters, drawn boxes, text</li>
-<li><strong>letter_box</strong> - value is float</li>
-<li><strong>tags</strong>:
+<li><strong>letter_box</strong> - float value describing the ratio of the letterbox, if required</li>
+<li><strong>tags</strong>: Tags alter the review process behaviour and can be combined
 <ul>
-<li><strong>burnin</strong> - will add metadata info to image</li>
+<li><strong>burnin</strong> - add metadata info into the image</li>
 <li><strong>preview</strong> -  will be used as preview in ftrack</li>
-<li><strong>reformat</strong> - rescale up to 1920x1080</li>
-<li><strong>bake-lut</strong> - bake LUT into pixels (available path in data)</li>
-<li><strong>slate-frame</strong> - adding slate frame at beggining of video</li>
-<li><strong>no-handles</strong> - generate output format with no handles</li>
-<li><strong>sequence</strong> - let ffmpeg create sequence of png or jpg (ext needs to be set to png or jpg/jpeg)</li>
+<li><strong>reformat</strong> - rescale to format based on <code>to_height</code> and <code>to_width</code> attributes</li>
+<li><strong>bake-lut</strong> - bake LUT into the image (available path in data)</li>
+<li><strong>slate-frame</strong> - addi slate frame at the beggining of video</li>
+<li><strong>no-handles</strong> - remove the shot handles from the output</li>
+<li><strong>sequence</strong> - generate a sequence of png or jpg instead of a video (ext needs to be set to png or jpg/jpeg)</li>
 </ul></li>
 <li><strong>ext</strong> [required]</li>
 </ul>
 <p><br></p>
-<h4><a class="anchor" aria-hidden="true" id="preset-examples"></a><a href="#preset-examples" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Preset examples:</h4>
-<p>All following examples are contest of <code>outputs</code> plugin attribute.</p>
+<h4><a class="anchor" aria-hidden="true" id="review-output-preset-examples"></a><a href="#review-output-preset-examples" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Review Output Preset examples:</h4>
+<p>All following examples are content of <code>outputs</code> plugin attribute.</p>
 <p><br></p>
-<h5><a class="anchor" aria-hidden="true" id="ftrack-review-preview"></a><a href="#ftrack-review-preview" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Ftrack review preview:</h5>
-<p>Preset name is <code>h264</code> and this will be used in file name. This video is dedicated to be uploded to ftrack as version preview. In tags can be seen <code>burnin</code>, <code>preview</code>, <code>reformat</code>, <code>bake-lut</code>, it means the video will be reformated into HDTV format with burnin information and uploaded to ftrack. <code>bake-lut</code> for screenspace baked colorspace.</p>
-<p>This preset will be active only if <code>render</code> family is present in instance and <code>ftrack</code> along with <code>preview</code> tag is enabling Ftrack preview upload.</p>
-<p>Codec is defined as yuv420p and input conversion to gamma 2.2 is pushing video gamma curve as original baked video space is in linear.</p>
+<h5><a class="anchor" aria-hidden="true" id="h264-for-online-preview"></a><a href="#h264-for-online-preview" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>h264 for online preview:</h5>
+<p>This preset will crate a simple <code>h264</code> video which will also be uploded to ftrack for online review. YOu can see <code>burnin</code>, <code>preview</code>, <code>reformat</code> in tags, which means that the output will be reformated into HD format with burnin baked in and uploaded to ftrack. <code>bake-lut</code> will apply screenspace baked colorspace.</p>
+<p>This preset will be active only if <code>render</code> or <code>ftrack</code> family is present on the instance being processed. <code>preview</code> tag is enabling Ftrack preview upload.</p>
+<p>Codec is defined as yuv420p and input conversion to gamma 2.2 applies the gamma curve to convert from linear colour space.</p>
 <pre><code class="hljs css language-json">{
     <span class="hljs-attr">"h264"</span>: {
         <span class="hljs-attr">"ext"</span>: <span class="hljs-string">"mov"</span>,
@@ -134,10 +151,10 @@
 }
 </code></pre>
 <p><br></p>
-<h5><a class="anchor" aria-hidden="true" id="avid-editors-video-file"></a><a href="#avid-editors-video-file" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Avid Editor's video file:</h5>
-<p>This video is usualy used in Avid editing software but could be also used in other favorite editing or colorgrading software. It is data level 10bit 444 mxf video.</p>
-<p>This will be active only for 2D rendering such as Nuke compositing job. Also as we could se there is <code>slate-frame</code> so -1 frame before first frame of render will be placed image with printed task and shot metadata. This is only possible with SLATE node above write node of Nuke workfile at the moment.</p>
-<p>The resolution of this file is the original shot definition as seen in Nuke workfile.</p>
+<h5><a class="anchor" aria-hidden="true" id="editorial-video-file"></a><a href="#editorial-video-file" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Editorial video file:</h5>
+<p>This output is generated for the use in the final edit. It is data level 10bit 444 mxf video.</p>
+<p>It is will be active only for 2D rendering such as Nuke compositing job. Also there is <code>slate-frame</code> which will be add the slate with metadata before the rendered range and attach it to the video. This is only possible with SLATE node above write node of Nuke workfile at the moment.</p>
+<p>The resolution of this file is the original shot definition as seen in Nuke workfile because it has no <code>reformat</code> tag.</p>
 <pre><code class="hljs css language-json">{
     <span class="hljs-attr">"edit"</span>: {
         <span class="hljs-attr">"ext"</span>: <span class="hljs-string">"mxf"</span>,
@@ -155,8 +172,11 @@
     }
 }
 </code></pre>
+<p><br></p>
+<h5><a class="anchor" aria-hidden="true" id="prores-422"></a><a href="#prores-422" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ProRes 422:</h5>
+<p>This output will be in Prores 422 format, will include slate frame, screen space LUT will be applied, it will be reformatted to resolution defined by <code>to_height</code> and <code>to_width</code> attributes and will have metadata burned into the image.</p>
 <pre><code class="hljs css language-json">{
-    <span class="hljs-attr">"wipmov"</span>: {
+    <span class="hljs-attr">"prores"</span>: {
         <span class="hljs-attr">"ext"</span>: <span class="hljs-string">"mov"</span>,
         <span class="hljs-attr">"families"</span>: [<span class="hljs-string">"render2d"</span>],
         <span class="hljs-attr">"tags"</span>: [<span class="hljs-string">"burnin"</span>, <span class="hljs-string">"reformat"</span>, <span class="hljs-string">"bake-lut"</span>, <span class="hljs-string">"slate-frame"</span>],
@@ -167,17 +187,15 @@
     }
 }
 </code></pre>
+<p><br></p>
+<h3><a class="anchor" aria-hidden="true" id="processsubmittedjobonfarm"></a><a href="#processsubmittedjobonfarm" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>ProcessSubmittedJobOnFarm</code></h3>
 <pre><code class="hljs css language-json">{
-    <span class="hljs-attr">"png"</span>: {
-        <span class="hljs-attr">"ext"</span>: <span class="hljs-string">"png"</span>,
-        <span class="hljs-attr">"families"</span>: [<span class="hljs-string">"render3d"</span>],
-        <span class="hljs-attr">"tags"</span>: [<span class="hljs-string">"burnin"</span>, <span class="hljs-string">"reformat"</span>, <span class="hljs-string">"bake-lut"</span>, <span class="hljs-string">"sequence"</span>],
-        <span class="hljs-attr">"input"</span>: [
-            <span class="hljs-string">"-gamma 2.2"</span>
-        ],
-        <span class="hljs-attr">"codec"</span>: [
-            <span class="hljs-string">"-vcodec png"</span>
-        ]
+    <span class="hljs-attr">"ProcessSubmittedJobOnFarm"</span>: {
+        <span class="hljs-attr">"aov_filter"</span>: {
+            <span class="hljs-attr">"host"</span>: [<span class="hljs-string">"aov_name"</span>],
+            <span class="hljs-attr">"maya"</span>: [<span class="hljs-string">"beauty"</span>]
+        },
+        <span class="hljs-attr">"deadline_pool"</span>: <span class="hljs-string">""</span>
     }
 }
 </code></pre>
@@ -244,7 +262,7 @@
 }
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="standalone-publisher"></a><a href="#standalone-publisher" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Standalone Publisher</h2>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/next/admin_presets_maya"><span class="arrow-prev">← </span><span>Maya</span></a><a class="docs-next button" href="/docs/next/admin_presets_tools"><span>Tools</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#global">Global</a><ul class="toc-headings"><li><a href="#publishjson">publish.json</a></li><li><a href="#processsubmittedjobonfarm"><code>ProcessSubmittedJobOnFarm</code></a></li></ul></li><li><a href="#maya">Maya</a><ul class="toc-headings"><li><a href="#loadjson">load.json</a></li><li><a href="#colors"><code>colors</code></a></li><li><a href="#publishjson-1">publish.json</a></li><li><a href="#validatemodelname"><code>ValidateModelName</code></a></li><li><a href="#validateshadername"><code>ValidateShaderName</code></a></li></ul></li><li><a href="#nuke">Nuke</a><ul class="toc-headings"><li><a href="#createjson">create.json</a></li><li><a href="#createwriterender"><code>CreateWriteRender</code></a></li><li><a href="#publishjson-2">publish.json</a></li><li><a href="#extractreviewdata"><code>ExtractReviewData</code></a></li></ul></li><li><a href="#nukestudio">NukeStudio</a><ul class="toc-headings"><li><a href="#publishjson-3">Publish.json</a></li><li><a href="#collectinstanceversion"><code>CollectInstanceVersion</code></a></li></ul></li><li><a href="#standalone-publisher">Standalone Publisher</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon/P.png" alt="PYPE" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/artist_getting_started">Artist</a><a href="/docs/en/manager_ftrack">Manager</a><a href="/docs/en/admin_config">Admin</a></div><div><h5>Community</h5><a href="https://gitter.im/getavalon/Lobby">Avalon Chat</a><a href="https://gitter.im/pyblish/pyblish">Pyblish Chat</a><a href="https://discord.gg/cfkbAHM">Pype Chat</a></div><div><h5>More</h5><a href="https://github.com/pypeclub">Github/Pype.club</a><a href="https://github.com/getavalon">Github/Avalon</a><a href="https://github.com/pyblish">Github/Pyblish</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 Orbi Tools</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/next/admin_presets_maya"><span class="arrow-prev">← </span><span>Maya</span></a><a class="docs-next button" href="/docs/next/admin_presets_tools"><span>Tools</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#global">Global</a><ul class="toc-headings"><li><a href="#publishjson">publish.json</a></li><li><a href="#extractreview"><code>ExtractReview</code></a></li><li><a href="#processsubmittedjobonfarm"><code>ProcessSubmittedJobOnFarm</code></a></li></ul></li><li><a href="#maya">Maya</a><ul class="toc-headings"><li><a href="#loadjson">load.json</a></li><li><a href="#colors"><code>colors</code></a></li><li><a href="#publishjson-1">publish.json</a></li><li><a href="#validatemodelname"><code>ValidateModelName</code></a></li><li><a href="#validateshadername"><code>ValidateShaderName</code></a></li></ul></li><li><a href="#nuke">Nuke</a><ul class="toc-headings"><li><a href="#createjson">create.json</a></li><li><a href="#createwriterender"><code>CreateWriteRender</code></a></li><li><a href="#publishjson-2">publish.json</a></li><li><a href="#extractreviewdata"><code>ExtractReviewData</code></a></li></ul></li><li><a href="#nukestudio">NukeStudio</a><ul class="toc-headings"><li><a href="#publishjson-3">Publish.json</a></li><li><a href="#collectinstanceversion"><code>CollectInstanceVersion</code></a></li></ul></li><li><a href="#standalone-publisher">Standalone Publisher</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon/P.png" alt="PYPE" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/artist_getting_started">Artist</a><a href="/docs/en/manager_ftrack">Manager</a><a href="/docs/en/admin_config">Admin</a></div><div><h5>Community</h5><a href="https://gitter.im/getavalon/Lobby">Avalon Chat</a><a href="https://gitter.im/pyblish/pyblish">Pyblish Chat</a><a href="https://discord.gg/cfkbAHM">Pype Chat</a></div><div><h5>More</h5><a href="https://github.com/pypeclub">Github/Pype.club</a><a href="https://github.com/getavalon">Github/Avalon</a><a href="https://github.com/pyblish">Github/Pyblish</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 Orbi Tools</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;
