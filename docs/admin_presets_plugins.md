@@ -244,16 +244,41 @@ maya outliner colours for various families
 
 ### publish.json
 
-### `ExtractReviewData`
+### `ExtractThumbnail`
 
-```python
-"ExtractReviewData": {
-    "nodes": {
-        "Reformat": [
-            ["type", "to format"],
-            ["filter", "Lanczos6"]
-        ]
-    }
+Plugin responsible for generating thumbnails with colorspace controlled by Nuke. Reformat node will secure proper framing within the default workfile screen space.
+
+```json
+{
+"nodes": {
+    "Reformat": [
+        ["type", "to format"],
+        ["format", "HD_1080"],
+        ["filter", "Lanczos6"],
+        ["black_outside", true],
+        ["pbb", false]
+    ]
+}
+}
+```
+
+### `ExtractReviewDataMov`
+
+`viewer_lut_raw` **true** will push the baking mov file without any colorspace conversion. It will be baked with the workfile workspace. This could happened in case Viewer input process are used with baked screen space luts.
+
+#### baking with controlled colorspace
+
+Some productions could be using custom OCIO config files either for whole project or show or sequence or shot. In that case we **display roles** could be defined and good practice is to let compositors to use defined viewer spaces but push baking in specific space for clients reviews.
+
+`bake_colorspace_fallback` this will be used if for some reason no space defined in `shot_grade_rec709` is found on shot's _config.ocio_
+
+> be aware this will only work if `viewer_lut_raw` is on _false_
+
+```json
+{
+"viewer_lut_raw": false,
+"bake_colorspace_fallback": "show_lut_rec709",
+"bake_colorspace_main": "shot_grade_rec709"
 }
 ```
 
