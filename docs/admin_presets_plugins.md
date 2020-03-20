@@ -261,15 +261,34 @@ maya outliner colours for various families
 
 ### Publish.json
 
+Destination of the following example codes:
+
+[`presets/plugins/nukestudio/publish.json`](https://github.com/pypeclub/pype-config/blob/develop/presets/plugins/nukestudio/publish.json)
+
 ### `CollectInstanceVersion`
 
 Activate this plugin if you want your published plates to always have the same version as the hiero project they were published from. If this plugin is off, plate versioning automatically finds the next available version in the database.
 
-Alter following code in `presets/plugins/nukestudio/publish.json`.
+```json
+{
+    "CollectInstanceVersion": {
+        "enabled": true
+    }
+}
+```
 
-```python
-"CollectInstanceVersion": {
-    "enabled": true
+### `ExtractReviewCutUpVideo`
+
+Following code is an example of tag which could be added into the plugin preset.
+The reason why it could be used is the video footage which is going to be divided could be 4K but we would like to publish all review files reformated to 2K.
+
+[review tag's documentation](#preset-attributes)
+
+```json
+{
+    "ExtractReviewCutUpVideo": {
+        "tags_addition": ["reformat"]
+    }
 }
 ```
 
