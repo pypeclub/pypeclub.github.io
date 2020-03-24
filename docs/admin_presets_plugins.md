@@ -279,10 +279,10 @@ Activate this plugin if you want your published plates to always have the same v
 
 ### `ExtractReviewCutUpVideo`
 
-Following code is an example of tag which could be added into the plugin preset.
-The reason why it could be used is the video footage which is going to be divided could be 4K but we would like to publish all review files reformated to 2K.
+Example of tag which could be added into the plugin preset.
+In this case because we might have 4K plates but we would like to publish all review files reformated to 2K.
 
-[review tag's documentation](#preset-attributes)
+[details of available tags](#preset-attributes)
 
 ```json
 {
