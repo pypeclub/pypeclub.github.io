@@ -264,11 +264,12 @@ Plugin responsible for generating thumbnails with colorspace controlled by Nuke.
 
 ### `ExtractReviewDataMov`
 
-`viewer_lut_raw` **true** will push the baking mov file without any colorspace conversion. It will be baked with the workfile workspace. This could happened in case Viewer input process are used with baked screen space luts.
+`viewer_lut_raw` **true** will publish the baked mov file without any colorspace conversion. It will be baked with the workfile workspace. This can happen in case the Viewer input process uses baked screen space luts.
 
 #### baking with controlled colorspace
 
-Some productions could be using custom OCIO config files either for whole project or show or sequence or shot. In that case we **display roles** could be defined and good practice is to let compositors to use defined viewer spaces but push baking in specific space for clients reviews.
+Some productions might be using custom OCIO config files either for whole project, sequence or even individual shots. In that case we can use **display roles** to let compositors use their preferred viewer space, but also make sure baking of outputs is happening in a defined space for clients reviews.
+
 
 `bake_colorspace_fallback` this will be used if for some reason no space defined in `shot_grade_rec709` is found on shot's _config.ocio_
 
