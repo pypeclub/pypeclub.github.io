@@ -1,0 +1,208 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Nuke · PYPE</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content=":::important"/><meta name="docsearch:version" content="2.6.0"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Nuke · PYPE"/><meta property="og:type" content="website"/><meta property="og:url" content="https://pype.club/"/><meta property="og:description" content=":::important"/><meta property="og:image" content="https://pype.club//img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://pype.club//img/docusaurus.png"/><link rel="shortcut icon" href="/img/favicon/favicon.ico"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css"/><link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto"/><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"/><link rel="stylesheet" href="https://use.typekit.net/zcf6xee.css"/><script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/favicon/P.png" alt="PYPE"/><h2 class="headerTitleWithLogo">PYPE</h2></a><a href="/versions"><h3>2.6.0</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/features" target="_self">Features</a></li><li class="siteNavGroupActive"><a href="/docs/2.6.0/artist_getting_started" target="_self">Artist</a></li><li class=""><a href="/docs/2.6.0/manager_naming" target="_self">Manager</a></li><li class=""><a href="/docs/2.6.0/admin_getting_started" target="_self">Admin</a></li><li class=""><a href="/docs/2.6.0/api" target="_self">API</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Hosts</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Workflow</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/2.6.0/artist_getting_started">Getting started</a></li><li class="navListItem"><a class="navItem" href="/docs/2.6.0/artist_concepts">Key Concepts</a></li><li class="navListItem"><a class="navItem" href="/docs/2.6.0/artist_publish">Publishing</a></li><li class="navListItem"><a class="navItem" href="/docs/2.6.0/artist_tools">Tools</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Hosts</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/2.6.0/artist_hosts_nukestudio">Hiero / Nuke Studio</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/2.6.0/artist_hosts_nuke">Nuke</a></li><li class="navListItem"><a class="navItem" href="/docs/2.6.0/artist_hosts_maya">Maya</a></li><li class="navListItem"><a class="navItem" href="/docs/2.6.0/artist_ftrack">Ftrack</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Nuke</h1></header><article><div><span>
+    <div class="admonition admonition-important">
+      <div class="admonition-heading">
+        <h5><div class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"/></svg></div> important</h5>
+      </div>
+      <div class="admonition-content">
+    <p>After Nuke starts it will automatically <strong>Apply All Settings</strong> for you. If you are sure the settings are wrong just contact your supervisor and he will set them correctly for you in project database.</p>
+</div></div>
+    <div class="admonition admonition-tip">
+      <div class="admonition-heading">
+        <h5><div class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"/></svg></div>  Used elements terminology</h5>
+      </div>
+      <div class="admonition-content">
+    <p>For mode details about the element click on its name.</p>
+<p><a href="/docs/2.6.0/artist_concepts#asset">asset</a> - In our context we usually mean <strong>shot</strong> and that is how we will call it bellow in the text (<code>shot01</code>).</p>
+<p><a href="/docs/2.6.0/artist_concepts#subset">subset</a> - a clip on timeline which is part of a particular shot for example <em>foreground</em>, <em>main</em>, <em>background</em>, <em>reference</em> (<code>shot01_main</code>)</p>
+<p><a href="/docs/2.6.0/artist_concepts#version">version</a> - version of shot's subset (<code>shot01_main_v001</code>)</p>
+<p><a href="/docs/2.6.0/artist_concepts#representation">representation</a> - file type of version (<code>shot01_main_v001.mov</code>)</p>
+<p><a href="/docs/2.6.0/artist_concepts#family">family</a> - Publisher plugin filtering keyword, (if <code>ftrack</code> in family, publishing to Ftrack will be performed)</p>
+</div></div><h2><a class="anchor" aria-hidden="true" id="pype-global-tools"></a><a href="#pype-global-tools" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Pype global tools</h2>
+<ul>
+<li><a href="/docs/2.6.0/artist_tools#set-context">Set Context</a></li>
+<li><a href="/docs/2.6.0/artist_tools#workfiles">Work Files</a></li>
+<li><a href="/docs/2.6.0/artist_tools#creator">Create</a></li>
+<li><a href="/docs/2.6.0/artist_tools#loader">Load</a></li>
+<li><a href="/docs/2.6.0/artist_tools#inventory">Manage (Inventory)</a></li>
+<li><a href="/docs/2.6.0/artist_tools#publisher">Publish</a></li>
+<li><a href="/docs/2.6.0/artist_tools#library-loader">Library Loader</a></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="nuke-specific-tools"></a><a href="#nuke-specific-tools" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Nuke specific tools</h2>
+<h3><a class="anchor" aria-hidden="true" id="set-frame-ranges"></a><a href="#set-frame-ranges" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Set Frame Ranges</h3>
+<div class="ImagePanel" data-image-align='right'>
+<div class="ImagePanel.content">
+<p>Use this feature in case you are not sure the frame range is correct.</p>
+<h5><a class="anchor" aria-hidden="true" id="result"></a><a href="#result" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result</h5>
+<ul>
+<li>setting Frame Range in script settings</li>
+<li>setting Frame Range in viewers (timeline)</li>
+</ul>
+</div>
+<div class="ImagePanel.image Screenshot">
+<p><img src="/docs/assets/nuke_setFrameRanges.png" alt="Set Frame Ranges"></p>
+</div>
+</div>
+<div class="ImagePanel.image Screenshot">
+<figure>
+<p><img src="/docs/assets/nuke_setFrameRanges_timeline.png" alt="Set Frame Ranges Timeline"></p>
+<figcaption>
+<ol>
+<li>limiting to Frame Range without handles</li>
+<li><strong>Input</strong> handle on start</li>
+<li><strong>Output</strong> handle on end</li>
+</ol>
+</figcaption>
+</figure>
+</div>
+<h3><a class="anchor" aria-hidden="true" id="set-resolution"></a><a href="#set-resolution" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Set Resolution</h3>
+<div class="ImagePanel" data-image-align='right'>
+<div class="ImagePanel.content">
+<p>This menu item will set correct resolution format for you defined by your production.</p>
+<h5><a class="anchor" aria-hidden="true" id="result-1"></a><a href="#result-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result</h5>
+<ul>
+<li>creates new item in formats with project name</li>
+<li>sets the new format as used</li>
+</ul>
+</div>
+<div class="ImagePanel.image Screenshot">
+<p><img src="/docs/assets/nuke_setResolution.png" alt="Set Resolution"></p>
+</div>
+</div>
+<h3><a class="anchor" aria-hidden="true" id="set-colorspace"></a><a href="#set-colorspace" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Set Colorspace</h3>
+<div class="ImagePanel" data-image-align='right'>
+<div class="ImagePanel.content">
+<p>This menu item will set correct Colorspace definitions for you. All has to be configured by your production (Project coordinator).</p>
+<h5><a class="anchor" aria-hidden="true" id="result-2"></a><a href="#result-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result</h5>
+<ul>
+<li>set Colorspace in your script settings</li>
+<li>set preview LUT to your viewers</li>
+</ul>
+</div>
+<div class="ImagePanel.image Screenshot">
+<p><img src="/docs/assets/nuke_setColorspace.png" alt="Set Colorspace"></p>
+</div>
+</div>
+<h3><a class="anchor" aria-hidden="true" id="apply-all-settings"></a><a href="#apply-all-settings" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Apply All Settings</h3>
+<div class="ImagePanel" data-image-align='right'>
+<div class="ImagePanel.content">
+<p>It is usually enough if you once per while use this option just to make yourself sure the workfile is having set correct properties.</p>
+<h5><a class="anchor" aria-hidden="true" id="result-3"></a><a href="#result-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result</h5>
+<ul>
+<li>set Frame Ranges</li>
+<li>set Colorspace</li>
+<li>set Resolution</li>
+</ul>
+</div>
+<div class="ImagePanel.image Screenshot">
+<p><img src="/docs/assets/nuke_applyAllSettings.png" alt="Apply All Settings"></p>
+</div>
+</div>
+<h3><a class="anchor" aria-hidden="true" id="build-first-work-file"></a><a href="#build-first-work-file" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Build First Work File</h3>
+<div class="ImagePanel" data-image-align='right'>
+<div class="ImagePanel.content">
+<p>This tool will create your first version of workfile and save it to correct folder with correct file name convention. It will look into database and get all last <a href="/docs/2.6.0/artist_concepts#version">versions</a> of available <a href="/docs/2.6.0/artist_concepts#subset">subsets</a>.</p>
+</div>
+<div class="ImagePanel.image Screenshot">
+<p><img src="/docs/assets/nuke_buildFirstWorkfile.png" alt="Build First Work File"></p>
+</div>
+</div>
+<h5><a class="anchor" aria-hidden="true" id="result-4"></a><a href="#result-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result</h5>
+<div class="ImagePanel" data-image-align='left'>
+<div class="ImagePanel.content">
+<ul>
+<li>adds all last versions of subsets (rendered image sequences) as read nodes</li>
+<li>adds available color transformations under Read nodes</li>
+<li>adds publishable write node as <code>renderMain</code> subset</li>
+</ul>
+</div>
+<div class="ImagePanel.image Screenshot">
+<figure>
+<p><img src="/docs/assets/nuke_autoBuild.png" alt="Set Frame Ranges Timeline"></p>
+<figcaption>
+<p>Orange arrow is pointing at <code>Lut</code> groups.</p>
+</figcaption>
+</figure>
+</div>
+</div>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/2.6.0/artist_hosts_nukestudio"><span class="arrow-prev">← </span><span>Hiero / Nuke Studio</span></a><a class="docs-next button" href="/docs/2.6.0/artist_hosts_maya"><span>Maya</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#pype-global-tools">Pype global tools</a></li><li><a href="#nuke-specific-tools">Nuke specific tools</a><ul class="toc-headings"><li><a href="#set-frame-ranges">Set Frame Ranges</a></li><li><a href="#set-resolution">Set Resolution</a></li><li><a href="#set-colorspace">Set Colorspace</a></li><li><a href="#apply-all-settings">Apply All Settings</a></li><li><a href="#build-first-work-file">Build First Work File</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon/P.png" alt="PYPE" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/artist_getting_started">Artist</a><a href="/docs/en/manager_ftrack">Manager</a><a href="/docs/en/admin_config">Admin</a></div><div><h5>Community</h5><a href="https://gitter.im/getavalon/Lobby">Avalon Chat</a><a href="https://gitter.im/pyblish/pyblish">Pyblish Chat</a><a href="https://discord.gg/cfkbAHM">Pype Chat</a></div><div><h5>More</h5><a href="https://github.com/pypeclub">Github/Pype.club</a><a href="https://github.com/getavalon">Github/Avalon</a><a href="https://github.com/pyblish">Github/Pyblish</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 Orbi Tools</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '5e01ee3bfbb744ca6f25d4b281ce38a9',
+                indexName: 'pype',
+                inputSelector: '#search_input_react',
+                algoliaOptions: {}
+              });
+            </script></body></html>
