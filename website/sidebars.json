@@ -39,7 +39,7 @@
         ],
         "Release Notes": [
             "changelog",
-            "upgrade_notes"
+            "update_notes"
         ]
     }
 }

@@ -1,7 +1,8 @@
 ---
-id: changelog
+id: version-2.7.0-changelog
 title: Changelog
 sidebar_label: Changelog
+original_id: changelog
 ---
 
 <a name="2.7.0"></a>

@@ -1,7 +1,8 @@
 ---
-id: update_notes
+id: version-2.7.0-update_notes
 title: Update Notes
 sidebar_label: Update Notes
+original_id: update_notes
 ---
 
 <a name="update_to_2.7.0"></a>

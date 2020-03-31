@@ -160,6 +160,7 @@ class Index extends React.Component {
             <PromoSection>
               <Button href={'https://github.com/pypeclub/pype'}>Source Code</Button>
               <Button href="mailto:info@pype.club">Get in touch</Button>
+              <Button href={'https://discord.gg/sFNPWXG'}>Join our chat</Button>
               <Button href={'https://pypeclub.atlassian.net/servicedesk'}>Client Support</Button>
             </PromoSection>
             <p>
