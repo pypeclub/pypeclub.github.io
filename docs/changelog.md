@@ -4,6 +4,44 @@ title: Changelog
 sidebar_label: Changelog
 ---
 
+<a name="2.7.0"></a>
+## 2.7.0 ##
+
+_**release date:** 30 March 2020_
+
+
+**new:**
+
+- _(maya)_ Artist can now choose to load multiple references of the same subset at once [PYPE-646, PYPS-81]
+- _(nuke)_ Option to use named OCIO colorspaces for review colour baking. [PYPS-82]
+- _(pype)_ Pype can now work with `master` versions for publishing and loading. These are non-versioned publishes that are overwritten with the latest version during publish. These are now supported in all the GUIs, but their publishing is deactivated by default. [PYPE-653]
+- _(blender)_ Added support for basic blender workflow. We currently support `rig`, `model` and `animation` families. [PYPE-768]
+- _(pype)_ Source timecode can now be used in burn-ins. [PYPE-777]
+- _(pype)_ Review outpus profiles can now specify delivery resolution different than project setting [PYPE-759]
+- _(nuke)_ Bookmark to current context is now added automatically to all nuke browser windows. [PYPE-712]
+
+**change:**
+
+- _(maya)_ It is now possible to publish camera without. baking. Keep in mind that unbaked cameras can't be guaranteed to work in other hosts. [PYPE-595]
+- _(maya)_ All the renders from maya are now grouped in the loader by their Layer name. [PYPE-482]
+- _(nuke/hiero)_ Any publishes from nuke and hiero can now be versioned independently of the workfile. [PYPE-728]
+-
+
+
+**fix:**
+
+- _(nuke)_ Mixed slashes caused issues in ocio config path.
+- _(pype)_ Intent field in pyblish GUI was passing label instead of value to ftrack. [PYPE-733]
+- _(nuke)_ Publishing of pre-renders was inconsistent. [PYPE-766]
+- _(maya)_ Handles and frame ranges were inconsistent in various places during publishing.
+- _(nuke)_ Nuke was crashing if it ran into certain missing knobs. For example DPX output missing `autocrop` [PYPE-774]
+- _(deadline)_ Project overrides were not working properly with farm render publishing.
+- _(hiero)_ Problems with single frame plates publishing.
+- _(maya)_ Redshift RenderPass token were breaking render publishing. [PYPE-778]
+- _(nuke)_ Build first workfile was not accepting jpeg sequences.
+- _(maya)_ Multipart (Multilayer) EXRs were breaking review publishing due to FFMPEG incompatiblity [PYPE-781]
+
+
 <a name="2.6.0"></a>
 ## 2.6.0 ##
 
