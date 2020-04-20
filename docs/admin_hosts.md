@@ -205,7 +205,7 @@ User will be asked for it's Clockify login credentials during Pype startup.
 
 ## Unreal Editor
 
-Pype support [Unreal](https://www.unrealengine.com/). This support is currently tested only on Windows platform.
+Pype supports [Unreal](https://www.unrealengine.com/). This support is currently tested only on Windows platform.
 You can control Unreal behavior by editing `repos/pype-config/presets/unreal/project_setup.json`:
 
 ```json
@@ -237,7 +237,7 @@ isn't already built, it will copy its source codes to new project and force `dev
 
 ### Dependencies
 
-Pype integration need:
+Pype integration needs:
 
 * *Python Script Plugin enabled* (done automatically)
 * *Editor Scripting Utilities* (done automatically)
