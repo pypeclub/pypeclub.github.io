@@ -61,6 +61,24 @@
               }
             });
         </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Changelog</h1></header><article><div><span><p><a name="2.7.0"></a></p>
+<h2><a class="anchor" aria-hidden="true" id="280"></a><a href="#280" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.8.0</h2>
+<p><em><strong>release date:</strong> 20 April 2020</em></p>
+<p><strong>new:</strong></p>
+<ul>
+<li><em>(pype)</em> Option to generate slates from json templates. [PYPE-628] #26</li>
+<li><em>(pype)</em> It is now possible to automate loading of published subsets into any scene. Documentation will follow :). [PYPE-611] #24</li>
+</ul>
+<p><strong>fix:</strong></p>
+<ul>
+<li><em>(maya)</em> Some Redshift render tokens could break publishing. [PYPE-778] #33</li>
+<li><em>(maya)</em> Publish was not preserving maya file extension. #39</li>
+<li><em>(maya)</em> Rig output validator was failing on nodes without shapes. #40</li>
+<li><em>(maya)</em> Yeti caches can now be properly versioned up in the scene inventory. #40</li>
+<li><em>(nuke)</em> Build first workfiles was not accepting jpeg sequences. #34</li>
+<li><em>(deadline)</em> Trying to generate ffmpeg review from multipart EXRs no longer crashes publishing. [PYPE-781] #35</li>
+<li><em>(deadline)</em> Render publishing is more stable in multiplatform environments. [PYPE-775] #36</li>
+</ul>
+<p><a name="2.7.0"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="270"></a><a href="#270" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.7.0</h2>
 <p><em><strong>release date:</strong> 30 March 2020</em></p>
 <p><strong>new:</strong></p>
@@ -362,7 +380,7 @@
 <li>major pype.lib cleanup. Removing of unused functions, merging those that were doing the same and general house cleaning.</li>
 <li><em>(avalon)</em> subsets in maya 2019 weren't behaving correctly in the outliner</li>
 </ul>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/next/admin_presets_tools"><span class="arrow-prev">← </span><span>Tools</span></a><a class="docs-next button" href="/docs/next/update_notes"><span>Update Notes</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#270">2.7.0</a></li><li><a href="#260">2.6.0</a></li><li><a href="#250">2.5.0</a></li><li><a href="#240">2.4.0</a></li><li><a href="#236">2.3.6</a></li><li><a href="#230">2.3.0</a></li><li><a href="#220">2.2.0</a></li><li><a href="#210">2.1.0</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon/P.png" alt="PYPE" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/artist_getting_started">Artist</a><a href="/docs/en/manager_ftrack">Manager</a><a href="/docs/en/admin_config">Admin</a></div><div><h5>Community</h5><a href="https://gitter.im/getavalon/Lobby">Avalon Chat</a><a href="https://gitter.im/pyblish/pyblish">Pyblish Chat</a><a href="https://discord.gg/cfkbAHM">Pype Chat</a></div><div><h5>More</h5><a href="https://github.com/pypeclub">Github/Pype.club</a><a href="https://github.com/getavalon">Github/Avalon</a><a href="https://github.com/pyblish">Github/Pyblish</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 Orbi Tools</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/next/admin_presets_tools"><span class="arrow-prev">← </span><span>Tools</span></a><a class="docs-next button" href="/docs/next/update_notes"><span>Update Notes</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#280">2.8.0</a></li><li><a href="#270">2.7.0</a></li><li><a href="#260">2.6.0</a></li><li><a href="#250">2.5.0</a></li><li><a href="#240">2.4.0</a></li><li><a href="#236">2.3.6</a></li><li><a href="#230">2.3.0</a></li><li><a href="#220">2.2.0</a></li><li><a href="#210">2.1.0</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon/P.png" alt="PYPE" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/artist_getting_started">Artist</a><a href="/docs/en/manager_ftrack">Manager</a><a href="/docs/en/admin_config">Admin</a></div><div><h5>Community</h5><a href="https://gitter.im/getavalon/Lobby">Avalon Chat</a><a href="https://gitter.im/pyblish/pyblish">Pyblish Chat</a><a href="https://discord.gg/cfkbAHM">Pype Chat</a></div><div><h5>More</h5><a href="https://github.com/pypeclub">Github/Pype.club</a><a href="https://github.com/getavalon">Github/Avalon</a><a href="https://github.com/pyblish">Github/Pyblish</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 Orbi Tools</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;
