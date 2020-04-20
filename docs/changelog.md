@@ -5,10 +5,31 @@ sidebar_label: Changelog
 ---
 
 <a name="2.7.0"></a>
+## 2.8.0 ##
+
+_**release date:** 20 April 2020_
+
+**new:**
+
+- _(pype)_ Option to generate slates from json templates. [PYPE-628] #26
+- _(pype)_ It is now possible to automate loading of published subsets into any scene. Documentation will follow :). [PYPE-611] #24
+
+**fix:**
+
+- _(maya)_ Some Redshift render tokens could break publishing. [PYPE-778] #33
+- _(maya)_ Publish was not preserving maya file extension. #39
+- _(maya)_ Rig output validator was failing on nodes without shapes. #40
+- _(maya)_ Yeti caches can now be properly versioned up in the scene inventory. #40
+- _(nuke)_ Build first workfiles was not accepting jpeg sequences. #34
+- _(deadline)_ Trying to generate ffmpeg review from multipart EXRs no longer crashes publishing. [PYPE-781] #35
+- _(deadline)_ Render publishing is more stable in multiplatform environments. [PYPE-775] #36
+
+
+
+<a name="2.7.0"></a>
 ## 2.7.0 ##
 
 _**release date:** 30 March 2020_
-
 
 **new:**
 
