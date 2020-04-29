@@ -19,148 +19,217 @@ Each plugin in the json should be added as name of the class. There are some def
 ```
 
 <br>
-<br>
 
 ### `ExtractReview`
 
-Plugin responsible for automatic FFMPEG conversion to variety of formats.
+Plugin responsible for automatic FFmpeg conversion to variety of formats.
 
-#### Plugin attributes [required]&#x3A;
+Supported extensions for both input and output: `["exr", "jpg", "jpeg", "png", "dpx", "mov", "mp4"]`
 
--   **ext_filter** - list of extension that can be processed.
+**ExtractReview** creates new representations based on presets and representations in instance. Preset should contain only one attribute **"profiles"** which is list of profile items. Each profile item has **outputs**, where definitions of possible outputs are, and may have specified filters for **hosts**, **tasks** and **families**.
 
-        "ext_filter": ["exr", "jpg", "jpeg", "mov", "png", "dpx", "mp4"]
+#### Profile filters
+As mentioned above you can define multiple profiles for different contexts. Profile with filters matching current context the most is used. You can define profile without filters and use it as **default**. Only **one or none** profile is processed per instance.
 
--   **to_width** - output width resolution if tag `reformat` is used.
+All context filters are lists which may contain strings or Regular expressions (RegEx).
+- **hosts** - Host from which publishing was triggered. `["maya", "nuke"]`
+- **tasks** - Currently processed task. `["[Cc]ompositing", "[Aa]nimation"]`
+- **families** - Main family of processed instance. `["plate", "model"]`
 
--   **to_height** - output height resolution if tag `reformat` is used.
+:::important Filtering
+Filters are optional and may not be set. In case when multiple profiles match current context, profile with filters has higher priority that profile without filters.
+:::
 
--   **outputs** - dictionary of presets where, each defining a new review output that will be generated.
+#### Profile outputs
+Profile may have multiple outputs from one input that's why **outputs** is dictionary where key represents **filename suffix** to avoid overriding files with same name and value represents definition itself. Definition may contain multiple optional keys.
 
-**full preset example**
+| Key | Description | Type | Example |
+| --- | --- | --- | --- |
+| **width** | Width of output. | int | 1920 |
+| **height** | Height of output. | int | 1080 |
+| **letter_box** | Set letterbox ratio. | float | 2.35 |
+| **ext** | Extension of output file(s). | str | "mov" |
+| **tags** | Tags added to new representation. | list | [here](#new-representation-tags-tags) |
+| **ffmpeg_args** | Additional FFmpeg arguments. | dict | [here](#ffmpeg-arguments-ffmpeg_args) |
+| **filter** | Definition filters. | dict | [here](#output-filters-filter) |
 
+:::note
+As metioned above **all keys are optional**. If they are not filled at all, then **"ext"** is filled with input's file extension and resolution keys **"width"** and **"heigh"** are filled from instance data, or from input resolution if instance doesn't have set them.
+:::
+
+:::important resolution
+It is not possible to enter only **"width"** or only **"height"**. In that case set values will be skipped.
+:::
+
+#### New representation tags (`tags`)
+You can add tags to representation created during extracting process. This might help to define what should happen with representation in upcomming plugins.
+
+| Tag | Description |
+| --- | --- |
+| **burnin** | Add burnins with predefined values into the output. |
+| **preview** | Will be used as preview in Ftrack. |
+| **reformat** | Rescale to format based on width and height keys. |
+| **bake-lut** | Bake LUT into the output (if is available path in data). |
+| **slate-frame** | Add slate frame at the beggining of video. |
+| **no-handles** | Remove the shot handles from the output. |
+| **sequence** | Generate a sequence of images instead of single frame.</br>Is applied only if **"ext"** of output is image extension e.g.: png or jpg/jpeg. |
+
+:::important Example
+Tags key must contain list of strings.
 ```json
 {
-"ExtractReview": {
-    "ext_filter": ["exr", "jpg", "jpeg", "mov", "png", "dpx", "mp4"],
-    "to_width": 1280,
-    "to_height": 720,
-    "outputs": {
-      "h264": {
-        "families": ["render", "ftrack"],
-        "input": [
-          "-gamma 2.2"
-        ],
-        "codec": [
-          "-pix_fmt yuv420p",
-          "-crf 18"
-        ],
-        "output": [],
-        "tags": ["burnin", "preview", "reformat"],
-        "ext": "mov"
-      }
+    "tags": ["burnin", "preview"]
+    ...
+}
+```
+:::
+
+#### FFmpeg arguments (`ffmpeg_args`)
+It is possible to set additional FFmpeg arguments. Arguments are split into 4 categories **"input"**, **"video_filters"**, **"audio_filters"** and **"output"**.
+
+| Key | Description | Type | Example |
+| --- | --- | --- | --- |
+| **input** | FFmpeg arguments added before video/image input. | list | ["-gamma 2.2"] |
+| **video_filters** | All values which should be in `-vf` or `-filter:v` argument. | list | ["scale=iw/2:-1"] |
+| **audio_filters** | All values which should be in `-af` or `-filter:a` argument. | list | ["loudnorm"] |
+| **output** | FFmpeg arguments added before output filepath. | list | ["-pix_fmt yuv420p", "-crf 18"] |
+
+:::important Example
+For more information about FFmpeg arguments please visit [official documentation](https://ffmpeg.org/documentation.html).
+```json
+{
+    "ffmpeg_args": {
+        "input": ["-gamma 2.2"],
+        "video_filters": ["yadif=0:0:0", "scale=iw/2:-1"],
+        "output": ["-pix_fmt yuv420p", "-crf 18"]
     }
-  }
+    ...
+}
+```
+:::
+
+#### Output filters (`filter`)
+Even if profile has filtering options it is possible that output definitions require to be filtered by all instance **families** or representation's **tags**.
+
+Families filters in output's `filter` will check all instance's families and may check for single family or combination of families.
+
+| Key | Description | Type | Example |
+| --- | --- | --- | --- |
+| **families** | At least one family item must match instance's families to process definition. | list | ["review"] |
+| **tags** | At least one tag from list must be in representation's tags to process definition. | list | ["preview"] |
+
+:::important Example
+These filters helps with explicit processing but do **NOT** use them if it's not necessary.
+```json
+{
+    "filter": {
+        "families": [
+            "review",
+            ["ftrack", "render2d"]
+        ],
+        "tags": ["preview"],
+    }
+    ...
+}
+```
+In this example representation's tags must contain **"preview"** tag and instance's families must contain **"review"** family, or both **"ftrack"** and **"render2d"** families.
+:::
+
+#### Simple example
+This example just create **mov** output with filename suffix **"simplemov"** for all representations with supported extensions.
+```json
+{
+    "ExtractReview": {
+        "profiles": [{
+            "outputs": {
+                /* Filename suffix "simplemov"*/
+                "simplemov": {
+                    /* Output extension will be "mov"*/
+                    "ext": "mov"
+                }
+            }
+        }]
+    }
 }
 ```
 
-#### Preset attributes
-
-Each preset consists of the following attributes:
-
--   **families** [required] - subset families this preset will work on.
--   **input** - ffmpeg input arguments. Example: `-gamma 2.2`
--   **codec** [required] - ffmpeg codec arguments. Example: `-vcodec dnxhd`
--   **output** - ffmpeg ouput arguments. Example: video filters, drawn boxes, text
--   **letter_box** - float value describing the ratio of the letterbox, if required
--   **tags**: Tags alter the review process behaviour and can be combined
-    -   **burnin** - add metadata info into the image
-    -   **preview** -  will be used as preview in ftrack
-    -   **reformat** - rescale to format based on `to_height` and `to_width` attributes
-    -   **bake-lut** - bake LUT into the image (available path in data)
-    -   **slate-frame** - addi slate frame at the beggining of video
-    -   **no-handles** - remove the shot handles from the output
-    -   **sequence** - generate a sequence of png or jpg instead of a video (ext needs to be set to png or jpg/jpeg)
--   **ext** [required]
-
-<br>
-
-#### Review Output Preset examples:
-
-All following examples are content of `outputs` plugin attribute.
-
-<br>
-
-##### h264 for online preview:
-
-This preset will crate a simple `h264` video which will also be uploded to ftrack for online review. YOu can see `burnin`, `preview`, `reformat` in tags, which means that the output will be reformated into HD format with burnin baked in and uploaded to ftrack. `bake-lut` will apply screenspace baked colorspace.
-
-This preset will be active only if `render` or `ftrack` family is present on the instance being processed. `preview` tag is enabling Ftrack preview upload.
-
-Codec is defined as yuv420p and input conversion to gamma 2.2 applies the gamma curve to convert from linear colour space.
+#### More complex example
+:::note
+This is just usage example, without relevant data. Do **NOT** use these presets in production.
+:::
 
 ```json
 {
-    "h264": {
-        "ext": "mov",
-        "families": ["render", "ftrack"],
-        "tags": ["burnin", "preview", "reformat", "bake-lut"],
-        "input": [
-            "-gamma 2.2"
-        ],
-        "codec": [
-            "-pix_fmt yuv420p",
-            "-crf 18",
-            "-intra"
-        ]
-    }
-}
-```
-
-<br>
-
-##### Editorial video file:
-
-This output is generated for the use in the final edit. It is data level 10bit 444 mxf video.
-
-It is will be active only for 2D rendering such as Nuke compositing job. Also there is `slate-frame` which will be add the slate with metadata before the rendered range and attach it to the video. This is only possible with SLATE node above write node of Nuke workfile at the moment.
-
-The resolution of this file is the original shot definition as seen in Nuke workfile because it has no `reformat` tag.
-
-```json
-{
-    "edit": {
-        "ext": "mxf",
-        "families": ["render2d"],
-        "tags": ["slate-frame"],
-        "codec": [
-            "-vcodec dnxhd",
-            "-profile:v dnxhr_444",
-            "-pix_fmt yuv444p10le",
-            "-b:v 185M",
-            "-ar 48000",
-            "-ac 2",
-            "-qmax 51"
-        ]
-    }
-}
-```
-
-<br>
-
-##### ProRes 422:
-
-This output will be in Prores 422 format, will include slate frame, screen space LUT will be applied, it will be reformatted to resolution defined by `to_height` and `to_width` attributes and will have metadata burned into the image.
-
-```json
-{
-    "prores": {
-        "ext": "mov",
-        "families": ["render2d"],
-        "tags": ["burnin", "reformat", "bake-lut", "slate-frame"],
-        "codec": [
-            "-c:v prores_ks",
-            "-profile:v 3"
+    "ExtractReview": {
+        "profiles": [
+            {
+                /* 1. profile - Without filters will be used as default. */
+                "outputs": {
+                    /* Extract single mov Prores 422 with burnins, slate and baked lut. */
+                    "prores": {
+                        "ext": "mov",
+                        "codec": [
+                            "-codec:v prores_ks",
+                            "-profile:v 3"
+                        ],
+                        "tags": ["burnin", "reformat", "bake-lut", "slate-frame"]
+                    }
+                }
+            }, {
+                /* 2. profile - Only for Nuke, "compositing" task and instance family "render2d". */
+                "hosts": ["nuke"],
+                "tasks": ["compositing"],
+                "families": ["render2d"],
+                "outputs": {
+                    /* Extract preview mov with burnins and without handles.*/
+                    "h264": {
+                        "ext": "mov",
+                        "ffmpeg_args": {
+                            "output": [
+                                "-pix_fmt yuv420p",
+                            ]
+                        },
+                        "tags": ["burnin", "preview", "no-handles"]
+                    },
+                    /* Also extract mxf with slate */
+                    "edit": {
+                        "ext": "mxf",
+                        "ffmpeg_args": {
+                            "output": [
+                                "-codec:v dnxhd",
+                                "-profile:v dnxhr_444",
+                                "-pix_fmt yuv444p10le",
+                                "-b:v 185M",
+                                "-ar 48000",
+                                "-qmax 51"
+                            ]
+                        },
+                        "tags": ["slate-frame"]
+                    }
+                }
+            }, {
+                /* 3. profile - Default profile for Nuke and Maya. */
+                "hosts": ["maya", "nuke"],
+                "outputs": {
+                    /* Extract preview mov with burnins and with forced resolution. */
+                    "h264": {
+                        "width": 1920,
+                        "height": 1080,
+                        "ext": "mov",
+                        "ffmpeg_args": {
+                            "input": [
+                                "-gamma 2.2"
+                            ],
+                            "output": [
+                                "-pix_fmt yuv420p",
+                                "-crf 18",
+                                "-intra"
+                            ]
+                        },
+                        "tags": ["burnin", "preview"]
+                    }
+                }
+            }
         ]
     }
 }
