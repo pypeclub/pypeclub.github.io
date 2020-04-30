@@ -41,7 +41,7 @@ Filters are optional and may not be set. In case when multiple profiles match cu
 :::
 
 #### Profile outputs
-Profile may have multiple outputs from one input that's why **outputs** is dictionary where key represents **filename suffix** to avoid overriding files with same name and value represents definition itself. Definition may contain multiple optional keys.
+Profile may have multiple outputs from one input and that's why **outputs** is dictionary where key represents **filename suffix** to avoid overriding files with same name and value represents definition itself. Definition may contain multiple optional keys.
 
 | Key | Description | Type | Example |
 | --- | --- | --- | --- |
@@ -51,7 +51,7 @@ Profile may have multiple outputs from one input that's why **outputs** is dicti
 | **ext** | Extension of output file(s). | str | "mov" |
 | **tags** | Tags added to new representation. | list | [here](#new-representation-tags-tags) |
 | **ffmpeg_args** | Additional FFmpeg arguments. | dict | [here](#ffmpeg-arguments-ffmpeg_args) |
-| **filter** | Definition filters. | dict | [here](#output-filters-filter) |
+| **filter** | Filters definition. | dict | [here](#output-filters-filter) |
 
 :::note
 As metioned above **all keys are optional**. If they are not filled at all, then **"ext"** is filled with input's file extension and resolution keys **"width"** and **"heigh"** are filled from instance data, or from input resolution if instance doesn't have set them.
@@ -155,7 +155,7 @@ This example just create **mov** output with filename suffix **"simplemov"** for
 
 #### More complex example
 :::note
-This is just usage example, without relevant data. Do **NOT** use these presets in production.
+This is just usage example, without relevant data. Do **NOT** use these presets as default in production.
 :::
 
 ```json
@@ -237,33 +237,58 @@ This is just usage example, without relevant data. Do **NOT** use these presets 
 
 <br>
 
-### `Burnins`
+### `ExtractBurnin`
 
-path: `pype-config/presets/tools/burnins.json`
+Plugin is responsible for adding burnins into review representations.
 
-#### `options` [dict]
+Burnins are text values painted on top of input and may be surrounded with box in 6 available positions `Top Left`, `Top Center`, `Top Right`, `Bottom Left`, `Bottom Center`, `Bottom Right`.
 
-Sets the basic options for all burn-ins.
+![presets_plugins_extract_burnin](assets/presets_plugins_extract_burnin_01.png)
 
-```python
-"options": {
-    "opacity": 1,
-    "x_offset": 5,
-    "y_offset": 5,
-    "bg_padding": 5,
-    "bg_opacity": 0.5,
-    "font_size": 42
-},
-```
+ExtractBurnin creates new representations based on plugin presets and representations in instance. Presets may contain 3 keys **options**, **profiles** and **fields**.
 
+#### Burnin settings (`options`)
+Options is dictionry where you can set the global appearance of burnins. It is possible to not fill options at all, in that case default values are used.
 
-#### `burnins` [dict]
+| Key | Description | Type | Example | Default |
+| --- | --- | --- | --- | --- |
+| **font_size** | Size of text. | float | 24 | 42 |
+| **font_color** | Color of text. | str | [FFmpeg color documentation](https://ffmpeg.org/ffmpeg-utils.html#color-syntax) | "white" |
+| **opacity** | Opacity of text. | float | 0.7 | 1 |
+| **x_offset** | Horizontal margin around text and box. | int | 0 | 5 |
+| **y_offset** | Vertical margin around text and box. | int | 0 | 5 |
+| **bg_padding** | Padding for box around text. | int | 0 | 5 |
+| **bg_color** | Color of box around text. | str | [FFmpeg color documentation](https://ffmpeg.org/ffmpeg-utils.html#color-syntax) | "black" |
+| **bg_opacity** | Opacity of box around text. | float | 1 | 0.5 |
 
-Specifies all the individual burn-ins, their positions and content
+#### Burnin profiles (`profiles`)
+Plugin process is skipped if `profiles` are not set at all. Profiles contain list of profile items. Each profile item has **burnins**, where definitions of possible burnins are, and may have specified filters for **hosts**, **tasks** and **families**. Filters work the same way as described in [ExtractReview](#profile-filters).
 
-Available positions: `TOP_LEFT`, `BOTTOM_CENTERED`, `TOP_RIGHT`, `BOTTOM_LEFT`, `BOTTOM_CENTERED`, `BOTTOM_RIGHT`
+#### Profile burnins
+Profile may have set multiple burnin outputs from one input and that's why **burnins** is dictionary where key represents **filename suffix** to avoid overriding files with same name and value represents burnin definition. Burnin definition may contain multiple optional keys.
 
-**Available keys**
+| Key | Description | Type | Example |
+| --- | --- | --- | --- |
+| **top_left** | Top left corner content. | str | "{dd}.{mm}.{yyyy}" |
+| **top_centered** | Top center corner content. | str | "v{version:0>3}" |
+| **top_right** | Top right corner content. | str | "Static text" |
+| **bottom_left** | Bottom left corner content. | str | "{asset}" |
+| **bottom_centered** | Bottom center corner content. | str | "{username}" |
+| **bottom_right** | Bottom right corner content. | str | "{frame_start}-{current_frame}-{frame_end}" |
+| **options** | Options overrides for this burnin definition. | dict | [Options](#burnin-settings-options) |
+| **filter** | Filters definition. | dict | [ExtractReview output filter](#output-filters-filter) |
+
+:::important Position keys
+Any position key `top_left` -> `bottom_right` is skipped if is not set, contain empty string or is set to `null`.
+And position keys are not case sensitive so instead of key `top_left` can be used `TOP_LEFT` or `Top_Left`
+:::
+
+:::note Filename suffix
+Filename suffix is appended to filename suffix of source representation.
+If source representation has suffix **"h264"** and burnin suffix is **"client"** then final suffix is **"h264_client"**.
+:::
+
+**Available keys in burnin content**
 
 - It is possible to use same keys as in [Anatomy](admin_config#available-keys).
 
@@ -285,15 +310,132 @@ Available positions: `TOP_LEFT`, `BOTTOM_CENTERED`, `TOP_RIGHT`, `BOTTOM_LEFT`, 
 `timecode` is specific key that can be **only at the end of content**. (`"BOTTOM_RIGHT": "TC: {timecode}"`)
 :::
 
-**Example**
-```python
-"burnins":{
-    "TOP_LEFT": "{dd}.{mm}.{yyyy}",
-    "TOP_CENTER": "anatomy[publish][path]",
-    "TOP_RIGHT": "v{version:0>3}", # "0>3" adds padding to version number to have 3 digits.
-    "BOTTOM_LEFT": "{frame_start}-{current_frame}-{frame_end}",
-    "BOTTOM_CENTERED": "{asset}",
-    "BOTTOM_RIGHT": "{username}"
+```json
+{
+    "profiles": [{
+        "burnins": {
+            "example": {
+                "TOP_LEFT": "{dd}.{mm}.{yyyy}",
+                /* Use anatomy template values. */
+                "TOP_CENTERED": "{anatomy[publish][path]}",
+                /* Python's formatting:
+                ":0>3" adds padding to version number to have 3 digits. */
+                "TOP_RIGHT": "v{version:0>3}",
+                "BOTTOM_LEFT": "{frame_start}-{current_frame}-{frame_end}",
+                "BOTTOM_CENTERED": "{asset}",
+                "BOTTOM_RIGHT": "{username}"
+            }
+        }
+    }]
+    ...
+}
+```
+
+
+#### Default content values (`fields`)
+If you want to set position content values for all or most of burnin definitions, you can set them in **"fields"**. They will be added to every burnin definition in all profiles. Value can be overriden if same position key is filled in burnin definiton.
+
+```json
+{
+    "fields": {
+        "TOP_LEFT": "{yy}-{mm}-{dd}",
+        "TOP_CENTERED": "{username}",
+        "TOP_RIGHT": "v{version:0>3}"
+    },
+    "profiles": [{
+        "burnins": {
+            /* example1 has empty definition but top left, center and right values
+            will be filled. */
+            "example1": {},
+
+            /* example2 has 2 overrides. */
+            "example2": {
+                /* Top left value is overriden with asset name. */
+                "TOP_LEFT": "{asset}",
+                /* Top center will be skipped. */
+                "TOP_CENTERED": null
+            }
+        }
+    }]
+}
+```
+
+#### Full presets example
+:::note
+This is just usage example, without relevant data. Do **NOT** use these presets as default in production.
+:::
+
+```json
+{
+    "ExtractBurnin": {
+        "options": {
+            "opacity": 1,
+            "x_offset": 5,
+            "y_offset": 5,
+            "bg_padding": 5,
+            "bg_opacity": 0.5,
+            "font_size": 42
+        },
+        "fields": {
+            "TOP_LEFT": "{yy}-{mm}-{dd}",
+            "TOP_RIGHT": "v{version:0>3}"
+        },
+        "profiles": [{
+            "burnins": {
+                "burnin": {
+                    "options": {
+                        "opacity": 1
+                    },
+                    "TOP_LEFT": "{username}"
+                }
+           }
+        }, {
+            "families": ["animation", "pointcache", "model"],
+            "tasks": ["animation"],
+            "burnins": {}
+        }, {
+            "families": ["render"],
+            "tasks": ["compositing"],
+            "burnins": {
+                "burnin": {
+                    "TOP_LEFT": "{yy}-{mm}-{dd}",
+                    "TOP_RIGHT": "v{version:0>3}",
+                    "BOTTOM_RIGHT": "{frame_start}-{current_frame}-{frame_end}",
+                    "BOTTOM_LEFT": "{username}"
+                },
+                "burnin_ftrack": {
+                    "filter": {
+                        "families": ["ftrack"]
+                    },
+                    "BOTTOM_RIGHT": "{frame_start}-{current_frame}-{frame_end}",
+                    "BOTTOM_LEFT": "{username}"
+                },
+                "burnin_v2": {
+                    "options": {
+                        "opacity": 0.5
+                    },
+                    "TOP_LEFT": "{yy}-{mm}-{dd}",
+                    "TOP_RIGHT": "v{version:0>3}"
+                }
+            }
+        }, {
+            "families": ["rendersetup"],
+            "burnins": {
+                "burnin": {
+                    "TOP_LEFT": "{yy}-{mm}-{dd}",
+                    "BOTTOM_LEFT": "{username}"
+                }
+            }
+        }, {
+            "tasks": ["animation"],
+            "burnins": {
+                "burnin": {
+                    "TOP_RIGHT": "v{version:0>3}",
+                    "BOTTOM_RIGHT": "{frame_start}-{current_frame}-{frame_end}"
+                }
+            }
+        }]
+    }
 }
 ```
 
