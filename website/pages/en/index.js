@@ -175,14 +175,14 @@ class Index extends React.Component {
 
       <div className="mainContainer">
 
-        <div class="container lightBackground paddingBottom paddingTop">
-          <div class="wrapper">
-              <h2 class="noTopMargin">Services</h2>
-            <div class="gridBlock">
+        <div className="container lightBackground paddingBottom paddingTop">
+          <div className="wrapper">
+              <h2 className="noTopMargin">Services</h2>
+            <div className="gridBlock">
 
-              <div class="blockElement alignCenter fourByGridBlock">
+              <div className="blockElement alignCenter fourByGridBlock">
 
-                <div class="blockContent">
+                <div className="blockContent">
                   <h3>
                     Training
                   </h3>
@@ -191,8 +191,8 @@ class Index extends React.Component {
                     </div>
                 </div>
               </div>
-              <div class="blockElement alignCenter fourByGridBlock">
-                <div class="blockContent">
+              <div className="blockElement alignCenter fourByGridBlock">
+                <div className="blockContent">
                   <h3>
                     Consulting
                   </h3>
@@ -200,8 +200,8 @@ class Index extends React.Component {
                       <p>An outside, independent point of view. We’ll work with you on all fronts to get your productions running smoothly.</p></div>
                 </div>
               </div>
-              <div class="blockElement alignCenter fourByGridBlock">
-                <div class="blockContent">
+              <div className="blockElement alignCenter fourByGridBlock">
+                <div className="blockContent">
                   <h3>
                   Support
                   </h3>
@@ -209,8 +209,8 @@ class Index extends React.Component {
                       <p>Experience and time is what we are selling. Whether you want to deploy our open source tools or you need a bespoke solution.</p></div>
                 </div>
               </div>
-              <div class="blockElement alignCenter fourByGridBlock">
-                <div class="blockContent">
+              <div className="blockElement alignCenter fourByGridBlock">
+                <div className="blockContent">
                   <h3>
                     Coding
                   </h3>
@@ -223,12 +223,12 @@ class Index extends React.Component {
           </div>
         </div>
 
-        <div class="container darkBackground paddingBottom paddingTop">
-          <div class="wrapper">
-            <div class="gridBlock">
-              <div class="blockElement imageAlignSide imageAlignLeft twoByGridBlock">
-                <div class="blockImage"><img src="/img/frontpage/undraw_mind_map_cwng.svg"></img></div>
-                <div class="blockContent">
+        <div className="container darkBackground paddingBottom paddingTop">
+          <div className="wrapper">
+            <div className="gridBlock">
+              <div className="blockElement imageAlignSide imageAlignLeft twoByGridBlock">
+                <div className="blockImage"><img src="/img/frontpage/undraw_mind_map_cwng.svg"></img></div>
+                <div className="blockContent">
                   <h2>What is Pype?
                   </h2>
                       <p>Multi-platform open-source pipeline built around the <a href="https://getavalon.github.io/2.0/">Avalon </a> platform, expanding it with extra features and integrations. Pype connects asset database, project management and time tracking into a single modular system. It has tight integration with Ftrack, but it can also run independently.</p>
@@ -242,12 +242,12 @@ class Index extends React.Component {
           </div>
         </div>
 
-        <div class="container ligthBackground paddingBottom paddingTop">
-          <div class="wrapper">
-            <div class="gridBlock">
-              <div class="blockElement imageAlignSide imageAlignLeft twoByGridBlock">
+        <div className="container ligthBackground paddingBottom paddingTop">
+          <div className="wrapper">
+            <div className="gridBlock">
+              <div className="blockElement imageAlignSide imageAlignLeft twoByGridBlock">
 
-                <div class="blockContent">
+                <div className="blockContent">
                   <h2>About us
                   </h2>
                       <p>
@@ -257,7 +257,7 @@ class Index extends React.Component {
                       </p>
                 </div>
 
-                <div class="blockImage"><img src="/img/frontpage/undraw_programming.svg"></img></div>
+                <div className="blockImage"><img src="/img/frontpage/undraw_programming.svg"></img></div>
 
               </div>
             </div>
@@ -265,122 +265,122 @@ class Index extends React.Component {
         </div>
 
 
-        <div class="productShowcaseSection darkBackground paddingBottom paddingTop">
+        <div className="productShowcaseSection darkBackground paddingBottom paddingTop">
           <h2>Pype Integrations</h2>
 
-          <div class="showcase">
-            <a class="link" href="http://localhost:3000/features#maya">
+          <div className="showcase">
+            <a className="link" href="http://localhost:3000/features#maya">
               <img src="/img/app_maya.png" alt="" title=""></img>
-              <span class="caption">Maya</span>
+              <span className="caption">Maya</span>
             </a>
 
-            <a class="link" href="http://localhost:3000/features#nuke">
+            <a className="link" href="http://localhost:3000/features#nuke">
               <img src="/img/app_nuke.png" alt="" title=""></img>
-              <span class="caption">Nuke</span>
+              <span className="caption">Nuke</span>
             </a>
 
-            <a class="link" href="http://localhost:3000/features#nuke">
+            <a className="link" href="http://localhost:3000/features#nuke">
               <img src="/img/app_nuke.png" alt="" title=""></img>
-              <span class="caption">Nuke Studio</span>
+              <span className="caption">Nuke Studio</span>
             </a>
 
-            <a class="link" href="http://localhost:3000/features#nuke">
+            <a className="link" href="http://localhost:3000/features#nuke">
               <img src="/img/app_hiero.png" alt="" title=""></img>
-              <span class="caption">Hiero</span>
+              <span className="caption">Hiero</span>
             </a>
 
-            <a class="link" href="">
+            <a className="link" href="">
               <img src="/img/app_houdini.png" alt="" title=""></img>
-              <span class="caption">Houdini</span>
+              <span className="caption">Houdini</span>
             </a>
 
-            <a class="link" href="http://localhost:3000/features#maya">
+            <a className="link" href="http://localhost:3000/features#maya">
               <img src="/img/app_blender.png" alt="" title=""></img>
-              <span class="caption">Blender</span>
+              <span className="caption">Blender</span>
             </a>
 
-            <a class="link" href="">
+            <a className="link" href="">
               <img src="/img/app_fusion.png" alt="" title=""></img>
-              <span class="caption">Fusion</span>
+              <span className="caption">Fusion</span>
             </a>
 
-            <a class="link" href="http://localhost:3000/features#ftrack">
+            <a className="link" href="http://localhost:3000/features#ftrack">
               <img src="/img/app_ftrack.png" alt="" title=""></img>
-              <span class="caption">Ftrack</span>
+              <span className="caption">Ftrack</span>
             </a>
 
-            <a class="link" href="">
+            <a className="link" href="">
               <img src="/img/app_clockify.png" alt="" title=""></img>
-              <span class="caption">Clockify</span>
+              <span className="caption">Clockify</span>
             </a>
 
-            <a class="link" href="">
+            <a className="link" href="">
               <img src="/img/app_premiere.png" alt="" title=""></img>
-              <span class="caption">Premiere Pro</span>
+              <span className="caption">Premiere Pro</span>
             </a>
 
-            <a class="link" href="">
+            <a className="link" href="">
               <img src="/img/app_deadline.png" alt="" title=""></img>
-              <span class="caption">Deadline</span>
+              <span className="caption">Deadline</span>
             </a>
 
-            <a class="link" href="">
+            <a className="link" href="">
               <img src="/img/app_muster.png" alt="" title=""></img>
-              <span class="caption">Muster</span>
+              <span className="caption">Muster</span>
             </a>
 
-            <a class="link" href="http://localhost:3000/features#nuke">
+            <a className="link" href="http://localhost:3000/features#nuke">
               <img src="/img/app_unreal.png" alt="" title=""></img>
-              <span class="caption">Unreal Engine</span>
+              <span className="caption">Unreal Engine</span>
             </a>
           </div>
 
           <p> <span>In development by us or a community of <a href="https://github.com/getavalon/core/pulls">avalon core</a> developers.</span></p>
 
-          <div class="showcase">
+          <div className="showcase">
 
-            <a class="link" href="http://localhost:3000/features#nuke">
+            <a className="link" href="http://localhost:3000/features#nuke">
               <img src="/img/app_photoshop.png" alt="" title=""></img>
-              <span class="caption">Photoshop</span>
+              <span className="caption">Photoshop</span>
             </a>
 
-            <a class="link" href="http://localhost:3000/features#nuke">
+            <a className="link" href="http://localhost:3000/features#nuke">
               <img src="/img/app_toonboom.png" alt="" title=""></img>
-              <span class="caption">Toon Boom</span>
+              <span className="caption">Toon Boom</span>
             </a>
 
           </div>
 
         </div>
 
-        <div class="productShowcaseSection lightBackground paddingTop">
+        <div className="productShowcaseSection lightBackground paddingTop">
           <h2>Collaborators</h2>
           <p><span>Studios and projects which are continuously helping pype grow and get better.</span></p>
 
-          <div class="showcase">
-            <a class="collab" href="http://kredenc.studio">
+          <div className="showcase">
+            <a className="collab" href="http://kredenc.studio">
               <img src="/img/kredenc.png" height="50px" alt="" title=""></img>
-              <span class="caption"></span>
+              <span className="caption"></span>
             </a>
 
-            <a class="collab" href="http://bumpybox.com">
+            <a className="collab" href="http://bumpybox.com">
               <img src="/img/bumpybox.png" height="60px" alt="" title=""></img>
-              <span class="caption"></span>
+              <span className="caption"></span>
             </a>
 
-            <a class="collab" href="http://colorbleed.nl">
+            <a className="collab" href="http://colorbleed.nl">
               <img src="/img/colorbleed_logo.png" height="60px" alt="" title=""></img>
-              <span class="caption"></span>
+              <span className="caption"></span>
             </a>
 
-            <a class="collab" href="https://www.moonshine.tw/">
+            <a className="collab" href="https://www.moonshine.tw/">
               <img src="/img/moonshine_logotype.png" height="70px" alt="" title=""></img>
-              <span class="caption"></span>
+              <span className="caption"></span>
             </a>
 
-            <a class="collab" href="https://getavalon.github.io/2.0/">
+            <a className="collab" href="https://getavalon.github.io/2.0/">
               <img src="/img/avalon_logotype.png" height="50px" alt="" title=""></img>
-              <span class="caption"></span>
+              <span className="caption"></span>
             </a>
 
 
