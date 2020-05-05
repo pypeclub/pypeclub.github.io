@@ -253,7 +253,7 @@ Example:
 <div class="ImagePanel.content">
 
 It is possible to publish hiero soft effects for compositors to use later on. You can add the effect to a particular clip or to whole layer as shows on the picture. All clips
-bellow the `Video 6` layer (green arrow) will be published with the **lut** subset which combines all the colour corrections from he soft effects. Any clips above the `Video 6` layer will have no **lut** published with them.  
+below the `Video 6` layer (green arrow) will be published with the **lut** subset which combines all the colour corrections from he soft effects. Any clips above the `Video 6` layer will have no **lut** published with them.  
 
 Any external Lut files used in the soft effects will be copied over to `resources` of the published subset folder `lutPlateMain` (in our example).
 
