@@ -64,8 +64,8 @@ class HomeSplash extends React.Component {
 
 
 const BlockElement = props => (
-  <div class="blockElement alignCenter fourByGridBlock">
-    <div class="blockContent">
+  <div className="blockElement alignCenter fourByGridBlock">
+    <div className="blockContent">
       {props.children}
     </div>
   </div>
@@ -78,7 +78,7 @@ class Section extends React.Component {
       padding={['bottom', 'top']}
       id={this.props.id}
       background={this.props.background}>
-        <h2 class="noTopMargin">{this.props.title}</h2>
+        <h2 className="noTopMargin">{this.props.title}</h2>
           {this.props.children}
     </Container>
   );
@@ -96,22 +96,22 @@ class Featurecard extends React.Component {
     const description = this.props.description
 
     return (
-      <div class="cards-list-item-outer">
-        <div class="cards-list-item-inner">
+      <div className="cards-list-item-outer">
+        <div className="cards-list-item-inner">
 
-          <a href={link} class="cards-list-item-thumbnail">
+          <a href={link} className="cards-list-item-thumbnail">
           <img src={thumbnail}></img>
           </a>
 
           <a href={link}
-          class="cards-list-item-title">{title}</a>
+          className="cards-list-item-title">{title}</a>
 
-          <a href={link} class="cards-list-item-excerpt">{description}</a>
+          <a href={link} className="cards-list-item-excerpt">{description}</a>
 
-          <div class="cards-list-item-more">
+          <div className="cards-list-item-more">
 
           {link != "javascript:void(0);" &&
-                <a href={link} class="more-item url ml-auto">MORE <i class="fa fa-chevron-right"></i></a>
+                <a href={link} className="more-item url ml-auto">MORE <i className="fa fa-chevron-right"></i></a>
               }
 
           </div>
@@ -129,18 +129,18 @@ class FeaturecardMedium extends React.Component {
     const description = this.props.description
 
     return (
-      <div class="cards-list-item-outer medium">
-        <div class="cards-list-item-inner">
+      <div className="cards-list-item-outer medium">
+        <div className="cards-list-item-inner">
 
           <a href={link}
-          class="cards-list-item-title medium">{title}</a>
+          className="cards-list-item-title medium">{title}</a>
 
           <a href={link}
-          class="cards-list-item-excerpt">{description}</a>
+          className="cards-list-item-excerpt">{description}</a>
 
-          <div class="cards-list-item-more">
+          <div className="cards-list-item-more">
           {link != "javascript:void(0);" &&
-            <a href={link} class="more-item url ml-auto">MORE <i class="fa fa-chevron-right"></i></a>
+            <a href={link} className="more-item url ml-auto">MORE <i className="fa fa-chevron-right"></i></a>
           }
           </div>
 
@@ -157,15 +157,15 @@ class FeaturecardSmall extends React.Component {
     const description = this.props.description
 
     return (
-      <div class="cards-list-item-outer small">
-        <div class="cards-list-item-inner">
+      <div className="cards-list-item-outer small">
+        <div className="cards-list-item-inner">
 
-          <a href={link} class="cards-list-item-thumbnail">
+          <a href={link} className="cards-list-item-thumbnail">
           <img src={this.props.img}></img>
           </a>
 
           <a href={link}
-          class="cards-list-item-title small">{title}</a>
+          className="cards-list-item-title small">{title}</a>
 
         </div>
       </div>
@@ -190,7 +190,7 @@ class Index extends React.Component {
 
 
       <Section background="light" title="Key Pype Features">
-        <div class="cards-list">
+        <div className="cards-list">
 
           <Featurecard
             label="Creator"
@@ -255,9 +255,9 @@ class Index extends React.Component {
 
       <Section background="dark" title="Ftrack" id="ftrack">
 
-        <p class="sectionDescription">versions 4.0 and higher</p>
+        <p className="sectionDescription">versions 4.0 and higher</p>
 
-        <div class="cards-list">
+        <div className="cards-list">
           <FeaturecardMedium
             label="App launchers"
             description="Start any DCC application directly from ftrack task, with pype loaded.">
@@ -285,8 +285,8 @@ class Index extends React.Component {
 
         </div>
 
-        <h3 class="alignCenter"> Ftrack Actions and Events</h3>
-        <div class="cards-list">
+        <h3 className="alignCenter"> Ftrack Actions and Events</h3>
+        <div className="cards-list">
 
           <FeaturecardSmall label="Launch Application"></FeaturecardSmall>
           <FeaturecardSmall label="Review in RV Player"></FeaturecardSmall>
@@ -309,9 +309,9 @@ class Index extends React.Component {
 
       <Section background="light" title="Autodesk Maya" id="maya">
 
-        <p class="sectionDescription">versions 2017 and higher</p>
+        <p className="sectionDescription">versions 2017 and higher</p>
 
-          <div class="cards-list">
+          <div className="cards-list">
             <FeaturecardMedium
               label="Look Management"
               link="docs/artist_hosts_maya#look-development"
@@ -341,8 +341,8 @@ class Index extends React.Component {
 
           </div>
 
-          <h3 class="alignCenter"> Supported Families </h3>
-          <div class="cards-list">
+          <h3 className="alignCenter"> Supported Families </h3>
+          <div className="cards-list">
             <FeaturecardSmall label="Model"></FeaturecardSmall>
             <FeaturecardSmall label="Look"></FeaturecardSmall>
             <FeaturecardSmall label="Rig"></FeaturecardSmall>
@@ -371,9 +371,9 @@ class Index extends React.Component {
       <Section background="dark" title="Foundry Nuke | Nuke Studio | Hiero"
         id="nuke">
 
-        <p class="sectionDescription">versions 11.0 and higher</p>
+        <p className="sectionDescription">versions 11.0 and higher</p>
 
-        <div class="cards-list">
+        <div className="cards-list">
           <FeaturecardMedium
             label="Color Managed"
             description="Fully colour managed outputs for work and review.">
@@ -395,8 +395,8 @@ class Index extends React.Component {
           </FeaturecardMedium>
         </div>
 
-        <h3 class="alignCenter"> Supported Families </h3>
-        <div class="cards-list">
+        <h3 className="alignCenter"> Supported Families </h3>
+        <div className="cards-list">
           <FeaturecardSmall label="Model"></FeaturecardSmall>
           <FeaturecardSmall label="Camera"></FeaturecardSmall>
           <FeaturecardSmall label="Render"></FeaturecardSmall>
@@ -413,11 +413,11 @@ class Index extends React.Component {
       <Section background="light" title="Side FX Houdini"
         id="nuke">
 
-        <p class="sectionDescription">versions 16.5 and higher</p>
+        <p className="sectionDescription">versions 16.5 and higher</p>
 
 
-        <h3 class="alignCenter"> Supported Families </h3>
-        <div class="cards-list">
+        <h3 className="alignCenter"> Supported Families </h3>
+        <div className="cards-list">
           <FeaturecardSmall label="Model"></FeaturecardSmall>
           <FeaturecardSmall label="Animation"></FeaturecardSmall>
           <FeaturecardSmall label="Pointcache"></FeaturecardSmall>
