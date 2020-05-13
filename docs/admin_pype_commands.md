@@ -10,7 +10,7 @@ sidebar_label: Pype Commands
 
 To get all available commands:
 ```sh
-pype help
+pype --help
 ```
 
 To get help on particular command:
@@ -19,32 +19,21 @@ pype <command> --help
 ```
 
 --------------------
+## `clean`
 
-## `install`
+Command to clean Python bytecode files from Pype and it's environment. Useful
+for developers after code or environment update.
 
-To install Pype:
+--------------------
 
+## `coverage`
+
+### `--pype`
+- without this option, tests are run on *pype-setup* only.
+
+Generate code coverage report.
 ```sh
-pype install
-```
-
-### `--force`
-
-To reinstall Pype:
-```sh
-pype install --force
-```
-
-### `--offline`
-
-To install Pype in offline mode:
-```sh
-pype install --offline
-```
-
-To reinstall Pype in offline mode:
-```sh
-pype install --offline --force
+pype coverage --pype
 ```
 
 --------------------
@@ -62,47 +51,14 @@ To force re-deploy:
 ```sh
 pype deploy --force
 ```
+
 ---------------------------
-
-## `validate`
-
-To validate deployment:
-```sh
-pype validate
-```
-
---------------------
-
-## `tray`
-
-To launch Tray:
-```sh
-pype tray
-```
-
-### `--debug`
-
-To launch Tray with debugging information:
-```sh
-pype tray --debug
-```
-
---------------------
 
 ## `download`
 
 To download required dependencies:
 ```sh
 pype download
-```
-
---------------------
-
-## `mongodb`
-
-To run testing mongodb database (requires mongoDB installed on the workstation):
-```sh
-pype mongodb
 ```
 
 --------------------
@@ -146,6 +102,92 @@ pype eventserver --ftrack-url=<url> --ftrack-user=<user> --ftrack-api-key=<key> 
 
 --------------------
 
+## `install`
+
+To install Pype:
+
+```sh
+pype install
+```
+
+### `--force`
+
+To reinstall Pype:
+```sh
+pype install --force
+```
+
+### `--offline`
+
+To install Pype in offline mode:
+```sh
+pype install --offline
+```
+
+To reinstall Pype in offline mode:
+```sh
+pype install --offline --force
+```
+
+--------------------
+
+## `launch`
+
+Launch application in Pype environment.
+
+### `--app`
+
+Application name - this should be the same as it's [defining toml](admin_hosts#launchers) file (without .toml)
+
+### `--project`
+Project name
+
+### `--asset`
+Asset name
+
+### `--task`
+Task name
+
+### `--tools`
+*Optional: Additional tools environment files to add*
+
+### `--user`
+*Optional: User on behalf to run*
+
+### `--ftrack-server` / `-fs`
+*Optional: Ftrack server URL*
+
+### `--ftrack-user` / `-fu`
+*Optional: Ftrack user*
+
+### `--ftrack-key` / `-fk`
+*Optional: Ftrack API key*
+
+For example to run Python interactive console in Pype context:
+```sh
+pype launch --app python --project my_project --asset my_asset --task my_task
+```
+
+--------------------
+
+## `make_docs`
+
+Generate API documentation into `docs/build`
+```sh
+pype make_docs
+```
+
+--------------------
+
+## `mongodb`
+
+To run testing mongodb database (requires mongoDB installed on the workstation):
+```sh
+pype mongodb
+```
+
+--------------------
+
 ## `publish`
 
 Pype takes JSON from provided path and use it to publish data in it.
@@ -158,6 +200,21 @@ pype publish <PATH_TO_JSON>
 
 ### `--debug`
 - print more verbose infomation
+
+--------------------
+
+## `test`
+
+### `--pype`
+- without this option, tests are run on *pype-setup* only.
+
+Run test suite on Pype:
+```sh
+pype test --pype
+```
+:::note Pytest
+For more information about testing see [Pytest documentation](https://docs.pytest.org/en/latest/)
+:::
 
 --------------------
 
@@ -185,34 +242,18 @@ pype texturecopy --project <PROJECT_NAME> --asset <ASSET_NAME> --path <PATH_TO_J
 
 --------------------
 
-## `test`
+## `tray`
 
-### `--pype`
-- without this option, tests are run on *pype-setup* only.
-
-Run test suite on Pype:
+To launch Tray:
 ```sh
-pype test --pype
-```
---------------------
-
-## `coverage`
-
-### `--pype`
-- without this option, tests are run on *pype-setup* only.
-
-Generate code coverage report.
-```sh
-pype coverage --pype
+pype tray
 ```
 
---------------------
+### `--debug`
 
-## `make_docs`
-
-Generate API documentation into `docs/build`
+To launch Tray with debugging information:
 ```sh
-pype make_docs
+pype tray --debug
 ```
 
 --------------------
@@ -225,4 +266,22 @@ environmnet. This is useful for development purposes.
 
 ```sh
 pype update-requirements
+```
+
+--------------------
+
+## `validate`
+
+To validate deployment:
+```sh
+pype validate
+```
+
+--------------------
+
+## `validate-config`
+
+To validate JSON configuration files for syntax errors:
+```sh
+pype validate-config
 ```

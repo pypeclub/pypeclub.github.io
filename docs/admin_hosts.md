@@ -147,6 +147,14 @@ To support [AWS Thinkbox Deadline](https://www.awsthinkbox.com/deadline) you jus
 
 3. Set up *Deadline Web API service*. For more details on how to do it, see [here](https://docs.thinkboxsoftware.com/products/deadline/10.0/1_User%20Manual/manual/web-service.html).
 
+### Pype Dealine supplement code
+
+There is some code needed to be installed on Deadline repository. You can find this repository overlay in
+`pype-setup/vendor/deadline`. This whole directory can be copied to your existing deadline repository.
+
+Currently there is just **GlobalJobPreLoad.py** script taking care of path remapping in case of multiplatform
+machine setup on farm. If there is no mix of windows/linux machines on farm, there is no need to use this.
+
 ## Virtual Vertex Muster
 
 Pype supports rendering with [Muster](https://www.vvertex.com/). To enable it:

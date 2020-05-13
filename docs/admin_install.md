@@ -91,6 +91,10 @@ it's dependencies.
 
 :::
 
+:::note Override Python detection
+You can override autodetection of Python. This can be useful if you want to use central network python location or some other custom location. Just set `PYPE_PYTHON_EXE` environment variable to point where you need.
+:::
+
 --------------
 
 ### MongoDB
