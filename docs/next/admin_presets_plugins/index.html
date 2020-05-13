@@ -69,125 +69,454 @@
     }
 }
 </code></pre>
-<p><br>
-<br></p>
+<p><br></p>
 <h3><a class="anchor" aria-hidden="true" id="extractreview"></a><a href="#extractreview" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>ExtractReview</code></h3>
-<p>Plugin responsible for automatic FFMPEG conversion to variety of formats.</p>
-<h4><a class="anchor" aria-hidden="true" id="plugin-attributes-requiredx3a"></a><a href="#plugin-attributes-requiredx3a" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Plugin attributes [required]:</h4>
+<p>Plugin responsible for automatic FFmpeg conversion to variety of formats.</p>
+<p>Supported extensions for both input and output: <code>[&quot;exr&quot;, &quot;jpg&quot;, &quot;jpeg&quot;, &quot;png&quot;, &quot;dpx&quot;, &quot;mov&quot;, &quot;mp4&quot;]</code></p>
+<p><strong>ExtractReview</strong> creates new representations based on presets and representations in instance. Preset should contain only one attribute <strong>&quot;profiles&quot;</strong> which is list of profile items. Each profile item has <strong>outputs</strong>, where definitions of possible outputs are, and may have specified filters for <strong>hosts</strong>, <strong>tasks</strong> and <strong>families</strong>.</p>
+<h4><a class="anchor" aria-hidden="true" id="profile-filters"></a><a href="#profile-filters" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Profile filters</h4>
+<p>As mentioned above you can define multiple profiles for different contexts. Profile with filters matching current context the most is used. You can define profile without filters and use it as <strong>default</strong>. Only <strong>one or none</strong> profile is processed per instance.</p>
+<p>All context filters are lists which may contain strings or Regular expressions (RegEx).</p>
 <ul>
-<li><p><strong>ext_filter</strong> - list of extension that can be processed.</p>
-<pre><code class="hljs">&quot;ext_filter&quot;: [&quot;exr&quot;, &quot;jpg&quot;, &quot;jpeg&quot;, &quot;mov&quot;, &quot;png&quot;, &quot;dpx&quot;, &quot;mp4&quot;]
-</code></pre></li>
-<li><p><strong>to_width</strong> - output width resolution if tag <code>reformat</code> is used.</p></li>
-<li><p><strong>to_height</strong> - output height resolution if tag <code>reformat</code> is used.</p></li>
-<li><p><strong>outputs</strong> - dictionary of presets where, each defining a new review output that will be generated.</p></li>
+<li><strong>hosts</strong> - Host from which publishing was triggered. <code>[&quot;maya&quot;, &quot;nuke&quot;]</code></li>
+<li><strong>tasks</strong> - Currently processed task. <code>[&quot;[Cc]ompositing&quot;, &quot;[Aa]nimation&quot;]</code></li>
+<li><strong>families</strong> - Main family of processed instance. <code>[&quot;plate&quot;, &quot;model&quot;]</code></li>
 </ul>
-<p><strong>full preset example</strong></p>
+
+    <div class="admonition admonition-important">
+      <div class="admonition-heading">
+        <h5><div class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"/></svg></div>  Filtering</h5>
+      </div>
+      <div class="admonition-content">
+    <p>Filters are optional and may not be set. In case when multiple profiles match current context, profile with filters has higher priority that profile without filters.</p>
+</div></div><h4><a class="anchor" aria-hidden="true" id="profile-outputs"></a><a href="#profile-outputs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Profile outputs</h4>
+<p>Profile may have multiple outputs from one input and that's why <strong>outputs</strong> is dictionary where key represents <strong>filename suffix</strong> to avoid overriding files with same name and value represents definition itself. Definition may contain multiple optional keys.</p>
+<table>
+<thead>
+<tr><th>Key</th><th>Description</th><th>Type</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>width</strong></td><td>Width of output.</td><td>int</td><td>1920</td></tr>
+<tr><td><strong>height</strong></td><td>Height of output.</td><td>int</td><td>1080</td></tr>
+<tr><td><strong>letter_box</strong></td><td>Set letterbox ratio.</td><td>float</td><td>2.35</td></tr>
+<tr><td><strong>ext</strong></td><td>Extension of output file(s).</td><td>str</td><td>&quot;mov&quot;</td></tr>
+<tr><td><strong>tags</strong></td><td>Tags added to new representation.</td><td>list</td><td><a href="#new-representation-tags-tags">here</a></td></tr>
+<tr><td><strong>ffmpeg_args</strong></td><td>Additional FFmpeg arguments.</td><td>dict</td><td><a href="#ffmpeg-arguments-ffmpeg_args">here</a></td></tr>
+<tr><td><strong>filter</strong></td><td>Filters definition.</td><td>dict</td><td><a href="#output-filters-filter">here</a></td></tr>
+</tbody>
+</table>
+
+    <div class="admonition admonition-note">
+      <div class="admonition-heading">
+        <h5><div class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"/></svg></div> note</h5>
+      </div>
+      <div class="admonition-content">
+    <p>As metioned above <strong>all keys are optional</strong>. If they are not filled at all, then <strong>&quot;ext&quot;</strong> is filled with input's file extension and resolution keys <strong>&quot;width&quot;</strong> and <strong>&quot;heigh&quot;</strong> are filled from instance data, or from input resolution if instance doesn't have set them.</p>
+</div></div>
+    <div class="admonition admonition-important">
+      <div class="admonition-heading">
+        <h5><div class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"/></svg></div>  resolution</h5>
+      </div>
+      <div class="admonition-content">
+    <p>It is not possible to enter only <strong>&quot;width&quot;</strong> or only <strong>&quot;height&quot;</strong>. In that case set values will be skipped.</p>
+</div></div><h4><a class="anchor" aria-hidden="true" id="new-representation-tags-tags"></a><a href="#new-representation-tags-tags" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>New representation tags (<code>tags</code>)</h4>
+<p>You can add tags to representation created during extracting process. This might help to define what should happen with representation in upcomming plugins.</p>
+<table>
+<thead>
+<tr><th>Tag</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>burnin</strong></td><td>Add burnins with predefined values into the output.</td></tr>
+<tr><td><strong>preview</strong></td><td>Will be used as preview in Ftrack.</td></tr>
+<tr><td><strong>reformat</strong></td><td>Rescale to format based on width and height keys.</td></tr>
+<tr><td><strong>bake-lut</strong></td><td>Bake LUT into the output (if is available path in data).</td></tr>
+<tr><td><strong>slate-frame</strong></td><td>Add slate frame at the beggining of video.</td></tr>
+<tr><td><strong>no-handles</strong></td><td>Remove the shot handles from the output.</td></tr>
+<tr><td><strong>sequence</strong></td><td>Generate a sequence of images instead of single frame.</br>Is applied only if <strong>&quot;ext&quot;</strong> of output is image extension e.g.: png or jpg/jpeg.</td></tr>
+</tbody>
+</table>
+
+    <div class="admonition admonition-important">
+      <div class="admonition-heading">
+        <h5><div class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"/></svg></div>  Example</h5>
+      </div>
+      <div class="admonition-content">
+    <p>Tags key must contain list of strings.</p>
 <pre><code class="hljs css language-json">{
-<span class="hljs-attr">"ExtractReview"</span>: {
-    <span class="hljs-attr">"ext_filter"</span>: [<span class="hljs-string">"exr"</span>, <span class="hljs-string">"jpg"</span>, <span class="hljs-string">"jpeg"</span>, <span class="hljs-string">"mov"</span>, <span class="hljs-string">"png"</span>, <span class="hljs-string">"dpx"</span>, <span class="hljs-string">"mp4"</span>],
-    <span class="hljs-attr">"to_width"</span>: <span class="hljs-number">1280</span>,
-    <span class="hljs-attr">"to_height"</span>: <span class="hljs-number">720</span>,
-    <span class="hljs-attr">"outputs"</span>: {
-      <span class="hljs-attr">"h264"</span>: {
-        <span class="hljs-attr">"families"</span>: [<span class="hljs-string">"render"</span>, <span class="hljs-string">"ftrack"</span>],
-        <span class="hljs-attr">"input"</span>: [
-          <span class="hljs-string">"-gamma 2.2"</span>
-        ],
-        <span class="hljs-attr">"codec"</span>: [
-          <span class="hljs-string">"-pix_fmt yuv420p"</span>,
-          <span class="hljs-string">"-crf 18"</span>
-        ],
-        <span class="hljs-attr">"output"</span>: [],
-        <span class="hljs-attr">"tags"</span>: [<span class="hljs-string">"burnin"</span>, <span class="hljs-string">"preview"</span>, <span class="hljs-string">"reformat"</span>],
-        <span class="hljs-attr">"ext"</span>: <span class="hljs-string">"mov"</span>
-      }
-    }
-  }
+    <span class="hljs-attr">"tags"</span>: [<span class="hljs-string">"burnin"</span>, <span class="hljs-string">"preview"</span>]
+    ...
 }
 </code></pre>
-<h4><a class="anchor" aria-hidden="true" id="preset-attributes"></a><a href="#preset-attributes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Preset attributes</h4>
-<p>Each preset consists of the following attributes:</p>
+</div></div><h4><a class="anchor" aria-hidden="true" id="ffmpeg-arguments-ffmpeg_args"></a><a href="#ffmpeg-arguments-ffmpeg_args" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>FFmpeg arguments (<code>ffmpeg_args</code>)</h4>
+<p>It is possible to set additional FFmpeg arguments. Arguments are split into 4 categories <strong>&quot;input&quot;</strong>, <strong>&quot;video_filters&quot;</strong>, <strong>&quot;audio_filters&quot;</strong> and <strong>&quot;output&quot;</strong>.</p>
+<table>
+<thead>
+<tr><th>Key</th><th>Description</th><th>Type</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>input</strong></td><td>FFmpeg arguments added before video/image input.</td><td>list</td><td>[&quot;-gamma 2.2&quot;]</td></tr>
+<tr><td><strong>video_filters</strong></td><td>All values which should be in <code>-vf</code> or <code>-filter:v</code> argument.</td><td>list</td><td>[&quot;scale=iw/2:-1&quot;]</td></tr>
+<tr><td><strong>audio_filters</strong></td><td>All values which should be in <code>-af</code> or <code>-filter:a</code> argument.</td><td>list</td><td>[&quot;loudnorm&quot;]</td></tr>
+<tr><td><strong>output</strong></td><td>FFmpeg arguments added before output filepath.</td><td>list</td><td>[&quot;-pix_fmt yuv420p&quot;, &quot;-crf 18&quot;]</td></tr>
+</tbody>
+</table>
+
+    <div class="admonition admonition-important">
+      <div class="admonition-heading">
+        <h5><div class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"/></svg></div>  Example</h5>
+      </div>
+      <div class="admonition-content">
+    <p>For more information about FFmpeg arguments please visit <a href="https://ffmpeg.org/documentation.html">official documentation</a>.</p>
+<pre><code class="hljs css language-json">{
+    <span class="hljs-attr">"ffmpeg_args"</span>: {
+        <span class="hljs-attr">"input"</span>: [<span class="hljs-string">"-gamma 2.2"</span>],
+        <span class="hljs-attr">"video_filters"</span>: [<span class="hljs-string">"yadif=0:0:0"</span>, <span class="hljs-string">"scale=iw/2:-1"</span>],
+        <span class="hljs-attr">"output"</span>: [<span class="hljs-string">"-pix_fmt yuv420p"</span>, <span class="hljs-string">"-crf 18"</span>]
+    }
+    ...
+}
+</code></pre>
+</div></div><h4><a class="anchor" aria-hidden="true" id="output-filters-filter"></a><a href="#output-filters-filter" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Output filters (<code>filter</code>)</h4>
+<p>Even if profile has filtering options it is possible that output definitions require to be filtered by all instance <strong>families</strong> or representation's <strong>tags</strong>.</p>
+<p>Families filters in output's <code>filter</code> will check all instance's families and may check for single family or combination of families.</p>
+<table>
+<thead>
+<tr><th>Key</th><th>Description</th><th>Type</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>families</strong></td><td>At least one family item must match instance's families to process definition.</td><td>list</td><td>[&quot;review&quot;]</td></tr>
+<tr><td><strong>tags</strong></td><td>At least one tag from list must be in representation's tags to process definition.</td><td>list</td><td>[&quot;preview&quot;]</td></tr>
+</tbody>
+</table>
+
+    <div class="admonition admonition-important">
+      <div class="admonition-heading">
+        <h5><div class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"/></svg></div>  Example</h5>
+      </div>
+      <div class="admonition-content">
+    <p>These filters helps with explicit processing but do <strong>NOT</strong> use them if it's not necessary.</p>
+<pre><code class="hljs css language-json">{
+    <span class="hljs-attr">"filter"</span>: {
+        <span class="hljs-attr">"families"</span>: [
+            <span class="hljs-string">"review"</span>,
+            [<span class="hljs-string">"ftrack"</span>, <span class="hljs-string">"render2d"</span>]
+        ],
+        <span class="hljs-attr">"tags"</span>: [<span class="hljs-string">"preview"</span>],
+    }
+    ...
+}
+</code></pre>
+<p>In this example representation's tags must contain <strong>&quot;preview&quot;</strong> tag and instance's families must contain <strong>&quot;review&quot;</strong> family, or both <strong>&quot;ftrack&quot;</strong> and <strong>&quot;render2d&quot;</strong> families.</p>
+</div></div><h4><a class="anchor" aria-hidden="true" id="simple-example"></a><a href="#simple-example" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Simple example</h4>
+<p>This example just create <strong>mov</strong> output with filename suffix <strong>&quot;simplemov&quot;</strong> for all representations with supported extensions.</p>
+<pre><code class="hljs css language-json">{
+    <span class="hljs-attr">"ExtractReview"</span>: {
+        <span class="hljs-attr">"profiles"</span>: [{
+            <span class="hljs-attr">"outputs"</span>: {
+                <span class="hljs-comment">/* Filename suffix "simplemov"*/</span>
+                <span class="hljs-attr">"simplemov"</span>: {
+                    <span class="hljs-comment">/* Output extension will be "mov"*/</span>
+                    <span class="hljs-attr">"ext"</span>: <span class="hljs-string">"mov"</span>
+                }
+            }
+        }]
+    }
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="more-complex-example"></a><a href="#more-complex-example" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>More complex example</h4>
+
+    <div class="admonition admonition-note">
+      <div class="admonition-heading">
+        <h5><div class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"/></svg></div> note</h5>
+      </div>
+      <div class="admonition-content">
+    <p>This is just usage example, without relevant data. Do <strong>NOT</strong> use these presets as default in production.</p>
+</div></div><pre><code class="hljs css language-json">{
+    <span class="hljs-attr">"ExtractReview"</span>: {
+        <span class="hljs-attr">"profiles"</span>: [
+            {
+                <span class="hljs-comment">/* 1. profile - Without filters will be used as default. */</span>
+                <span class="hljs-attr">"outputs"</span>: {
+                    <span class="hljs-comment">/* Extract single mov Prores 422 with burnins, slate and baked lut. */</span>
+                    <span class="hljs-attr">"prores"</span>: {
+                        <span class="hljs-attr">"ext"</span>: <span class="hljs-string">"mov"</span>,
+                        <span class="hljs-attr">"codec"</span>: [
+                            <span class="hljs-string">"-codec:v prores_ks"</span>,
+                            <span class="hljs-string">"-profile:v 3"</span>
+                        ],
+                        <span class="hljs-attr">"tags"</span>: [<span class="hljs-string">"burnin"</span>, <span class="hljs-string">"reformat"</span>, <span class="hljs-string">"bake-lut"</span>, <span class="hljs-string">"slate-frame"</span>]
+                    }
+                }
+            }, {
+                <span class="hljs-comment">/* 2. profile - Only for Nuke, "compositing" task and instance family "render2d". */</span>
+                <span class="hljs-attr">"hosts"</span>: [<span class="hljs-string">"nuke"</span>],
+                <span class="hljs-attr">"tasks"</span>: [<span class="hljs-string">"compositing"</span>],
+                <span class="hljs-attr">"families"</span>: [<span class="hljs-string">"render2d"</span>],
+                <span class="hljs-attr">"outputs"</span>: {
+                    <span class="hljs-comment">/* Extract preview mov with burnins and without handles.*/</span>
+                    <span class="hljs-attr">"h264"</span>: {
+                        <span class="hljs-attr">"ext"</span>: <span class="hljs-string">"mov"</span>,
+                        <span class="hljs-attr">"ffmpeg_args"</span>: {
+                            <span class="hljs-attr">"output"</span>: [
+                                <span class="hljs-string">"-pix_fmt yuv420p"</span>,
+                            ]
+                        },
+                        <span class="hljs-attr">"tags"</span>: [<span class="hljs-string">"burnin"</span>, <span class="hljs-string">"preview"</span>, <span class="hljs-string">"no-handles"</span>]
+                    },
+                    <span class="hljs-comment">/* Also extract mxf with slate */</span>
+                    <span class="hljs-attr">"edit"</span>: {
+                        <span class="hljs-attr">"ext"</span>: <span class="hljs-string">"mxf"</span>,
+                        <span class="hljs-attr">"ffmpeg_args"</span>: {
+                            <span class="hljs-attr">"output"</span>: [
+                                <span class="hljs-string">"-codec:v dnxhd"</span>,
+                                <span class="hljs-string">"-profile:v dnxhr_444"</span>,
+                                <span class="hljs-string">"-pix_fmt yuv444p10le"</span>,
+                                <span class="hljs-string">"-b:v 185M"</span>,
+                                <span class="hljs-string">"-ar 48000"</span>,
+                                <span class="hljs-string">"-qmax 51"</span>
+                            ]
+                        },
+                        <span class="hljs-attr">"tags"</span>: [<span class="hljs-string">"slate-frame"</span>]
+                    }
+                }
+            }, {
+                <span class="hljs-comment">/* 3. profile - Default profile for Nuke and Maya. */</span>
+                <span class="hljs-attr">"hosts"</span>: [<span class="hljs-string">"maya"</span>, <span class="hljs-string">"nuke"</span>],
+                <span class="hljs-attr">"outputs"</span>: {
+                    <span class="hljs-comment">/* Extract preview mov with burnins and with forced resolution. */</span>
+                    <span class="hljs-attr">"h264"</span>: {
+                        <span class="hljs-attr">"width"</span>: <span class="hljs-number">1920</span>,
+                        <span class="hljs-attr">"height"</span>: <span class="hljs-number">1080</span>,
+                        <span class="hljs-attr">"ext"</span>: <span class="hljs-string">"mov"</span>,
+                        <span class="hljs-attr">"ffmpeg_args"</span>: {
+                            <span class="hljs-attr">"input"</span>: [
+                                <span class="hljs-string">"-gamma 2.2"</span>
+                            ],
+                            <span class="hljs-attr">"output"</span>: [
+                                <span class="hljs-string">"-pix_fmt yuv420p"</span>,
+                                <span class="hljs-string">"-crf 18"</span>,
+                                <span class="hljs-string">"-intra"</span>
+                            ]
+                        },
+                        <span class="hljs-attr">"tags"</span>: [<span class="hljs-string">"burnin"</span>, <span class="hljs-string">"preview"</span>]
+                    }
+                }
+            }
+        ]
+    }
+}
+</code></pre>
+<p><br></p>
+<h3><a class="anchor" aria-hidden="true" id="extractburnin"></a><a href="#extractburnin" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>ExtractBurnin</code></h3>
+<p>Plugin is responsible for adding burnins into review representations.</p>
+<p>Burnins are text values painted on top of input and may be surrounded with box in 6 available positions <code>Top Left</code>, <code>Top Center</code>, <code>Top Right</code>, <code>Bottom Left</code>, <code>Bottom Center</code>, <code>Bottom Right</code>.</p>
+<p><img src="/docs/assets/presets_plugins_extract_burnin_01.png" alt="presets_plugins_extract_burnin"></p>
+<p>ExtractBurnin creates new representations based on plugin presets and representations in instance. Presets may contain 3 keys <strong>options</strong>, <strong>profiles</strong> and <strong>fields</strong>.</p>
+<h4><a class="anchor" aria-hidden="true" id="burnin-settings-options"></a><a href="#burnin-settings-options" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Burnin settings (<code>options</code>)</h4>
+<p>Options is dictionry where you can set the global appearance of burnins. It is possible to not fill options at all, in that case default values are used.</p>
+<table>
+<thead>
+<tr><th>Key</th><th>Description</th><th>Type</th><th>Example</th><th>Default</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>font_size</strong></td><td>Size of text.</td><td>float</td><td>24</td><td>42</td></tr>
+<tr><td><strong>font_color</strong></td><td>Color of text.</td><td>str</td><td><a href="https://ffmpeg.org/ffmpeg-utils.html#color-syntax">FFmpeg color documentation</a></td><td>&quot;white&quot;</td></tr>
+<tr><td><strong>opacity</strong></td><td>Opacity of text.</td><td>float</td><td>0.7</td><td>1</td></tr>
+<tr><td><strong>x_offset</strong></td><td>Horizontal margin around text and box.</td><td>int</td><td>0</td><td>5</td></tr>
+<tr><td><strong>y_offset</strong></td><td>Vertical margin around text and box.</td><td>int</td><td>0</td><td>5</td></tr>
+<tr><td><strong>bg_padding</strong></td><td>Padding for box around text.</td><td>int</td><td>0</td><td>5</td></tr>
+<tr><td><strong>bg_color</strong></td><td>Color of box around text.</td><td>str</td><td><a href="https://ffmpeg.org/ffmpeg-utils.html#color-syntax">FFmpeg color documentation</a></td><td>&quot;black&quot;</td></tr>
+<tr><td><strong>bg_opacity</strong></td><td>Opacity of box around text.</td><td>float</td><td>1</td><td>0.5</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="burnin-profiles-profiles"></a><a href="#burnin-profiles-profiles" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Burnin profiles (<code>profiles</code>)</h4>
+<p>Plugin process is skipped if <code>profiles</code> are not set at all. Profiles contain list of profile items. Each profile item has <strong>burnins</strong>, where definitions of possible burnins are, and may have specified filters for <strong>hosts</strong>, <strong>tasks</strong> and <strong>families</strong>. Filters work the same way as described in <a href="#profile-filters">ExtractReview</a>.</p>
+<h4><a class="anchor" aria-hidden="true" id="profile-burnins"></a><a href="#profile-burnins" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Profile burnins</h4>
+<p>Profile may have set multiple burnin outputs from one input and that's why <strong>burnins</strong> is dictionary where key represents <strong>filename suffix</strong> to avoid overriding files with same name and value represents burnin definition. Burnin definition may contain multiple optional keys.</p>
+<table>
+<thead>
+<tr><th>Key</th><th>Description</th><th>Type</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>top_left</strong></td><td>Top left corner content.</td><td>str</td><td>&quot;{dd}.{mm}.{yyyy}&quot;</td></tr>
+<tr><td><strong>top_centered</strong></td><td>Top center corner content.</td><td>str</td><td>&quot;v{version:0&gt;3}&quot;</td></tr>
+<tr><td><strong>top_right</strong></td><td>Top right corner content.</td><td>str</td><td>&quot;Static text&quot;</td></tr>
+<tr><td><strong>bottom_left</strong></td><td>Bottom left corner content.</td><td>str</td><td>&quot;{asset}&quot;</td></tr>
+<tr><td><strong>bottom_centered</strong></td><td>Bottom center corner content.</td><td>str</td><td>&quot;{username}&quot;</td></tr>
+<tr><td><strong>bottom_right</strong></td><td>Bottom right corner content.</td><td>str</td><td>&quot;{frame_start}-{current_frame}-{frame_end}&quot;</td></tr>
+<tr><td><strong>options</strong></td><td>Options overrides for this burnin definition.</td><td>dict</td><td><a href="#burnin-settings-options">Options</a></td></tr>
+<tr><td><strong>filter</strong></td><td>Filters definition.</td><td>dict</td><td><a href="#output-filters-filter">ExtractReview output filter</a></td></tr>
+</tbody>
+</table>
+
+    <div class="admonition admonition-important">
+      <div class="admonition-heading">
+        <h5><div class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"/></svg></div>  Position keys</h5>
+      </div>
+      <div class="admonition-content">
+    <p>Any position key <code>top_left</code> -&gt; <code>bottom_right</code> is skipped if is not set, contain empty string or is set to <code>null</code>.</p>
+<p>And position keys are not case sensitive so instead of key <code>top_left</code> can be used <code>TOP_LEFT</code> or <code>Top_Left</code></p>
+</div></div>
+    <div class="admonition admonition-note">
+      <div class="admonition-heading">
+        <h5><div class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"/></svg></div>  Filename suffix</h5>
+      </div>
+      <div class="admonition-content">
+    <p>Filename suffix is appended to filename suffix of source representation.</p>
+<p>If source representation has suffix <strong>&quot;h264&quot;</strong> and burnin suffix is <strong>&quot;client&quot;</strong> then final suffix is <strong>&quot;h264_client&quot;</strong>.</p>
+</div></div><p><strong>Available keys in burnin content</strong></p>
 <ul>
-<li><strong>families</strong> [required] - subset families this preset will work on.</li>
-<li><strong>input</strong> - ffmpeg input arguments. Example: <code>-gamma 2.2</code></li>
-<li><strong>codec</strong> [required] - ffmpeg codec arguments. Example: <code>-vcodec dnxhd</code></li>
-<li><strong>output</strong> - ffmpeg ouput arguments. Example: video filters, drawn boxes, text</li>
-<li><strong>letter_box</strong> - float value describing the ratio of the letterbox, if required</li>
-<li><strong>tags</strong>: Tags alter the review process behaviour and can be combined
-<ul>
-<li><strong>burnin</strong> - add metadata info into the image</li>
-<li><strong>preview</strong> -  will be used as preview in ftrack</li>
-<li><strong>reformat</strong> - rescale to format based on <code>to_height</code> and <code>to_width</code> attributes</li>
-<li><strong>bake-lut</strong> - bake LUT into the image (available path in data)</li>
-<li><strong>slate-frame</strong> - addi slate frame at the beggining of video</li>
-<li><strong>no-handles</strong> - remove the shot handles from the output</li>
-<li><strong>sequence</strong> - generate a sequence of png or jpg instead of a video (ext needs to be set to png or jpg/jpeg)</li>
-</ul></li>
-<li><strong>ext</strong> [required]</li>
+<li><p>It is possible to use same keys as in <a href="admin_config#available-keys">Anatomy</a>.</p></li>
+<li><p>It is allowed to use <a href="admin_config#anatomy">Anatomy templates</a> themselves in burnins if they can be filled with available data.</p></li>
+<li><p>Additional keys in burnins:</p>
+<table>
+<thead>
+<tr><th>Burnin key</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>frame_start</td><td>First frame number.</td></tr>
+<tr><td>frame_end</td><td>Last frame number.</td></tr>
+<tr><td>current_frame</td><td>Frame number for each frame.</td></tr>
+<tr><td>duration</td><td>Count number of frames.</td></tr>
+<tr><td>resolution_width</td><td>Resolution width.</td></tr>
+<tr><td>resolution_height</td><td>Resolution height.</td></tr>
+<tr><td>fps</td><td>Fps of an output.</td></tr>
+<tr><td>timecode</td><td>Timecode by frame start and fps.</td></tr>
+</tbody>
+</table>
+</li>
 </ul>
-<p><br></p>
-<h4><a class="anchor" aria-hidden="true" id="review-output-preset-examples"></a><a href="#review-output-preset-examples" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Review Output Preset examples:</h4>
-<p>All following examples are content of <code>outputs</code> plugin attribute.</p>
-<p><br></p>
-<h5><a class="anchor" aria-hidden="true" id="h264-for-online-preview"></a><a href="#h264-for-online-preview" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>h264 for online preview:</h5>
-<p>This preset will crate a simple <code>h264</code> video which will also be uploded to ftrack for online review. YOu can see <code>burnin</code>, <code>preview</code>, <code>reformat</code> in tags, which means that the output will be reformated into HD format with burnin baked in and uploaded to ftrack. <code>bake-lut</code> will apply screenspace baked colorspace.</p>
-<p>This preset will be active only if <code>render</code> or <code>ftrack</code> family is present on the instance being processed. <code>preview</code> tag is enabling Ftrack preview upload.</p>
-<p>Codec is defined as yuv420p and input conversion to gamma 2.2 applies the gamma curve to convert from linear colour space.</p>
+
+    <div class="admonition admonition-warning">
+      <div class="admonition-heading">
+        <h5><div class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"/></svg></div> warning</h5>
+      </div>
+      <div class="admonition-content">
+    <p><code>timecode</code> is specific key that can be <strong>only at the end of content</strong>. (<code>&quot;BOTTOM_RIGHT&quot;: &quot;TC: {timecode}&quot;</code>)</p>
+</div></div><pre><code class="hljs css language-json">{
+    <span class="hljs-attr">"profiles"</span>: [{
+        <span class="hljs-attr">"burnins"</span>: {
+            <span class="hljs-attr">"example"</span>: {
+                <span class="hljs-attr">"TOP_LEFT"</span>: <span class="hljs-string">"{dd}.{mm}.{yyyy}"</span>,
+                <span class="hljs-comment">/* Use anatomy template values. */</span>
+                <span class="hljs-attr">"TOP_CENTERED"</span>: <span class="hljs-string">"{anatomy[publish][path]}"</span>,
+                <span class="hljs-comment">/* Python's formatting:
+                ":0&gt;3" adds padding to version number to have 3 digits. */</span>
+                <span class="hljs-attr">"TOP_RIGHT"</span>: <span class="hljs-string">"v{version:0&gt;3}"</span>,
+                <span class="hljs-attr">"BOTTOM_LEFT"</span>: <span class="hljs-string">"{frame_start}-{current_frame}-{frame_end}"</span>,
+                <span class="hljs-attr">"BOTTOM_CENTERED"</span>: <span class="hljs-string">"{asset}"</span>,
+                <span class="hljs-attr">"BOTTOM_RIGHT"</span>: <span class="hljs-string">"{username}"</span>
+            }
+        }
+    }]
+    ...
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="default-content-values-fields"></a><a href="#default-content-values-fields" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Default content values (<code>fields</code>)</h4>
+<p>If you want to set position content values for all or most of burnin definitions, you can set them in <strong>&quot;fields&quot;</strong>. They will be added to every burnin definition in all profiles. Value can be overriden if same position key is filled in burnin definiton.</p>
 <pre><code class="hljs css language-json">{
-    <span class="hljs-attr">"h264"</span>: {
-        <span class="hljs-attr">"ext"</span>: <span class="hljs-string">"mov"</span>,
-        <span class="hljs-attr">"families"</span>: [<span class="hljs-string">"render"</span>, <span class="hljs-string">"ftrack"</span>],
-        <span class="hljs-attr">"tags"</span>: [<span class="hljs-string">"burnin"</span>, <span class="hljs-string">"preview"</span>, <span class="hljs-string">"reformat"</span>, <span class="hljs-string">"bake-lut"</span>],
-        <span class="hljs-attr">"input"</span>: [
-            <span class="hljs-string">"-gamma 2.2"</span>
-        ],
-        <span class="hljs-attr">"codec"</span>: [
-            <span class="hljs-string">"-pix_fmt yuv420p"</span>,
-            <span class="hljs-string">"-crf 18"</span>,
-            <span class="hljs-string">"-intra"</span>
-        ]
+    <span class="hljs-attr">"fields"</span>: {
+        <span class="hljs-attr">"TOP_LEFT"</span>: <span class="hljs-string">"{yy}-{mm}-{dd}"</span>,
+        <span class="hljs-attr">"TOP_CENTERED"</span>: <span class="hljs-string">"{username}"</span>,
+        <span class="hljs-attr">"TOP_RIGHT"</span>: <span class="hljs-string">"v{version:0&gt;3}"</span>
+    },
+    <span class="hljs-attr">"profiles"</span>: [{
+        <span class="hljs-attr">"burnins"</span>: {
+            <span class="hljs-comment">/* example1 has empty definition but top left, center and right values
+            will be filled. */</span>
+            <span class="hljs-attr">"example1"</span>: {},
+
+            <span class="hljs-comment">/* example2 has 2 overrides. */</span>
+            <span class="hljs-attr">"example2"</span>: {
+                <span class="hljs-comment">/* Top left value is overriden with asset name. */</span>
+                <span class="hljs-attr">"TOP_LEFT"</span>: <span class="hljs-string">"{asset}"</span>,
+                <span class="hljs-comment">/* Top center will be skipped. */</span>
+                <span class="hljs-attr">"TOP_CENTERED"</span>: <span class="hljs-literal">null</span>
+            }
+        }
+    }]
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="full-presets-example"></a><a href="#full-presets-example" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Full presets example</h4>
+
+    <div class="admonition admonition-note">
+      <div class="admonition-heading">
+        <h5><div class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"/></svg></div> note</h5>
+      </div>
+      <div class="admonition-content">
+    <p>This is just usage example, without relevant data. Do <strong>NOT</strong> use these presets as default in production.</p>
+</div></div><pre><code class="hljs css language-json">{
+    <span class="hljs-attr">"ExtractBurnin"</span>: {
+        <span class="hljs-attr">"options"</span>: {
+            <span class="hljs-attr">"opacity"</span>: <span class="hljs-number">1</span>,
+            <span class="hljs-attr">"x_offset"</span>: <span class="hljs-number">5</span>,
+            <span class="hljs-attr">"y_offset"</span>: <span class="hljs-number">5</span>,
+            <span class="hljs-attr">"bg_padding"</span>: <span class="hljs-number">5</span>,
+            <span class="hljs-attr">"bg_opacity"</span>: <span class="hljs-number">0.5</span>,
+            <span class="hljs-attr">"font_size"</span>: <span class="hljs-number">42</span>
+        },
+        <span class="hljs-attr">"fields"</span>: {
+            <span class="hljs-attr">"TOP_LEFT"</span>: <span class="hljs-string">"{yy}-{mm}-{dd}"</span>,
+            <span class="hljs-attr">"TOP_RIGHT"</span>: <span class="hljs-string">"v{version:0&gt;3}"</span>
+        },
+        <span class="hljs-attr">"profiles"</span>: [{
+            <span class="hljs-attr">"burnins"</span>: {
+                <span class="hljs-attr">"burnin"</span>: {
+                    <span class="hljs-attr">"options"</span>: {
+                        <span class="hljs-attr">"opacity"</span>: <span class="hljs-number">1</span>
+                    },
+                    <span class="hljs-attr">"TOP_LEFT"</span>: <span class="hljs-string">"{username}"</span>
+                }
+           }
+        }, {
+            <span class="hljs-attr">"families"</span>: [<span class="hljs-string">"animation"</span>, <span class="hljs-string">"pointcache"</span>, <span class="hljs-string">"model"</span>],
+            <span class="hljs-attr">"tasks"</span>: [<span class="hljs-string">"animation"</span>],
+            <span class="hljs-attr">"burnins"</span>: {}
+        }, {
+            <span class="hljs-attr">"families"</span>: [<span class="hljs-string">"render"</span>],
+            <span class="hljs-attr">"tasks"</span>: [<span class="hljs-string">"compositing"</span>],
+            <span class="hljs-attr">"burnins"</span>: {
+                <span class="hljs-attr">"burnin"</span>: {
+                    <span class="hljs-attr">"TOP_LEFT"</span>: <span class="hljs-string">"{yy}-{mm}-{dd}"</span>,
+                    <span class="hljs-attr">"TOP_RIGHT"</span>: <span class="hljs-string">"v{version:0&gt;3}"</span>,
+                    <span class="hljs-attr">"BOTTOM_RIGHT"</span>: <span class="hljs-string">"{frame_start}-{current_frame}-{frame_end}"</span>,
+                    <span class="hljs-attr">"BOTTOM_LEFT"</span>: <span class="hljs-string">"{username}"</span>
+                },
+                <span class="hljs-attr">"burnin_ftrack"</span>: {
+                    <span class="hljs-attr">"filter"</span>: {
+                        <span class="hljs-attr">"families"</span>: [<span class="hljs-string">"ftrack"</span>]
+                    },
+                    <span class="hljs-attr">"BOTTOM_RIGHT"</span>: <span class="hljs-string">"{frame_start}-{current_frame}-{frame_end}"</span>,
+                    <span class="hljs-attr">"BOTTOM_LEFT"</span>: <span class="hljs-string">"{username}"</span>
+                },
+                <span class="hljs-attr">"burnin_v2"</span>: {
+                    <span class="hljs-attr">"options"</span>: {
+                        <span class="hljs-attr">"opacity"</span>: <span class="hljs-number">0.5</span>
+                    },
+                    <span class="hljs-attr">"TOP_LEFT"</span>: <span class="hljs-string">"{yy}-{mm}-{dd}"</span>,
+                    <span class="hljs-attr">"TOP_RIGHT"</span>: <span class="hljs-string">"v{version:0&gt;3}"</span>
+                }
+            }
+        }, {
+            <span class="hljs-attr">"families"</span>: [<span class="hljs-string">"rendersetup"</span>],
+            <span class="hljs-attr">"burnins"</span>: {
+                <span class="hljs-attr">"burnin"</span>: {
+                    <span class="hljs-attr">"TOP_LEFT"</span>: <span class="hljs-string">"{yy}-{mm}-{dd}"</span>,
+                    <span class="hljs-attr">"BOTTOM_LEFT"</span>: <span class="hljs-string">"{username}"</span>
+                }
+            }
+        }, {
+            <span class="hljs-attr">"tasks"</span>: [<span class="hljs-string">"animation"</span>],
+            <span class="hljs-attr">"burnins"</span>: {
+                <span class="hljs-attr">"burnin"</span>: {
+                    <span class="hljs-attr">"TOP_RIGHT"</span>: <span class="hljs-string">"v{version:0&gt;3}"</span>,
+                    <span class="hljs-attr">"BOTTOM_RIGHT"</span>: <span class="hljs-string">"{frame_start}-{current_frame}-{frame_end}"</span>
+                }
+            }
+        }]
     }
 }
 </code></pre>
-<p><br></p>
-<h5><a class="anchor" aria-hidden="true" id="editorial-video-file"></a><a href="#editorial-video-file" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Editorial video file:</h5>
-<p>This output is generated for the use in the final edit. It is data level 10bit 444 mxf video.</p>
-<p>It is will be active only for 2D rendering such as Nuke compositing job. Also there is <code>slate-frame</code> which will be add the slate with metadata before the rendered range and attach it to the video. This is only possible with SLATE node above write node of Nuke workfile at the moment.</p>
-<p>The resolution of this file is the original shot definition as seen in Nuke workfile because it has no <code>reformat</code> tag.</p>
-<pre><code class="hljs css language-json">{
-    <span class="hljs-attr">"edit"</span>: {
-        <span class="hljs-attr">"ext"</span>: <span class="hljs-string">"mxf"</span>,
-        <span class="hljs-attr">"families"</span>: [<span class="hljs-string">"render2d"</span>],
-        <span class="hljs-attr">"tags"</span>: [<span class="hljs-string">"slate-frame"</span>],
-        <span class="hljs-attr">"codec"</span>: [
-            <span class="hljs-string">"-vcodec dnxhd"</span>,
-            <span class="hljs-string">"-profile:v dnxhr_444"</span>,
-            <span class="hljs-string">"-pix_fmt yuv444p10le"</span>,
-            <span class="hljs-string">"-b:v 185M"</span>,
-            <span class="hljs-string">"-ar 48000"</span>,
-            <span class="hljs-string">"-ac 2"</span>,
-            <span class="hljs-string">"-qmax 51"</span>
-        ]
-    }
-}
-</code></pre>
-<p><br></p>
-<h5><a class="anchor" aria-hidden="true" id="prores-422"></a><a href="#prores-422" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ProRes 422:</h5>
-<p>This output will be in Prores 422 format, will include slate frame, screen space LUT will be applied, it will be reformatted to resolution defined by <code>to_height</code> and <code>to_width</code> attributes and will have metadata burned into the image.</p>
-<pre><code class="hljs css language-json">{
-    <span class="hljs-attr">"prores"</span>: {
-        <span class="hljs-attr">"ext"</span>: <span class="hljs-string">"mov"</span>,
-        <span class="hljs-attr">"families"</span>: [<span class="hljs-string">"render2d"</span>],
-        <span class="hljs-attr">"tags"</span>: [<span class="hljs-string">"burnin"</span>, <span class="hljs-string">"reformat"</span>, <span class="hljs-string">"bake-lut"</span>, <span class="hljs-string">"slate-frame"</span>],
-        <span class="hljs-attr">"codec"</span>: [
-            <span class="hljs-string">"-c:v prores_ks"</span>,
-            <span class="hljs-string">"-profile:v 3"</span>
-        ]
-    }
-}
-</code></pre>
-<p><br></p>
 <h3><a class="anchor" aria-hidden="true" id="processsubmittedjobonfarm"></a><a href="#processsubmittedjobonfarm" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>ProcessSubmittedJobOnFarm</code></h3>
 <pre><code class="hljs css language-json">{
     <span class="hljs-attr">"ProcessSubmittedJobOnFarm"</span>: {
@@ -293,7 +622,7 @@ In this case because we might have 4K plates but we would like to publish all re
 }
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="standalone-publisher"></a><a href="#standalone-publisher" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Standalone Publisher</h2>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/next/admin_presets_maya"><span class="arrow-prev">← </span><span>Maya</span></a><a class="docs-next button" href="/docs/next/admin_presets_tools"><span>Tools</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#global">Global</a><ul class="toc-headings"><li><a href="#publishjson">publish.json</a></li><li><a href="#extractreview"><code>ExtractReview</code></a></li><li><a href="#processsubmittedjobonfarm"><code>ProcessSubmittedJobOnFarm</code></a></li></ul></li><li><a href="#maya">Maya</a><ul class="toc-headings"><li><a href="#loadjson">load.json</a></li><li><a href="#colors"><code>colors</code></a></li><li><a href="#publishjson-1">publish.json</a></li><li><a href="#validatemodelname"><code>ValidateModelName</code></a></li><li><a href="#validateshadername"><code>ValidateShaderName</code></a></li></ul></li><li><a href="#nuke">Nuke</a><ul class="toc-headings"><li><a href="#createjson">create.json</a></li><li><a href="#createwriterender"><code>CreateWriteRender</code></a></li><li><a href="#publishjson-2">publish.json</a></li><li><a href="#extractthumbnail"><code>ExtractThumbnail</code></a></li><li><a href="#extractreviewdatamov"><code>ExtractReviewDataMov</code></a></li></ul></li><li><a href="#nukestudio">NukeStudio</a><ul class="toc-headings"><li><a href="#publishjson-3">Publish.json</a></li><li><a href="#collectinstanceversion"><code>CollectInstanceVersion</code></a></li><li><a href="#extractreviewcutupvideo"><code>ExtractReviewCutUpVideo</code></a></li></ul></li><li><a href="#standalone-publisher">Standalone Publisher</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon/P.png" alt="PYPE" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/artist_getting_started">Artist</a><a href="/docs/en/manager_ftrack">Manager</a><a href="/docs/en/admin_config">Admin</a></div><div><h5>Community</h5><a href="https://gitter.im/getavalon/Lobby">Avalon Chat</a><a href="https://gitter.im/pyblish/pyblish">Pyblish Chat</a><a href="https://discord.gg/cfkbAHM">Pype Chat</a></div><div><h5>More</h5><a href="https://github.com/pypeclub">Github/Pype.club</a><a href="https://github.com/getavalon">Github/Avalon</a><a href="https://github.com/pyblish">Github/Pyblish</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 Orbi Tools</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/next/admin_presets_maya"><span class="arrow-prev">← </span><span>Maya</span></a><a class="docs-next button" href="/docs/next/admin_presets_tools"><span>Tools</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#global">Global</a><ul class="toc-headings"><li><a href="#publishjson">publish.json</a></li><li><a href="#extractreview"><code>ExtractReview</code></a></li><li><a href="#extractburnin"><code>ExtractBurnin</code></a></li><li><a href="#processsubmittedjobonfarm"><code>ProcessSubmittedJobOnFarm</code></a></li></ul></li><li><a href="#maya">Maya</a><ul class="toc-headings"><li><a href="#loadjson">load.json</a></li><li><a href="#colors"><code>colors</code></a></li><li><a href="#publishjson-1">publish.json</a></li><li><a href="#validatemodelname"><code>ValidateModelName</code></a></li><li><a href="#validateshadername"><code>ValidateShaderName</code></a></li></ul></li><li><a href="#nuke">Nuke</a><ul class="toc-headings"><li><a href="#createjson">create.json</a></li><li><a href="#createwriterender"><code>CreateWriteRender</code></a></li><li><a href="#publishjson-2">publish.json</a></li><li><a href="#extractthumbnail"><code>ExtractThumbnail</code></a></li><li><a href="#extractreviewdatamov"><code>ExtractReviewDataMov</code></a></li></ul></li><li><a href="#nukestudio">NukeStudio</a><ul class="toc-headings"><li><a href="#publishjson-3">Publish.json</a></li><li><a href="#collectinstanceversion"><code>CollectInstanceVersion</code></a></li><li><a href="#extractreviewcutupvideo"><code>ExtractReviewCutUpVideo</code></a></li></ul></li><li><a href="#standalone-publisher">Standalone Publisher</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon/P.png" alt="PYPE" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/artist_getting_started">Artist</a><a href="/docs/en/manager_ftrack">Manager</a><a href="/docs/en/admin_config">Admin</a></div><div><h5>Community</h5><a href="https://gitter.im/getavalon/Lobby">Avalon Chat</a><a href="https://gitter.im/pyblish/pyblish">Pyblish Chat</a><a href="https://discord.gg/cfkbAHM">Pype Chat</a></div><div><h5>More</h5><a href="https://github.com/pypeclub">Github/Pype.club</a><a href="https://github.com/getavalon">Github/Avalon</a><a href="https://github.com/pyblish">Github/Pyblish</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 Orbi Tools</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;
