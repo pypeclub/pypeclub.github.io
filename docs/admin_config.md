@@ -10,11 +10,45 @@ Config is split into multiple sections described below.
 
 ## Anatomy
 
-Defines how folders and files are created for all the project data.
+Defines where and how folders and files are created for all the project data. Anatomy has two parts **Roots** and **Templates**.
 
-We have a few required anatomy templates for Pype to work properly, however we  keep adding more when needed.
+:::warning
+It is recommended to create anatomy [overrides](#per-project-configuration) for each project even if values haven't changed. Ignoring this recommendation may cause catastrophic consequences.
+:::
+
+### Roots
+Roots define where files are stored with path to shared folder. You can set them in `roots.json`.
+It is required to set root path for each platform you are using in studio. All paths must point to same folder!
+```json
+{
+    "windows": "P:/projects",
+    "darwin": "/Volumes/projects",
+    "linux": "/mnt/share/projects"
+}
+```
+
+It is possible to set multiple roots when necessary. That may be handy when you need to store specific type of data on another disk. In that case you'll have to add one level in json.
+```json
+{
+    "work": {
+        "windows": "P:/work",
+        "darwin": "/Volumes/work",
+        "linux": "/mnt/share/work"
+    },
+    "publish": {
+        "windows": "Y:/publish",
+        "darwin": "/Volumes/publish",
+        "linux": "/mnt/share/publish"
+    }
+}
+```
+Usage of multiple roots is explained below in templates part.
+
+### Templates
+Templates define project's folder structure and filenames. You can set them in `default.yaml`.
 
 ### Required templates
+We have a few required anatomy templates for Pype to work properly, however we keep adding more when needed.
 
 ```yaml
 work:
@@ -23,15 +57,18 @@ work:
   path: "{root}/{project[name]}/{hierarchy}/{asset}/work/{task}/{project[code]}_{asset}_{task}_v{version:0>3}<_{comment}>.{ext}"
 
 publish:
+  folder: "{root}/{project[name]}/{hierarchy}/{asset}/publish/{family}/{subset}/v{version:0>3}"
+  file: "{project[code]}_{asset}_{subset}_v{version:0>3}<.{frame}>.{representation}"
   path: "{root}/{project[name]}/{hierarchy}/{asset}/publish/{family}/{subset}/v{version:0>3}/{project[code]}_{asset}_{subset}_v{version:0>3}<.{frame}>.{representation}"
 ```
 
-Folder holds path template for the directory where the files are stored, File only holds the filename and path combines the two together for quicker access.
+Template groups `work` and `publish` must be set in all circumstances. Both must have set keys as shown `folder`, holds path template for the directory where the files are stored, `file` only holds the filename and `path` combines the two together for quicker access.
 
 ### Available keys
 | Context key | Description |
 | --- | --- |
 | root | Path to root folder |
+| root[\<root name\>] | Path to root folder when multiple roots are used</br>Key `<root name>` represents root key specified in `roots.json` |
 | project[name] | Project's full name. |
 | project[code] | Project's code. |
 | hierarchy | All hierarchical parents as subfolders. |
@@ -46,6 +83,9 @@ Folder holds path template for the directory where the files are stored, File on
 | output |  |
 | comment |  |
 
+:::warning
+Be carefull about using `root` key in templates when using multiple roots. It is not allowed to combine both `{root}` and `{root[<root name>]}` in templates.
+:::
 :::note
 It is recommended to set padding for `version` which is possible with additional expression in template. Entered key `{version:0<3}` will result into `001` if version `1` is published.
 **Explanation:** Expression `0<3` will add `"0"` char to the beginning(`<`) until string has `3` characters.
@@ -78,6 +118,124 @@ Keys may be optional for some reason when are wrapped with `<` and `>`. But it i
 - `output`, `comment` are optional to fill
 - `frame` is used only for sequences.
 
+### Inner keys
+It is possible to use value of one template key inside value of another template key. This can be done only per template group, which means it is not possible to use template key from `publish` group inside `work` group.
+
+Usage is similar to using template keys but instead of `{key}` you must add `@` in front of key: `{@key}`
+
+With this feature `work` template from example above may be much easier to read and modify.
+```yaml
+work:
+  folder: "{root}/{project[name]}/{hierarchy}/{asset}/work/{task}"
+  file: "{project[code]}_{asset}_{task}_v{version:0>3}<_{comment}>.{ext}"
+  path: "{@folder}/{@file}"
+  # This is how `path` key will look as result
+  # path: "{root}/{project[name]}/{hierarchy}/{asset}/work/{task}/{project[code]}_{asset}_{task}_v{version:0>3}<_{comment}>.{ext}"
+```
+
+:::warning
+Be aware of unsolvable recursion in inner keys.
+```yaml
+group:
+  # Use key where source key is used in value
+  key_1: "{@key_2}"
+  key_2: "{@key_1}"
+
+  # Use itself
+  key_3: "{@key_3}"
+```
+:::
+
+### Global keys
+Global keys are keys with value outside template groups. All these keys will be available in each template group with ability to override them inside the group.
+
+**Source**
+```yaml
+# Global key outside template group
+global_key: "global value"
+
+group_1:
+  # `global_key` is not set
+  example_key_1: "{example_value_1}"
+
+group_2:
+  # `global_key` is iverrided
+  global_key: "overriden global value"
+```
+**Result**
+```yaml
+global_key: "global value"
+
+group_1:
+  # `global_key` was added
+  global_key: "global value"
+  example_key_1: "{example_value_1}"
+
+group_2:
+  # `global_key` kept it's value for `group_2`
+  global_key: "overriden global value"
+```
+
+### Combine Inner keys with Global keys
+Real power of [Inner](#inner-keys) and [Global](#global-keys) keys is their combination.
+
+**Template source**
+```yaml
+# PADDING
+frame_padding: 4
+frame: "{frame:0>frame_padding}"
+# MULTIPLE ROOT
+root_name: "root_name_1"
+root: {root[{@root_name}]}
+
+group_1:
+  example_key_1: "{@root}/{@frame}"
+
+group_2:
+  frame_padding: 3
+  root_name: "root_name_2"
+  example_key_2: "{@root}/{@frame}"
+
+group_3:
+  frame: "{frame}"
+  example_key_3: "{@root}/force_value/{@frame}"
+```
+**Equals**
+```yaml
+frame_padding: 4
+frame: "{frame:0>3}"
+root_name: "root_name_1"
+root: {root[root_name_1]}
+
+group_1:
+  frame_padding: 4
+  frame: "{frame:0>3}"
+  root_name: "root_name_1"
+  root: {root[root_name_1]}
+  # `example_key_1` result
+  example_key_1: "{root[root_name_1]}/{frame:0>3}"
+
+group_2:
+  frame_padding: 3
+  frame: "{frame:0>3}"
+  root_name: "root_name_2"
+  root: {root[root_name_2]}
+  # `example_key_2` result
+  example_key_2: "{root[root_name_2]}/{frame:0>2}"
+
+group_3:
+  frame_padding: 4
+  frame: "{frame}"
+  root_name: "root_name_1"
+  root: {root[root_name_1]}
+  # `example_key_3` result
+  example_key_3: "{root[root_name_1]}/force_value/{frame}"
+```
+
+:::warning
+Be carefull about using global keys. Keep in mind that **all global keys** will be added to **all template groups** and all inner keys in their values **MUST** be in the group.
+For example in [required templates](#required-templates) it seems that `path: "{@folder}/{@file}"` should be used as global key, but that would require all template groups have `folder` and `file` keys which is not true by default.
+:::
 
 ## Environments
 
@@ -188,64 +346,6 @@ You can override plugins per project. See [Per-project configuration](#per-proje
 ## Schema
 
 Holds all database schemas for *mongoDB*, that we use. In practice these are never changed on a per studio basis, however we included them in the config for cases where a particular project might need a very individual treatment.
-
-## System
-
-In system configuration we set up all the storages in the studio. All entries are organized hierarchically and when PYPE launches they get parsed for correct platform and saved in to environment variable that can be used in any paths down the line.
-
-Most importantly they are used in anatomy templates for project folders.
-
-For example following config would create these environment variables when Pype runs on windows computer.
-
-```sh
-    PYPE_STUDIO_PROJECT_PATH = "//UNC_shared_path/projects"
-    PYPE_STUDIO_PROJECT_MOUNT = "P:/projects"
-    PYPE_STUDIO_CORE_PATH = "//192.168.1.10/share/core"
-    PYPE_STUDIO_CORE_MOUNT = "K:/core"
-```
-
-```json
-{
-  "studio": {
-    "projects": {
-      "path": {
-        "windows": "//UNC_shared_path/projects",
-        "darwin": "",
-        "linux": "//UNC_shared_path/projects"
-      },
-      "mount": {
-        "windows": "P:/projects",
-        "darwin": "",
-        "linux": "/mnt/share/core"
-      }
-    },
-    "core": {
-      "path": {
-        "windows": "//192.168.1.10/share/core",
-        "darwin": "",
-        "linux": "//192.168.1.10/share/core"
-      },
-      "mount": {
-        "windows": "K:/core",
-        "darwin": "",
-        "linux": "/mnt/share/core"
-      }
-    }
-  }
-}
-```
-
-<br>
-
-**There are 2 storages that are required for PYPE to be functional**
-
-### Projects storages
-
-This should point to the shared storage where projects are saved. A folder per project will be created in here.
-
-### Core storage
-
-A shared storage where pipeline, shared scripts and tools are stored. This is where Pype should be installed and all the users must have at least "read" permissions here.
 
 ## Per-project configuration
 
