@@ -248,7 +248,7 @@ Burnins are text values painted on top of input and may be surrounded with box i
 ExtractBurnin creates new representations based on plugin presets and representations in instance. Presets may contain 3 keys **options**, **profiles** and **fields**.
 
 #### Burnin settings (`options`)
-Options is dictionry where you can set the global appearance of burnins. It is possible to not fill options at all, in that case default values are used.
+Options is dictionary where you can set the global appearance of burnins. It is possible to not fill options at all, in that case default values are used.
 
 | Key | Description | Type | Example | Default |
 | --- | --- | --- | --- | --- |
@@ -270,10 +270,10 @@ Profile may have set multiple burnin outputs from one input and that's why **bur
 | Key | Description | Type | Example |
 | --- | --- | --- | --- |
 | **top_left** | Top left corner content. | str | "{dd}.{mm}.{yyyy}" |
-| **top_centered** | Top center corner content. | str | "v{version:0>3}" |
+| **top_centered** | Top center content. | str | "v{version:0>3}" |
 | **top_right** | Top right corner content. | str | "Static text" |
 | **bottom_left** | Bottom left corner content. | str | "{asset}" |
-| **bottom_centered** | Bottom center corner content. | str | "{username}" |
+| **bottom_centered** | Bottom center content. | str | "{username}" |
 | **bottom_right** | Bottom right corner content. | str | "{frame_start}-{current_frame}-{frame_end}" |
 | **options** | Options overrides for this burnin definition. | dict | [Options](#burnin-settings-options) |
 | **filter** | Filters definition. | dict | [ExtractReview output filter](#output-filters-filter) |
