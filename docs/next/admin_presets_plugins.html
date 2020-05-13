@@ -313,7 +313,7 @@
 <p><img src="/docs/assets/presets_plugins_extract_burnin_01.png" alt="presets_plugins_extract_burnin"></p>
 <p>ExtractBurnin creates new representations based on plugin presets and representations in instance. Presets may contain 3 keys <strong>options</strong>, <strong>profiles</strong> and <strong>fields</strong>.</p>
 <h4><a class="anchor" aria-hidden="true" id="burnin-settings-options"></a><a href="#burnin-settings-options" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Burnin settings (<code>options</code>)</h4>
-<p>Options is dictionry where you can set the global appearance of burnins. It is possible to not fill options at all, in that case default values are used.</p>
+<p>Options is dictionary where you can set the global appearance of burnins. It is possible to not fill options at all, in that case default values are used.</p>
 <table>
 <thead>
 <tr><th>Key</th><th>Description</th><th>Type</th><th>Example</th><th>Default</th></tr>
@@ -339,10 +339,10 @@
 </thead>
 <tbody>
 <tr><td><strong>top_left</strong></td><td>Top left corner content.</td><td>str</td><td>&quot;{dd}.{mm}.{yyyy}&quot;</td></tr>
-<tr><td><strong>top_centered</strong></td><td>Top center corner content.</td><td>str</td><td>&quot;v{version:0&gt;3}&quot;</td></tr>
+<tr><td><strong>top_centered</strong></td><td>Top center content.</td><td>str</td><td>&quot;v{version:0&gt;3}&quot;</td></tr>
 <tr><td><strong>top_right</strong></td><td>Top right corner content.</td><td>str</td><td>&quot;Static text&quot;</td></tr>
 <tr><td><strong>bottom_left</strong></td><td>Bottom left corner content.</td><td>str</td><td>&quot;{asset}&quot;</td></tr>
-<tr><td><strong>bottom_centered</strong></td><td>Bottom center corner content.</td><td>str</td><td>&quot;{username}&quot;</td></tr>
+<tr><td><strong>bottom_centered</strong></td><td>Bottom center content.</td><td>str</td><td>&quot;{username}&quot;</td></tr>
 <tr><td><strong>bottom_right</strong></td><td>Bottom right corner content.</td><td>str</td><td>&quot;{frame_start}-{current_frame}-{frame_end}&quot;</td></tr>
 <tr><td><strong>options</strong></td><td>Options overrides for this burnin definition.</td><td>dict</td><td><a href="#burnin-settings-options">Options</a></td></tr>
 <tr><td><strong>filter</strong></td><td>Filters definition.</td><td>dict</td><td><a href="#output-filters-filter">ExtractReview output filter</a></td></tr>
