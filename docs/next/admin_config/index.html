@@ -63,18 +63,53 @@
         </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Studio Config</h1></header><article><div><span><p>All of the studio specific configurations are stored as simple JSON files in the <strong>pype-config</strong> repository.</p>
 <p>Config is split into multiple sections described below.</p>
 <h2><a class="anchor" aria-hidden="true" id="anatomy"></a><a href="#anatomy" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Anatomy</h2>
-<p>Defines how folders and files are created for all the project data.</p>
-<p>We have a few required anatomy templates for Pype to work properly, however we  keep adding more when needed.</p>
+<p>Defines where and how folders and files are created for all the project data. Anatomy has two parts <strong>Roots</strong> and <strong>Templates</strong>.</p>
+
+    <div class="admonition admonition-warning">
+      <div class="admonition-heading">
+        <h5><div class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"/></svg></div> warning</h5>
+      </div>
+      <div class="admonition-content">
+    <p>It is recommended to create anatomy <a href="#per-project-configuration">overrides</a> for each project even if values haven't changed. Ignoring this recommendation may cause catastrophic consequences.</p>
+</div></div><h3><a class="anchor" aria-hidden="true" id="roots"></a><a href="#roots" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Roots</h3>
+<p>Roots define where files are stored with path to shared folder. You can set them in <code>roots.json</code>.
+It is required to set root path for each platform you are using in studio. All paths must point to same folder!</p>
+<pre><code class="hljs css language-json">{
+    <span class="hljs-attr">"windows"</span>: <span class="hljs-string">"P:/projects"</span>,
+    <span class="hljs-attr">"darwin"</span>: <span class="hljs-string">"/Volumes/projects"</span>,
+    <span class="hljs-attr">"linux"</span>: <span class="hljs-string">"/mnt/share/projects"</span>
+}
+</code></pre>
+<p>It is possible to set multiple roots when necessary. That may be handy when you need to store specific type of data on another disk. In that case you'll have to add one level in json.</p>
+<pre><code class="hljs css language-json">{
+    <span class="hljs-attr">"work"</span>: {
+        <span class="hljs-attr">"windows"</span>: <span class="hljs-string">"P:/work"</span>,
+        <span class="hljs-attr">"darwin"</span>: <span class="hljs-string">"/Volumes/work"</span>,
+        <span class="hljs-attr">"linux"</span>: <span class="hljs-string">"/mnt/share/work"</span>
+    },
+    <span class="hljs-attr">"publish"</span>: {
+        <span class="hljs-attr">"windows"</span>: <span class="hljs-string">"Y:/publish"</span>,
+        <span class="hljs-attr">"darwin"</span>: <span class="hljs-string">"/Volumes/publish"</span>,
+        <span class="hljs-attr">"linux"</span>: <span class="hljs-string">"/mnt/share/publish"</span>
+    }
+}
+</code></pre>
+<p>Usage of multiple roots is explained below in templates part.</p>
+<h3><a class="anchor" aria-hidden="true" id="templates"></a><a href="#templates" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Templates</h3>
+<p>Templates define project's folder structure and filenames. You can set them in <code>default.yaml</code>.</p>
 <h3><a class="anchor" aria-hidden="true" id="required-templates"></a><a href="#required-templates" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Required templates</h3>
+<p>We have a few required anatomy templates for Pype to work properly, however we keep adding more when needed.</p>
 <pre><code class="hljs css language-yaml"><span class="hljs-attr">work:</span>
   <span class="hljs-attr">folder:</span> <span class="hljs-string">"{root}/{project[name]}/{hierarchy}/{asset}/work/{task}"</span>
   <span class="hljs-attr">file:</span> <span class="hljs-string">"{project[code]}_{asset}_{task}_v{version:0&gt;3}&lt;_{comment}&gt;.{ext}"</span>
   <span class="hljs-attr">path:</span> <span class="hljs-string">"{root}/{project[name]}/{hierarchy}/{asset}/work/{task}/{project[code]}_{asset}_{task}_v{version:0&gt;3}&lt;_{comment}&gt;.{ext}"</span>
 
 <span class="hljs-attr">publish:</span>
+  <span class="hljs-attr">folder:</span> <span class="hljs-string">"{root}/{project[name]}/{hierarchy}/{asset}/publish/{family}/{subset}/v{version:0&gt;3}"</span>
+  <span class="hljs-attr">file:</span> <span class="hljs-string">"{project[code]}_{asset}_{subset}_v{version:0&gt;3}&lt;.{frame}&gt;.{representation}"</span>
   <span class="hljs-attr">path:</span> <span class="hljs-string">"{root}/{project[name]}/{hierarchy}/{asset}/publish/{family}/{subset}/v{version:0&gt;3}/{project[code]}_{asset}_{subset}_v{version:0&gt;3}&lt;.{frame}&gt;.{representation}"</span>
 </code></pre>
-<p>Folder holds path template for the directory where the files are stored, File only holds the filename and path combines the two together for quicker access.</p>
+<p>Template groups <code>work</code> and <code>publish</code> must be set in all circumstances. Both must have set keys as shown <code>folder</code>, holds path template for the directory where the files are stored, <code>file</code> only holds the filename and <code>path</code> combines the two together for quicker access.</p>
 <h3><a class="anchor" aria-hidden="true" id="available-keys"></a><a href="#available-keys" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Available keys</h3>
 <table>
 <thead>
@@ -82,6 +117,7 @@
 </thead>
 <tbody>
 <tr><td>root</td><td>Path to root folder</td></tr>
+<tr><td>root[&lt;root name&gt;]</td><td>Path to root folder when multiple roots are used</br>Key <code>&lt;root name&gt;</code> represents root key specified in <code>roots.json</code></td></tr>
 <tr><td>project[name]</td><td>Project's full name.</td></tr>
 <tr><td>project[code]</td><td>Project's code.</td></tr>
 <tr><td>hierarchy</td><td>All hierarchical parents as subfolders.</td></tr>
@@ -98,6 +134,13 @@
 </tbody>
 </table>
 
+    <div class="admonition admonition-warning">
+      <div class="admonition-heading">
+        <h5><div class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"/></svg></div> warning</h5>
+      </div>
+      <div class="admonition-content">
+    <p>Be carefull about using <code>root</code> key in templates when using multiple roots. It is not allowed to combine both <code>{root}</code> and <code>{root[&lt;root name&gt;]}</code> in templates.</p>
+</div></div>
     <div class="admonition admonition-note">
       <div class="admonition-heading">
         <h5><div class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"/></svg></div> note</h5>
@@ -137,7 +180,119 @@
 <li><code>output</code>, <code>comment</code> are optional to fill</li>
 <li><code>frame</code> is used only for sequences.</li>
 </ul>
-<h2><a class="anchor" aria-hidden="true" id="environments"></a><a href="#environments" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Environments</h2>
+<h3><a class="anchor" aria-hidden="true" id="inner-keys"></a><a href="#inner-keys" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Inner keys</h3>
+<p>It is possible to use value of one template key inside value of another template key. This can be done only per template group, which means it is not possible to use template key from <code>publish</code> group inside <code>work</code> group.</p>
+<p>Usage is similar to using template keys but instead of <code>{key}</code> you must add <code>@</code> in front of key: <code>{@key}</code></p>
+<p>With this feature <code>work</code> template from example above may be much easier to read and modify.</p>
+<pre><code class="hljs css language-yaml"><span class="hljs-attr">work:</span>
+  <span class="hljs-attr">folder:</span> <span class="hljs-string">"{root}/{project[name]}/{hierarchy}/{asset}/work/{task}"</span>
+  <span class="hljs-attr">file:</span> <span class="hljs-string">"{project[code]}_{asset}_{task}_v{version:0&gt;3}&lt;_{comment}&gt;.{ext}"</span>
+  <span class="hljs-attr">path:</span> <span class="hljs-string">"{@folder}/{@file}"</span>
+  <span class="hljs-comment"># This is how `path` key will look as result</span>
+  <span class="hljs-comment"># path: "{root}/{project[name]}/{hierarchy}/{asset}/work/{task}/{project[code]}_{asset}_{task}_v{version:0&gt;3}&lt;_{comment}&gt;.{ext}"</span>
+</code></pre>
+
+    <div class="admonition admonition-warning">
+      <div class="admonition-heading">
+        <h5><div class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"/></svg></div> warning</h5>
+      </div>
+      <div class="admonition-content">
+    <p>Be aware of unsolvable recursion in inner keys.</p>
+<pre><code class="hljs css language-yaml"><span class="hljs-attr">group:</span>
+  <span class="hljs-comment"># Use key where source key is used in value</span>
+  <span class="hljs-attr">key_1:</span> <span class="hljs-string">"{@key_2}"</span>
+  <span class="hljs-attr">key_2:</span> <span class="hljs-string">"{@key_1}"</span>
+
+  <span class="hljs-comment"># Use itself</span>
+  <span class="hljs-attr">key_3:</span> <span class="hljs-string">"{@key_3}"</span>
+</code></pre>
+</div></div><h3><a class="anchor" aria-hidden="true" id="global-keys"></a><a href="#global-keys" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Global keys</h3>
+<p>Global keys are keys with value outside template groups. All these keys will be available in each template group with ability to override them inside the group.</p>
+<p><strong>Source</strong></p>
+<pre><code class="hljs css language-yaml"><span class="hljs-comment"># Global key outside template group</span>
+<span class="hljs-attr">global_key:</span> <span class="hljs-string">"global value"</span>
+
+<span class="hljs-attr">group_1:</span>
+  <span class="hljs-comment"># `global_key` is not set</span>
+  <span class="hljs-attr">example_key_1:</span> <span class="hljs-string">"{example_value_1}"</span>
+
+<span class="hljs-attr">group_2:</span>
+  <span class="hljs-comment"># `global_key` is iverrided</span>
+  <span class="hljs-attr">global_key:</span> <span class="hljs-string">"overriden global value"</span>
+</code></pre>
+<p><strong>Result</strong></p>
+<pre><code class="hljs css language-yaml"><span class="hljs-attr">global_key:</span> <span class="hljs-string">"global value"</span>
+
+<span class="hljs-attr">group_1:</span>
+  <span class="hljs-comment"># `global_key` was added</span>
+  <span class="hljs-attr">global_key:</span> <span class="hljs-string">"global value"</span>
+  <span class="hljs-attr">example_key_1:</span> <span class="hljs-string">"{example_value_1}"</span>
+
+<span class="hljs-attr">group_2:</span>
+  <span class="hljs-comment"># `global_key` kept it's value for `group_2`</span>
+  <span class="hljs-attr">global_key:</span> <span class="hljs-string">"overriden global value"</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="combine-inner-keys-with-global-keys"></a><a href="#combine-inner-keys-with-global-keys" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Combine Inner keys with Global keys</h3>
+<p>Real power of <a href="#inner-keys">Inner</a> and <a href="#global-keys">Global</a> keys is their combination.</p>
+<p><strong>Template source</strong></p>
+<pre><code class="hljs css language-yaml"><span class="hljs-comment"># PADDING</span>
+<span class="hljs-attr">frame_padding:</span> <span class="hljs-number">4</span>
+<span class="hljs-attr">frame:</span> <span class="hljs-string">"{frame:0&gt;frame_padding}"</span>
+<span class="hljs-comment"># MULTIPLE ROOT</span>
+<span class="hljs-attr">root_name:</span> <span class="hljs-string">"root_name_1"</span>
+<span class="hljs-attr">root:</span> <span class="hljs-string">{root[{@root_name}]}</span>
+
+<span class="hljs-attr">group_1:</span>
+  <span class="hljs-attr">example_key_1:</span> <span class="hljs-string">"{@root}/{@frame}"</span>
+
+<span class="hljs-attr">group_2:</span>
+  <span class="hljs-attr">frame_padding:</span> <span class="hljs-number">3</span>
+  <span class="hljs-attr">root_name:</span> <span class="hljs-string">"root_name_2"</span>
+  <span class="hljs-attr">example_key_2:</span> <span class="hljs-string">"{@root}/{@frame}"</span>
+
+<span class="hljs-attr">group_3:</span>
+  <span class="hljs-attr">frame:</span> <span class="hljs-string">"{frame}"</span>
+  <span class="hljs-attr">example_key_3:</span> <span class="hljs-string">"{@root}/force_value/{@frame}"</span>
+</code></pre>
+<p><strong>Equals</strong></p>
+<pre><code class="hljs css language-yaml"><span class="hljs-attr">frame_padding:</span> <span class="hljs-number">4</span>
+<span class="hljs-attr">frame:</span> <span class="hljs-string">"{frame:0&gt;3}"</span>
+<span class="hljs-attr">root_name:</span> <span class="hljs-string">"root_name_1"</span>
+<span class="hljs-attr">root:</span> <span class="hljs-string">{root[root_name_1]}</span>
+
+<span class="hljs-attr">group_1:</span>
+  <span class="hljs-attr">frame_padding:</span> <span class="hljs-number">4</span>
+  <span class="hljs-attr">frame:</span> <span class="hljs-string">"{frame:0&gt;3}"</span>
+  <span class="hljs-attr">root_name:</span> <span class="hljs-string">"root_name_1"</span>
+  <span class="hljs-attr">root:</span> <span class="hljs-string">{root[root_name_1]}</span>
+  <span class="hljs-comment"># `example_key_1` result</span>
+  <span class="hljs-attr">example_key_1:</span> <span class="hljs-string">"{root[root_name_1]}/{frame:0&gt;3}"</span>
+
+<span class="hljs-attr">group_2:</span>
+  <span class="hljs-attr">frame_padding:</span> <span class="hljs-number">3</span>
+  <span class="hljs-attr">frame:</span> <span class="hljs-string">"{frame:0&gt;3}"</span>
+  <span class="hljs-attr">root_name:</span> <span class="hljs-string">"root_name_2"</span>
+  <span class="hljs-attr">root:</span> <span class="hljs-string">{root[root_name_2]}</span>
+  <span class="hljs-comment"># `example_key_2` result</span>
+  <span class="hljs-attr">example_key_2:</span> <span class="hljs-string">"{root[root_name_2]}/{frame:0&gt;2}"</span>
+
+<span class="hljs-attr">group_3:</span>
+  <span class="hljs-attr">frame_padding:</span> <span class="hljs-number">4</span>
+  <span class="hljs-attr">frame:</span> <span class="hljs-string">"{frame}"</span>
+  <span class="hljs-attr">root_name:</span> <span class="hljs-string">"root_name_1"</span>
+  <span class="hljs-attr">root:</span> <span class="hljs-string">{root[root_name_1]}</span>
+  <span class="hljs-comment"># `example_key_3` result</span>
+  <span class="hljs-attr">example_key_3:</span> <span class="hljs-string">"{root[root_name_1]}/force_value/{frame}"</span>
+</code></pre>
+
+    <div class="admonition admonition-warning">
+      <div class="admonition-heading">
+        <h5><div class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"/></svg></div> warning</h5>
+      </div>
+      <div class="admonition-content">
+    <p>Be carefull about using global keys. Keep in mind that <strong>all global keys</strong> will be added to <strong>all template groups</strong> and all inner keys in their values <strong>MUST</strong> be in the group.</p>
+<p>For example in <a href="#required-templates">required templates</a> it seems that <code>path: &quot;{@folder}/{@file}&quot;</code> should be used as global key, but that would require all template groups have <code>folder</code> and <code>file</code> keys which is not true by default.</p>
+</div></div><h2><a class="anchor" aria-hidden="true" id="environments"></a><a href="#environments" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Environments</h2>
 <p>Here is where all the environment variables are set up. Each software has it's own environment file where we set all variables needed for it to function correctly. This is also a place where any extra in-house variables should be added. All of these individual configs and then loaded additively as needed based on current context.</p>
 <p>For example when launching Pype Tray, <strong>Global</strong> and <strong>Avalon</strong> envs are loaded first. If the studio uses also <em>Deadline</em> and <em>Ftrack</em>, both of those environments get added at the same time. This sets the base environment for the rest of the pipeline that will be inherited by all the applications launched from this point on.</p>
 <p>When user launches an application for a task, its general and versioned env files get added to the base before the software launches. When launching <em>Maya 2019</em>, both <code>maya.json</code> and <code>maya_2019.json</code> will be added.</p>
@@ -218,50 +373,6 @@ for Loaders and <code>publish.json</code> for <strong>Pyblish</strong> plugins l
     <p>You can override plugins per project. See <a href="#per-project-configuration">Per-project configuration</a></p>
 </div></div><h2><a class="anchor" aria-hidden="true" id="schema"></a><a href="#schema" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Schema</h2>
 <p>Holds all database schemas for <em>mongoDB</em>, that we use. In practice these are never changed on a per studio basis, however we included them in the config for cases where a particular project might need a very individual treatment.</p>
-<h2><a class="anchor" aria-hidden="true" id="system"></a><a href="#system" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>System</h2>
-<p>In system configuration we set up all the storages in the studio. All entries are organized hierarchically and when PYPE launches they get parsed for correct platform and saved in to environment variable that can be used in any paths down the line.</p>
-<p>Most importantly they are used in anatomy templates for project folders.</p>
-<p>For example following config would create these environment variables when Pype runs on windows computer.</p>
-<pre><code class="hljs css language-sh">    PYPE_STUDIO_PROJECT_PATH = <span class="hljs-string">"//UNC_shared_path/projects"</span>
-    PYPE_STUDIO_PROJECT_MOUNT = <span class="hljs-string">"P:/projects"</span>
-    PYPE_STUDIO_CORE_PATH = <span class="hljs-string">"//192.168.1.10/share/core"</span>
-    PYPE_STUDIO_CORE_MOUNT = <span class="hljs-string">"K:/core"</span>
-</code></pre>
-<pre><code class="hljs css language-json">{
-  <span class="hljs-attr">"studio"</span>: {
-    <span class="hljs-attr">"projects"</span>: {
-      <span class="hljs-attr">"path"</span>: {
-        <span class="hljs-attr">"windows"</span>: <span class="hljs-string">"//UNC_shared_path/projects"</span>,
-        <span class="hljs-attr">"darwin"</span>: <span class="hljs-string">""</span>,
-        <span class="hljs-attr">"linux"</span>: <span class="hljs-string">"//UNC_shared_path/projects"</span>
-      },
-      <span class="hljs-attr">"mount"</span>: {
-        <span class="hljs-attr">"windows"</span>: <span class="hljs-string">"P:/projects"</span>,
-        <span class="hljs-attr">"darwin"</span>: <span class="hljs-string">""</span>,
-        <span class="hljs-attr">"linux"</span>: <span class="hljs-string">"/mnt/share/core"</span>
-      }
-    },
-    <span class="hljs-attr">"core"</span>: {
-      <span class="hljs-attr">"path"</span>: {
-        <span class="hljs-attr">"windows"</span>: <span class="hljs-string">"//192.168.1.10/share/core"</span>,
-        <span class="hljs-attr">"darwin"</span>: <span class="hljs-string">""</span>,
-        <span class="hljs-attr">"linux"</span>: <span class="hljs-string">"//192.168.1.10/share/core"</span>
-      },
-      <span class="hljs-attr">"mount"</span>: {
-        <span class="hljs-attr">"windows"</span>: <span class="hljs-string">"K:/core"</span>,
-        <span class="hljs-attr">"darwin"</span>: <span class="hljs-string">""</span>,
-        <span class="hljs-attr">"linux"</span>: <span class="hljs-string">"/mnt/share/core"</span>
-      }
-    }
-  }
-}
-</code></pre>
-<p><br></p>
-<p><strong>There are 2 storages that are required for PYPE to be functional</strong></p>
-<h3><a class="anchor" aria-hidden="true" id="projects-storages"></a><a href="#projects-storages" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Projects storages</h3>
-<p>This should point to the shared storage where projects are saved. A folder per project will be created in here.</p>
-<h3><a class="anchor" aria-hidden="true" id="core-storage"></a><a href="#core-storage" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Core storage</h3>
-<p>A shared storage where pipeline, shared scripts and tools are stored. This is where Pype should be installed and all the users must have at least &quot;read&quot; permissions here.</p>
 <h2><a class="anchor" aria-hidden="true" id="per-project-configuration"></a><a href="#per-project-configuration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Per-project configuration</h2>
 <p>You can have per-project configuration with Pype. This allows you to have for example different
 validation requirements, file naming, etc.</p>
@@ -292,7 +403,7 @@ Your <code>PYPE_PROJECT_CONFIGS</code> points to <code>/studio/pype/projects</co
 find that name by looking into python file containing validator code, or in Pyblish GUI.</p>
 <p>That way you can make it optional or set whatever properties you want on plugins and those
 settings will take precedence over the default site-wide settings.</p>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/next/admin_install"><span class="arrow-prev">← </span><span>Pype Setup</span></a><a class="docs-next button" href="/docs/next/admin_ftrack"><span>Ftrack Setup</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#anatomy">Anatomy</a><ul class="toc-headings"><li><a href="#required-templates">Required templates</a></li><li><a href="#available-keys">Available keys</a></li><li><a href="#optional-keys">Optional keys</a></li></ul></li><li><a href="#environments">Environments</a></li><li><a href="#launchers">Launchers</a></li><li><a href="#presets">Presets</a><ul class="toc-headings"><li><a href="#colorspace">colorspace</a></li><li><a href="#dataflow">Dataflow</a></li><li><a href="#plugins">Plugins</a></li></ul></li><li><a href="#schema">Schema</a></li><li><a href="#system">System</a><ul class="toc-headings"><li><a href="#projects-storages">Projects storages</a></li><li><a href="#core-storage">Core storage</a></li></ul></li><li><a href="#per-project-configuration">Per-project configuration</a><ul class="toc-headings"><li><a href="#example">Example</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon/P.png" alt="PYPE" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/artist_getting_started">Artist</a><a href="/docs/en/manager_ftrack">Manager</a><a href="/docs/en/admin_config">Admin</a></div><div><h5>Community</h5><a href="https://gitter.im/getavalon/Lobby">Avalon Chat</a><a href="https://gitter.im/pyblish/pyblish">Pyblish Chat</a><a href="https://discord.gg/cfkbAHM">Pype Chat</a></div><div><h5>More</h5><a href="https://github.com/pypeclub">Github/Pype.club</a><a href="https://github.com/getavalon">Github/Avalon</a><a href="https://github.com/pyblish">Github/Pyblish</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 Orbi Tools</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/next/admin_install"><span class="arrow-prev">← </span><span>Pype Setup</span></a><a class="docs-next button" href="/docs/next/admin_ftrack"><span>Ftrack Setup</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#anatomy">Anatomy</a><ul class="toc-headings"><li><a href="#roots">Roots</a></li><li><a href="#templates">Templates</a></li><li><a href="#required-templates">Required templates</a></li><li><a href="#available-keys">Available keys</a></li><li><a href="#optional-keys">Optional keys</a></li><li><a href="#inner-keys">Inner keys</a></li><li><a href="#global-keys">Global keys</a></li><li><a href="#combine-inner-keys-with-global-keys">Combine Inner keys with Global keys</a></li></ul></li><li><a href="#environments">Environments</a></li><li><a href="#launchers">Launchers</a></li><li><a href="#presets">Presets</a><ul class="toc-headings"><li><a href="#colorspace">colorspace</a></li><li><a href="#dataflow">Dataflow</a></li><li><a href="#plugins">Plugins</a></li></ul></li><li><a href="#schema">Schema</a></li><li><a href="#per-project-configuration">Per-project configuration</a><ul class="toc-headings"><li><a href="#example">Example</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon/P.png" alt="PYPE" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/artist_getting_started">Artist</a><a href="/docs/en/manager_ftrack">Manager</a><a href="/docs/en/admin_config">Admin</a></div><div><h5>Community</h5><a href="https://gitter.im/getavalon/Lobby">Avalon Chat</a><a href="https://gitter.im/pyblish/pyblish">Pyblish Chat</a><a href="https://discord.gg/cfkbAHM">Pype Chat</a></div><div><h5>More</h5><a href="https://github.com/pypeclub">Github/Pype.club</a><a href="https://github.com/getavalon">Github/Avalon</a><a href="https://github.com/pyblish">Github/Pyblish</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 Orbi Tools</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;
