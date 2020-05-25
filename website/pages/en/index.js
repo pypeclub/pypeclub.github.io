@@ -333,6 +333,12 @@ class Index extends React.Component {
               <img src="/img/app_unreal.png" alt="" title=""></img>
               <span className="caption">Unreal Engine</span>
             </a>
+
+            <a class="link" href="http://localhost:3000/features#nuke">
+              <img src="/img/app_toonboom.png" alt="" title=""></img>
+              <span class="caption">Harmony</span>
+            </a>
+
           </div>
 
           <p> <span>In development by us or a community of <a href="https://github.com/getavalon/core/pulls">avalon core</a> developers.</span></p>
