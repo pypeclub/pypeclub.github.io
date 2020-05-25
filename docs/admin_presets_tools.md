@@ -77,67 +77,6 @@ path: `pype-config/presets/colorspace/aces103-cg.json`
 ```
 
 
-## Burnins
-
-path: `pype-config/presets/tools/burnins.json`
-
-### `options` [dict]
-
-Sets the basic options for all burn-ins.
-
-```python
-"options": {
-    "opacity": 1,
-    "x_offset": 5,
-    "y_offset": 5,
-    "bg_padding": 5,
-    "bg_opacity": 0.5,
-    "font_size": 42
-},
-```
-
-
-### `burnins` [dict]
-
-Specifies all the individual burn-ins, their positions and content
-
-Available positions: `TOP_LEFT`, `BOTTOM_CENTERED`, `TOP_RIGHT`, `BOTTOM_LEFT`, `BOTTOM_CENTERED`, `BOTTOM_RIGHT`
-
-**Available keys**
-
-- It is possible to use same keys as in [Anatomy](admin_config#available-keys).
-
-- It is allowed to use [Anatomy templates](admin_config#anatomy) themselves in burnins if they can be filled with available data.
-
-- Additional keys in burnins:
-  | Burnin key | Description |
-  | --- | --- |
-  | frame_start | First frame number. |
-  | frame_end | Last frame number. |
-  | current_frame | Frame number for each frame. |
-  | duration | Count number of frames. |
-  | resolution_width | Resolution width. |
-  | resolution_height | Resolution height. |
-  | fps | Fps of an output. |
-  | timecode | Timecode by frame start and fps. |
-
-:::warning
-`timecode` is specific key that can be **only at the end of content**. (`"BOTTOM_RIGHT": "TC: {timecode}"`)
-:::
-
-**Example**
-```python
-"burnins":{
-    "TOP_LEFT": "{dd}.{mm}.{yyyy}",
-    "TOP_CENTER": "anatomy[publish][path]",
-    "TOP_RIGHT": "v{version:0>3}", # "0>3" adds padding to version number to have 3 digits.
-    "BOTTOM_LEFT": "{frame_start}-{current_frame}-{frame_end}",
-    "BOTTOM_CENTERED": "{asset}",
-    "BOTTOM_RIGHT": "{username}"
-}
-```
-
-
 ## Creator Defaults
 
 path: `pype-config/presets/tools/creator.json`
