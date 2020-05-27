@@ -4,6 +4,20 @@ title: Update Notes
 sidebar_label: Update Notes
 ---
 
+<a name="update_to_2.9.0"></a>
+## Updating to 2.9.0 ##
+
+### Review and Burnin PRESETS
+
+This release introduces a major update to working with review and burnin presets. They can now be much more granular and can target extremely specific usecases. The change is backwards compatible with previous format of review and burnin presets, however we highly recommend updating all the presets to the new format. Documentation on what this looks like can be found on pype main [documentation page](https://pype.club/docs/admin_presets_plugins#publishjson).
+
+
+### Multiroot and storages
+
+With the support of multiroot projects, we removed the old `storage.json` from configuration and replaced it with simpler `config/anatomy/roots.json`. This is a required change, but only needs to be done once per studio during the update to 2.9.0. [Read More](https://pype.club/docs/next/admin_config#roots)
+
+
+
 <a name="update_to_2.7.0"></a>
 ## Updating to 2.7.0 ##
 
