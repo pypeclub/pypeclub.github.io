@@ -11,19 +11,7 @@
 // List of projects/orgs using your project for the users page.
 const users = [
 
-  {
-    caption: '3DE',
-    id: '3de',
-    image: '/img/3de.png',
-    infoLink: 'https://www.3de.com.pl/',
-    pinned: true
-  },
-  {
-    caption: 'Clothcat Animation',
-    image: '/img/clothcat.png',
-    infoLink: 'https://www.clothcatanimation.com/',
-    pinned: true
-  },
+
   {
     caption: 'Imagine Studio',
     image: '/img/imagine_logo.png',
@@ -37,9 +25,28 @@ const users = [
     pinned: true
   },
   {
+    caption: 'Fresh Films',
+    image: '/img/fresh-films-logo.jpg',
+    infoLink: 'http://freshfilms.cz/',
+    pinned: true
+  },
+  {
+    caption: '3DE',
+    id: '3de',
+    image: '/img/3de.png',
+    infoLink: 'https://www.3de.com.pl/',
+    pinned: true
+  },
+  {
     caption: 'Cubic Motion',
     image: '/img/cubicmotion.png',
     infoLink: 'https://cubicmotion.com/',
+    pinned: true
+  },
+  {
+    caption: 'Clothcat Animation',
+    image: '/img/clothcat.png',
+    infoLink: 'https://www.clothcatanimation.com/',
     pinned: true
   },
   {
@@ -52,6 +59,24 @@ const users = [
     caption: 'Bionaut',
     image: '/img/bionaut_logo.png',
     infoLink: 'https://bionaut.cz/',
+    pinned: true
+  },
+  {
+    caption: '3Bohemians',
+    image: '/img/3bohemians-logo.png',
+    infoLink: 'https://www.3bohemians.eu//',
+    pinned: true
+  },
+  {
+    caption: 'Fourth Wall',
+    image: '/img/FW_logo_primary.png',
+    infoLink: 'https://fourthwallanimation.com/',
+    pinned: true
+  },
+  {
+    caption: 'The Scope',
+    image: '/img/thescope_logo.png',
+    infoLink: 'https://thescope.studio/',
     pinned: true
   }
 ];

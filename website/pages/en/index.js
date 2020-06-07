@@ -320,6 +320,11 @@ class Index extends React.Component {
             </a>
 
             <a className="link" href="">
+              <img src="/img/app_photoshop.png" alt="" title=""></img>
+              <span className="caption">Photoshop</span>
+            </a>
+
+            <a className="link" href="">
               <img src="/img/app_deadline.png" alt="" title=""></img>
               <span className="caption">Deadline</span>
             </a>
@@ -329,12 +334,12 @@ class Index extends React.Component {
               <span className="caption">Muster</span>
             </a>
 
-            <a className="link" href="http://localhost:3000/features#nuke">
+            <a className="link" href="">
               <img src="/img/app_unreal.png" alt="" title=""></img>
               <span className="caption">Unreal Engine</span>
             </a>
 
-            <a class="link" href="http://localhost:3000/features#nuke">
+            <a class="link" href="">
               <img src="/img/app_toonboom.png" alt="" title=""></img>
               <span class="caption">Harmony</span>
             </a>
@@ -345,14 +350,14 @@ class Index extends React.Component {
 
           <div className="showcase">
 
-            <a className="link" href="http://localhost:3000/features#nuke">
-              <img src="/img/app_photoshop.png" alt="" title=""></img>
-              <span className="caption">Photoshop</span>
+            <a className="link" href="http://localhost:3000/features#storyboardpro">
+              <img src="/img/app_storyboardpro.svg" alt="" title=""></img>
+              <span className="caption">Storyboard Pro</span>
             </a>
 
-            <a className="link" href="http://localhost:3000/features#nuke">
-              <img src="/img/app_toonboom.png" alt="" title=""></img>
-              <span className="caption">Toon Boom</span>
+            <a className="link" href="http://localhost:3000/features#storyboardpro">
+              <img src="/img/app_Resolve.png" alt="" title=""></img>
+              <span className="caption">DaVinci Resolve</span>
             </a>
 
           </div>

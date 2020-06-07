@@ -276,7 +276,25 @@ article a:hover {
 
 
 .productShowcaseSection .logos img[alt="Incognito"] {
-    max-height: 40px;
+    max-height: 35px;
+    padding: 20px;
+    width: inherit;
+}
+
+.productShowcaseSection .logos img[alt="The Scope"] {
+    max-height: 20px;
+    padding: 20px;
+    width: inherit;
+}
+
+.productShowcaseSection .logos img[alt="3Bohemians"] {
+    max-height: 14px;
+    padding: 20px;
+    width: inherit;
+}
+
+.productShowcaseSection .logos img[alt="Fresh Films"] {
+    max-height: 25px;
     padding: 20px;
     width: inherit;
 }
