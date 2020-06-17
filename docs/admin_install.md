@@ -251,7 +251,7 @@ If you Pype location is on network drive, you need to mount it first. Here are t
 3) enter login and password
 4) network drive is now mounted under `/Volumes/pipeline`
 5) now go to **System Preferences**
-6) click **A -> Login Items**
+6) click **Users & Groups -> Login Items**
 7) click + and select mounted drive and click **Add**
 :::
 
