@@ -34,21 +34,51 @@ You can show the extension panel by going to `Window` > `Extensions` > `Avalon`.
 
 When you have created an image you want to publish, you will need to create special groups or tag existing groups. To do this open the `Creator` through the extensions `Create` button.
 
-![Extension](assets/photoshop_creator.PNG)
+![Creator](assets/photoshop_creator.PNG)
 
 With the `Creator` you have a variety of options to create:
 
-- Check `Use selection` (A dialog will ask whether you want to create multiple images or just one).
-    - One image.
-        - This will create a single group named after the `Subset` in the `Creator`.
-    - Multiple images.
+- Check `Use selection` (A dialog will ask whether you want to create one image per selected layer).
+    - Yes.
         - No selection.
             - This will create a single group named after the `Subset` in the `Creator`.
         - Single selected layer.
-            - This will create a single group named after the selected layer.
+            - The selected layer will be grouped under a single group named after the selected layer.
         - Single selected group.
-            - This will tag the selected group.
+            - The selected group will be tagged for publishing.
         - Multiple selected items.
-            - Each group will be tagged and each layer will be grouped.
+            - Each selected group will be tagged for publishing and each layer will be grouped individually.
+    - No.
+        - All selected layers will be grouped under a single group named after the `Subset` in the `Creator`.
 - Uncheck `Use selection`.
     - This will create a single group named after the `Subset` in the `Creator`.
+
+### Publish
+
+When you are ready to share some work, you will need to publish. This is done by opening the `Pyblish` through the extensions `Publish` button.
+
+![Publish](assets/photoshop_publish.PNG)
+
+This tool will run through checks to make sure the contents you are publishing is correct. Hit the "Play" button to start publishing.
+
+You may encounter issues with publishing which will be indicated with red squares. If these issues are within the validation section, then you can fix the issue. If there are issues outside of validation section, please let the Pype team know.
+
+#### Repair Validation Issues
+
+All validators will give some description about what the issue is. You can inspect this by going into the validator through the arrow:
+
+![Inspect](assets/photoshop_publish_inspect.PNG)
+
+You can expand the errors by clicking on them for more details:
+
+![Expand](assets/photoshop_publish_expand.PNG)
+
+Some validator have repair actions, which will fix the issue. If you can identify validators with actions by the circle icon with an "A":
+
+![Actions](assets/photoshop_publish_actions.PNG)
+
+To access the actions, you right click on the validator. If an action runs successfully, the actions icon will turn green:
+
+![Repair](assets/photoshop_publish_repair.gif)
+
+Once all issues are fixed, you can just hit the "Refresh" button and try to publish again.
