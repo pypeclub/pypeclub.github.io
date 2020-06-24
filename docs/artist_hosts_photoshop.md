@@ -4,7 +4,7 @@ title: Photoshop
 sidebar_label: Photoshop
 ---
 
-## Pype global tools
+## Available Tools
 
 -   [Work Files](artist_tools.md#workfiles)
 -   [Create](artist_tools.md#creator)
@@ -77,8 +77,6 @@ Some validator have repair actions, which will fix the issue. If you can identif
 
 ![Actions](assets/photoshop_publish_actions.PNG)
 
-To access the actions, you right click on the validator. If an action runs successfully, the actions icon will turn green:
+To access the actions, you right click on the validator. If an action runs successfully, the actions icon will turn green. Once all issues are fixed, you can just hit the "Refresh" button and try to publish again.
 
 ![Repair](assets/photoshop_publish_repair.gif)
-
-Once all issues are fixed, you can just hit the "Refresh" button and try to publish again.
