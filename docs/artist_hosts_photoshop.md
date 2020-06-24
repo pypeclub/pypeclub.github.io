@@ -80,3 +80,32 @@ Some validator have repair actions, which will fix the issue. If you can identif
 To access the actions, you right click on the validator. If an action runs successfully, the actions icon will turn green. Once all issues are fixed, you can just hit the "Refresh" button and try to publish again.
 
 ![Repair](assets/photoshop_publish_repair.gif)
+
+### Load
+
+When you want to load existing published work, you can load in smart layers through the `Loader`. You can reach the `Loader` through the extension's `Load` button.
+
+![Loader](assets/photoshop_loader.PNG)
+
+The supported families for Photoshop are:
+
+- `image`
+
+To load an image, right-click on the subset you want and choose a representation:
+
+![Loader](assets/photoshop_loader_load.gif)
+
+### Manage
+
+Now that we have some images loaded, we can manage which version is loaded. This is done through the `Scene Inventory`. You can reach it through the extension's `Manage` button.
+
+:::note
+Loaded images has to stay as smart layers in order to be updated. If you rasterize the layer, you cannot update it to a different version.
+:::
+
+![Loader](assets/photoshop_manage.PNG)
+
+You can switch to a previous version of the image or update to the latest.
+
+![Loader](assets/photoshop_manage_switch.gif)
+![Loader](assets/photoshop_manage_update.gif)
