@@ -14,6 +14,10 @@ sidebar_label: Harmony
 -   [Publish](artist_tools.md#publisher)
 -   [Library Loader](artist_tools.md#library-loader)
 
+:::note
+Only one tool can be open at a time. If you open a tool while another tool is open, it will wait in queue for the existing tool to be closed. Once the existing tool is closed, the new tool will open.
+:::
+
 ## Usage
 
 The integration creates an `Avalon` menu entry where all related tools are located.
