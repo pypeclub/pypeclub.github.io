@@ -51,6 +51,8 @@ These are the families supported in Harmony:
 - `Template`
     - This instance is for generating a templates. This is a normal composite node, which you can connect any number of nodes to.
     - Any connected nodes will be published along with their dependencies and any back drops.
+- (`Palette`)
+    - Palettes are indirectly supported in Harmony. This means you just have to have palettes in your scene to publish them.
 
 When you `Use selection` on creation, the last selected node will be connected to the created node.
 
@@ -92,6 +94,9 @@ The supported families for Harmony are:
 
 - `image`
 - `harmony.template`
+    - Only import is current supported for templates.
+- `harmony.palette`
+    - Loaded palettes are moved to the top of the colour stack, so they will acts as overrides. Imported palettes are left in the scene.
 - `workfile`
     - Only of type `zip`.
 
