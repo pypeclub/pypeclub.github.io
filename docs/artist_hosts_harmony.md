@@ -23,7 +23,9 @@ Only one tool can be open at a time. If you open a tool while another tool is op
 The integration creates an `Avalon` menu entry where all related tools are located.
 
 :::note
-Menu creation can be temperamental. Its best to start Harmony and do nothing else until the application is fully launched.
+Menu creation can be temperamental. Its best to start Harmony and do nothing else until the application is fully launched. If the `Avalon` menu does not appear, you will have to run the startup script manually:
+
+Script Editor > `TB_sceneOpened.js` > Run > `start`
 :::
 
 ### Workfiles
