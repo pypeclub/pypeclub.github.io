@@ -65,52 +65,52 @@
 <p><em><strong>release date:</strong> 25 May 2020</em></p>
 <p><strong>new:</strong></p>
 <ul>
-<li><em>(pype)</em> Support for <strong>Multiroot projects</strong>. You can now store project data on multiple physical or virtual storages and target individual publishes to these locations. For instance render can be stored on a faster storage than the rest of the project. <a href="https://github.com/pypeclub/pype/issues/\1">#145</a>, <a href="https://github.com/pypeclub/pype/issues/\1">#38</a></li>
-<li><em>(harmony)</em> Basic implementation of <strong>Toon Boom Harmony</strong> has been added. <a href="https://github.com/pypeclub/pype/issues/\1">#142</a></li>
-<li><em>(pype)</em> OSX support is in public beta now. There are issues to be expected, but the main implementation should be functional. <a href="https://github.com/pypeclub/pype/issues/\1">#141</a></li>
+<li><em>(pype)</em> Support for <strong>Multiroot projects</strong>. You can now store project data on multiple physical or virtual storages and target individual publishes to these locations. For instance render can be stored on a faster storage than the rest of the project. <a href="https://github.com/pypeclub/pype/issues/145">#145</a>, <a href="https://github.com/pypeclub/pype/issues/38">#38</a></li>
+<li><em>(harmony)</em> Basic implementation of <strong>Toon Boom Harmony</strong> has been added. <a href="https://github.com/pypeclub/pype/issues/142">#142</a></li>
+<li><em>(pype)</em> OSX support is in public beta now. There are issues to be expected, but the main implementation should be functional. <a href="https://github.com/pypeclub/pype/issues/141">#141</a></li>
 </ul>
 <p><strong>improved:</strong></p>
 <ul>
-<li><em>(pype)</em> <strong>Review extractor</strong> has been completely rebuilt. It now supports granular filtering so you can create <strong>multiple outputs</strong> for different tasks, families or hosts. <a href="https://github.com/pypeclub/pype/issues/\1">#103</a>, <a href="https://github.com/pypeclub/pype/issues/\1">#166</a>, <a href="https://github.com/pypeclub/pype/issues/\1">#165</a></li>
-<li><em>(pype)</em> <strong>Burnin</strong> generation had been extended to <strong>support same multi-output filtering</strong> as review extractor <a href="https://github.com/pypeclub/pype/issues/\1">#103</a></li>
-<li><em>(pype)</em> Publishing file templates can now be specified in config for each individual family <a href="https://github.com/pypeclub/pype/issues/\1">#114</a></li>
-<li><em>(pype)</em> Studio specific plugins can now be appended to pype standard publishing plugins. <a href="https://github.com/pypeclub/pype/issues/\1">#112</a></li>
-<li><em>(nukestudio)</em> Reviewable clips no longer need to be previously cut, exported and re-imported to timeline. <strong>Pype can now dynamically cut reviewable quicktimes</strong> from continuous offline footage during publishing. <a href="https://github.com/pypeclub/pype/issues/\1">#23</a></li>
-<li><em>(deadline)</em> Deadline can now correctly differentiate between staging and production pype. <a href="https://github.com/pypeclub/pype/issues/\1">#154</a></li>
-<li><em>(deadline)</em> <code>PYPE_PYTHON_EXE</code> env variable can now be used to direct publishing to explicit python installation. <a href="https://github.com/pypeclub/pype/issues/\1">#120</a></li>
-<li><em>(nuke)</em> Nuke now check for new version of loaded data on file open. <a href="https://github.com/pypeclub/pype/issues/\1">#140</a></li>
-<li><em>(nuke)</em> frame range and limit checkboxes are now exposed on write node. <a href="https://github.com/pypeclub/pype/issues/\1">#119</a></li>
+<li><em>(pype)</em> <strong>Review extractor</strong> has been completely rebuilt. It now supports granular filtering so you can create <strong>multiple outputs</strong> for different tasks, families or hosts. <a href="https://github.com/pypeclub/pype/issues/103">#103</a>, <a href="https://github.com/pypeclub/pype/issues/166">#166</a>, <a href="https://github.com/pypeclub/pype/issues/165">#165</a></li>
+<li><em>(pype)</em> <strong>Burnin</strong> generation had been extended to <strong>support same multi-output filtering</strong> as review extractor <a href="https://github.com/pypeclub/pype/issues/103">#103</a></li>
+<li><em>(pype)</em> Publishing file templates can now be specified in config for each individual family <a href="https://github.com/pypeclub/pype/issues/114">#114</a></li>
+<li><em>(pype)</em> Studio specific plugins can now be appended to pype standard publishing plugins. <a href="https://github.com/pypeclub/pype/issues/112">#112</a></li>
+<li><em>(nukestudio)</em> Reviewable clips no longer need to be previously cut, exported and re-imported to timeline. <strong>Pype can now dynamically cut reviewable quicktimes</strong> from continuous offline footage during publishing. <a href="https://github.com/pypeclub/pype/issues/23">#23</a></li>
+<li><em>(deadline)</em> Deadline can now correctly differentiate between staging and production pype. <a href="https://github.com/pypeclub/pype/issues/154">#154</a></li>
+<li><em>(deadline)</em> <code>PYPE_PYTHON_EXE</code> env variable can now be used to direct publishing to explicit python installation. <a href="https://github.com/pypeclub/pype/issues/120">#120</a></li>
+<li><em>(nuke)</em> Nuke now check for new version of loaded data on file open. <a href="https://github.com/pypeclub/pype/issues/140">#140</a></li>
+<li><em>(nuke)</em> frame range and limit checkboxes are now exposed on write node. <a href="https://github.com/pypeclub/pype/issues/119">#119</a></li>
 </ul>
 <p><strong>fix:</strong></p>
 <ul>
-<li><em>(nukestudio)</em> Project Location was using backslashes which was breaking nukestudio native exporting in certains configurations <a href="https://github.com/pypeclub/pype/issues/\1">#82</a></li>
-<li><em>(nukestudio)</em> Duplicity in hierarchy tags was prone to throwing publishing error <a href="https://github.com/pypeclub/pype/issues/\1">#130</a>, <a href="https://github.com/pypeclub/pype/issues/\1">#144</a></li>
-<li><em>(ftrack)</em> multiple stability improvements <a href="https://github.com/pypeclub/pype/issues/\1">#157</a>, <a href="https://github.com/pypeclub/pype/issues/\1">#159</a>, <a href="https://github.com/pypeclub/pype/issues/\1">#128</a>, <a href="https://github.com/pypeclub/pype/issues/\1">#118</a>, <a href="https://github.com/pypeclub/pype/issues/\1">#127</a></li>
-<li><em>(deadline)</em> multipart EXRs were stopping review publishing on the farm. They are still not supported for automatic review generation, but the publish will go through correctly without the quicktime. <a href="https://github.com/pypeclub/pype/issues/\1">#155</a></li>
-<li><em>(deadline)</em> If deadline is non-responsive it will no longer freeze host when publishing <a href="https://github.com/pypeclub/pype/issues/\1">#149</a></li>
-<li><em>(deadline)</em> Sometimes deadline was trying to launch render before all the source data was coppied over. <a href="https://github.com/pypeclub/pype/issues/\1">#137</a></li>
-<li><em>(nuke)</em> Filepath knob wasn't updated properly. <a href="https://github.com/pypeclub/pype/issues/\1">#131</a></li>
-<li><em>(maya)</em> When extracting animation, the &quot;Write Color Set&quot; options on the instance were not respected. <a href="https://github.com/pypeclub/pype/issues/\1">#108</a></li>
-<li><em>(maya)</em> Attribute overrides for AOV only worked for the legacy render layers. Now it works for new render setup as well <a href="https://github.com/pypeclub/pype/issues/\1">#132</a></li>
-<li><em>(maya)</em> Stability and usability improvements in yeti workflow <a href="https://github.com/pypeclub/pype/issues/\1">#104</a></li>
+<li><em>(nukestudio)</em> Project Location was using backslashes which was breaking nukestudio native exporting in certain configurations <a href="https://github.com/pypeclub/pype/issues/82">#82</a></li>
+<li><em>(nukestudio)</em> Duplicity in hierarchy tags was prone to throwing publishing error <a href="https://github.com/pypeclub/pype/issues/130">#130</a>, <a href="https://github.com/pypeclub/pype/issues/144">#144</a></li>
+<li><em>(ftrack)</em> multiple stability improvements <a href="https://github.com/pypeclub/pype/issues/157">#157</a>, <a href="https://github.com/pypeclub/pype/issues/159">#159</a>, <a href="https://github.com/pypeclub/pype/issues/128">#128</a>, <a href="https://github.com/pypeclub/pype/issues/118">#118</a>, <a href="https://github.com/pypeclub/pype/issues/127">#127</a></li>
+<li><em>(deadline)</em> multipart EXRs were stopping review publishing on the farm. They are still not supported for automatic review generation, but the publish will go through correctly without the quicktime. <a href="https://github.com/pypeclub/pype/issues/155">#155</a></li>
+<li><em>(deadline)</em> If deadline is non-responsive it will no longer freeze host when publishing <a href="https://github.com/pypeclub/pype/issues/149">#149</a></li>
+<li><em>(deadline)</em> Sometimes deadline was trying to launch render before all the source data was copied over. <a href="https://github.com/pypeclub/pype/issues/137">#137</a></li>
+<li><em>(nuke)</em> Filepath knob wasn't updated properly. <a href="https://github.com/pypeclub/pype/issues/131">#131</a></li>
+<li><em>(maya)</em> When extracting animation, the &quot;Write Color Set&quot; options on the instance were not respected. <a href="https://github.com/pypeclub/pype/issues/108">#108</a></li>
+<li><em>(maya)</em> Attribute overrides for AOV only worked for the legacy render layers. Now it works for new render setup as well <a href="https://github.com/pypeclub/pype/issues/132">#132</a></li>
+<li><em>(maya)</em> Stability and usability improvements in yeti workflow <a href="https://github.com/pypeclub/pype/issues/104">#104</a></li>
 </ul>
 <p><a name="2.7.0"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="280"></a><a href="#280" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.8.0</h2>
 <p><em><strong>release date:</strong> 20 April 2020</em></p>
 <p><strong>new:</strong></p>
 <ul>
-<li><em>(pype)</em> Option to generate slates from json templates. [PYPE-628] <a href="https://github.com/pypeclub/pype/issues/\1">#26</a></li>
-<li><em>(pype)</em> It is now possible to automate loading of published subsets into any scene. Documentation will follow :). [PYPE-611] <a href="https://github.com/pypeclub/pype/issues/\1">#24</a></li>
+<li><em>(pype)</em> Option to generate slates from json templates. [PYPE-628] <a href="https://github.com/pypeclub/pype/issues/26">#26</a></li>
+<li><em>(pype)</em> It is now possible to automate loading of published subsets into any scene. Documentation will follow :). [PYPE-611] <a href="https://github.com/pypeclub/pype/issues/24">#24</a></li>
 </ul>
 <p><strong>fix:</strong></p>
 <ul>
-<li><em>(maya)</em> Some Redshift render tokens could break publishing. [PYPE-778] <a href="https://github.com/pypeclub/pype/issues/\1">#33</a></li>
-<li><em>(maya)</em> Publish was not preserving maya file extension. <a href="https://github.com/pypeclub/pype/issues/\1">#39</a></li>
-<li><em>(maya)</em> Rig output validator was failing on nodes without shapes. <a href="https://github.com/pypeclub/pype/issues/\1">#40</a></li>
-<li><em>(maya)</em> Yeti caches can now be properly versioned up in the scene inventory. <a href="https://github.com/pypeclub/pype/issues/\1">#40</a></li>
-<li><em>(nuke)</em> Build first workfiles was not accepting jpeg sequences. <a href="https://github.com/pypeclub/pype/issues/\1">#34</a></li>
-<li><em>(deadline)</em> Trying to generate ffmpeg review from multipart EXRs no longer crashes publishing. [PYPE-781] <a href="https://github.com/pypeclub/pype/issues/{$1}">{$1}</a></li>
-<li><em>(deadline)</em> Render publishing is more stable in multiplatform environments. [PYPE-775] <a href="https://github.com/pypeclub/pype/issues/$1">$1</a></li>
+<li><em>(maya)</em> Some Redshift render tokens could break publishing. [PYPE-778] <a href="https://github.com/pypeclub/pype/issues/33">#33</a></li>
+<li><em>(maya)</em> Publish was not preserving maya file extension. <a href="https://github.com/pypeclub/pype/issues/39">#39</a></li>
+<li><em>(maya)</em> Rig output validator was failing on nodes without shapes. <a href="https://github.com/pypeclub/pype/issues/40">#40</a></li>
+<li><em>(maya)</em> Yeti caches can now be properly versioned up in the scene inventory. <a href="https://github.com/pypeclub/pype/issues/40">#40</a></li>
+<li><em>(nuke)</em> Build first workfiles was not accepting jpeg sequences. <a href="https://github.com/pypeclub/pype/issues/34">#34</a></li>
+<li><em>(deadline)</em> Trying to generate ffmpeg review from multipart EXRs no longer crashes publishing. [PYPE-781]</li>
+<li><em>(deadline)</em> Render publishing is more stable in multiplatform environments. [PYPE-775]</li>
 </ul>
 <p><a name="2.7.0"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="270"></a><a href="#270" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.7.0</h2>
@@ -152,8 +152,8 @@
 <li><em>(maya)</em> render publishing has been simplified and made more robust. Render setup layers are now automatically added to publishing subsets and <code>render globals</code> family has been replaced with simple <code>render</code> [PYPE-570]</li>
 <li><em>(avalon)</em> change context and workfiles apps, have been merged into one, that allows both actions to be performed at the same time. [PYPE-747]</li>
 <li><em>(pype)</em> thumbnails are now automatically propagate to asset from the last published subset in the loader</li>
-<li><em>(ftrack)</em> publishing comment and intent are now being published to ftrack note as well as describtion. [PYPE-727]</li>
-<li><em>(pype)</em> when overriding existing version new old representations are now overriden, instead of the new ones just being appended. (to allow this behaviour, the version validator need to be disabled. [PYPE-690])</li>
+<li><em>(ftrack)</em> publishing comment and intent are now being published to ftrack note as well as description. [PYPE-727]</li>
+<li><em>(pype)</em> when overriding existing version new old representations are now overridden, instead of the new ones just being appended. (to allow this behaviour, the version validator need to be disabled. [PYPE-690])</li>
 <li><em>(pype)</em> burnin preset has been significantly simplified. It now doesn't require passing function to each field, but only need the actual text template. to use this, all the current burnin PRESETS MUST BE UPDATED for all the projects.</li>
 <li><em>(ftrack)</em> credentials are now stored on a per server basis, so it's possible to switch between ftrack servers without having to log in and out. [PYPE-723]</li>
 </ul>
