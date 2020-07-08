@@ -6,13 +6,11 @@ sidebar_label: Harmony
 
 ## Pype global tools
 
--   [Set Context](artist_tools.md#set-context)
 -   [Work Files](artist_tools.md#workfiles)
 -   [Create](artist_tools.md#creator)
 -   [Load](artist_tools.md#loader)
--   [Manage (Inventory)](artist_tools.md#inventory)
 -   [Publish](artist_tools.md#publisher)
--   [Library Loader](artist_tools.md#library-loader)
+-   [Manage](artist_tools.md#inventory)
 
 ## Usage
 
@@ -20,6 +18,10 @@ The integration creates an `Avalon` menu entry where all related tools are locat
 
 :::note
 Menu creation can be temperamental. Its best to start Harmony and do nothing else until the application is fully launched.
+If you dont see the `Avalon` menu, then follow this to create it:
+- Go to the Script Editor
+- Find the script called `TB_sceneOpened.js` and run it.
+- Choose the `start` method to run.
 :::
 
 ### Workfiles
