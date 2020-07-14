@@ -161,7 +161,7 @@ class Index extends React.Component {
               <Button href={'https://github.com/pypeclub/pype'}>Source Code</Button>
               <Button href="mailto:info@pype.club">Get in touch</Button>
               <Button href={'https://discord.gg/sFNPWXG'}>Join our chat</Button>
-              <Button href={'https://pypeclub.atlassian.net/servicedesk'}>Client Support</Button>
+              <Button href={'https://support.pype.club'}>Client Support</Button>
             </PromoSection>
             <p>
             Helping VFX and animation studios that lack the resources to design and maintain a major software project in-house.</p>
@@ -356,7 +356,7 @@ class Index extends React.Component {
             </a>
 
             <a className="link" href="http://localhost:3000/features#storyboardpro">
-              <img src="/img/app_Resolve.png" alt="" title=""></img>
+              <img src="/img/app_resolve.png" alt="" title=""></img>
               <span className="caption">DaVinci Resolve</span>
             </a>
 
