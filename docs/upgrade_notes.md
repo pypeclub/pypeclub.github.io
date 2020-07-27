@@ -4,6 +4,22 @@ title: Update Notes
 sidebar_label: Update Notes
 ---
 
+<a name="update_to_2.11.0"></a>
+## Updating to 2.11.0 ##
+
+### Maya in deadline
+
+We added or own maya deadline plugin to make render management easier. It operates the same as standard mayaBatch in deadline, but allow us to separate Pype sumitted jobs from standard submitter. You'll need to follow this guide to update this [install pype deadline](https://pype.club/docs/admin_hosts#pype-dealine-supplement-code)
+
+
+<a name="update_to_2.10.0"></a>
+## Updating to 2.10.0 ##
+
+### Maya in deadline
+
+We added or own maya deadline plugin to make render management easier. It operates the same as standard mayaBatch in deadline, but allow us to separate Pype sumitted jobs from standard submitter. You'll need to follow this guide to update this [install pype deadline](https://pype.club/docs/admin_hosts#pype-dealine-supplement-code)
+
+
 <a name="update_to_2.9.0"></a>
 ## Updating to 2.9.0 ##
 
