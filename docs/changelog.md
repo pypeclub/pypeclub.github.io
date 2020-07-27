@@ -5,6 +5,44 @@ sidebar_label: Changelog
 ---
 
 
+<a name="2.11.0"></a>
+## 2.11.0 ##
+
+_**release date:** 27 July 2020_
+
+**new:**
+- _(blender)_ namespace support [\#341](https://github.com/pypeclub/pype/pull/341)
+- _(blender)_ start end frames [\#330](https://github.com/pypeclub/pype/pull/330)
+- _(blender)_ camera asset [\#322](https://github.com/pypeclub/pype/pull/322)
+- _(pype)_ toggle instances per family in pyblish GUI [\#320](https://github.com/pypeclub/pype/pull/320)
+- _(pype)_ current release version is now shown in the tray menu [#379](https://github.com/pypeclub/pype/pull/379)
+
+
+**improved:**
+- _(resolve)_ tagging for publish [\#239](https://github.com/pypeclub/pype/issues/239)
+- _(pype)_ Support publishing a subset of shots with standalone editorial [\#336](https://github.com/pypeclub/pype/pull/336)
+- _(harmony)_ Basic support for palettes [\#324](https://github.com/pypeclub/pype/pull/324)
+- _(photoshop)_ Flag outdated containers on startup and publish. [\#309](https://github.com/pypeclub/pype/pull/309)
+- _(harmony)_ Flag Outdated containers [\#302](https://github.com/pypeclub/pype/pull/302)
+- _(photoshop)_ Publish review [\#298](https://github.com/pypeclub/pype/pull/298)
+- _(pype)_ Optional Last workfile launch [\#365](https://github.com/pypeclub/pype/pull/365)
+
+
+**fixed:**
+- _(premiere)_ workflow fixes [\#346](https://github.com/pypeclub/pype/pull/346)
+- _(pype)_ pype-setup does not work with space in path [\#327](https://github.com/pypeclub/pype/issues/327)
+- _(ftrack)_ Ftrack delete action cause circular error [\#206](https://github.com/pypeclub/pype/issues/206)
+- _(nuke)_ Priority was forced to 50 [\#345](https://github.com/pypeclub/pype/pull/345)
+- _(nuke)_ Fix ValidateNukeWriteKnobs [\#340](https://github.com/pypeclub/pype/pull/340)
+- _(maya)_ If camera attributes are connected, we can ignore them. [\#339](https://github.com/pypeclub/pype/pull/339)
+- _(pype)_ stop appending of tools environment to existing env [\#337](https://github.com/pypeclub/pype/pull/337)
+- _(ftrack)_ Ftrack timeout needs to look at AVALON\_TIMEOUT [\#325](https://github.com/pypeclub/pype/pull/325)
+- _(harmony)_ Only zip files are supported. [\#310](https://github.com/pypeclub/pype/pull/310)
+- _(pype)_ hotfix/Fix event server mongo uri [\#305](https://github.com/pypeclub/pype/pull/305)
+- _(photoshop)_ Subset was not named or validated correctly. [\#304](https://github.com/pypeclub/pype/pull/304)
+
+
+
 <a name="2.10.0"></a>
 ## 2.10.0 ##
 
