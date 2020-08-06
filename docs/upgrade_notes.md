@@ -4,6 +4,22 @@ title: Update Notes
 sidebar_label: Update Notes
 ---
 
+<a name="update_to_2.12.0"></a>
+## Updating to 2.12.0 ##
+
+### Apps and tools
+
+**Must**
+
+run Create/Update Custom attributes action (to update custom attributes group)
+check if studio has set custom intent values and move values to ~/config/presets/global/intent.json
+
+**Optional**
+
+Set true/false on application and tools by studio usage (eliminate app list in Ftrack and time for registering Ftrack ations)
+
+
+
 <a name="update_to_2.11.0"></a>
 ## Updating to 2.11.0 ##
 
