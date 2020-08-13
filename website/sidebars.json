@@ -13,7 +13,8 @@
             "artist_hosts_harmony",
             "artist_hosts_photoshop",
             "artist_hosts_unreal",
-            "artist_ftrack"
+            "artist_ftrack",
+            "artist_hosts_standalonepubish"
         ]
     },
     "manager": {
