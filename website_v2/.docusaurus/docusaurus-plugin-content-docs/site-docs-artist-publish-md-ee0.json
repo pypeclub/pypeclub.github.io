@@ -1,0 +1,22 @@
+{
+  "unversionedId": "artist_publish",
+  "id": "artist_publish",
+  "isDocsHomePage": false,
+  "title": "Publishing",
+  "description": "What is publishing?",
+  "source": "@site/..\\docs\\artist_publish.md",
+  "permalink": "/docs/next/artist_publish",
+  "version": "next",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Publishing",
+  "sidebar": "artist",
+  "previous": {
+    "title": "Key concepts",
+    "permalink": "/docs/next/artist_concepts"
+  },
+  "next": {
+    "title": "Tools",
+    "permalink": "/docs/next/artist_tools"
+  }
+}

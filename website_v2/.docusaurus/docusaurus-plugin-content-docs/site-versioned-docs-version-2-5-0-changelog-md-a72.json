@@ -1,0 +1,18 @@
+{
+  "unversionedId": "changelog",
+  "id": "version-2.5.0/changelog",
+  "isDocsHomePage": false,
+  "title": "Release Notes",
+  "description": "2.5.0",
+  "source": "@site/versioned_docs\\version-2.5.0\\changelog.md",
+  "permalink": "/docs/2.5.0/changelog",
+  "version": "2.5.0",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Release Notes",
+  "sidebar": "version-2.5.0/admin",
+  "previous": {
+    "title": "Presets > Tools",
+    "permalink": "/docs/2.5.0/admin_presets_tools"
+  }
+}

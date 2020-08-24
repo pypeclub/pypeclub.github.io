@@ -1,0 +1,13 @@
+{
+  "unversionedId": "admin_presets_tools",
+  "id": "version-2.3.0/admin_presets_tools",
+  "isDocsHomePage": false,
+  "title": "Presets > Tools",
+  "description": "Colorspace",
+  "source": "@site/versioned_docs\\version-2.3.0\\admin_presets_tools.md",
+  "permalink": "/docs/2.3.0/admin_presets_tools",
+  "version": "2.3.0",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Tools"
+}

@@ -1,0 +1,22 @@
+{
+  "unversionedId": "admin_anatomy",
+  "id": "version-2.4.0/admin_anatomy",
+  "isDocsHomePage": false,
+  "title": "Project Anatomy",
+  "description": "PROJECT Structure",
+  "source": "@site/versioned_docs\\version-2.4.0\\admin_anatomy.md",
+  "permalink": "/docs/2.4.0/admin_anatomy",
+  "version": "2.4.0",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Folder Structure",
+  "sidebar": "version-2.4.0/admin",
+  "previous": {
+    "title": "Studio Config",
+    "permalink": "/docs/2.4.0/admin_config"
+  },
+  "next": {
+    "title": "Ftrack Setup",
+    "permalink": "/docs/2.4.0/admin_ftrack"
+  }
+}

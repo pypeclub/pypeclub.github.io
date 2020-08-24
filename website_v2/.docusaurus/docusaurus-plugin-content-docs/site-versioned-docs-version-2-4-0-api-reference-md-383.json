@@ -1,0 +1,12 @@
+{
+  "unversionedId": "api_ref",
+  "id": "version-2.4.0/api_ref",
+  "isDocsHomePage": false,
+  "title": "API reference",
+  "description": "this is another document",
+  "source": "@site/versioned_docs\\version-2.4.0\\api_reference.md",
+  "permalink": "/docs/2.4.0/api_ref",
+  "version": "2.4.0",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055
+}

@@ -1,0 +1,22 @@
+{
+  "unversionedId": "admin_install",
+  "id": "admin_install",
+  "isDocsHomePage": false,
+  "title": "Pype Setup",
+  "description": "Introduction",
+  "source": "@site/..\\docs\\admin_install.md",
+  "permalink": "/docs/next/admin_install",
+  "version": "next",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Pype Setup",
+  "sidebar": "admin",
+  "previous": {
+    "title": "Getting Started",
+    "permalink": "/docs/next/admin_getting_started"
+  },
+  "next": {
+    "title": "Studio Config",
+    "permalink": "/docs/next/admin_config"
+  }
+}

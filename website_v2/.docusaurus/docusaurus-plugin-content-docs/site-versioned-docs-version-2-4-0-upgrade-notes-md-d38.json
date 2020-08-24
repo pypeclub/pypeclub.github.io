@@ -1,0 +1,13 @@
+{
+  "unversionedId": "update_notes",
+  "id": "version-2.4.0/update_notes",
+  "isDocsHomePage": false,
+  "title": "Update Notes",
+  "description": "Updating to 2.11.0",
+  "source": "@site/versioned_docs\\version-2.4.0\\upgrade_notes.md",
+  "permalink": "/docs/2.4.0/update_notes",
+  "version": "2.4.0",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Update Notes"
+}

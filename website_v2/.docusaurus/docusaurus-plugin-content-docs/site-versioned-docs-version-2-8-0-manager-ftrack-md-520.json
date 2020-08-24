@@ -1,0 +1,22 @@
+{
+  "unversionedId": "manager_ftrack",
+  "id": "version-2.8.0/manager_ftrack",
+  "isDocsHomePage": false,
+  "title": "Ftrack",
+  "description": "Ftrack is currently the main project management option for Pype. This documentation assumes that you are familiar with Ftrack and it's basic principles. If you're new to Ftrack, we recommend having a thorough look at Ftrack Official Documentation.",
+  "source": "@site/versioned_docs\\version-2.8.0\\manager_ftrack.md",
+  "permalink": "/docs/2.8.0/manager_ftrack",
+  "version": "2.8.0",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Ftrack",
+  "sidebar": "version-2.8.0/manager",
+  "previous": {
+    "title": "Naming Conventions",
+    "permalink": "/docs/2.8.0/manager_naming"
+  },
+  "next": {
+    "title": "Ftrack Actions",
+    "permalink": "/docs/2.8.0/manager_ftrack_actions"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "unversionedId": "admin_hosts",
+  "id": "admin_hosts",
+  "isDocsHomePage": false,
+  "title": "Hosts Setup",
+  "description": "Host configuration",
+  "source": "@site/..\\docs\\admin_hosts.md",
+  "permalink": "/docs/next/admin_hosts",
+  "version": "next",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Hosts Setup",
+  "sidebar": "admin",
+  "previous": {
+    "title": "Ftrack Setup",
+    "permalink": "/docs/next/admin_ftrack"
+  },
+  "next": {
+    "title": "Pype Commands Reference",
+    "permalink": "/docs/next/admin_pype_commands"
+  }
+}

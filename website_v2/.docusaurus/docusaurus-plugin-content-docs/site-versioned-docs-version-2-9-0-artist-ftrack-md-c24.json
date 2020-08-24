@@ -1,0 +1,18 @@
+{
+  "unversionedId": "artist_ftrack",
+  "id": "version-2.9.0/artist_ftrack",
+  "isDocsHomePage": false,
+  "title": "Ftrack",
+  "description": "How to use Ftrack in Pype",
+  "source": "@site/versioned_docs\\version-2.9.0\\artist_ftrack.md",
+  "permalink": "/docs/2.9.0/artist_ftrack",
+  "version": "2.9.0",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Ftrack",
+  "sidebar": "version-2.9.0/artist",
+  "previous": {
+    "title": "Unreal",
+    "permalink": "/docs/2.9.0/artist_hosts_unreal"
+  }
+}

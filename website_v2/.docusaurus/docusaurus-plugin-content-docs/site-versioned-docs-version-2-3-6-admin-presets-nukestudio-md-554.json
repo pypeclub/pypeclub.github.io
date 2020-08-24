@@ -1,0 +1,22 @@
+{
+  "unversionedId": "admin_presets_nukestudio",
+  "id": "version-2.3.6/admin_presets_nukestudio",
+  "isDocsHomePage": false,
+  "title": "Presets > NukeStudio",
+  "description": "Tags",
+  "source": "@site/versioned_docs\\version-2.3.6\\admin_presets_nukestudio.md",
+  "permalink": "/docs/2.3.6/admin_presets_nukestudio",
+  "version": "2.3.6",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Nukestudio",
+  "sidebar": "version-2.3.6/admin",
+  "previous": {
+    "title": "Setup Troubleshooting",
+    "permalink": "/docs/2.3.6/admin_setup_troubleshooting"
+  },
+  "next": {
+    "title": "Ftrack",
+    "permalink": "/docs/2.3.6/admin_ftrack"
+  }
+}

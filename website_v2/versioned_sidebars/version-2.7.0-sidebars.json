@@ -1,0 +1,144 @@
+{
+  "version-2.7.0/artist": [
+    {
+      "type": "category",
+      "label": "Workflow",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-2.7.0/artist_getting_started"
+        },
+        {
+          "type": "doc",
+          "id": "version-2.7.0/artist_concepts"
+        },
+        {
+          "type": "doc",
+          "id": "version-2.7.0/artist_publish"
+        },
+        {
+          "type": "doc",
+          "id": "version-2.7.0/artist_tools"
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Hosts",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-2.7.0/artist_hosts_nukestudio"
+        },
+        {
+          "type": "doc",
+          "id": "version-2.7.0/artist_hosts_nuke"
+        },
+        {
+          "type": "doc",
+          "id": "version-2.7.0/artist_hosts_maya"
+        },
+        {
+          "type": "doc",
+          "id": "version-2.7.0/artist_ftrack"
+        }
+      ]
+    }
+  ],
+  "version-2.7.0/manager": [
+    {
+      "type": "category",
+      "label": "Setup",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-2.7.0/manager_naming"
+        },
+        {
+          "type": "doc",
+          "id": "version-2.7.0/manager_ftrack"
+        },
+        {
+          "type": "doc",
+          "id": "version-2.7.0/manager_ftrack_actions"
+        }
+      ]
+    }
+  ],
+  "version-2.7.0/admin": [
+    {
+      "type": "category",
+      "label": "Setup",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-2.7.0/admin_getting_started"
+        },
+        {
+          "type": "doc",
+          "id": "version-2.7.0/admin_install"
+        },
+        {
+          "type": "doc",
+          "id": "version-2.7.0/admin_config"
+        },
+        {
+          "type": "doc",
+          "id": "version-2.7.0/admin_ftrack"
+        },
+        {
+          "type": "doc",
+          "id": "version-2.7.0/admin_hosts"
+        },
+        {
+          "type": "doc",
+          "id": "version-2.7.0/admin_pype_commands"
+        },
+        {
+          "type": "doc",
+          "id": "version-2.7.0/admin_setup_troubleshooting"
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Presets",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-2.7.0/admin_presets_nukestudio"
+        },
+        {
+          "type": "doc",
+          "id": "version-2.7.0/admin_presets_ftrack"
+        },
+        {
+          "type": "doc",
+          "id": "version-2.7.0/admin_presets_maya"
+        },
+        {
+          "type": "doc",
+          "id": "version-2.7.0/admin_presets_plugins"
+        },
+        {
+          "type": "doc",
+          "id": "version-2.7.0/admin_presets_tools"
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Release Notes",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-2.7.0/changelog"
+        },
+        {
+          "type": "doc",
+          "id": "version-2.7.0/update_notes"
+        }
+      ]
+    }
+  ]
+}

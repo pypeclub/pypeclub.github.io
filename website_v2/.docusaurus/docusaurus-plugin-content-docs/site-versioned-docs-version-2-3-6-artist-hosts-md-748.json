@@ -1,0 +1,22 @@
+{
+  "unversionedId": "artist_hosts",
+  "id": "version-2.3.6/artist_hosts",
+  "isDocsHomePage": false,
+  "title": "Hosts",
+  "description": "Maya",
+  "source": "@site/versioned_docs\\version-2.3.6\\artist_hosts.md",
+  "permalink": "/docs/2.3.6/artist_hosts",
+  "version": "2.3.6",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Hosts",
+  "sidebar": "version-2.3.6/artist",
+  "previous": {
+    "title": "Tools",
+    "permalink": "/docs/2.3.6/artist_tools"
+  },
+  "next": {
+    "title": "NukeStudio",
+    "permalink": "/docs/2.3.6/artist_hosts_nukestudio"
+  }
+}

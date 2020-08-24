@@ -1,0 +1,223 @@
+{
+  "docsSidebars": {
+    "version-2.11.0/admin": [
+      {
+        "collapsed": true,
+        "type": "category",
+        "label": "Setup",
+        "items": [
+          {
+            "type": "link",
+            "label": "Getting Started",
+            "href": "/docs/admin_getting_started"
+          },
+          {
+            "type": "link",
+            "label": "Pype Setup",
+            "href": "/docs/admin_install"
+          },
+          {
+            "type": "link",
+            "label": "Studio Config",
+            "href": "/docs/admin_config"
+          },
+          {
+            "type": "link",
+            "label": "Ftrack Setup",
+            "href": "/docs/admin_ftrack"
+          },
+          {
+            "type": "link",
+            "label": "Hosts Setup",
+            "href": "/docs/admin_hosts"
+          },
+          {
+            "type": "link",
+            "label": "Pype Commands",
+            "href": "/docs/admin_pype_commands"
+          },
+          {
+            "type": "link",
+            "label": "Setup Troubleshooting",
+            "href": "/docs/admin_setup_troubleshooting"
+          }
+        ]
+      },
+      {
+        "collapsed": true,
+        "type": "category",
+        "label": "Presets",
+        "items": [
+          {
+            "type": "link",
+            "label": "Nukestudio",
+            "href": "/docs/admin_presets_nukestudio"
+          },
+          {
+            "type": "link",
+            "label": "Ftrack",
+            "href": "/docs/admin_presets_ftrack"
+          },
+          {
+            "type": "link",
+            "label": "Maya",
+            "href": "/docs/admin_presets_maya"
+          },
+          {
+            "type": "link",
+            "label": "Plugins",
+            "href": "/docs/admin_presets_plugins"
+          },
+          {
+            "type": "link",
+            "label": "Tools",
+            "href": "/docs/admin_presets_tools"
+          }
+        ]
+      },
+      {
+        "collapsed": true,
+        "type": "category",
+        "label": "Release Notes",
+        "items": [
+          {
+            "type": "link",
+            "label": "Changelog",
+            "href": "/docs/changelog"
+          },
+          {
+            "type": "link",
+            "label": "Update Notes",
+            "href": "/docs/update_notes"
+          }
+        ]
+      }
+    ],
+    "version-2.11.0/artist": [
+      {
+        "collapsed": true,
+        "type": "category",
+        "label": "Workflow",
+        "items": [
+          {
+            "type": "link",
+            "label": "Getting started",
+            "href": "/docs/"
+          },
+          {
+            "type": "link",
+            "label": "Key Concepts",
+            "href": "/docs/artist_concepts"
+          },
+          {
+            "type": "link",
+            "label": "Publishing",
+            "href": "/docs/artist_publish"
+          },
+          {
+            "type": "link",
+            "label": "Tools",
+            "href": "/docs/artist_tools"
+          }
+        ]
+      },
+      {
+        "collapsed": true,
+        "type": "category",
+        "label": "Hosts",
+        "items": [
+          {
+            "type": "link",
+            "label": "Hiero / Nuke Studio",
+            "href": "/docs/artist_hosts_nukestudio"
+          },
+          {
+            "type": "link",
+            "label": "Nuke",
+            "href": "/docs/artist_hosts_nuke"
+          },
+          {
+            "type": "link",
+            "label": "Maya",
+            "href": "/docs/artist_hosts_maya"
+          },
+          {
+            "type": "link",
+            "label": "Harmony",
+            "href": "/docs/artist_hosts_harmony"
+          },
+          {
+            "type": "link",
+            "label": "Photoshop",
+            "href": "/docs/artist_hosts_photoshop"
+          },
+          {
+            "type": "link",
+            "label": "Unreal",
+            "href": "/docs/artist_hosts_unreal"
+          },
+          {
+            "type": "link",
+            "label": "Ftrack",
+            "href": "/docs/artist_ftrack"
+          }
+        ]
+      }
+    ],
+    "version-2.11.0/manager": [
+      {
+        "collapsed": true,
+        "type": "category",
+        "label": "Setup",
+        "items": [
+          {
+            "type": "link",
+            "label": "Naming Conventions",
+            "href": "/docs/manager_naming"
+          },
+          {
+            "type": "link",
+            "label": "Ftrack",
+            "href": "/docs/manager_ftrack"
+          },
+          {
+            "type": "link",
+            "label": "Ftrack actions",
+            "href": "/docs/manager_ftrack_actions"
+          }
+        ]
+      }
+    ]
+  },
+  "permalinkToSidebar": {
+    "/docs/": "version-2.11.0/artist",
+    "/docs/admin_config": "version-2.11.0/admin",
+    "/docs/admin_ftrack": "version-2.11.0/admin",
+    "/docs/admin_getting_started": "version-2.11.0/admin",
+    "/docs/admin_hosts": "version-2.11.0/admin",
+    "/docs/admin_install": "version-2.11.0/admin",
+    "/docs/admin_presets_ftrack": "version-2.11.0/admin",
+    "/docs/admin_presets_maya": "version-2.11.0/admin",
+    "/docs/admin_presets_nukestudio": "version-2.11.0/admin",
+    "/docs/admin_presets_plugins": "version-2.11.0/admin",
+    "/docs/admin_presets_tools": "version-2.11.0/admin",
+    "/docs/admin_pype_commands": "version-2.11.0/admin",
+    "/docs/admin_setup_troubleshooting": "version-2.11.0/admin",
+    "/docs/artist_concepts": "version-2.11.0/artist",
+    "/docs/artist_ftrack": "version-2.11.0/artist",
+    "/docs/artist_hosts_harmony": "version-2.11.0/artist",
+    "/docs/artist_hosts_maya": "version-2.11.0/artist",
+    "/docs/artist_hosts_nuke": "version-2.11.0/artist",
+    "/docs/artist_hosts_nukestudio": "version-2.11.0/artist",
+    "/docs/artist_hosts_photoshop": "version-2.11.0/artist",
+    "/docs/artist_hosts_unreal": "version-2.11.0/artist",
+    "/docs/artist_publish": "version-2.11.0/artist",
+    "/docs/artist_tools": "version-2.11.0/artist",
+    "/docs/changelog": "version-2.11.0/admin",
+    "/docs/manager_ftrack": "version-2.11.0/manager",
+    "/docs/manager_ftrack_actions": "version-2.11.0/manager",
+    "/docs/manager_naming": "version-2.11.0/manager",
+    "/docs/update_notes": "version-2.11.0/admin"
+  },
+  "version": "2.11.0"
+}
