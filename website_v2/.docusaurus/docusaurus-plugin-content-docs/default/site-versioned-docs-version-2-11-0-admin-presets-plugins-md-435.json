@@ -1,0 +1,22 @@
+{
+  "unversionedId": "admin_presets_plugins",
+  "id": "version-2.11.0/admin_presets_plugins",
+  "isDocsHomePage": false,
+  "title": "Presets > Plugins",
+  "description": "Global",
+  "source": "@site/versioned_docs\\version-2.11.0\\admin_presets_plugins.md",
+  "permalink": "/docs/admin_presets_plugins",
+  "version": "2.11.0",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Plugins",
+  "sidebar": "version-2.11.0/admin",
+  "previous": {
+    "title": "Presets > Maya",
+    "permalink": "/docs/admin_presets_maya"
+  },
+  "next": {
+    "title": "Presets > Tools",
+    "permalink": "/docs/admin_presets_tools"
+  }
+}

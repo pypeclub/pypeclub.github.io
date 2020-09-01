@@ -1,0 +1,13 @@
+{
+  "unversionedId": "changelog",
+  "id": "changelog",
+  "isDocsHomePage": false,
+  "title": "Changelog",
+  "description": "2.11.0",
+  "source": "@site/docs\\changelog.md",
+  "permalink": "/docs/next/changelog",
+  "version": "next",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Changelog"
+}

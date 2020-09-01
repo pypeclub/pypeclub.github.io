@@ -1,0 +1,13 @@
+{
+  "unversionedId": "artist_hosts_harmony",
+  "id": "version-2.3.6/artist_hosts_harmony",
+  "isDocsHomePage": false,
+  "title": "Harmony",
+  "description": "Available Tools",
+  "source": "@site/versioned_docs\\version-2.3.6\\artist_hosts_harmony.md",
+  "permalink": "/docs/2.3.6/artist_hosts_harmony",
+  "version": "2.3.6",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Harmony"
+}

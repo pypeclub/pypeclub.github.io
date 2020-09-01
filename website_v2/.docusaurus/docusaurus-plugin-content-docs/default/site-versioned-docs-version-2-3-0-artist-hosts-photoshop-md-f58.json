@@ -1,0 +1,13 @@
+{
+  "unversionedId": "artist_hosts_photoshop",
+  "id": "version-2.3.0/artist_hosts_photoshop",
+  "isDocsHomePage": false,
+  "title": "Photoshop",
+  "description": "Available Tools",
+  "source": "@site/versioned_docs\\version-2.3.0\\artist_hosts_photoshop.md",
+  "permalink": "/docs/2.3.0/artist_hosts_photoshop",
+  "version": "2.3.0",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Photoshop"
+}

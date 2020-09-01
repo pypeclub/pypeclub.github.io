@@ -1,0 +1,22 @@
+{
+  "unversionedId": "artist_concepts",
+  "id": "version-2.3.0/artist_concepts",
+  "isDocsHomePage": false,
+  "title": "Key concepts",
+  "description": "Asset",
+  "source": "@site/versioned_docs\\version-2.3.0\\artist_concepts.md",
+  "permalink": "/docs/2.3.0/artist_concepts",
+  "version": "2.3.0",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Key Concepts",
+  "sidebar": "version-2.3.0/artist",
+  "previous": {
+    "title": "Getting started with Pype",
+    "permalink": "/docs/2.3.0/"
+  },
+  "next": {
+    "title": "Publishing",
+    "permalink": "/docs/2.3.0/artist_publish"
+  }
+}

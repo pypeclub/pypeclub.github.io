@@ -1,0 +1,13 @@
+{
+  "unversionedId": "artist_tools",
+  "id": "artist_tools",
+  "isDocsHomePage": false,
+  "title": "Tools",
+  "description": "Set Context",
+  "source": "@site/docs\\artist_tools.md",
+  "permalink": "/docs/next/artist_tools",
+  "version": "next",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Tools"
+}

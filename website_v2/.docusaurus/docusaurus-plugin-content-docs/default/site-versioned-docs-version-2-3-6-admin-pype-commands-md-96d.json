@@ -1,0 +1,22 @@
+{
+  "unversionedId": "admin_pype_commands",
+  "id": "version-2.3.6/admin_pype_commands",
+  "isDocsHomePage": false,
+  "title": "Pype commands",
+  "description": "Pype Commands Overview",
+  "source": "@site/versioned_docs\\version-2.3.6\\admin_pype_commands.md",
+  "permalink": "/docs/2.3.6/admin_pype_commands",
+  "version": "2.3.6",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Pype commands overview",
+  "sidebar": "version-2.3.6/admin",
+  "previous": {
+    "title": "Pype Setup",
+    "permalink": "/docs/2.3.6/admin_install"
+  },
+  "next": {
+    "title": "Pype Configuration",
+    "permalink": "/docs/2.3.6/admin_config"
+  }
+}

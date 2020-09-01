@@ -1,0 +1,13 @@
+{
+  "unversionedId": "artist_hosts_maya",
+  "id": "artist_hosts_maya",
+  "isDocsHomePage": false,
+  "title": "Maya",
+  "description": "Pype global tools",
+  "source": "@site/docs\\artist_hosts_maya.md",
+  "permalink": "/docs/next/artist_hosts_maya",
+  "version": "next",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Maya"
+}

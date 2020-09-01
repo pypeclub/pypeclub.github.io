@@ -1,0 +1,22 @@
+{
+  "unversionedId": "artist_tools",
+  "id": "version-2.3.6/artist_tools",
+  "isDocsHomePage": false,
+  "title": "Tools",
+  "description": "Set Context",
+  "source": "@site/versioned_docs\\version-2.3.6\\artist_tools.md",
+  "permalink": "/docs/2.3.6/artist_tools",
+  "version": "2.3.6",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Tools",
+  "sidebar": "version-2.3.6/artist",
+  "previous": {
+    "title": "Publishing",
+    "permalink": "/docs/2.3.6/artist_publish"
+  },
+  "next": {
+    "title": "Hosts",
+    "permalink": "/docs/2.3.6/artist_hosts"
+  }
+}

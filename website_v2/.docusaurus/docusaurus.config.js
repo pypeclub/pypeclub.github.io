@@ -110,14 +110,14 @@ export default {
           "homePageId": "artist_getting_started",
           "showLastUpdateAuthor": true,
           "showLastUpdateTime": true,
-          "path": "..\\docs",
-          "sidebarPath": "C:\\CODE\\pypeclub-github-io\\website_v2\\sidebars.json"
+          "path": "./docs",
+          "sidebarPath": "@site/sidebars.json"
         },
         "blog": {
           "path": "blog"
         },
         "theme": {
-          "customCss": "C:\\CODE\\pypeclub-github-io\\website_v2\\src\\css\\customTheme.css"
+          "customCss": "./src/css/customTheme.css"
         }
       }
     ]
@@ -249,5 +249,6 @@ export default {
       }
     }
   },
+  "onDuplicateRoutes": "warn",
   "themes": []
 };

@@ -1,0 +1,13 @@
+{
+  "unversionedId": "admin_hosts",
+  "id": "version-2.3.0/admin_hosts",
+  "isDocsHomePage": false,
+  "title": "Hosts Setup",
+  "description": "Host configuration",
+  "source": "@site/versioned_docs\\version-2.3.0\\admin_hosts.md",
+  "permalink": "/docs/2.3.0/admin_hosts",
+  "version": "2.3.0",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Hosts Setup"
+}

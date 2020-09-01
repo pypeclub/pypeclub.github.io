@@ -1,0 +1,13 @@
+{
+  "unversionedId": "admin_presets_maya",
+  "id": "admin_presets_maya",
+  "isDocsHomePage": false,
+  "title": "Presets > Maya",
+  "description": "CAPTURE.json",
+  "source": "@site/docs\\admin_presets_maya.md",
+  "permalink": "/docs/next/admin_presets_maya",
+  "version": "next",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Maya"
+}

@@ -1,0 +1,22 @@
+{
+  "unversionedId": "admin_setup_troubleshooting",
+  "id": "version-2.3.6/admin_setup_troubleshooting",
+  "isDocsHomePage": false,
+  "title": "Setup Troubleshooting",
+  "description": "SSL Server certificates",
+  "source": "@site/versioned_docs\\version-2.3.6\\admin_setup_troubleshooting.md",
+  "permalink": "/docs/2.3.6/admin_setup_troubleshooting",
+  "version": "2.3.6",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Setup Troubleshooting",
+  "sidebar": "version-2.3.6/admin",
+  "previous": {
+    "title": "Project Anatomy",
+    "permalink": "/docs/2.3.6/admin_anatomy"
+  },
+  "next": {
+    "title": "Presets > NukeStudio",
+    "permalink": "/docs/2.3.6/admin_presets_nukestudio"
+  }
+}

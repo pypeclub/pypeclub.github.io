@@ -1,0 +1,13 @@
+{
+  "unversionedId": "artist_hosts_unreal",
+  "id": "artist_hosts_unreal",
+  "isDocsHomePage": false,
+  "title": "Unreal",
+  "description": "Introduction",
+  "source": "@site/docs\\artist_hosts_unreal.md",
+  "permalink": "/docs/next/artist_hosts_unreal",
+  "version": "next",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Unreal"
+}

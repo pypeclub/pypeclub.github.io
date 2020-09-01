@@ -1,0 +1,22 @@
+{
+  "unversionedId": "admin_install",
+  "id": "version-2.3.0/admin_install",
+  "isDocsHomePage": false,
+  "title": "Pype Setup",
+  "description": "Advanced installation methods",
+  "source": "@site/versioned_docs\\version-2.3.0\\admin_install.md",
+  "permalink": "/docs/2.3.0/admin_install",
+  "version": "2.3.0",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "sidebar_label": "Pype Setup",
+  "sidebar": "version-2.3.0/admin",
+  "previous": {
+    "title": "Getting Started",
+    "permalink": "/docs/2.3.0/admin_getting_started"
+  },
+  "next": {
+    "title": "Pype commands",
+    "permalink": "/docs/2.3.0/admin_pype_commands"
+  }
+}
