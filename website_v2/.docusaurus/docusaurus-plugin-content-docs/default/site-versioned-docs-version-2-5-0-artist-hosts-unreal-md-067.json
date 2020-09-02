@@ -5,6 +5,7 @@
   "title": "Unreal",
   "description": "Introduction",
   "source": "@site/versioned_docs\\version-2.5.0\\artist_hosts_unreal.md",
+  "slug": "/artist_hosts_unreal",
   "permalink": "/docs/2.5.0/artist_hosts_unreal",
   "version": "2.5.0",
   "lastUpdatedBy": "Author",

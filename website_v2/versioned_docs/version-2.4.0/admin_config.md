@@ -185,7 +185,7 @@ For example following config would create these environment variables when Pype 
 }
 ```
 
-<br>
+<br />
 
 **There are 2 storages that are required for PYPE to be functional**
 

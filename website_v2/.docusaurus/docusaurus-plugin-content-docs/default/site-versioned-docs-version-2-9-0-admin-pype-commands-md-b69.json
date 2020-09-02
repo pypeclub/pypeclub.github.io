@@ -5,6 +5,7 @@
   "title": "Pype Commands Reference",
   "description": "Help",
   "source": "@site/versioned_docs\\version-2.9.0\\admin_pype_commands.md",
+  "slug": "/admin_pype_commands",
   "permalink": "/docs/2.9.0/admin_pype_commands",
   "version": "2.9.0",
   "lastUpdatedBy": "Author",

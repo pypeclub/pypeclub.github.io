@@ -9,12 +9,37 @@ export default [
 },
 {
   path: '/__docusaurus/debug',
-  component: ComponentCreator('/__docusaurus/debug','fdd'),
+  component: ComponentCreator('/__docusaurus/debug','3d6'),
+  exact: true,
+},
+{
+  path: '/__docusaurus/debug/config',
+  component: ComponentCreator('/__docusaurus/debug/config','914'),
+  exact: true,
+},
+{
+  path: '/__docusaurus/debug/content',
+  component: ComponentCreator('/__docusaurus/debug/content','d12'),
+  exact: true,
+},
+{
+  path: '/__docusaurus/debug/metadata',
+  component: ComponentCreator('/__docusaurus/debug/metadata','7ee'),
+  exact: true,
+},
+{
+  path: '/__docusaurus/debug/registry',
+  component: ComponentCreator('/__docusaurus/debug/registry','0da'),
+  exact: true,
+},
+{
+  path: '/__docusaurus/debug/routes',
+  component: ComponentCreator('/__docusaurus/debug/routes','244'),
   exact: true,
 },
 {
   path: '/blog',
-  component: ComponentCreator('/blog','f18'),
+  component: ComponentCreator('/blog','9b9'),
   exact: true,
 },
 {
@@ -24,19 +49,14 @@ export default [
 },
 {
   path: '/search',
-  component: ComponentCreator('/search','023'),
+  component: ComponentCreator('/search','333'),
   exact: true,
 },
 {
   path: '/docs/2.10.0',
-  component: ComponentCreator('/docs/2.10.0','8ac'),
+  component: ComponentCreator('/docs/2.10.0','d14'),
   
   routes: [
-{
-  path: '/docs/2.10.0/',
-  component: ComponentCreator('/docs/2.10.0/','ae8'),
-  exact: true,
-},
 {
   path: '/docs/2.10.0/admin_anatomy',
   component: ComponentCreator('/docs/2.10.0/admin_anatomy','342'),
@@ -125,6 +145,11 @@ export default [
 {
   path: '/docs/2.10.0/artist_ftrack',
   component: ComponentCreator('/docs/2.10.0/artist_ftrack','3c4'),
+  exact: true,
+},
+{
+  path: '/docs/2.10.0/artist_getting_started',
+  component: ComponentCreator('/docs/2.10.0/artist_getting_started','81b'),
   exact: true,
 },
 {
@@ -261,14 +286,9 @@ export default [
 },
 {
   path: '/docs/2.3.0',
-  component: ComponentCreator('/docs/2.3.0','b70'),
+  component: ComponentCreator('/docs/2.3.0','70e'),
   
   routes: [
-{
-  path: '/docs/2.3.0/',
-  component: ComponentCreator('/docs/2.3.0/','c54'),
-  exact: true,
-},
 {
   path: '/docs/2.3.0/admin_anatomy',
   component: ComponentCreator('/docs/2.3.0/admin_anatomy','03c'),
@@ -357,6 +377,11 @@ export default [
 {
   path: '/docs/2.3.0/artist_ftrack',
   component: ComponentCreator('/docs/2.3.0/artist_ftrack','742'),
+  exact: true,
+},
+{
+  path: '/docs/2.3.0/artist_getting_started',
+  component: ComponentCreator('/docs/2.3.0/artist_getting_started','445'),
   exact: true,
 },
 {
@@ -493,14 +518,9 @@ export default [
 },
 {
   path: '/docs/2.3.6',
-  component: ComponentCreator('/docs/2.3.6','7e2'),
+  component: ComponentCreator('/docs/2.3.6','12d'),
   
   routes: [
-{
-  path: '/docs/2.3.6/',
-  component: ComponentCreator('/docs/2.3.6/','0d3'),
-  exact: true,
-},
 {
   path: '/docs/2.3.6/admin_anatomy',
   component: ComponentCreator('/docs/2.3.6/admin_anatomy','8dd'),
@@ -589,6 +609,11 @@ export default [
 {
   path: '/docs/2.3.6/artist_ftrack',
   component: ComponentCreator('/docs/2.3.6/artist_ftrack','84c'),
+  exact: true,
+},
+{
+  path: '/docs/2.3.6/artist_getting_started',
+  component: ComponentCreator('/docs/2.3.6/artist_getting_started','749'),
   exact: true,
 },
 {
@@ -725,14 +750,9 @@ export default [
 },
 {
   path: '/docs/2.4.0',
-  component: ComponentCreator('/docs/2.4.0','75d'),
+  component: ComponentCreator('/docs/2.4.0','24e'),
   
   routes: [
-{
-  path: '/docs/2.4.0/',
-  component: ComponentCreator('/docs/2.4.0/','95b'),
-  exact: true,
-},
 {
   path: '/docs/2.4.0/admin_anatomy',
   component: ComponentCreator('/docs/2.4.0/admin_anatomy','dd8'),
@@ -821,6 +841,11 @@ export default [
 {
   path: '/docs/2.4.0/artist_ftrack',
   component: ComponentCreator('/docs/2.4.0/artist_ftrack','a07'),
+  exact: true,
+},
+{
+  path: '/docs/2.4.0/artist_getting_started',
+  component: ComponentCreator('/docs/2.4.0/artist_getting_started','bcf'),
   exact: true,
 },
 {
@@ -957,14 +982,9 @@ export default [
 },
 {
   path: '/docs/2.5.0',
-  component: ComponentCreator('/docs/2.5.0','1ca'),
+  component: ComponentCreator('/docs/2.5.0','891'),
   
   routes: [
-{
-  path: '/docs/2.5.0/',
-  component: ComponentCreator('/docs/2.5.0/','f15'),
-  exact: true,
-},
 {
   path: '/docs/2.5.0/admin_anatomy',
   component: ComponentCreator('/docs/2.5.0/admin_anatomy','396'),
@@ -1053,6 +1073,11 @@ export default [
 {
   path: '/docs/2.5.0/artist_ftrack',
   component: ComponentCreator('/docs/2.5.0/artist_ftrack','e22'),
+  exact: true,
+},
+{
+  path: '/docs/2.5.0/artist_getting_started',
+  component: ComponentCreator('/docs/2.5.0/artist_getting_started','1ef'),
   exact: true,
 },
 {
@@ -1189,14 +1214,9 @@ export default [
 },
 {
   path: '/docs/2.6.0',
-  component: ComponentCreator('/docs/2.6.0','0de'),
+  component: ComponentCreator('/docs/2.6.0','03c'),
   
   routes: [
-{
-  path: '/docs/2.6.0/',
-  component: ComponentCreator('/docs/2.6.0/','8ec'),
-  exact: true,
-},
 {
   path: '/docs/2.6.0/admin_anatomy',
   component: ComponentCreator('/docs/2.6.0/admin_anatomy','945'),
@@ -1285,6 +1305,11 @@ export default [
 {
   path: '/docs/2.6.0/artist_ftrack',
   component: ComponentCreator('/docs/2.6.0/artist_ftrack','a92'),
+  exact: true,
+},
+{
+  path: '/docs/2.6.0/artist_getting_started',
+  component: ComponentCreator('/docs/2.6.0/artist_getting_started','010'),
   exact: true,
 },
 {
@@ -1421,14 +1446,9 @@ export default [
 },
 {
   path: '/docs/2.7.0',
-  component: ComponentCreator('/docs/2.7.0','35d'),
+  component: ComponentCreator('/docs/2.7.0','403'),
   
   routes: [
-{
-  path: '/docs/2.7.0/',
-  component: ComponentCreator('/docs/2.7.0/','903'),
-  exact: true,
-},
 {
   path: '/docs/2.7.0/admin_anatomy',
   component: ComponentCreator('/docs/2.7.0/admin_anatomy','6f9'),
@@ -1517,6 +1537,11 @@ export default [
 {
   path: '/docs/2.7.0/artist_ftrack',
   component: ComponentCreator('/docs/2.7.0/artist_ftrack','ccc'),
+  exact: true,
+},
+{
+  path: '/docs/2.7.0/artist_getting_started',
+  component: ComponentCreator('/docs/2.7.0/artist_getting_started','304'),
   exact: true,
 },
 {
@@ -1653,14 +1678,9 @@ export default [
 },
 {
   path: '/docs/2.8.0',
-  component: ComponentCreator('/docs/2.8.0','7e7'),
+  component: ComponentCreator('/docs/2.8.0','9b8'),
   
   routes: [
-{
-  path: '/docs/2.8.0/',
-  component: ComponentCreator('/docs/2.8.0/','9f6'),
-  exact: true,
-},
 {
   path: '/docs/2.8.0/admin_anatomy',
   component: ComponentCreator('/docs/2.8.0/admin_anatomy','4f7'),
@@ -1749,6 +1769,11 @@ export default [
 {
   path: '/docs/2.8.0/artist_ftrack',
   component: ComponentCreator('/docs/2.8.0/artist_ftrack','ed9'),
+  exact: true,
+},
+{
+  path: '/docs/2.8.0/artist_getting_started',
+  component: ComponentCreator('/docs/2.8.0/artist_getting_started','588'),
   exact: true,
 },
 {
@@ -1885,14 +1910,9 @@ export default [
 },
 {
   path: '/docs/2.9.0',
-  component: ComponentCreator('/docs/2.9.0','907'),
+  component: ComponentCreator('/docs/2.9.0','a32'),
   
   routes: [
-{
-  path: '/docs/2.9.0/',
-  component: ComponentCreator('/docs/2.9.0/','482'),
-  exact: true,
-},
 {
   path: '/docs/2.9.0/admin_anatomy',
   component: ComponentCreator('/docs/2.9.0/admin_anatomy','89b'),
@@ -1981,6 +2001,11 @@ export default [
 {
   path: '/docs/2.9.0/artist_ftrack',
   component: ComponentCreator('/docs/2.9.0/artist_ftrack','ea8'),
+  exact: true,
+},
+{
+  path: '/docs/2.9.0/artist_getting_started',
+  component: ComponentCreator('/docs/2.9.0/artist_getting_started','49c'),
   exact: true,
 },
 {
@@ -2117,7 +2142,7 @@ export default [
 },
 {
   path: '/docs/next',
-  component: ComponentCreator('/docs/next','59f'),
+  component: ComponentCreator('/docs/next','359'),
   
   routes: [
 {
@@ -2299,14 +2324,9 @@ export default [
 },
 {
   path: '/docs',
-  component: ComponentCreator('/docs','a26'),
+  component: ComponentCreator('/docs','d39'),
   
   routes: [
-{
-  path: '/docs/',
-  component: ComponentCreator('/docs/','974'),
-  exact: true,
-},
 {
   path: '/docs/admin_anatomy',
   component: ComponentCreator('/docs/admin_anatomy','1eb'),
@@ -2395,6 +2415,11 @@ export default [
 {
   path: '/docs/artist_ftrack',
   component: ComponentCreator('/docs/artist_ftrack','6f2'),
+  exact: true,
+},
+{
+  path: '/docs/artist_getting_started',
+  component: ComponentCreator('/docs/artist_getting_started','637'),
   exact: true,
 },
 {

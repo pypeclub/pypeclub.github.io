@@ -5,6 +5,7 @@
   "title": "Key concepts",
   "description": "Glossary",
   "source": "@site/versioned_docs\\version-2.7.0\\artist_concepts.md",
+  "slug": "/artist_concepts",
   "permalink": "/docs/2.7.0/artist_concepts",
   "version": "2.7.0",
   "lastUpdatedBy": "Author",
@@ -13,7 +14,7 @@
   "sidebar": "version-2.7.0/artist",
   "previous": {
     "title": "Getting started with Pype",
-    "permalink": "/docs/2.7.0/"
+    "permalink": "/docs/2.7.0/artist_getting_started"
   },
   "next": {
     "title": "Publishing",

@@ -69,7 +69,7 @@ Template groups `work` and `publish` must be set in all circumstances. Both must
 | Context key | Description |
 | --- | --- |
 | root | Path to root folder |
-| root[\<root name\>] | Path to root folder when multiple roots are used</br>Key `<root name>` represents root key specified in `roots.json` |
+| root[\<root name\>] | Path to root folder when multiple roots are used<br />Key `<root name>` represents root key specified in `roots.json` |
 | project[name] | Project's full name. |
 | project[code] | Project's code. |
 | hierarchy | All hierarchical parents as subfolders. |

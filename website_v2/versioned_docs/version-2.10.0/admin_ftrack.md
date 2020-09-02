@@ -33,7 +33,7 @@ There are 2 ways of passing your credentials to event server.
 <!--DOCUSAURUS_CODE_TABS-->
 
 <!--1. Additional Arguments-->
-<br>
+
 -  **`--ftrack-user "your.username"`** : Ftrack Username
 -   **`--ftrack-api-key "00000aaa-11bb-22cc-33dd-444444eeeee"`** : User's API key
 -   **`--store-crededentials`** : Entered credentials will be stored for next launch with this argument _(It is not needed to enter **ftrackuser** and **ftrackapikey** args on next launch)_
@@ -45,7 +45,6 @@ So if you want to use Pype's environments then you can launch event server for f
 
 
 <!--2. Environments Variables-->
-<br>
 
 -   `FTRACK_API_USER` - Username _("your.username")_
 -   `FTRACK_API_KEY` - User's API key _("00000aaa-11bb-22cc-33dd-444444eeeee")_

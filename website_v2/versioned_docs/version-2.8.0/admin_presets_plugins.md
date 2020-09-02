@@ -19,8 +19,8 @@ Each plugin in the json should be added as name of the class. There are some def
 }
 ```
 
-<br>
-<br>
+<br />
+<br />
 
 ### `ExtractReview`
 
@@ -84,13 +84,13 @@ Each preset consists of the following attributes:
     -   **sequence** - generate a sequence of png or jpg instead of a video (ext needs to be set to png or jpg/jpeg)
 -   **ext** [required]
 
-<br>
+<br />
 
 #### Review Output Preset examples:
 
 All following examples are content of `outputs` plugin attribute.
 
-<br>
+<br />
 
 ##### h264 for online preview:
 
@@ -118,7 +118,7 @@ Codec is defined as yuv420p and input conversion to gamma 2.2 applies the gamma 
 }
 ```
 
-<br>
+<br />
 
 ##### Editorial video file:
 
@@ -147,7 +147,7 @@ The resolution of this file is the original shot definition as seen in Nuke work
 }
 ```
 
-<br>
+<br />
 
 ##### ProRes 422:
 
@@ -167,7 +167,7 @@ This output will be in Prores 422 format, will include slate frame, screen space
 }
 ```
 
-<br>
+<br />
 
 ### `ProcessSubmittedJobOnFarm`
 

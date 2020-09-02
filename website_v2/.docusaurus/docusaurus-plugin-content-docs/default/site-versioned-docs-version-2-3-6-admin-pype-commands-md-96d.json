@@ -5,6 +5,7 @@
   "title": "Pype commands",
   "description": "Pype Commands Overview",
   "source": "@site/versioned_docs\\version-2.3.6\\admin_pype_commands.md",
+  "slug": "/admin_pype_commands",
   "permalink": "/docs/2.3.6/admin_pype_commands",
   "version": "2.3.6",
   "lastUpdatedBy": "Author",

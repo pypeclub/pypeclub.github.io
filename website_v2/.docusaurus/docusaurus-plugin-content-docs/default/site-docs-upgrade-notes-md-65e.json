@@ -5,9 +5,15 @@
   "title": "Update Notes",
   "description": "Updating to 2.11.0",
   "source": "@site/docs\\upgrade_notes.md",
+  "slug": "/update_notes",
   "permalink": "/docs/next/update_notes",
-  "version": "next",
+  "version": "current",
   "lastUpdatedBy": "Author",
   "lastUpdatedAt": 1539502055,
-  "sidebar_label": "Update Notes"
+  "sidebar_label": "Update Notes",
+  "sidebar": "admin",
+  "previous": {
+    "title": "Changelog",
+    "permalink": "/docs/next/changelog"
+  }
 }

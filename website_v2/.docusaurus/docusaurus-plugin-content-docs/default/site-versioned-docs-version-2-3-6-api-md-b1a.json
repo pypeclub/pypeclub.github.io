@@ -5,6 +5,7 @@
   "title": "Pype API",
   "description": "Work in progress",
   "source": "@site/versioned_docs\\version-2.3.6\\api.md",
+  "slug": "/api",
   "permalink": "/docs/2.3.6/api",
   "version": "2.3.6",
   "lastUpdatedBy": "Author",

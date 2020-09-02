@@ -107,7 +107,6 @@ export default {
       "@docusaurus/preset-classic",
       {
         "docs": {
-          "homePageId": "artist_getting_started",
           "showLastUpdateAuthor": true,
           "showLastUpdateTime": true,
           "path": "./docs",

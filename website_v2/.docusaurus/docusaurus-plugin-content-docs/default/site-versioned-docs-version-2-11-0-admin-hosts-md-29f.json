@@ -5,6 +5,7 @@
   "title": "Hosts Setup",
   "description": "Host configuration",
   "source": "@site/versioned_docs\\version-2.11.0\\admin_hosts.md",
+  "slug": "/admin_hosts",
   "permalink": "/docs/admin_hosts",
   "version": "2.11.0",
   "lastUpdatedBy": "Author",

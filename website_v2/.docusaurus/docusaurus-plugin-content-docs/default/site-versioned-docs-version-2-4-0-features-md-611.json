@@ -5,6 +5,7 @@
   "title": "features",
   "description": "Pype tray",
   "source": "@site/versioned_docs\\version-2.4.0\\features.md",
+  "slug": "/features",
   "permalink": "/docs/2.4.0/features",
   "version": "2.4.0",
   "lastUpdatedBy": "Author",

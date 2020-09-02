@@ -5,6 +5,7 @@
   "title": "Presets > Ftrack",
   "description": "PROJECT_DEFAULTS.json",
   "source": "@site/versioned_docs\\version-2.4.0\\admin_presets_ftrack.md",
+  "slug": "/admin_presets_ftrack",
   "permalink": "/docs/2.4.0/admin_presets_ftrack",
   "version": "2.4.0",
   "lastUpdatedBy": "Author",

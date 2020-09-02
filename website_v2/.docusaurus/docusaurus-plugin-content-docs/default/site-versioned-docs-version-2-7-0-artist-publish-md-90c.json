@@ -5,6 +5,7 @@
   "title": "Publishing",
   "description": "What is publishing?",
   "source": "@site/versioned_docs\\version-2.7.0\\artist_publish.md",
+  "slug": "/artist_publish",
   "permalink": "/docs/2.7.0/artist_publish",
   "version": "2.7.0",
   "lastUpdatedBy": "Author",

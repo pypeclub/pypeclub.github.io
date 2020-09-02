@@ -5,9 +5,19 @@
   "title": "Ftrack Setup",
   "description": "Ftrack is currently the main project management option for Pype. This documentaion assumes that you are familiar with Ftrack and it's basic principles. If you're new to Ftrack, we recommend having a thorough look at Ftrack Official Documentation.",
   "source": "@site/docs\\admin_ftrack.md",
+  "slug": "/admin_ftrack",
   "permalink": "/docs/next/admin_ftrack",
-  "version": "next",
+  "version": "current",
   "lastUpdatedBy": "Author",
   "lastUpdatedAt": 1539502055,
-  "sidebar_label": "Ftrack Setup"
+  "sidebar_label": "Ftrack Setup",
+  "sidebar": "admin",
+  "previous": {
+    "title": "Studio Config",
+    "permalink": "/docs/next/admin_config"
+  },
+  "next": {
+    "title": "Hosts Setup",
+    "permalink": "/docs/next/admin_hosts"
+  }
 }

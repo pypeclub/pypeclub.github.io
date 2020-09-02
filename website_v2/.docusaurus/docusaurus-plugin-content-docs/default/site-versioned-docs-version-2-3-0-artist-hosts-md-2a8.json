@@ -5,6 +5,7 @@
   "title": "Hosts",
   "description": "Maya",
   "source": "@site/versioned_docs\\version-2.3.0\\artist_hosts.md",
+  "slug": "/artist_hosts",
   "permalink": "/docs/2.3.0/artist_hosts",
   "version": "2.3.0",
   "lastUpdatedBy": "Author",

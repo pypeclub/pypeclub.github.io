@@ -5,6 +5,7 @@
   "title": "Update Notes",
   "description": "Updating to 2.11.0",
   "source": "@site/versioned_docs\\version-2.11.0\\upgrade_notes.md",
+  "slug": "/update_notes",
   "permalink": "/docs/update_notes",
   "version": "2.11.0",
   "lastUpdatedBy": "Author",

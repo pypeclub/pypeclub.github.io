@@ -304,13 +304,16 @@ When saving a scene you can also add a comment. It is completely up to you how y
 Let's say that the last version of the comp you published was v003 and now you're working on the file prj_sh010_compositing_v004.nk if you want to keep snapshots of your work, but not iterate on the main version because the supervisor is expecting next publish to be v004, you can use the comment to do this, so you can save the file under the name prj_sh010_compositing_v004_001 , prj_sh010_compositing_v004_002. the main version is automatically iterated every time you publish something.
 
 ### Usage
+
 <div class="ImagePanel" data-image-align='right'>
 <div class="ImagePanel.content">
 
 #### To open existing file:
+
 1. Open Workfiles tool from pipeline menu
 2. Select file from list - the latest version is the highest *(descendent ordering)*
 3. Press `Open` button
+
 </div>
 <div class="ImagePanel.image Screenshot">
 

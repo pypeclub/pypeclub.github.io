@@ -5,6 +5,7 @@
   "title": "Upgrade Notes",
   "description": "Updating to 2.6.0",
   "source": "@site/versioned_docs\\version-2.6.0\\upgrade_notes.md",
+  "slug": "/upgrade_notes",
   "permalink": "/docs/2.6.0/upgrade_notes",
   "version": "2.6.0",
   "lastUpdatedBy": "Author",

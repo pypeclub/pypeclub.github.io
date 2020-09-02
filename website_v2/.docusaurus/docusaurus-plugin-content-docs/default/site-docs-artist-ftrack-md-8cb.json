@@ -5,9 +5,15 @@
   "title": "Ftrack",
   "description": "How to use Ftrack in Pype",
   "source": "@site/docs\\artist_ftrack.md",
+  "slug": "/artist_ftrack",
   "permalink": "/docs/next/artist_ftrack",
-  "version": "next",
+  "version": "current",
   "lastUpdatedBy": "Author",
   "lastUpdatedAt": 1539502055,
-  "sidebar_label": "Ftrack"
+  "sidebar_label": "Ftrack",
+  "sidebar": "artist",
+  "previous": {
+    "title": "Unreal",
+    "permalink": "/docs/next/artist_hosts_unreal"
+  }
 }

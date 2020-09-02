@@ -5,6 +5,7 @@
   "title": "Naming Conventions",
   "description": "This naming convention holds true for most of our pipeline. Please match it as close as possible even for projects and files that might be outside of pipeline scope at this point. Small errors count! The reason for given formatting is to allow people to understand the file at glance and that a script or a program can easily get meaningful information from your files without errors.",
   "source": "@site/versioned_docs\\version-2.3.6\\manager_naming.md",
+  "slug": "/manager_naming",
   "permalink": "/docs/2.3.6/manager_naming",
   "version": "2.3.6",
   "lastUpdatedBy": "Author",

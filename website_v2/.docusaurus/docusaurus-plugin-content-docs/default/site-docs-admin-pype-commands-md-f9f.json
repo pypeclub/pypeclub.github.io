@@ -5,9 +5,19 @@
   "title": "Pype Commands Reference",
   "description": "Help",
   "source": "@site/docs\\admin_pype_commands.md",
+  "slug": "/admin_pype_commands",
   "permalink": "/docs/next/admin_pype_commands",
-  "version": "next",
+  "version": "current",
   "lastUpdatedBy": "Author",
   "lastUpdatedAt": 1539502055,
-  "sidebar_label": "Pype Commands"
+  "sidebar_label": "Pype Commands",
+  "sidebar": "admin",
+  "previous": {
+    "title": "Hosts Setup",
+    "permalink": "/docs/next/admin_hosts"
+  },
+  "next": {
+    "title": "Setup Troubleshooting",
+    "permalink": "/docs/next/admin_setup_troubleshooting"
+  }
 }

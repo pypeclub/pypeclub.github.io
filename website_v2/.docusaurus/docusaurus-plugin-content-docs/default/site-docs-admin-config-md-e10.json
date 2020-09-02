@@ -5,9 +5,19 @@
   "title": "Studio Config",
   "description": "All of the studio specific configurations are stored as simple JSON files in the pype-config repository.",
   "source": "@site/docs\\admin_config.md",
+  "slug": "/admin_config",
   "permalink": "/docs/next/admin_config",
-  "version": "next",
+  "version": "current",
   "lastUpdatedBy": "Author",
   "lastUpdatedAt": 1539502055,
-  "sidebar_label": "Studio Config"
+  "sidebar_label": "Studio Config",
+  "sidebar": "admin",
+  "previous": {
+    "title": "Pype Setup",
+    "permalink": "/docs/next/admin_install"
+  },
+  "next": {
+    "title": "Ftrack Setup",
+    "permalink": "/docs/next/admin_ftrack"
+  }
 }

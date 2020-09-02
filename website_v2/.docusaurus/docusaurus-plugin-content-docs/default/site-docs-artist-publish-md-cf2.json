@@ -5,9 +5,19 @@
   "title": "Publishing",
   "description": "What is publishing?",
   "source": "@site/docs\\artist_publish.md",
+  "slug": "/artist_publish",
   "permalink": "/docs/next/artist_publish",
-  "version": "next",
+  "version": "current",
   "lastUpdatedBy": "Author",
   "lastUpdatedAt": 1539502055,
-  "sidebar_label": "Publishing"
+  "sidebar_label": "Publishing",
+  "sidebar": "artist",
+  "previous": {
+    "title": "Key concepts",
+    "permalink": "/docs/next/artist_concepts"
+  },
+  "next": {
+    "title": "Tools",
+    "permalink": "/docs/next/artist_tools"
+  }
 }

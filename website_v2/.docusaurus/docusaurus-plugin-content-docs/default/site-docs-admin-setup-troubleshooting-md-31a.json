@@ -5,9 +5,19 @@
   "title": "Setup Troubleshooting",
   "description": "SSL Server certificates",
   "source": "@site/docs\\admin_setup_troubleshooting.md",
+  "slug": "/admin_setup_troubleshooting",
   "permalink": "/docs/next/admin_setup_troubleshooting",
-  "version": "next",
+  "version": "current",
   "lastUpdatedBy": "Author",
   "lastUpdatedAt": 1539502055,
-  "sidebar_label": "Setup Troubleshooting"
+  "sidebar_label": "Setup Troubleshooting",
+  "sidebar": "admin",
+  "previous": {
+    "title": "Pype Commands Reference",
+    "permalink": "/docs/next/admin_pype_commands"
+  },
+  "next": {
+    "title": "Presets > NukeStudio",
+    "permalink": "/docs/next/admin_presets_nukestudio"
+  }
 }

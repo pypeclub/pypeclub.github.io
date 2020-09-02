@@ -1,4 +1,6 @@
 {
+  "name": "pype-documentation",
+  "version": "2.7.0",
   "scripts": {
     "examples": "docusaurus-examples",
     "start": "docusaurus start",
@@ -11,7 +13,6 @@
     "deploy": "docusaurus deploy",
     "docusaurus": "docusaurus"
   },
-  "devDependencies": {},
   "dependencies": {
     "@docusaurus/core": "^2.0.0-alpha.61",
     "@docusaurus/preset-classic": "2.0.0-alpha.59",
@@ -21,5 +22,5 @@
     "remarkable-admonitions": "^0.2.1",
     "yarn": "^1.17.3"
   },
-  "version": "2.7.0"
+  "devDependencies": {}
 }

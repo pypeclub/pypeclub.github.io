@@ -5,9 +5,19 @@
   "title": "Presets > Plugins",
   "description": "Global",
   "source": "@site/docs\\admin_presets_plugins.md",
+  "slug": "/admin_presets_plugins",
   "permalink": "/docs/next/admin_presets_plugins",
-  "version": "next",
+  "version": "current",
   "lastUpdatedBy": "Author",
   "lastUpdatedAt": 1539502055,
-  "sidebar_label": "Plugins"
+  "sidebar_label": "Plugins",
+  "sidebar": "admin",
+  "previous": {
+    "title": "Presets > Maya",
+    "permalink": "/docs/next/admin_presets_maya"
+  },
+  "next": {
+    "title": "Presets > Tools",
+    "permalink": "/docs/next/admin_presets_tools"
+  }
 }

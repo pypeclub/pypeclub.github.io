@@ -5,6 +5,7 @@
   "title": "Hiero",
   "description": "All the information also applies to _Nuke Studio_, but for simplicity we only refer to hiero. The workflows are identical for both. We are supporting versions 11.0 and above.",
   "source": "@site/versioned_docs\\version-2.6.0\\artist_hosts_nukestudio.md",
+  "slug": "/artist_hosts_nukestudio",
   "permalink": "/docs/2.6.0/artist_hosts_nukestudio",
   "version": "2.6.0",
   "lastUpdatedBy": "Author",

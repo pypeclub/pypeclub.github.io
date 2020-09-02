@@ -5,6 +5,7 @@
   "title": "Presets > Plugins",
   "description": "Global",
   "source": "@site/versioned_docs\\version-2.11.0\\admin_presets_plugins.md",
+  "slug": "/admin_presets_plugins",
   "permalink": "/docs/admin_presets_plugins",
   "version": "2.11.0",
   "lastUpdatedBy": "Author",

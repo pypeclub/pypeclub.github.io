@@ -5,6 +5,7 @@
   "title": "Tools",
   "description": "Set Context",
   "source": "@site/versioned_docs\\version-2.7.0\\artist_tools.md",
+  "slug": "/artist_tools",
   "permalink": "/docs/2.7.0/artist_tools",
   "version": "2.7.0",
   "lastUpdatedBy": "Author",

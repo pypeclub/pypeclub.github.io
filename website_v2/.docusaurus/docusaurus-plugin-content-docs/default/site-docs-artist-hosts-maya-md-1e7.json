@@ -5,9 +5,19 @@
   "title": "Maya",
   "description": "Pype global tools",
   "source": "@site/docs\\artist_hosts_maya.md",
+  "slug": "/artist_hosts_maya",
   "permalink": "/docs/next/artist_hosts_maya",
-  "version": "next",
+  "version": "current",
   "lastUpdatedBy": "Author",
   "lastUpdatedAt": 1539502055,
-  "sidebar_label": "Maya"
+  "sidebar_label": "Maya",
+  "sidebar": "artist",
+  "previous": {
+    "title": "Nuke",
+    "permalink": "/docs/next/artist_hosts_nuke"
+  },
+  "next": {
+    "title": "Harmony",
+    "permalink": "/docs/next/artist_hosts_harmony"
+  }
 }

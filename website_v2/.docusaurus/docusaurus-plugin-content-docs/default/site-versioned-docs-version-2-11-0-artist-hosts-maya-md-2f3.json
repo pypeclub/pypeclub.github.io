@@ -5,6 +5,7 @@
   "title": "Maya",
   "description": "Pype global tools",
   "source": "@site/versioned_docs\\version-2.11.0\\artist_hosts_maya.md",
+  "slug": "/artist_hosts_maya",
   "permalink": "/docs/artist_hosts_maya",
   "version": "2.11.0",
   "lastUpdatedBy": "Author",

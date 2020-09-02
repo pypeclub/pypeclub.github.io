@@ -5,6 +5,7 @@
   "title": "Release Notes",
   "description": "2.4.0",
   "source": "@site/versioned_docs\\version-2.4.0\\changelog.md",
+  "slug": "/changelog",
   "permalink": "/docs/2.4.0/changelog",
   "version": "2.4.0",
   "lastUpdatedBy": "Author",

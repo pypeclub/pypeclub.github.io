@@ -5,6 +5,7 @@
   "title": "Working on tasks",
   "description": "Check the documentation for how to use Docusaurus.",
   "source": "@site/versioned_docs\\version-2.9.0\\artist_work.md",
+  "slug": "/artist_work",
   "permalink": "/docs/2.9.0/artist_work",
   "version": "2.9.0",
   "lastUpdatedBy": "Author",

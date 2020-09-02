@@ -5,6 +5,7 @@
   "title": "Pype Setup",
   "description": "Advanced installation methods",
   "source": "@site/versioned_docs\\version-2.3.6\\admin_install.md",
+  "slug": "/admin_install",
   "permalink": "/docs/2.3.6/admin_install",
   "version": "2.3.6",
   "lastUpdatedBy": "Author",

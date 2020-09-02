@@ -2,10 +2,11 @@
   "docusaurus-plugin-content-docs": {
     "default": {
       "path": "/docs",
-      "latestVersionName": "2.11.0",
       "versions": [
         {
-          "name": "next",
+          "name": "current",
+          "label": "Next",
+          "isLast": false,
           "path": "/docs/next",
           "mainDocId": "artist_getting_started",
           "docs": [
@@ -153,6 +154,8 @@
         },
         {
           "name": "2.11.0",
+          "label": "2.11.0",
+          "isLast": true,
           "path": "/docs",
           "mainDocId": "artist_getting_started",
           "docs": [
@@ -230,7 +233,7 @@
             },
             {
               "id": "artist_getting_started",
-              "path": "/docs/"
+              "path": "/docs/artist_getting_started"
             },
             {
               "id": "artist_hosts",
@@ -340,6 +343,8 @@
         },
         {
           "name": "2.10.0",
+          "label": "2.10.0",
+          "isLast": false,
           "path": "/docs/2.10.0",
           "mainDocId": "artist_getting_started",
           "docs": [
@@ -417,7 +422,7 @@
             },
             {
               "id": "artist_getting_started",
-              "path": "/docs/2.10.0/"
+              "path": "/docs/2.10.0/artist_getting_started"
             },
             {
               "id": "artist_hosts",
@@ -527,6 +532,8 @@
         },
         {
           "name": "2.9.0",
+          "label": "2.9.0",
+          "isLast": false,
           "path": "/docs/2.9.0",
           "mainDocId": "artist_getting_started",
           "docs": [
@@ -604,7 +611,7 @@
             },
             {
               "id": "artist_getting_started",
-              "path": "/docs/2.9.0/"
+              "path": "/docs/2.9.0/artist_getting_started"
             },
             {
               "id": "artist_hosts",
@@ -714,6 +721,8 @@
         },
         {
           "name": "2.8.0",
+          "label": "2.8.0",
+          "isLast": false,
           "path": "/docs/2.8.0",
           "mainDocId": "artist_getting_started",
           "docs": [
@@ -791,7 +800,7 @@
             },
             {
               "id": "artist_getting_started",
-              "path": "/docs/2.8.0/"
+              "path": "/docs/2.8.0/artist_getting_started"
             },
             {
               "id": "artist_hosts",
@@ -901,6 +910,8 @@
         },
         {
           "name": "2.7.0",
+          "label": "2.7.0",
+          "isLast": false,
           "path": "/docs/2.7.0",
           "mainDocId": "artist_getting_started",
           "docs": [
@@ -978,7 +989,7 @@
             },
             {
               "id": "artist_getting_started",
-              "path": "/docs/2.7.0/"
+              "path": "/docs/2.7.0/artist_getting_started"
             },
             {
               "id": "artist_hosts",
@@ -1088,6 +1099,8 @@
         },
         {
           "name": "2.6.0",
+          "label": "2.6.0",
+          "isLast": false,
           "path": "/docs/2.6.0",
           "mainDocId": "artist_getting_started",
           "docs": [
@@ -1165,7 +1178,7 @@
             },
             {
               "id": "artist_getting_started",
-              "path": "/docs/2.6.0/"
+              "path": "/docs/2.6.0/artist_getting_started"
             },
             {
               "id": "artist_hosts",
@@ -1275,6 +1288,8 @@
         },
         {
           "name": "2.5.0",
+          "label": "2.5.0",
+          "isLast": false,
           "path": "/docs/2.5.0",
           "mainDocId": "artist_getting_started",
           "docs": [
@@ -1352,7 +1367,7 @@
             },
             {
               "id": "artist_getting_started",
-              "path": "/docs/2.5.0/"
+              "path": "/docs/2.5.0/artist_getting_started"
             },
             {
               "id": "artist_hosts",
@@ -1462,6 +1477,8 @@
         },
         {
           "name": "2.4.0",
+          "label": "2.4.0",
+          "isLast": false,
           "path": "/docs/2.4.0",
           "mainDocId": "artist_getting_started",
           "docs": [
@@ -1539,7 +1556,7 @@
             },
             {
               "id": "artist_getting_started",
-              "path": "/docs/2.4.0/"
+              "path": "/docs/2.4.0/artist_getting_started"
             },
             {
               "id": "artist_hosts",
@@ -1649,6 +1666,8 @@
         },
         {
           "name": "2.3.6",
+          "label": "2.3.6",
+          "isLast": false,
           "path": "/docs/2.3.6",
           "mainDocId": "artist_getting_started",
           "docs": [
@@ -1726,7 +1745,7 @@
             },
             {
               "id": "artist_getting_started",
-              "path": "/docs/2.3.6/"
+              "path": "/docs/2.3.6/artist_getting_started"
             },
             {
               "id": "artist_hosts",
@@ -1836,6 +1855,8 @@
         },
         {
           "name": "2.3.0",
+          "label": "2.3.0",
+          "isLast": false,
           "path": "/docs/2.3.0",
           "mainDocId": "artist_getting_started",
           "docs": [
@@ -1913,7 +1934,7 @@
             },
             {
               "id": "artist_getting_started",
-              "path": "/docs/2.3.0/"
+              "path": "/docs/2.3.0/artist_getting_started"
             },
             {
               "id": "artist_hosts",

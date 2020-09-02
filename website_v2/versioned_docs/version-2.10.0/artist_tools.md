@@ -305,15 +305,17 @@ Let's say that the last version of the comp you published was v003 and now you'r
 
 ### Usage
 <div class="ImagePanel" data-image-align='right'>
-<div class="ImagePanel.content">
 
+<div class="ImagePanel.content">
 #### To open existing file:
+
 1. Open Workfiles tool from pipeline menu
 2. Select file from list - the latest version is the highest *(descendent ordering)*
 3. Press `Open` button
-</div>
-<div class="ImagePanel.image Screenshot">
 
+</div>
+
+<div class="ImagePanel.image Screenshot">
 ![workfiles_1](assets/workfiles_1.png)
 </div>
 </div>

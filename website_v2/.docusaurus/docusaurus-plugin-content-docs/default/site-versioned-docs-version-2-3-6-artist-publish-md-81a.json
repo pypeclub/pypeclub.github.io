@@ -5,6 +5,7 @@
   "title": "Publishing",
   "description": "Publishing is the process of exporting particular data from your work scene to be shared with others.",
   "source": "@site/versioned_docs\\version-2.3.6\\artist_publish.md",
+  "slug": "/artist_publish",
   "permalink": "/docs/2.3.6/artist_publish",
   "version": "2.3.6",
   "lastUpdatedBy": "Author",

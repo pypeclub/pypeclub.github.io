@@ -5,6 +5,7 @@
   "title": "Ftrack Setup",
   "description": "Ftrack is currently the main project management option for Pype. This documentaion assumes that you are familiar with Ftrack and it's basic principles. If you're new to Ftrack, we recommend having a thorough look at Ftrack Official Documentation.",
   "source": "@site/versioned_docs\\version-2.4.0\\admin_ftrack.md",
+  "slug": "/admin_ftrack",
   "permalink": "/docs/2.4.0/admin_ftrack",
   "version": "2.4.0",
   "lastUpdatedBy": "Author",

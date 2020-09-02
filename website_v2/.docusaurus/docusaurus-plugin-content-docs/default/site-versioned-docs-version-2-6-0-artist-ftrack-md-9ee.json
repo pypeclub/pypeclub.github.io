@@ -5,6 +5,7 @@
   "title": "Ftrack",
   "description": "How to use Ftrack in Pype",
   "source": "@site/versioned_docs\\version-2.6.0\\artist_ftrack.md",
+  "slug": "/artist_ftrack",
   "permalink": "/docs/2.6.0/artist_ftrack",
   "version": "2.6.0",
   "lastUpdatedBy": "Author",

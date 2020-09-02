@@ -5,8 +5,9 @@
   "title": "Hosts",
   "description": "Maya",
   "source": "@site/docs\\artist_hosts.md",
+  "slug": "/artist_hosts",
   "permalink": "/docs/next/artist_hosts",
-  "version": "next",
+  "version": "current",
   "lastUpdatedBy": "Author",
   "lastUpdatedAt": 1539502055,
   "sidebar_label": "Hosts"

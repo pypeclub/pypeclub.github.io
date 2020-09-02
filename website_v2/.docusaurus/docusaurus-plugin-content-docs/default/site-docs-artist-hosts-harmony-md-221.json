@@ -5,9 +5,19 @@
   "title": "Harmony",
   "description": "Available Tools",
   "source": "@site/docs\\artist_hosts_harmony.md",
+  "slug": "/artist_hosts_harmony",
   "permalink": "/docs/next/artist_hosts_harmony",
-  "version": "next",
+  "version": "current",
   "lastUpdatedBy": "Author",
   "lastUpdatedAt": 1539502055,
-  "sidebar_label": "Harmony"
+  "sidebar_label": "Harmony",
+  "sidebar": "artist",
+  "previous": {
+    "title": "Maya",
+    "permalink": "/docs/next/artist_hosts_maya"
+  },
+  "next": {
+    "title": "Photoshop",
+    "permalink": "/docs/next/artist_hosts_photoshop"
+  }
 }

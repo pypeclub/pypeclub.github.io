@@ -5,8 +5,9 @@
   "title": "Pype API",
   "description": "Work in progress",
   "source": "@site/docs\\api.md",
+  "slug": "/api",
   "permalink": "/docs/next/api",
-  "version": "next",
+  "version": "current",
   "lastUpdatedBy": "Author",
   "lastUpdatedAt": 1539502055,
   "sidebar_label": "API"

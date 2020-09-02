@@ -5,6 +5,7 @@
   "title": "Photoshop",
   "description": "Available Tools",
   "source": "@site/versioned_docs\\version-2.3.6\\artist_hosts_photoshop.md",
+  "slug": "/artist_hosts_photoshop",
   "permalink": "/docs/2.3.6/artist_hosts_photoshop",
   "version": "2.3.6",
   "lastUpdatedBy": "Author",

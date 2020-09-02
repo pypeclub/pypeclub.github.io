@@ -5,6 +5,7 @@
   "title": "Pype Setup",
   "description": "Introduction",
   "source": "@site/versioned_docs\\version-2.11.0\\admin_install.md",
+  "slug": "/admin_install",
   "permalink": "/docs/admin_install",
   "version": "2.11.0",
   "lastUpdatedBy": "Author",

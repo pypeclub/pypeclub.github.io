@@ -5,8 +5,9 @@
   "title": "Examples of using notes",
   "description": "-   This is my note",
   "source": "@site/docs\\admin_docsexamples.md",
+  "slug": "/admin_docsexamples",
   "permalink": "/docs/next/admin_docsexamples",
-  "version": "next",
+  "version": "current",
   "lastUpdatedBy": "Author",
   "lastUpdatedAt": 1539502055,
   "sidebar_label": "docsexamples"

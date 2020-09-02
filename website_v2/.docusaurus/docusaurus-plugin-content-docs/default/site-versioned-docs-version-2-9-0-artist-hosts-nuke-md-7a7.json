@@ -5,6 +5,7 @@
   "title": "Nuke",
   "description": "After Nuke starts it will automatically Apply All Settings for you. If you are sure the settings are wrong just contact your supervisor and he will set them correctly for you in project database.",
   "source": "@site/versioned_docs\\version-2.9.0\\artist_hosts_nuke.md",
+  "slug": "/artist_hosts_nuke",
   "permalink": "/docs/2.9.0/artist_hosts_nuke",
   "version": "2.9.0",
   "lastUpdatedBy": "Author",

@@ -5,6 +5,7 @@
   "title": "Pype Configuration",
   "description": "All of the studio specific configurations are stored as simple JSON files in the pype-config repository.",
   "source": "@site/versioned_docs\\version-2.3.0\\admin_config.md",
+  "slug": "/admin_config",
   "permalink": "/docs/2.3.0/admin_config",
   "version": "2.3.0",
   "lastUpdatedBy": "Author",

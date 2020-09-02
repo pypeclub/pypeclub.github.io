@@ -5,8 +5,9 @@
   "title": "features",
   "description": "Pype tray",
   "source": "@site/docs\\features.md",
+  "slug": "/features",
   "permalink": "/docs/next/features",
-  "version": "next",
+  "version": "current",
   "lastUpdatedBy": "Author",
   "lastUpdatedAt": 1539502055
 }

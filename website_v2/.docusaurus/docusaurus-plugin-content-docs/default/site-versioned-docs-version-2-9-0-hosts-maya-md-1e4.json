@@ -5,6 +5,7 @@
   "title": "hosts-maya",
   "description": "Tools",
   "source": "@site/versioned_docs\\version-2.9.0\\hosts-maya.md",
+  "slug": "/hosts-maya",
   "permalink": "/docs/2.9.0/hosts-maya",
   "version": "2.9.0",
   "lastUpdatedBy": "Author",

@@ -5,6 +5,7 @@
   "title": "Getting Started",
   "description": "Introduction",
   "source": "@site/versioned_docs\\version-2.8.0\\admin_introduction.md",
+  "slug": "/admin_getting_started",
   "permalink": "/docs/2.8.0/admin_getting_started",
   "version": "2.8.0",
   "lastUpdatedBy": "Author",

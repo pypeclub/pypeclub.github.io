@@ -5,9 +5,19 @@
   "title": "Presets > Ftrack",
   "description": "PROJECT_DEFAULTS.json",
   "source": "@site/docs\\admin_presets_ftrack.md",
+  "slug": "/admin_presets_ftrack",
   "permalink": "/docs/next/admin_presets_ftrack",
-  "version": "next",
+  "version": "current",
   "lastUpdatedBy": "Author",
   "lastUpdatedAt": 1539502055,
-  "sidebar_label": "Ftrack"
+  "sidebar_label": "Ftrack",
+  "sidebar": "admin",
+  "previous": {
+    "title": "Presets > NukeStudio",
+    "permalink": "/docs/next/admin_presets_nukestudio"
+  },
+  "next": {
+    "title": "Presets > Maya",
+    "permalink": "/docs/next/admin_presets_maya"
+  }
 }

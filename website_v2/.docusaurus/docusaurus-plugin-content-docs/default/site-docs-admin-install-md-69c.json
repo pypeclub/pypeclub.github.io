@@ -5,9 +5,19 @@
   "title": "Pype Setup",
   "description": "Introduction",
   "source": "@site/docs\\admin_install.md",
+  "slug": "/admin_install",
   "permalink": "/docs/next/admin_install",
-  "version": "next",
+  "version": "current",
   "lastUpdatedBy": "Author",
   "lastUpdatedAt": 1539502055,
-  "sidebar_label": "Pype Setup"
+  "sidebar_label": "Pype Setup",
+  "sidebar": "admin",
+  "previous": {
+    "title": "Getting Started",
+    "permalink": "/docs/next/admin_getting_started"
+  },
+  "next": {
+    "title": "Studio Config",
+    "permalink": "/docs/next/admin_config"
+  }
 }

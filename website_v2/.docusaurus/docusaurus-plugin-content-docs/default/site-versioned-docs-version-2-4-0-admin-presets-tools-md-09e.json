@@ -5,6 +5,7 @@
   "title": "Presets > Tools",
   "description": "Colorspace",
   "source": "@site/versioned_docs\\version-2.4.0\\admin_presets_tools.md",
+  "slug": "/admin_presets_tools",
   "permalink": "/docs/2.4.0/admin_presets_tools",
   "version": "2.4.0",
   "lastUpdatedBy": "Author",

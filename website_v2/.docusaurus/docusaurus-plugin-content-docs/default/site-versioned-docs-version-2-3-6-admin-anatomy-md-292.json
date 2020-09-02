@@ -5,6 +5,7 @@
   "title": "Project Anatomy",
   "description": "PROJECT Structure",
   "source": "@site/versioned_docs\\version-2.3.6\\admin_anatomy.md",
+  "slug": "/admin_anatomy",
   "permalink": "/docs/2.3.6/admin_anatomy",
   "version": "2.3.6",
   "lastUpdatedBy": "Author",

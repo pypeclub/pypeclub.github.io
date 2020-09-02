@@ -18,7 +18,7 @@ Each plugin in the json should be added as name of the class. There are some def
 }
 ```
 
-<br>
+<br />
 
 ### `ExtractReview`
 
@@ -72,7 +72,7 @@ You can add tags to representation created during extracting process. This might
 | **bake-lut** | Bake LUT into the output (if is available path in data). |
 | **slate-frame** | Add slate frame at the beggining of video. |
 | **no-handles** | Remove the shot handles from the output. |
-| **sequence** | Generate a sequence of images instead of single frame.</br>Is applied only if **"ext"** of output is image extension e.g.: png or jpg/jpeg. |
+| **sequence** | Generate a sequence of images instead of single frame.<br />Is applied only if **"ext"** of output is image extension e.g.: png or jpg/jpeg. |
 
 :::important Example
 Tags key must contain list of strings.
@@ -235,7 +235,7 @@ This is just usage example, without relevant data. Do **NOT** use these presets 
 }
 ```
 
-<br>
+<br />
 
 ### `ExtractBurnin`
 

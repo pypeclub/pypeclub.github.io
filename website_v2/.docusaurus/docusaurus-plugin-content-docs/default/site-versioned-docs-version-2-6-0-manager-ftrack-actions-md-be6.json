@@ -5,6 +5,7 @@
   "title": "Ftrack Actions",
   "description": "Actions are small useful tools that help artists, managers and administrators.",
   "source": "@site/versioned_docs\\version-2.6.0\\manager_ftrack_actions.md",
+  "slug": "/manager_ftrack_actions",
   "permalink": "/docs/2.6.0/manager_ftrack_actions",
   "version": "2.6.0",
   "lastUpdatedBy": "Author",

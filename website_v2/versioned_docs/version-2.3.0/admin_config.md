@@ -231,8 +231,6 @@ For example following config would create these environment variables when Pype 
 }
 ```
 
-<br>
-
 **There are 2 storages that are required for PYPE to be functional**
 
 ### Projects storages

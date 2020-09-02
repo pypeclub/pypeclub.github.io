@@ -5,9 +5,19 @@
   "title": "Hosts Setup",
   "description": "Host configuration",
   "source": "@site/docs\\admin_hosts.md",
+  "slug": "/admin_hosts",
   "permalink": "/docs/next/admin_hosts",
-  "version": "next",
+  "version": "current",
   "lastUpdatedBy": "Author",
   "lastUpdatedAt": 1539502055,
-  "sidebar_label": "Hosts Setup"
+  "sidebar_label": "Hosts Setup",
+  "sidebar": "admin",
+  "previous": {
+    "title": "Ftrack Setup",
+    "permalink": "/docs/next/admin_ftrack"
+  },
+  "next": {
+    "title": "Pype Commands Reference",
+    "permalink": "/docs/next/admin_pype_commands"
+  }
 }
