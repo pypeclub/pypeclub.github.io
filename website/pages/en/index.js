@@ -360,6 +360,16 @@ class Index extends React.Component {
               <span className="caption">DaVinci Resolve</span>
             </a>
 
+            <a className="link" href="http://localhost:3000/features#aftereffects">
+              <img src="/img/app_aftereffects.png" alt="" title=""></img>
+              <span className="caption">After Effects</span>
+            </a>
+
+            <a className="link" href="http://localhost:3000/features#aftereffects">
+              <img src="/img/app_tvpaint.png" alt="" title=""></img>
+              <span className="caption">TV Paint</span>
+            </a>
+
           </div>
 
         </div>
