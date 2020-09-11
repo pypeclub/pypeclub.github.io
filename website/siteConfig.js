@@ -78,6 +78,18 @@ const users = [
     image: '/img/thescope_logo.png',
     infoLink: 'https://thescope.studio/',
     pinned: true
+  },
+  {
+    caption: 'The Line',
+    image: '/img/thelineanimationlogo.png',
+    infoLink: 'https://www.thelineanimation.com/',
+    pinned: true
+  },
+  {
+    caption: 'Krutart',
+    image: '/img/krutart_logo.png',
+    infoLink: 'https://www.thelineanimation.com/',
+    pinned: true
   }
 ];
 

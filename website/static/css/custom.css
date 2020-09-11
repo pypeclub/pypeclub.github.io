@@ -287,6 +287,18 @@ article a:hover {
     width: inherit;
 }
 
+.productShowcaseSection .logos img[alt="The Line"] {
+    max-height: 20px;
+    padding: 20px;
+    width: inherit;
+}
+
+.productShowcaseSection .logos img[alt="Krutart"] {
+    max-height: 100px;
+    padding: 0px;
+    width: inherit;
+}
+
 .productShowcaseSection .logos img[alt="3Bohemians"] {
     max-height: 14px;
     padding: 20px;
