@@ -107,7 +107,7 @@ needed, *replication* feature of **MongoDB** should be considered. This is beyon
 scope of this documentation, please refer to [MongoDB Documentation](https://docs.mongodb.com/manual/replication/).
 
 Pype can run it's own instance of **mongodb**, mostly for testing and development purposes.
-For that is uses locally installed **MongoDB**.
+For that it uses locally installed **MongoDB**.
 
 Download it from [mognoDB website](https://www.mongodb.com/download-center/community), install it and
 add to the `PATH`. On Windows, Pype tries to find it in standard installation destination or using `PATH`.
