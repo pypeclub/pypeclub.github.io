@@ -84,7 +84,7 @@ Template groups `work` and `publish` must be set in all circumstances. Both must
 | comment |  |
 
 :::warning
-Be carefull about using `root` key in templates when using multiple roots. It is not allowed to combine both `{root}` and `{root[<root name>]}` in templates.
+Be careful about using `root` key in templates when using multiple roots. It is not allowed to combine both `{root}` and `{root[<root name>]}` in templates.
 :::
 :::note
 It is recommended to set padding for `version` which is possible with additional expression in template. Entered key `{version:0<3}` will result into `001` if version `1` is published.
@@ -233,7 +233,7 @@ group_3:
 ```
 
 :::warning
-Be carefull about using global keys. Keep in mind that **all global keys** will be added to **all template groups** and all inner keys in their values **MUST** be in the group.
+Be careful about using global keys. Keep in mind that **all global keys** will be added to **all template groups** and all inner keys in their values **MUST** be in the group.
 For example in [required templates](#required-templates) it seems that `path: "{@folder}/{@file}"` should be used as global key, but that would require all template groups have `folder` and `file` keys which is not true by default.
 :::
 
@@ -261,7 +261,7 @@ application_name.bat
 application_name.sh
 ```
 
-TOML file tells Pype how to work with the application across the board. Icons, Label in GUI, *Ftrack* settings but most importantly it defines what executable to run. These executable are store in the windows and linux subfolder in the launchers folder. If `application_name.toml` defines that executable to run is `application_name`, Pype assumes that a `.bat` and `.sh` files under that name exist in the linux and windows folders in launchers. Correct version is picked automatically based on the platform Pype is running on.
+TOML file tells Pype how to work with the application across the board. Icons, Label in GUI, *Ftrack* settings but most importantly it defines what executable to run. These executable are stored in the windows and linux subfolder in the launchers folder. If `application_name.toml` defines that executable to run is `application_name`, Pype assumes that a `.bat` and `.sh` files under that name exist in the linux and windows folders in launchers. Correct version is picked automatically based on the platform Pype is running on.
 
 These `.bat` and `.sh` scripts have only one job then. They have to point to the exact executable path on the system, or to a command that will launch the app we want. Version granularity is up to the studio to decide. We can show artists Nuke 11.3, while specifying the particular version 11.3v4 only in the .bat file, so the artist doesn't need to deal with it, or we can present him with 11.3v4 directly. the choice is mostly between artist control vs more configuration files on the system.
 
@@ -269,7 +269,7 @@ These `.bat` and `.sh` scripts have only one job then. They have to point to the
 
 This is where most of the functions configuration of the pipeline happens. Colorspace, data types, burnin setting, geometry naming conventions, ftrack attributes, playblast settings, types of exports and lot's of other settings.
 
-Presets are categorized in folders based on what they control or what host (DCC application) they are for. We're slowly working on documenting them all, but new ones are being created regularly as well. Hopefully the categories and names and sufficiently self-explanatory.
+Presets are categorized in folders based on what they control or what host (DCC application) they are for. We're slowly working on documenting them all, but new ones are being created regularly as well. Hopefully the categories and names are sufficiently self-explanatory.
 
 ### colorspace
 
@@ -359,7 +359,7 @@ will override stuff in **pype-config**.
 
 ### Example
 
-You have project where you need to disable some validators - let's say overlapping
+You have a project where you need to disable some validators - let's say overlapping
 UVs validator in Maya.
 
 Project name is *FooProject*.
