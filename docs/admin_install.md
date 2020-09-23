@@ -281,7 +281,7 @@ pype deploy --force
 will deploy repositories, overwriting existing ones if they exists and setting them to state specified in *deploy.json*.
 
 :::note customizing deployment
-You can customize your deployment to some extend. Everything specified in `deploy/deploy.json` is considered as default and can be overridden by creating your own *deploy.json* in sub directory.
+You can customize your deployment to some extent. Everything specified in `deploy/deploy.json` is considered as default and can be overridden by creating your own *deploy.json* in sub directory.
 ```text
 pype
  ├─── pypeapp
