@@ -150,6 +150,9 @@ Windows 8.1 and Windows Server 2012.</p>
 </code></pre>
 <p>If you need to install PowerShell or update it, please refer to:
 <a href="https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-6">Installing powershell on windows</a></p>
+<h3><a class="anchor" aria-hidden="true" id="xcode-clt-on-mac-only"></a><a href="#xcode-clt-on-mac-only" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Xcode CLT (on Mac only)</h3>
+<p>Pype need <strong>Xcode Command Line Tools</strong> installed to provide its tools and be able to install its dependencies via pythons <code>pip</code> command. Those will be downloaded
+and installed automatically if needed.</p>
 <h3><a class="anchor" aria-hidden="true" id="other"></a><a href="#other" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Other</h3>
 
     <div class="admonition admonition-warning">
@@ -212,29 +215,57 @@ dev=true
       <div class="admonition-content">
     <p>By default, both branches will use the same virtual environment. Be careful when modifying your requirements in <strong>dev</strong> version because then it will influence <strong>prod</strong> version as well. To be safe, modify <code>PYPE_ENV</code> environment variable before using <strong>dev</strong> Pype commands.</p>
 </div></div><h3><a class="anchor" aria-hidden="true" id="installation"></a><a href="#installation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installation</h3>
-<p>To install pype you first need get to it's root directory in shell or powershell.</p>
-<pre><code class="hljs css language-sh"><span class="hljs-built_in">cd</span> /location/of/pype
-</code></pre>
-<p>Pype commands are the same on both Windows and Linux, only Pype invocation  differs slightly. On Windows, Pype is run using <code>.\pype.bat</code> and on Linux using <code>. pype</code>. From now on
-just substitute <code>pype</code> for whatever is relevant for your platform.</p>
-<p>Once you have p<code>pype-setup</code> cloned, <strong>Pype</strong> can be installed with the following command:</p>
-<pre><code class="hljs css language-sh">pype install
-</code></pre>
-<p>What it basically does is:</p>
+
+    <div class="admonition admonition-neutral">
+      <div class="admonition-heading">
+        <h5><div class="admonition-icon"></div>  Platform specific Specifics</h5>
+      </div>
+      <div class="admonition-content">
+    <div class="tabs"><div class="nav-tabs"><div id="tab-group-12-tab-13" class="nav-link active" data-group="group_12" data-tab="tab-group-12-content-13">Windows</div><div id="tab-group-12-tab-14" class="nav-link" data-group="group_12" data-tab="tab-group-12-content-14">Linux</div><div id="tab-group-12-tab-15" class="nav-link" data-group="group_12" data-tab="tab-group-12-content-15">Mac</div></div><div class="tab-content"><div id="tab-group-12-content-13" class="tab-pane active" data-group="group_12" tabindex="-1"><div><span><p><br>
+To install Pype you need to get first to it's root directory in powershell.</p>
+<p>If you have Pype on network, you should mount it as drive and assign it some consistent letter. You can also mount this network drive via junction point feature. As admin run from shell:</p>
+<pre><code class="hljs css language-sh">mklink /d <span class="hljs-string">"C:\pipeline"</span> <span class="hljs-string">"\\server\pipeline"</span><br /></code></pre>
+<p>Then your network drive will be available transparently at <code>C:\pipeline</code>.</p>
+<pre><code class="hljs css language-sh"><span class="hljs-built_in">cd</span> Z:\pype\production\pype-setup<br /></code></pre>
+<hr>
+<p>Now you can run installation itself:</p>
+<pre><code class="hljs css language-sh">.\pype.bat install<br /></code></pre>
+</span></div></div><div id="tab-group-12-content-14" class="tab-pane" data-group="group_12" tabindex="-1"><div><span><p><br>
+To install pype you first need get to it's root directory in bash shell.
+If you Pype location is on network drive, you should add it to <code>/etc/fstab</code> to
+mount it automatically during system startup.</p>
+<pre><code class="hljs css language-sh"><span class="hljs-built_in">cd</span> /location/of/pype<br /></code></pre>
+<p><strong>Pype</strong> can be installed with the following command:</p>
+<pre><code class="hljs css language-sh">. pype install<br /></code></pre>
+<p>On linux it is necessary to adjust user permissions to <code>/opt/pype/pype_env2</code> or whatever you set in <code>PYPE_ENV</code> and for that you need to be <strong>root</strong>.</p>
+</span></div></div><div id="tab-group-12-content-15" class="tab-pane" data-group="group_12" tabindex="-1"><div><span><h4><a class="anchor" aria-hidden="true" id="mounting-network-drives"></a><a href="#mounting-network-drives" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Mounting network drives</h4>
+<p>If you Pype location is on network drive, you need to mount it first. Here are the steps to do it and make it so it re-mounts automatically after your computer restarts:</p>
 <ol>
-<li><p>Create python virtual environment on path: <code>C:\Users\Public\pype_env2</code> on Windows or <code>/opt/pype/pype_env2</code> on Linux.
+<li>in Finder press <strong>Command+K</strong></li>
+<li>enter path <code>smb://server/pipeline</code> and hit <strong>Connect</strong></li>
+<li>enter login and password</li>
+<li>network drive is now mounted under <code>/Volumes/pipeline</code></li>
+<li>now go to <strong>System Preferences</strong></li>
+<li>click <strong>Users &amp; Groups -&gt; Login Items</strong></li>
+<li>click + and select mounted drive and click <strong>Add</strong>
+:::</li>
+</ol>
+<p>To install Pype on Mac, you need to have Administrator privileges. There are also further requirements if you need to deploy repositories.</p>
+<p>Run <strong>Terminal</strong>. Run following commands:</p>
+<pre><code class="hljs css language-sh">sudo -s<br /><span class="hljs-built_in">cd</span> /Volumes/pipeline/pype/production/pype-setup<br />./pype install<br /></code></pre>
+<p><code>sudo -s</code> will take you to elevated privileges and you need to enter your password. <code>cd</code> will change directory to where you have pype located and <code>pype install</code> will run installation.</p>
+<p>If there are then warnings about some directory not owned by current user, you can fix it with following commands:</p>
+<pre><code class="hljs css language-sh">chown -R yourusername /usr/<span class="hljs-built_in">local</span>/pype<br />chown -R yourusername /Users/yourusername/Library/Caches/pip<br /></code></pre>
+<p>Switch <code>yourusername</code> for your user name :)</p>
+<p></span></div></div></div></div></p>
+</div></div><p>What it basically does is:</p>
+<ol>
+<li><p>Create python virtual environment on path: <code>C:\Users\Public\pype_env2</code> on Windows or <code>/opt/pype/pype_env2</code> on Linux or <code>/usr/local/pype/pype_env2</code> on Mac.
 This can be overridden by setting <code>PYPE_ENV</code> to different path. Logic behind this is that this directory on Windows can be shared
 between users on one machine - it only stores Pype dependencies, not any personal setting or credentials.</p></li>
 <li><p>Then it will install all python dependencies defined in <code>pypeapp\requirements.txt</code> into this virtual environment.</p></li>
 </ol>
-
-    <div class="admonition admonition-warning">
-      <div class="admonition-heading">
-        <h5><div class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"/></svg></div>  Linux Pype environment directory</h5>
-      </div>
-      <div class="admonition-content">
-    <p>On linux it is necessary to adjust user permissions to <code>/opt/pype/pype_env2</code> or whatever you set in <code>PYPE_ENV</code> and for that you need to be <strong>root</strong>.</p>
-</div></div><p>Default installation will use your internet connection to download all necessary requirements.</p>
+<p>Default installation will use your internet connection to download all necessary requirements.</p>
 <h4><a class="anchor" aria-hidden="true" id="offline-installation"></a><a href="#offline-installation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Offline installation</h4>
 <p>You can also install Pype in offline scenarios:</p>
 <pre><code class="hljs css language-sh">pype install --offline
@@ -334,7 +365,7 @@ your studio install location:</p>
 tar cvzf pype_repos.tgz repos/
 </code></pre>
 <p>do the same for things deployed to <em>vendor</em>.</p>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/next/admin_getting_started"><span class="arrow-prev">← </span><span>Getting Started</span></a><a class="docs-next button" href="/docs/next/admin_config"><span>Studio Config</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#introduction">Introduction</a></li><li><a href="#requirements">Requirements</a><ul class="toc-headings"><li><a href="#python-36">Python 3.6+</a></li><li><a href="#mongodb">MongoDB</a></li><li><a href="#git">Git</a></li><li><a href="#powershell-on-windows-only">PowerShell (on Windows only)</a></li><li><a href="#other">Other</a></li></ul></li><li><a href="#studio-setup">Studio Setup</a><ul class="toc-headings"><li><a href="#pype-location">Pype location</a></li><li><a href="#installation">Installation</a></li><li><a href="#deployment">Deployment</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon/P.png" alt="PYPE" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/artist_getting_started">Artist</a><a href="/docs/en/manager_ftrack">Manager</a><a href="/docs/en/admin_config">Admin</a></div><div><h5>Community</h5><a href="https://gitter.im/getavalon/Lobby">Avalon Chat</a><a href="https://gitter.im/pyblish/pyblish">Pyblish Chat</a><a href="https://discord.gg/cfkbAHM">Pype Chat</a></div><div><h5>More</h5><a href="https://github.com/pypeclub">Github/Pype.club</a><a href="https://github.com/getavalon">Github/Avalon</a><a href="https://github.com/pyblish">Github/Pyblish</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 Orbi Tools</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/next/admin_getting_started"><span class="arrow-prev">← </span><span>Getting Started</span></a><a class="docs-next button" href="/docs/next/admin_config"><span>Studio Config</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#introduction">Introduction</a></li><li><a href="#requirements">Requirements</a><ul class="toc-headings"><li><a href="#python-36">Python 3.6+</a></li><li><a href="#mongodb">MongoDB</a></li><li><a href="#git">Git</a></li><li><a href="#powershell-on-windows-only">PowerShell (on Windows only)</a></li><li><a href="#xcode-clt-on-mac-only">Xcode CLT (on Mac only)</a></li><li><a href="#other">Other</a></li></ul></li><li><a href="#studio-setup">Studio Setup</a><ul class="toc-headings"><li><a href="#pype-location">Pype location</a></li><li><a href="#installation">Installation</a></li><li><a href="#deployment">Deployment</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon/P.png" alt="PYPE" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/artist_getting_started">Artist</a><a href="/docs/en/manager_ftrack">Manager</a><a href="/docs/en/admin_config">Admin</a></div><div><h5>Community</h5><a href="https://gitter.im/getavalon/Lobby">Avalon Chat</a><a href="https://gitter.im/pyblish/pyblish">Pyblish Chat</a><a href="https://discord.gg/cfkbAHM">Pype Chat</a></div><div><h5>More</h5><a href="https://github.com/pypeclub">Github/Pype.club</a><a href="https://github.com/getavalon">Github/Avalon</a><a href="https://github.com/pyblish">Github/Pyblish</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 Orbi Tools</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;
