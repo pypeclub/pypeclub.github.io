@@ -1,7 +1,7 @@
 ---
 id: manager_ftrack
 title: Ftrack
-sidebar_label: Ftrack
+sidebar_label: Project Manager
 ---
 
 Ftrack is currently the main project management option for Pype. This documentation assumes that you are familiar with Ftrack and it's basic principles. If you're new to Ftrack, we recommend having a thorough look at [Ftrack Official Documentation](http://ftrack.rtd.ftrack.com/en/stable/).

@@ -7,75 +7,16 @@ module.exports = {
   projectName: 'pypeclub.github.io',
   favicon: 'img/favicon/favicon.ico',
   customFields: {
-    users: [
-      {
-        caption: 'Imagine Studio',
-        image: '/img/imagine_logo.png',
-        infoLink: 'https://imaginestudio.cz/',
-        pinned: true
-      }, {
-        caption: 'Dazzle Pictures',
-        image: '/img/dazzle_CB.png',
-        infoLink: 'https://www.dazzlepictures.net/',
-        pinned: true
-      }, {
-        caption: 'Fresh Films',
-        image: '/img/fresh-films-logo.jpg',
-        infoLink: 'http://freshfilms.cz/',
-        pinned: true
-      }, {
-        caption: '3DE',
-        id: '3de',
-        image: '/img/3de.png',
-        infoLink: 'https://www.3de.com.pl/',
-        pinned: true
-      }, {
-        caption: 'Cubic Motion',
-        image: '/img/cubicmotion.png',
-        infoLink: 'https://cubicmotion.com/',
-        pinned: true
-      }, {
-        caption: 'Clothcat Animation',
-        image: '/img/clothcat.png',
-        infoLink: 'https://www.clothcatanimation.com/',
-        pinned: true
-      }, {
-        caption: 'Incognito',
-        image: '/img/client_incognito.png',
-        infoLink: 'https://incognito.studio/',
-        pinned: true
-      }, {
-        caption: 'Bionaut',
-        image: '/img/bionaut_logo.png',
-        infoLink: 'https://bionaut.cz/',
-        pinned: true
-      }, {
-        caption: '3Bohemians',
-        image: '/img/3bohemians-logo.png',
-        infoLink: 'https://www.3bohemians.eu//',
-        pinned: true
-      }, {
-        caption: 'Fourth Wall',
-        image: '/img/FW_logo_primary.png',
-        infoLink: 'https://fourthwallanimation.com/',
-        pinned: true
-      }, {
-        caption: 'The Scope',
-        image: '/img/thescope_logo.png',
-        infoLink: 'https://thescope.studio/',
-        pinned: true
-      }
-    ],
     fonts: {
       futura: ['futura-pt', 'sans-serif']
     },
-    markdownPlugins: [null]
+    markdownPlugins: []
   },
   presets: [
     [
       '@docusaurus/preset-classic', {
         docs: {
-          sidebarPath: require.resolve('./sidebars.json'),
+          sidebarPath: require.resolve('./sidebars.js'),
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css')
@@ -93,6 +34,7 @@ module.exports = {
       disableSwitch: true
     },
     navbar: {
+      style: 'dark',
       title: 'PYPE',
       logo: {
         src: 'img/favicon/P.png'
@@ -103,16 +45,12 @@ module.exports = {
           label: 'Features',
           position: 'left'
         }, {
-          to: 'docs/',
-          label: 'Artist',
+          to: 'docs/artist_getting_started',
+          label: 'User Docs',
           position: 'left'
-        }, {
-          to: 'docs/manager_naming',
-          label: 'Manager',
-          position: 'left'
-        }, {
+        },{
           to: 'docs/admin_getting_started',
-          label: 'Admin',
+          label: 'Admin Docs',
           position: 'left'
         }, {
           to: 'docs/api',
@@ -123,7 +61,41 @@ module.exports = {
     },
     image: '/img/docusaurus.png',
     footer: {
-      links: [],
+      links: [
+        {
+          title: 'Docs',
+          items: [
+            {
+              label: 'Artist',
+              to: 'docs/artist_getting_started',
+            },
+            {
+              label: 'Manager',
+              to: 'docs/manager_ftrack',
+            },
+            {
+              label: 'Admin',
+              to: 'docs/admin_config',
+            },
+          ],
+        },{
+          title: 'Social',
+          items: [
+            {
+              label: 'Avalon Chat',
+              to: 'https://gitter.im/getavalon/Lobby',
+            },
+            {
+              label: 'Pyblish Chat',
+              to: 'https://gitter.im/pyblish/pyblish',
+            },
+            {
+              label: 'Pype Chat',
+              to: 'https://discord.gg/sFNPWXG',
+            },
+          ],
+        },
+      ],
       copyright: 'Copyright © 2020 Orbi Tools',
       logo: {
         src: 'img/favicon/P.png'

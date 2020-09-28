@@ -6,7 +6,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
 
-const features = [
+const services = [
   {
     title: <>Training</>,
     description: (
@@ -42,13 +42,103 @@ const features = [
   },
 ];
 
-function Feature({imageUrl, title, description}) {
+const collab = [
+  {
+    title: 'Kredenc Studio',
+    image: '/img/kredenc.png',
+    infoLink: 'http://kredenc.studio'
+  }, {
+    title: 'Bumpybox',
+    image: '/img/bumpybox.png',
+    infoLink: 'http://bumpybox.com'
+  }, {
+    title: 'Colorbleed',
+    image: '/img/colorbleed_logo.png',
+    infoLink: 'http://colorbleed.nl'
+  }, {
+    title: 'Moonshine',
+    image: '/img/moonshine_logotype.png',
+    infoLink: 'https://www.moonshine.tw/'
+  }, {
+    title: 'Avalon',
+    image: '/img/avalon_logotype.png',
+    infoLink: 'https://getavalon.github.io/2.0/'
+  }
+];
+
+const clients = [
+  {
+    title: 'Imagine Studio',
+    image: '/img/imagine_logo.png',
+    infoLink: 'https://imaginestudio.cz/'
+  }, {
+    title: 'Dazzle Pictures',
+    image: '/img/dazzle_CB.png',
+    infoLink: 'https://www.dazzlepictures.net/'
+  }, {
+    title: 'Fresh Films',
+    image: '/img/fresh-films-logo.jpg',
+    infoLink: 'http://freshfilms.cz/'
+  }, {
+    title: '3DE',
+    image: '/img/3de.png',
+    infoLink: 'https://www.3de.com.pl/'
+  }, {
+    title: 'Cubic Motion',
+    image: '/img/cubicmotion.png',
+    infoLink: 'https://cubicmotion.com/'
+  }, {
+    title: 'Clothcat Animation',
+    image: '/img/clothcat.png',
+    infoLink: 'https://www.clothcatanimation.com/'
+  }, {
+    title: 'Incognito',
+    image: '/img/client_incognito.png',
+    infoLink: 'https://incognito.studio/'
+  }, {
+    title: 'Bionaut',
+    image: '/img/bionaut_logo.png',
+    infoLink: 'https://bionaut.cz/'
+  }, {
+    title: '3Bohemians',
+    image: '/img/3bohemians-logo.png',
+    infoLink: 'https://www.3bohemians.eu//'
+  }, {
+    title: 'Fourth Wall',
+    image: '/img/FW_logo_primary.png',
+    infoLink: 'https://fourthwallanimation.com/'
+  }, {
+    title: 'The Scope',
+    image: '/img/thescope_logo.png',
+    infoLink: 'https://thescope.studio/'
+  }
+];
+
+function Service({imageUrl, title, description}) {
   const imgUrl = useBaseUrl(imageUrl);
   return (
     <div className={classnames('col col--3', styles.feature)}>
       <h3>{title}</h3>
       <p>{description}</p>
     </div>
+  );
+}
+
+function Client({title, image, infoLink}) {
+  const imgUrl = useBaseUrl(image);
+  return (
+    <a className="client" href={infoLink}>
+      <img src={image} alt="" title={title}></img>
+    </a>
+  );
+}
+
+function Collaborator({title, image, infoLink}) {
+  const imgUrl = useBaseUrl(image);
+  return (
+    <a className="collab" href={infoLink}>
+      <img src={image} alt="" title={title}></img>
+    </a>
   );
 }
 
@@ -61,14 +151,16 @@ function Home() {
       description="Description will go into a meta tag in <head />">
       <header className={classnames('hero hero--primary', styles.heroBanner)}>
         <div className="container">
-          <h1 className="hero__title">
-            PYPE.club
+          <h1 className={classnames(
+            styles.hero__title,
+          )}>
+            <img src="img/favicon/logotype_main.png"></img>
           </h1>
-          <h2><small className="hero__subtitle">{siteConfig.tagline}</small></h2>
+          <h2><small className={styles.hero__subtitle}>{siteConfig.tagline}</small></h2>
           <div className={styles.buttons}>
             <Link
               className={classnames(
-                'button button--outline',
+                'button button--outline button--primary',
                 styles.button,
               )}
               to={'https://github.com/pypeclub/pype'}>
@@ -76,7 +168,7 @@ function Home() {
             </Link>
             <Link
               className={classnames(
-                'button button--outline',
+                'button button--outline button--primary',
                 styles.button,
               )}
               to={'mailto:info@pype.club'}>
@@ -84,7 +176,7 @@ function Home() {
             </Link>
             <Link
               className={classnames(
-                'button button--outline',
+                'button button--outline button--primary',
                 styles.button,
               )}
               to={'https://discord.gg/sFNPWXG'}>
@@ -92,7 +184,7 @@ function Home() {
             </Link>
             <Link
               className={classnames(
-                'button button--outline',
+                'button button--outline button--primary',
                 styles.button,
               )}
               to={'https://pypeclub.atlassian.net/servicedesk'}>
@@ -108,18 +200,21 @@ function Home() {
         </div>
       </header>
       <main>
-        {features && features.length && (
-          <section className={styles.features}>
+        {services && services.length && (
+          <section className={classnames(styles.features,
+                                        styles.center)}>
             <div className="container">
+            <h2>Services</h2>
               <div className="row">
-                {features.map((props, idx) => (
-                  <Feature key={idx} {...props} />
+                {services.map((props, idx) => (
+                  <Service key={idx} {...props} />
                 ))}
               </div>
             </div>
           </section>
         )}
-        <section className={classnames(styles.features, "darkBackground")}>
+        <section className={classnames(styles.features,
+                                        "darkBackground")}>
           <div className="container">
             <div className={classnames('row')}>
               <div className="col col--6">
@@ -155,12 +250,10 @@ function Home() {
             </div>
           </div>
         </section>
-        <section className={classnames(styles.features, "darkBackground")}>
+        <section className={classnames(styles.gallery, "center darkBackground")}>
           <div className="container">
               <h2>Pype Integrations</h2>
-              <div className={classnames(
-                'showcase',
-                )}>
+              <div className={classnames('showcase',)}>
                 <a className="link" href="http://localhost:3000/features#maya">
                   <img src="/img/app_maya.png" alt="" title=""></img>
                   <span className="caption">Maya</span>
@@ -238,21 +331,50 @@ function Home() {
               </div>
 
               <p> <span>In development by us or a community of <a href="https://github.com/getavalon/core/pulls">avalon core</a> developers.</span></p>
-              <div className={classnames(
-                'showcase',
-                )}>
+
+              <div className={classnames('showcase',)}>
 
                 <a className="link" href="http://localhost:3000/features#storyboardpro">
                   <img src="/img/app_storyboardpro.svg" alt="" title=""></img>
                   <span className="caption">Storyboard Pro</span>
                 </a>
-                <a className="link" href="http://localhost:3000/features#storyboardpro">
+                <a className="link" href="http://localhost:3000/features#resolve">
                   <img src="/img/app_resolve.png" alt="" title=""></img>
                   <span className="caption">DaVinci Resolve</span>
                 </a>
+
               </div>
           </div>
         </section>
+
+        {collab && collab.length && (
+          <section className={styles.collaborators}>
+            <div className="">
+              <h2>Collaborators</h2>
+              <p><span>Studios and projects which are continuously helping pype grow and get better.</span></p>
+              <div className="showcase">
+                {collab.map((props, idx) => (
+                  <Collaborator key={idx} {...props} />
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+
+        {clients && clients.length && (
+          <section className={styles.gallery}>
+            <div className="container">
+              <h2>Clients</h2>
+              <div className="showcase">
+                {clients.map((props, idx) => (
+                  <Client key={idx} {...props} />
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
       </main>
     </Layout>
   );

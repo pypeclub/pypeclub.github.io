@@ -1,7 +1,7 @@
 ---
 id: artist_ftrack
 title: Ftrack
-sidebar_label: Ftrack
+sidebar_label: Artist
 ---
 
 # How to use Ftrack in Pype

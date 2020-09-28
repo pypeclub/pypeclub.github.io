@@ -8,21 +8,14 @@
   --ifm-color-primary-darkest: #24ae64;
 }
 
+.navbar--dark {
+    --ifm-navbar-background-color: #161a20f5;
+}
 .docusaurus-highlight-code-line {
   background-color: rgb(72, 77, 91);
   display: block;
   margin: 0 calc(-1 * var(--ifm-pre-padding));
   padding: 0 var(--ifm-pre-padding);
-}
-
-
-.lightBackground {
-    background: linear-gradient(-135deg,
-                transparent 0,
-                #f5fffb 40%,
-                rgba(255, 255, 255, .7) 40.01%);
-    background-position: 50% 0;
-    position: relative;
 }
 
 .darkBackground {
@@ -34,6 +27,8 @@
     color: black
 }
 
+
+
 .showcase {
     display: flex;
     align-items: center;
@@ -42,11 +37,28 @@
     margin-bottom: 20px;
 }
 
+.showcase  a{
+    color: black;
+    text-decoration: none
+}
+
 .showcase .link {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 20px
+}
+
+.showcase .client {
+    display: flex;
+    justify-content: space-between;
+}
+
+.showcase .client img {
+    max-height: 80px;
+    padding: 20px;
+    max-width: 120px;
+    align-self: center;
 }
 
 .showcase .link img {
@@ -57,12 +69,12 @@
 }
 
 .showcase .link span {
-    text-align: center
+    text-align: center;
 }
 
 .showcase .collab img {
-    max-height: 80px;
-    padding: 10px;
+    max-height: 060px;
+    padding: 20px;
     align-self: center;
-    width: 80px;
+    max-width: 200px;
 }
