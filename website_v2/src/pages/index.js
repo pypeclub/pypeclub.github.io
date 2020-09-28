@@ -4,154 +4,39 @@ import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import styles from './index.module.css';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
-const install = `# Install
-curl -Lsf https://sh.benthos.dev | bash
-# Make a config
-benthos create nats/protobuf/sqs > ./config.yaml
-# Run
-benthos -c ./config.yaml`
-
-const snippets = [
-  {
-    label: 'Mapping',
-    further: '/docs/guides/bloblang/about/',
-    config: `input:
-  gcp_pubsub:
-    project: foo
-    subscription: bar
-pipeline:
-  processors:
-    - bloblang: |
-        root.message = this
-        root.meta.link_count = this.links.length()
-        root.user.age = this.user.age.number()
-output:
-  redis_streams:
-    url: tcp://TODO:6379
-    stream: baz
-    max_in_flight: 20`,
-  },
-  {
-    label: 'Multiplexing',
-    further: '/docs/components/outputs/about/#multiplexing-outputs',
-    config: `input:
-  kafka_balanced:
-    addresses: [ TODO ]
-    topics: [ foo, bar ]
-    consumer_group: foogroup
-output:
-  switch:
-    outputs:
-    - output:
-        sqs:
-          url: https://sqs.us-west-2.amazonaws.com/TODO/TODO
-          max_in_flight: 20
-      condition:
-        bloblang: doc.tags.contains("AWS")
-    - output:
-        redis_pubsub:
-          url: tcp://TODO:6379
-          channel: baz
-          max_in_flight: 20`,
-  },
-  {
-    label: 'Enrichments',
-    further: '/cookbooks/enrichments/',
-    config: `input:
-  mqtt:
-    urls: [ tcp://TODO:1883 ]
-    topics: [ foo ]
-pipeline:
-  processors:
-    - branch:
-        request_map: |
-          root.id = this.doc.id
-          root.content = this.doc.body
-        processors:
-          - lambda:
-              function: sentiment_analysis
-        result_map: root.results.sentiment = this
-output:
-  s3:
-    bucket: TODO
-    path: '\${! meta("partition") }/\${! timestamp_unix_nano() }.tar.gz'
-    batching:
-      count: 100
-      processors:
-        - archive:
-            format: tar
-        - compress:
-            algorithm: gzip`,
-  },
-];
-
-
+import styles from './styles.module.css';
 
 const features = [
   {
-    title: 'Takes Care of the Dull Stuff',
-    imageUrl: 'img/Blobboring.svg',
+    title: <>Training</>,
     description: (
       <>
-        <p>
-          Most stream processing tasks are actually just boring transformations, glueing APIs together, and multiplexing. Benthos specializes in these tasks, letting you focus on the more exciting features of your architecture.
-        </p>
-        <p>
-          It comes armed with a wide range of <a href="/docs/components/processors/about/">processors</a>, a <a href="/docs/guides/bloblang/about/">lit mapping language</a>, stateless <a href="/docs/configuration/windowed_processing/">windowed processing capabilities</a> and an <a href="/blobfish/">industry leading mascot</a>.
-        </p>
+        Docusaurus was designed from the ground up to be easily installed and
+        used to get your website up and running quickly.
       </>
     ),
   },
   {
-    title: 'Well Connected',
-    imageUrl: 'img/Blobborg.svg',
+    title: <>Consulting</>,
     description: (
       <>
-        <p>
-          Benthos is able to glue a wide range of <a href="/docs/components/inputs/about/">sources</a> and <a href="/docs/components/outputs/about/">sinks</a> together
-          and hook into a variety of <a href="/docs/components/processors/sql/">databases</a>, <a href="/docs/components/processors/cache/">caches</a>, <a href="/docs/components/processors/http/">HTTP APIs</a>, <a href="/docs/components/processors/lambda/">lambdas</a> and more, enabling you to seamlessly deploy it without changing your existing infrastructure.
-        </p>
-        <p>
-          Working with disparate APIs and services can be a daunting task, doubly so in a streaming data context. With Benthos it's possible to break these tasks down and automatically parallelize them as <a href="/cookbooks/enrichments/">a streaming workflow</a>.
-        </p>
+        An outside, independent point of view. We’ll work with you on all fronts to get your productions running smoothly.
       </>
     ),
   },
   {
-    title: 'Reliable and Scalable',
-    imageUrl: 'img/Blobscales.svg',
+    title: <>Support</>,
     description: (
       <>
-        <p>
-          Benthos runs fast and processes messages using a transaction model, making it able to guarantee at-least-once delivery even in the event of crashes or unexpected server faults.
-        </p>
-        <p>
-          It's completely stateless, allowing for easy deployment and liberal scaling. It also exposes <a href="/docs/components/metrics/about/">metrics</a> and <a href="/docs/components/tracers/about/">tracing</a> events to targets of your choice.
-        </p>
-        <p>
-          At Meltwater it's enriching over 450 million documents per day with a network of more than 20 NLP services. It sounds very interesting but rest assured, <a href="https://underthehood.meltwater.com/blog/2019/08/26/enriching-450m-docs-daily-with-a-boring-stream-processor/">it's totally drab</a>.
-        </p>
+        Experience and time is what we are selling. Whether you want to deploy our open source tools or you need a bespoke solution.
       </>
     ),
   },
   {
-    title: 'Extendable',
-    imageUrl: 'img/Blobextended.svg',
+    title: <>Coding</>,
     description: (
       <>
-        <p>
-          Sometimes the components that come with Benthos aren't enough.
-          Luckily, Benthos has been designed to be easily plugged with whatever
-          components you need.
-        </p>
-        <p>
-          You can either write plugins <a href="https://github.com/benthosdev/benthos-plugin-example">directly in Go (recommended)</a> or you can
-          configure Benthos to run your plugin as a <a href="/docs/components/processors/subprocess/">subprocess</a>.
-        </p>
+        We build an open, peer-reviewed pipeline, which can be shared across studio to reduce the cost and speed up the development.
       </>
     ),
   },
@@ -160,12 +45,7 @@ const features = [
 function Feature({imageUrl, title, description}) {
   const imgUrl = useBaseUrl(imageUrl);
   return (
-    <div className={classnames('col col--6', styles.feature)}>
-      {imgUrl && (
-        <div className="text--center">
-          <img className={classnames('padding-vert--md', styles.featureImage)} src={imgUrl} alt={title} />
-        </div>
-      )}
+    <div className={classnames('col col--3', styles.feature)}>
       <h3>{title}</h3>
       <p>{description}</p>
     </div>
@@ -177,69 +57,60 @@ function Home() {
   const {siteConfig = {}} = context;
   return (
     <Layout
-      title={`${siteConfig.title}`}
-      description="The stream processor for mundane tasks"
-      keywords={["benthos","stream processor","event processor","go","golang"]}>
-      <header className={classnames('hero', styles.heroBanner)}>
+      title={`${siteConfig.title}- code.training.support`}
+      description="Description will go into a meta tag in <head />">
+      <header className={classnames('hero hero--primary', styles.heroBanner)}>
         <div className="container">
-          <div className="row">
-            <div className={classnames('col col--5 col--offset-1')}>
-              <h1 className="hero__title">{siteConfig.title}</h1>
-              <p className="hero__subtitle">{siteConfig.tagline}</p>
-              <div className={styles.buttons}>
-                <Link
-                  className={classnames(
-                    'button button--outline button--secondary button--lg',
-                    styles.getStarted,
-                  )}
-                  to={useBaseUrl('docs/guides/getting_started/')}>
-                  Get Started
-                </Link>
-              </div>
-            </div>
-            <div className={classnames('col col--5')}>
-              <img className={styles.heroImg} src="img/logo_hero.svg" />
-            </div>
+          <h1 className="hero__title">
+            PYPE.club
+          </h1>
+          <h2><small className="hero__subtitle">{siteConfig.tagline}</small></h2>
+          <div className={styles.buttons}>
+            <Link
+              className={classnames(
+                'button button--outline',
+                styles.button,
+              )}
+              to={'https://github.com/pypeclub/pype'}>
+              Source Code
+            </Link>
+            <Link
+              className={classnames(
+                'button button--outline',
+                styles.button,
+              )}
+              to={'mailto:info@pype.club'}>
+              Get in touch
+            </Link>
+            <Link
+              className={classnames(
+                'button button--outline',
+                styles.button,
+              )}
+              to={'https://discord.gg/sFNPWXG'}>
+              Join our chat
+            </Link>
+            <Link
+              className={classnames(
+                'button button--outline',
+                styles.button,
+              )}
+              to={'https://pypeclub.atlassian.net/servicedesk'}>
+              Client Support
+            </Link>
+
+            <p>
+            Helping VFX and animation studios that lack the resources to design and maintain a major software project in-house.</p>
+            <p>
+            We are your pipeline department, in a remote office.</p>
+
           </div>
         </div>
       </header>
       <main>
-        <div className="container">
-          <div className="row">
-            <div className={classnames(`${styles.pitch} col col--6`)}>
-              <h2>It's boringly easy to use</h2>
-              <p>
-                Written in Go, deployed as a static binary. Configured with a
-                single YAML file, allowing you to declare connectors and a list
-                of processing stages.
-              </p>
-            </div>
-            <div className={classnames('col col--6')}>
-                {snippets && snippets.length && (
-                  <section className={styles.configSnippets}>
-                    <Tabs defaultValue={snippets[0].label} values={snippets.map((props, idx) => {
-                      return {label:props.label, value:props.label};
-                    })}>
-                      {snippets.map((props, idx) => (
-                        <TabItem value={props.label}>
-                          <>
-                          <Link
-                            className={classnames('button button--outline button--secondary')}
-                            to={props.further}>
-                            Read more
-                          </Link>
-                          </>
-                        </TabItem>
-                      ))}
-                    </Tabs>
-                  </section>
-                )}
-            </div>
-          </div>
-        </div>
         {features && features.length && (
           <section className={styles.features}>
-            <div className="container margin-vert--md">
+            <div className="container">
               <div className="row">
                 {features.map((props, idx) => (
                   <Feature key={idx} {...props} />
@@ -248,27 +119,138 @@ function Home() {
             </div>
           </section>
         )}
-        <section className={styles.loveSection}>
+        <section className={classnames(styles.features, "darkBackground")}>
           <div className="container">
-            <div className="row">
-              <div className={classnames('col col--6')}>
-                <h3>Sponsored by the following heroes</h3>
-                <a href="https://www.meltwater.com/" className={styles.sponsorLink}><img className={styles.meltwaterImg} src="/img/sponsors/mw_logo.png" /></a>
-                <a href="https://www.whiteops.com/" className={styles.sponsorLink}><img className={styles.whiteopsImg} src="/img/sponsors/whiteops_logo.png" /></a>
+            <div className={classnames('row')}>
+              <div className="col col--6">
+              <img src="/img/frontpage/undraw_mind_map_cwng.svg" />
               </div>
-              <div className={classnames('col col--6', styles.loveSectionPlea)}>
-                <div>
-                  <a href="https://github.com/sponsors/Jeffail">
-                    <img className={styles.loveImg} src="img/blobheart.svg" alt="Blob Heart" />
-                  </a>
-                </div>
-                <Link
-                  className={classnames('button button--danger')}
-                  to="https://github.com/sponsors/Jeffail">
-                  Become a sponsor
-                </Link>
+              <div className="col col--6">
+                <h2>What is Pype?
+                </h2>
+                    <p>Multi-platform open-source pipeline built around the <a href="https://getavalon.github.io/2.0/">Avalon </a> platform, expanding it with extra features and integrations. Pype connects asset database, project management and time tracking into a single modular system. It has tight integration with Ftrack, but it can also run independently.</p>
+
+                    <p>
+                    Avalon with Pype provides a safe and stable technical backbone for your studio, without the worry of a vendor lock. You will always have full access to the source and your project database will run locally.
+                    </p>
               </div>
             </div>
+          </div>
+        </section>
+        <section className={classnames(styles.features)}>
+          <div className="container">
+            <div className={classnames('row',)}>
+                <div className="col col--6">
+                <h2>About us
+                </h2>
+                <p>
+                Our core team is formed from industry experts with years of production and pipeline experience. We perfectly understand the problems your studio is facing, because we’ve dealt with them, first hand, before. Instead of selling software, we offer our experience and time.
+                </p>
+                <p>Pype Club is a <a href="https://www.ftrack.com/en/developer/ftrack-developer-network">Ftrack Approved Developer</a>
+                </p>
+                </div>
+                <div className="col col--6">
+                <img src="/img/frontpage/undraw_programming.svg" />
+                </div>
+            </div>
+          </div>
+        </section>
+        <section className={classnames(styles.features, "darkBackground")}>
+          <div className="container">
+              <h2>Pype Integrations</h2>
+              <div className={classnames(
+                'showcase',
+                )}>
+                <a className="link" href="http://localhost:3000/features#maya">
+                  <img src="/img/app_maya.png" alt="" title=""></img>
+                  <span className="caption">Maya</span>
+                </a>
+
+                <a className="link" href="http://localhost:3000/features#nuke">
+                  <img src="/img/app_nuke.png" alt="" title=""></img>
+                  <span className="caption">Nuke</span>
+                </a>
+
+                <a className="link" href="http://localhost:3000/features#nuke">
+                  <img src="/img/app_nuke.png" alt="" title=""></img>
+                  <span className="caption">Nuke Studio</span>
+                </a>
+
+                <a className="link" href="http://localhost:3000/features#nuke">
+                  <img src="/img/app_hiero.png" alt="" title=""></img>
+                  <span className="caption">Hiero</span>
+                </a>
+
+                <a className="link" href="">
+                  <img src="/img/app_houdini.png" alt="" title=""></img>
+                  <span className="caption">Houdini</span>
+                </a>
+
+                <a className="link" href="http://localhost:3000/features#maya">
+                  <img src="/img/app_blender.png" alt="" title=""></img>
+                  <span className="caption">Blender</span>
+                </a>
+
+                <a className="link" href="">
+                  <img src="/img/app_fusion.png" alt="" title=""></img>
+                  <span className="caption">Fusion</span>
+                </a>
+
+                <a className="link" href="http://localhost:3000/features#ftrack">
+                  <img src="/img/app_ftrack.png" alt="" title=""></img>
+                  <span className="caption">Ftrack</span>
+                </a>
+
+                <a className="link" href="">
+                  <img src="/img/app_clockify.png" alt="" title=""></img>
+                  <span className="caption">Clockify</span>
+                </a>
+
+                <a className="link" href="">
+                  <img src="/img/app_premiere.png" alt="" title=""></img>
+                  <span className="caption">Premiere Pro</span>
+                </a>
+
+                <a className="link" href="">
+                  <img src="/img/app_photoshop.png" alt="" title=""></img>
+                  <span className="caption">Photoshop</span>
+                </a>
+
+                <a className="link" href="">
+                  <img src="/img/app_deadline.png" alt="" title=""></img>
+                  <span className="caption">Deadline</span>
+                </a>
+
+                <a className="link" href="">
+                  <img src="/img/app_muster.png" alt="" title=""></img>
+                  <span className="caption">Muster</span>
+                </a>
+
+                <a className="link" href="">
+                  <img src="/img/app_unreal.png" alt="" title=""></img>
+                  <span className="caption">Unreal Engine</span>
+                </a>
+
+                <a className="link" href="">
+                  <img src="/img/app_toonboom.png" alt="" title=""></img>
+                  <span className="caption">Harmony</span>
+                </a>
+              </div>
+
+              <p> <span>In development by us or a community of <a href="https://github.com/getavalon/core/pulls">avalon core</a> developers.</span></p>
+              <div className={classnames(
+                'showcase',
+                )}>
+
+                <a className="link" href="http://localhost:3000/features#storyboardpro">
+                  <img src="/img/app_storyboardpro.svg" alt="" title=""></img>
+                  <span className="caption">Storyboard Pro</span>
+                </a>
+                <a className="link" href="http://localhost:3000/features#storyboardpro">
+                  <img src="/img/app_resolve.png" alt="" title=""></img>
+                  <span className="caption">DaVinci Resolve</span>
+                </a>
+              </div>
           </div>
         </section>
       </main>

@@ -5,17 +5,6 @@ module.exports = {
   baseUrl: '/',
   organizationName: 'pypeclub',
   projectName: 'pypeclub.github.io',
-  scripts: [
-    'https://code.jquery.com/jquery-3.3.1.min.js', 'https://buttons.github.io/buttons.js', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js', 'https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js', '/js/code-block-buttons.js'
-  ],
-  stylesheets: [
-    'https://fonts.googleapis.com/icon?family=Material+Icons',
-    'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css',
-    'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css',
-    'https://fonts.googleapis.com/css?family=Roboto',
-    'https://use.fontawesome.com/releases/v5.7.2/css/all.css',
-    'https://use.typekit.net/zcf6xee.css'
-  ],
   favicon: 'img/favicon/favicon.ico',
   customFields: {
     users: [
@@ -82,27 +71,27 @@ module.exports = {
     },
     markdownPlugins: [null]
   },
-  onBrokenLinks: 'log',
   presets: [
     [
       '@docusaurus/preset-classic', {
         docs: {
-          showLastUpdateAuthor: true,
-          showLastUpdateTime: true,
-          path: './docs',
-          sidebarPath: '@site/sidebars.json'
-        },
-        blog: {
-          path: 'blog'
+          sidebarPath: require.resolve('./sidebars.json'),
         },
         theme: {
-          customCss: './src/css/customTheme.css'
+          customCss: require.resolve('./src/css/custom.css')
         }
       }
     ]
   ],
-  plugins: [],
   themeConfig: {
+    colorMode: {
+      // "light" | "dark"
+      defaultMode: 'light',
+
+      // Hides the switch in the navbar
+      // Useful if you want to support a single color mode
+      disableSwitch: true
+    },
     navbar: {
       title: 'PYPE',
       logo: {
@@ -129,48 +118,6 @@ module.exports = {
           to: 'docs/api',
           label: 'API',
           position: 'left'
-        }, {
-          label: 'Version',
-          to: 'docs',
-          position: 'right',
-          items: [
-            {
-              label: '2.11.0',
-              to: 'docs/',
-              activeBaseRegex: 'docs/(?!2.3.0|2.3.6|2.4.0|2.5.0|2.6.0|2.7.0|2.8.0|2.9.0|2.10.0|2.11.0|next)'
-            }, {
-              label: '2.10.0',
-              to: 'docs/2.10.0/'
-            }, {
-              label: '2.9.0',
-              to: 'docs/2.9.0/'
-            }, {
-              label: '2.8.0',
-              to: 'docs/2.8.0/'
-            }, {
-              label: '2.7.0',
-              to: 'docs/2.7.0/'
-            }, {
-              label: '2.6.0',
-              to: 'docs/2.6.0/'
-            }, {
-              label: '2.5.0',
-              to: 'docs/2.5.0/'
-            }, {
-              label: '2.4.0',
-              to: 'docs/2.4.0/'
-            }, {
-              label: '2.3.6',
-              to: 'docs/2.3.6/'
-            }, {
-              label: '2.3.0',
-              to: 'docs/2.3.0/'
-            }, {
-              label: 'Master/Unreleased',
-              to: 'docs/next/',
-              activeBaseRegex: 'docs/next/(?!support|team|resources)'
-            }
-          ]
         }
       ]
     },
