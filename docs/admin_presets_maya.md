@@ -119,3 +119,25 @@ All the viewport settings for maya playblasts.
     "twoSidedLighting": true
 }
 ```
+
+## Maya instance scene types
+
+It is possible to set when to use `.ma` or `.mb` for:
+
+- camera
+- setdress
+- layout
+- model
+- rig
+- yetiRig
+
+Just put `ext_mapping.json` into `presets/maya`. Inside is simple mapping:
+
+```JSON
+{
+  "rig": "mb",
+  "camera": "mb"
+}
+```
+
+*Note that default type is `ma`*
