@@ -61,7 +61,7 @@ Avalon is being very actively developed and maintained by a community of studios
 
 Pype_config repository need to be prepared and maintained for each studio using pype and holds all of their specific requiremens for pype. Those range from naming conventions and folder structures (in pype referred to as `project anatomy`), through colour management, data preferences, all the way to what individual  validators they want to use and what they are validating against.
 
-Thanks to a very flexible and extensible system of presets, we're almost always able to accommodatec client requests for modified behaviour by introducing new presets, rather than permanently altering the main codebase for everyone.
+Thanks to a very flexible and extensible system of presets, we're almost always able to accommodate client requests for modified behaviour by introducing new presets, rather than permanently altering the main codebase for everyone.
 
 
 ### Studio-Project-Configs
