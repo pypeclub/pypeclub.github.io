@@ -106,5 +106,8 @@ module.exports = {
       indexName: 'pype',
       algoliaOptions: {}
     }
-  }
+  },
+  stylesheets: [
+        'https://use.fontawesome.com/releases/v5.7.2/css/all.css'
+    ],
 };

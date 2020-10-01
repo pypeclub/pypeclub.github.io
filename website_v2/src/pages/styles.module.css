@@ -78,3 +78,37 @@
   width: 100%;
   text-align: center;
 }
+
+.card_container {
+    align-items: center;
+}
+
+.card_container h2 {
+    text-align: center;
+}
+
+.card_box {
+    align-items: center;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    /* Then we define how is distributed the remaining space */
+    /* justify-content: space-around; */
+}
+
+.card {
+  max-width: 250px;
+  padding: 10px;
+  font-size: 10pt
+}
+
+.more_item {
+  display: flex;
+  font-size: 12.8px;
+  font-weight: 700;
+  margin-left: auto!important;
+}
+
+.card a{
+  color: var(--ifm-font-color-base);
+}

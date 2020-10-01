@@ -11,6 +11,16 @@
 .navbar--dark {
     --ifm-navbar-background-color: #161a20f5;
 }
+
+.navbar__brand:hover {
+      text-decoration: none;
+      color: var(--ifm-color-primary);
+    }
+
+.navbar__toggle {
+      color: white;
+  }
+
 .docusaurus-highlight-code-line {
   background-color: rgb(72, 77, 91);
   display: block;
@@ -27,7 +37,9 @@
     color: black
 }
 
-
+.section {
+    padding: 4rem 0;
+}
 
 .showcase {
     display: flex;
