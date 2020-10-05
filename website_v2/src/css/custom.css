@@ -6,6 +6,13 @@
   --ifm-color-primary-dark: #39d681;
   --ifm-color-primary-darker: #2dd379;
   --ifm-color-primary-darkest: #24ae64;
+
+  --ifm-navbar-background-color:#1f2329;
+  --ifm-footer-background-color:#1f2329;
+  --ifm-footer-link-color: white;
+
+  --ifm-card-border-radius: calc(0.4rem);
+  --ifm-global-shadow-lw: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
 }
 
 .navbar--dark {
@@ -30,8 +37,17 @@
 
 .darkBackground {
     background: linear-gradient(135deg,
-                rgba(135, 135, 135, .2) 60%,
-                rgba(100, 100, 100, .2) 60.01%);
+                rgba(135, 135, 135, .3) 60%,
+                rgba(100, 100, 100, .3) 60.01%);
+    background-position: 50% 0;
+    position: relative;
+    color: black
+}
+
+.lightBackground {
+    background: linear-gradient(-135deg,
+                #f5fffb 40%,
+                white 40.01%);
     background-position: 50% 0;
     position: relative;
     color: black
@@ -40,6 +56,12 @@
 .section {
     padding: 4rem 0;
 }
+
+.sectionDescription {
+    text-align: center;
+    font-weight: 500;
+}
+
 
 .showcase {
     display: flex;
@@ -89,4 +111,22 @@
     padding: 20px;
     align-self: center;
     max-width: 200px;
+}
+
+.card {
+  max-width: 230px;
+  margin: 10px;
+  font-size: 10pt
+}
+
+.card_medium {
+  max-width: 180px;
+}
+
+.card_small {
+  width: 130px;
+}
+
+.card a{
+  color: var(--ifm-font-color-base);
 }
