@@ -4,6 +4,10 @@ title: Ftrack Setup
 sidebar_label: Ftrack Setup
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+
 Ftrack is currently the main project management option for Pype. This documentaion assumes that you are familiar with Ftrack and it's basic principles. If you're new to Ftrack, we recommend having a thorough look at [Ftrack Official Documentation](http://ftrack.rtd.ftrack.com/en/stable/).
 
 ## Prepare Ftrack for Pype
@@ -26,13 +30,19 @@ Ftrack Event Server is the key to automation of many tasks like _status change_,
 
 There are specific launch arguments for event server. With `$PYPE_SETUP/pype eventserver` you can launch event server but without prior preparation it will terminate immediately. The reason is that event server requires 3 pieces of information: _Ftrack server url_, _paths to events_ and _Credentials (Username and API key)_. Ftrack server URL and Event path are set from Pype's environments by default, but the credentials must be done separatelly for security reasons.
 
-There are 2 ways of passing your credentials to event server.
 
-:::neutral There are 2 ways of passing your credentials to event server.
-<!--DOCUSAURUS_CODE_TABS-->
 
-<!--1. Additional Arguments-->
-<br />
+:::note There are 2 ways of passing your credentials to event server.
+
+<Tabs
+  defaultValue="args"
+  values={[
+    {label: 'Additional Arguments', value: 'args'},
+    {label: 'Environments Variables', value: 'env'}
+  ]}>
+
+<TabItem value="args">
+
 -  **`--ftrack-user "your.username"`** : Ftrack Username
 -   **`--ftrack-api-key "00000aaa-11bb-22cc-33dd-444444eeeee"`** : User's API key
 -   **`--store-crededentials`** : Entered credentials will be stored for next launch with this argument _(It is not needed to enter **ftrackuser** and **ftrackapikey** args on next launch)_
@@ -42,19 +52,20 @@ There are 2 ways of passing your credentials to event server.
 
 So if you want to use Pype's environments then you can launch event server for first time with these arguments `$PYPE_SETUP/pype eventserver --ftrack-user "my.username" --ftrack-api-key "00000aaa-11bb-22cc-33dd-444444eeeee" --store-credentials`. Since that time, if everything was entered correctly, you can launch event server with `$PYPE_SETUP/pype eventserver`.
 
+</TabItem>
+<TabItem value="env">
 
-<!--2. Environments Variables-->
-
--   `FTRACK_API_USER` - Username _("your.username")_
--   `FTRACK_API_KEY` - User's API key _("00000aaa-11bb-22cc-33dd-444444eeeee")_
--   `FTRACK_SERVER` - Ftrack server url _("<https://yourdomain.ftrackapp.com/">)_
--   `FTRACK_EVENTS_PATH` - Paths to events _("//Paths/To/Events/")_
+- `FTRACK_API_USER` - Username _("your.username")_
+- `FTRACK_API_KEY` - User's API key _("00000aaa-11bb-22cc-33dd-444444eeeee")_
+- `FTRACK_SERVER` - Ftrack server url _("<https://yourdomain.ftrackapp.com/">)_
+- `FTRACK_EVENTS_PATH` - Paths to events _("//Paths/To/Events/")_
     We do not recommend you this way.
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+</TabItem>
+</Tabs>
 :::
 
-:::warning
+:::caution
 We do not recommend setting your ftrack user and api key environments in a persistent way, for security reasons. Option 1. passing them as arguments is substantially safer.
 :::
 

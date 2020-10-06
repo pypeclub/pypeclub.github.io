@@ -4,7 +4,25 @@ title: Update Notes
 sidebar_label: Update Notes
 ---
 
+<a name="update_to_2.12.0"></a>
+
+## Updating to 2.12.0 ##
+
+### Apps and tools
+
+**Must**
+
+run Create/Update Custom attributes action (to update custom attributes group)
+check if studio has set custom intent values and move values to ~/config/presets/global/intent.json
+
+**Optional**
+
+Set true/false on application and tools by studio usage (eliminate app list in Ftrack and time for registering Ftrack ations)
+
+
+
 <a name="update_to_2.11.0"></a>
+
 ## Updating to 2.11.0 ##
 
 ### Maya in deadline
@@ -13,6 +31,7 @@ We added or own maya deadline plugin to make render management easier. It operat
 
 
 <a name="update_to_2.10.0"></a>
+
 ## Updating to 2.10.0 ##
 
 ### Maya in deadline
@@ -21,6 +40,7 @@ We added or own maya deadline plugin to make render management easier. It operat
 
 
 <a name="update_to_2.9.0"></a>
+
 ## Updating to 2.9.0 ##
 
 ### Review and Burnin PRESETS
@@ -35,6 +55,7 @@ With the support of multiroot projects, we removed the old `storage.json` from c
 
 
 <a name="update_to_2.7.0"></a>
+
 ## Updating to 2.7.0 ##
 
 ### Master Versions
@@ -66,6 +87,7 @@ Make sure that `intent` attributes in ftrack is set correctly. It should follow 
 
 
 <a name="update_to_2.6.0"></a>
+
 ## Updating to 2.6.0 ##
 
 ### Dev vs Prod
@@ -88,10 +110,9 @@ Event server has to be restarted after the update to enable the ability to contr
 
 There is a major change in the way how burnin presets are being stored. We simplified the preset format, however that means the currently running production configs need to be tweaked to match the new format.
 
-:::neutral Example of converting burnin preset from 2.5 to 2.6
-<!--DOCUSAURUS_CODE_TABS-->
+:::note Example of converting burnin preset from 2.5 to 2.6
 
-<!--2.5 burnin preset-->
+2.5 burnin preset
 
 ```
 "burnins":{
@@ -121,7 +142,7 @@ There is a major change in the way how burnin presets are being stored. We simpl
       }
 ```
 
-<!--2.6 burnin preset-->
+2.6 burnin preset
 ```
 "burnins":{
     "TOP_LEFT": "{dd}/{mm}/{yyyy}",
@@ -132,5 +153,3 @@ There is a major change in the way how burnin presets are being stored. We simpl
     "BOTTOM_RIGHT": "{username}"
 }
 ```
-
-<!--END_DOCUSAURUS_CODE_TABS-->

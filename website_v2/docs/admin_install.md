@@ -4,6 +4,9 @@ title: Pype Setup
 sidebar_label: Pype Setup
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 ## Introduction
 
 The general approach to pype deployment is installing central repositories on a shared network storage which can be accessed by all artists in the studio. Simple shortcuts to launchers are then distributed to all workstations for artists to use. This approach ensures easy maintenance and updates.
@@ -33,10 +36,17 @@ On linux it is somehow different and all depends on linux distribution in use.
 Some linux variants (for example *Ubuntu*) need **python-dev** variant of python package that includes python headers and developer tools. This is needed because some of **Pype** requirements need to compile themselves against python during their installation. Please, refer to your distribution community to find out how to install that package.
 :::
 
-:::neutral Distro Specifics
-<!--DOCUSAURUS_CODE_TABS-->
 
-<!--Centos-->
+<Tabs
+  groupId="platforms"
+  defaultValue="win"
+  values={[
+    {label: 'Windows', value: 'win'},
+    {label: 'Linux', value: 'linux'},
+    {label: 'Mac', value: 'mac'},
+  ]}>
+
+<TabItem value="win">
 
 ```sh
 sudo yum group install "Development Tools"
@@ -66,12 +76,12 @@ Check it with:
 python --version
 ```
 
+</TabItem>
+<TabItem value="linux">
 
-<!--Ubuntu-->
 ```sh
 sudo apt install build-essential
 ```
-
 
 Some versions of Ubuntu already has python 3.6 installed, check it with:
 ```sh
@@ -86,10 +96,9 @@ Please be aware that even if your system already has python 3.6, than if that
 didn't come from **python3-dev** package, Pype will most likely fail to install
 it's dependencies.
 
+</TabItem>
+</Tabs>
 
-<!--END_DOCUSAURUS_CODE_TABS-->
-
-:::
 
 :::note Override Python detection
 You can override autodetection of Python. This can be useful if you want to use central network python location or some other custom location. Just set `PYPE_PYTHON_EXE` environment variable to point where you need.
@@ -200,8 +209,17 @@ By default, both branches will use the same virtual environment. Be careful when
 
 ### Installation
 
-:::neutral Platform specific Specifics
 
+<Tabs
+  groupId="platforms"
+  defaultValue="win"
+  values={[
+    {label: 'Windows', value: 'win'},
+    {label: 'Linux', value: 'linux'},
+    {label: 'Mac', value: 'mac'},
+  ]}>
+
+<TabItem value="win">
 
 To install Pype you need to get first to it's root directory in powershell.
 
@@ -221,8 +239,9 @@ Now you can run installation itself:
 ```sh
 .\pype.bat install
 ```
+</TabItem>
 
-
+<TabItem value="linux">
 
 To install pype you first need get to it's root directory in bash shell.
 If you Pype location is on network drive, you should add it to `/etc/fstab` to
@@ -251,7 +270,9 @@ If you Pype location is on network drive, you need to mount it first. Here are t
 6) click **Users & Groups -> Login Items**
 7) click + and select mounted drive and click **Add**
 
+</TabItem>
 
+<TabItem value="mac">
 
 To install Pype on Mac, you need to have Administrator privileges. There are also further requirements if you need to deploy repositories.
 
@@ -272,7 +293,9 @@ chown -R yourusername /Users/yourusername/Library/Caches/pip
 ```
 Switch `yourusername` for your user name :)
 
-:::
+</TabItem>
+
+</Tabs>
 
 What it basically does is:
 1) Create python virtual environment on path: `C:\Users\Public\pype_env2` on Windows or `/opt/pype/pype_env2` on Linux or `/usr/local/pype/pype_env2` on Mac.

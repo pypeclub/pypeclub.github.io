@@ -15,6 +15,35 @@
   --ifm-global-shadow-lw: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
 }
 
+.alert {
+}
+
+.alert--primary {
+      --ifm-alert-background-color: var(--ifm-color-primary-light);
+      --ifm-alert-border-color: var(--ifm-color-primary);
+    }
+.alert--secondary {
+      --ifm-alert-background-color: var(--ifm-color-secondary-light);
+      --ifm-alert-border-color: var(--ifm-color-secondary);
+    }
+.alert--success {
+      --ifm-alert-background-color: var(--ifm-color-success-light);
+      --ifm-alert-border-color: var(--ifm-color-success);
+    }
+.alert--info {
+      --ifm-alert-background-color: var(--ifm-color-info-light);
+      --ifm-alert-border-color: var(--ifm-color-info);
+    }
+.alert--warning {
+      --ifm-alert-background-color: var(--ifm-color-warning-light);
+      --ifm-alert-border-color: var(--ifm-color-warning);
+    }
+.alert--danger {
+      --ifm-alert-background-color: var(--ifm-color-danger-lighter);
+      --ifm-alert-border-color: var(--ifm-color-danger);
+    }
+
+
 .navbar--dark {
     --ifm-navbar-background-color: #161a20f5;
 }
