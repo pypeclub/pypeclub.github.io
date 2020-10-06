@@ -111,6 +111,18 @@ const clients = [
     title: 'The Scope',
     image: '/img/thescope_logo.png',
     infoLink: 'https://thescope.studio/'
+  }, {
+    title: 'The Line',
+    image: '/img/thelineanimationlogo.png',
+    infoLink: 'https://www.thelineanimation.com/'
+  }, {
+    title: 'Krutart',
+    image: '/img/krutart_logo.png',
+    infoLink: 'https://krutart.cz/'
+  }, {
+    title: 'Filmmore',
+    image: '/img/filmmore_logotype_bw.png',
+    infoLink: 'https://filmmore.nl/'
   }
 ];
 
@@ -328,6 +340,7 @@ function Home() {
                   <img src="/img/app_toonboom.png" alt="" title=""></img>
                   <span className="caption">Harmony</span>
                 </a>
+
               </div>
 
               <p> <span>In development by us or a community of <a href="https://github.com/getavalon/core/pulls">avalon core</a> developers.</span></p>
@@ -341,6 +354,16 @@ function Home() {
                 <a className="link" href="http://localhost:3000/features#resolve">
                   <img src="/img/app_resolve.png" alt="" title=""></img>
                   <span className="caption">DaVinci Resolve</span>
+                </a>
+
+                <a className="link" href="">
+                  <img src="/img/app_aftereffects.png" alt="" title=""></img>
+                  <span className="caption">After Effects</span>
+                </a>
+
+                <a className="link" href="">
+                  <img src="/img/app_tvpaint.png" alt="" title=""></img>
+                  <span className="caption">TV Paint</span>
                 </a>
 
               </div>
