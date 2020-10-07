@@ -5,20 +5,28 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
+import {
+      PopupboxManager,
+      PopupboxContainer
+    } from 'react-popupbox';
 
 const key_features = [
   {
     label: "Creator",
     link: "docs/artist_tools#creator",
-    description: "Universal GUI for defining content for publishing from your DCC app."
+    description: "Universal GUI for defining content for publishing from your DCC app.",
+    docs: "/docs/artist_tools#creator"
   }, {
     label: "Loader",
     link: "docs/artist_tools#loader",
-    description: "Universal GUI for loading published assets into your DCC app."
+    description: "Universal GUI for loading published assets into your DCC app.",
+    docs: "/docs/artist_tools#loader"
   }, {
     label: "Publisher",
     link: "docs/artist_tools#publisher",
-    description: "Universal GUI for validating and publishng content from your DCC app."
+    description: "Universal GUI for validating and publishng content from your DCC app.",
+    image: "",
+    docs: "/docs/artist_tools#publisher"
   }, {
     label: "Inventory",
     link: "docs/artist_tools#inventory",
@@ -30,11 +38,13 @@ const key_features = [
   }, {
     label: "Tray Publisher",
     link: "",
-    description: "A standalone GUI for publishing data into pipeline without going though DCC app."
+    description: "A standalone GUI for publishing data into pipeline without going though DCC app.",
+    image: ""
   }, {
     label: "Library Loader",
     link: "",
-    description: "A loader GUI that allows yo to load content from dedicated cross project asset library"
+    description: "A loader GUI that allows yo to load content from dedicated cross project asset library",
+    image: ""
   }, {
     label: "Pype Tray",
     link: "",
@@ -188,21 +198,38 @@ class FeatureKey extends React.Component {
     const label = this.props.label
     const link = (this.props.link || "")
     const description = this.props.description
+    const image = (this.props.image || "")
+    const demo = (this.props.demo || "")
+    const docs = (this.props.docs || "")
     return (
         <div className="card">
-          <div className="card__header">
-            <h4>{label}</h4>
-          </div>
-          <div className="card__body">
-          <p>
-            {description}
-          </p>
-          </div>
-          <div className={classnames(styles.more_item,
-                                     "card__footer")}>
-            {link != "" &&
-              <a href={link}>MORE <i className="fas fa-chevron-right"></i></a>
+          <div class="card__image">
+            {image != "" &&
+            <img
+              src={image}
+              alt="Image alt text"
+              title="Logo Title Text 1"
+            />
             }
+          </div>
+
+          <div className="card__body">
+            <h4>{label}</h4>
+            <p>
+              {description}
+            </p>
+          </div>
+          <div className={classnames(
+                                     "card__footer")}>
+
+           <div class="button-group button-group--block">
+             {demo != "" &&
+               <a href={demo} class="button button--secondary">Demo</a>
+             }
+             {docs != "" &&
+             <a href={docs} class="button button--secondary">Docs</a>
+             }
+           </div>
           </div>
         </div>
     );
@@ -262,6 +289,7 @@ function Home() {
     <Layout
       title={`${siteConfig.title}- Features`}
       description="Pype Feature list">
+
 
       <section className={classnames("section lightBackground")}>
         <div className={classnames(styles.card_container, "container")}>

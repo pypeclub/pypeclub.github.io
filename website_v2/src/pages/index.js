@@ -96,7 +96,7 @@ const clients = [
     image: '/img/client_incognito.png',
     infoLink: 'https://incognito.studio/'
   }, {
-    title: 'Bionaut',
+    title: 'Bionaut Animation',
     image: '/img/bionaut_logo.png',
     infoLink: 'https://bionaut.cz/'
   }, {
@@ -104,24 +104,28 @@ const clients = [
     image: '/img/3bohemians-logo.png',
     infoLink: 'https://www.3bohemians.eu//'
   }, {
-    title: 'Fourth Wall',
-    image: '/img/FW_logo_primary.png',
+    title: 'Fourth Wall Animation',
+    image: '/img/client_fourthwall_logo.png',
     infoLink: 'https://fourthwallanimation.com/'
   }, {
-    title: 'The Scope',
+    title: 'The Scope Studio',
     image: '/img/thescope_logo.png',
     infoLink: 'https://thescope.studio/'
   }, {
-    title: 'The Line',
+    title: 'The Line Animation',
     image: '/img/thelineanimationlogo.png',
     infoLink: 'https://www.thelineanimation.com/'
   }, {
-    title: 'Krutart',
-    image: '/img/krutart_logo.png',
+    title: 'Krutart Animation',
+    image: '/img/client_krutart_logo.png',
     infoLink: 'https://krutart.cz/'
   }, {
     title: 'Filmmore',
     image: '/img/filmmore_logotype_bw.png',
+    infoLink: 'https://filmmore.nl/'
+  }, {
+    title: 'Yowza Animation',
+    image: '/img/client_yowza_logo.png',
     infoLink: 'https://filmmore.nl/'
   }
 ];

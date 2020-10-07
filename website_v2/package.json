@@ -19,6 +19,7 @@
     "clsx": "^1.1.1",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
+    "react-popupbox": "^2.0.8",
     "remarkable-admonitions": "^0.2.1",
     "yarn": "^1.17.3"
   },

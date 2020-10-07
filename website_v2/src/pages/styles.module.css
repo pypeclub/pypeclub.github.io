@@ -96,8 +96,6 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    /* Then we define how is distributed the remaining space */
-    /* justify-content: space-around; */
 }
 
 .more_item {
