@@ -60,7 +60,11 @@ const key_features = [
   }, {
     label: "Farm rendering",
     link: "",
-    description: "Integrations with Deadline and Muster render manager. Render, publish sequences and generate any number of movie outputs automatically."
+    description: "Integrations with Deadline and Muster render managers. Render, publish and generate reviews on the farm."
+  }, {
+    label: "Remote",
+    link: "",
+    description: "Production proven in fully remote workflows. Pype can run of cloud servers and storage."
   }
 ];
 
@@ -114,15 +118,16 @@ const maya_features = [
   {
     label: "Look Management",
     link: "docs/artist_hosts_maya#look-development",
-    description:"Publish maya shading networks with textures and assign them to all assets in the scene at once"
-  }, {
+    description:"Publish shading networks with textures and assign them to all assets in the scene at once"
+  },
+  {
     label: "Project Shelves",
     description:"Add any custom projects scripts to dynamically generated maya shelves"
   },
   {
     label: "Playblasts",
     link: "docs/artist_hosts_maya#reviews",
-    description:"Makes sure all your playblasts are consistent, with burnins and and correct viewport settings"
+    description:"Makes all your playblasts consistent, with burnins and correct viewport settings"
   },
   {
     label: "Model > Render",
@@ -130,7 +135,7 @@ const maya_features = [
   },
   {
     label: "Plugins Support",
-    description:"Full production workflows support for Arnold, Vray, Redshift and Yeti. With more added upon client requests."
+    description:"Full support for Arnold, Vray, Redshift and Yeti. With more added upon client requests."
   }
 ]
 
@@ -153,7 +158,7 @@ const maya_families = [
     {label:"Yeti Cache"},
     {label:"Yeti Rig"},
     {label:"Vray Scene"},
-    {label:"Vray Proxy"}
+    {label:"Vray Proxy"},
 ]
 
 const nuke_features = [
@@ -170,12 +175,12 @@ const nuke_features = [
     description:"Template system for centrally controlled node parameters."
   },
   {
-    label: "Model > Render",
-    description:"We cover full project data flow from model throght animation, till final render."
+    label: "Rendering",
+    description:"Support for local and farm renders, including baked reviews."
   },
   {
-    label: "Data ingest",
-    description:"Create shots and sequences from nuke studio timeline, inlcuding all metadata."
+    label: "Slates",
+    description:"Generate slates and attach them to rendered."
   }
 ]
 
@@ -188,15 +193,89 @@ const nuke_families = [
     {label: "Group"},
     {label: "Workfile"},
     {label: "LUT"},
-    {label: "Cache"}
+    {label: "Cache"},
+    {label: "Gizmo"},
+    {label: "Prerender"},
 ]
 
+const hiero_features = [
+
+]
+
+const hiero_families = [
+    {label:"Render"},
+    {label:"Plate"},
+    {label:"Review"},
+    {label:"LUT"},
+    {label:"Nukenodes"},
+    {label:"Gizmo"},
+    {label:"Workfile"},
+]
+
+const blender_features = [
+
+]
+
+const blender_families = [
+    {label:"Model"},
+    {label:"Rig"},
+    {label:"Setdress"},
+    {label:"Layout"},
+    {label:"Animation"},
+    {label:"Point Cache"},
+    {label:"Camera"},
+    {label:"RenderSetup"},
+    {label:"Render"},
+    {label:"Review"},
+    {label:"Workfile"},
+]
+
+const houdini_features = [
+
+]
+
+const houdini_families = [
+    {label:"Model"},
+    {label:"Point Cache"},
+    {label:"VDB Cache"},
+    {label:"Camera"},
+    {label:"Review"},
+    {label:"Workfile"},
+]
+
+const fusion_features = [
+
+]
+
+const fusion_families = [
+    {label: "Render"},
+    {label: "Plate"},
+    {label: "Review"},
+    {label: "Workfile"}
+]
+
+const harmony_families = [
+    {label: "Render"},
+    {label: "Plate"},
+    {label: "Review"},
+    {label: "Template"},
+    {label: "Rig"},
+    {label: "Pallete"},
+    {label: "Workfile"}
+]
+
+const photoshop_families = [
+    {label: "Render"},
+    {label: "Plate"},
+    {label: "Image"},
+    {label: "LayeredImage"},
+    {label: "Workfile"}
+]
 
 
 class FeatureKey extends React.Component {
   render() {
     const label = this.props.label
-    const link = (this.props.link || "")
     const description = this.props.description
     const image = (this.props.image || "")
     const demo = (this.props.demo || "")
@@ -222,14 +301,14 @@ class FeatureKey extends React.Component {
           <div className={classnames(
                                      "card__footer")}>
 
-           <div class="button-group button-group--block">
-             {demo != "" &&
-               <a href={demo} class="button button--secondary">Demo</a>
-             }
-             {docs != "" &&
-             <a href={docs} class="button button--secondary">Docs</a>
-             }
-           </div>
+             <div class="button-group button-group--block">
+               {demo != "" &&
+                 <a href={demo} class="button button--secondary">Demo</a>
+               }
+               {docs != "" &&
+                <a href={docs} class="button button--secondary">Docs</a>
+               }
+             </div>
           </div>
         </div>
     );
@@ -241,6 +320,8 @@ class FeatureMedium extends React.Component {
     const label = this.props.label
     const link = (this.props.link || "")
     const description = this.props.description
+    const demo = (this.props.demo || "")
+    const docs = (this.props.docs || "")
     return (
         <div className="card card_medium">
           <div className="card__header">
@@ -253,9 +334,14 @@ class FeatureMedium extends React.Component {
           </div>
           <div className={classnames(styles.more_item,
                                      "card__footer")}>
-            {link != "" &&
-              <a href={link}>MORE <i className="fas fa-chevron-right"></i></a>
-            }
+           <div class="button-group button-group--block">
+             {demo != "" &&
+               <a href={demo} class="button button--secondary">Demo</a>
+             }
+             {docs != "" &&
+              <a href={docs} class="button button--secondary">Docs</a>
+             }
+           </div>
           </div>
         </div>
     );
@@ -309,7 +395,7 @@ function Home() {
 
       <section className={classnames("section darkBackground")}>
         <div className={classnames(styles.card_container, "container")}>
-          <h2>Ftrack</h2>
+          <h2 id="ftrack">Ftrack</h2>
 
           {ftrack && ftrack.length && (
             <div className={styles.card_box}>
@@ -334,7 +420,7 @@ function Home() {
       <section className={classnames("section lightBackground")}>
         <div className={classnames(styles.card_container, "container")}>
 
-          <h2>Autodesk Maya</h2>
+          <h2 id="maya">Autodesk Maya</h2>
           <p className="sectionDescription">versions 2017 and higher</p>
 
           {maya_features && maya_features.length && (
@@ -359,7 +445,7 @@ function Home() {
 
       <section className={classnames("section darkBackground")}>
         <div className={classnames(styles.card_container, "container")}>
-          <h2>Foundry Nuke | Nuke Studio | Hiero</h2>
+          <h2 id="nuke">Foundry Nuke | NukeX</h2>
 
           <p className="sectionDescription">versions 11.0 and higher</p>
 
@@ -383,6 +469,125 @@ function Home() {
         </div>
       </section>
 
+      <section className={classnames("section lightBackground")}>
+        <div className={classnames(styles.card_container, "container")}>
+          <h2 id="hiero">Foundry Hiero | Nuke Studio</h2>
+
+          <p className="sectionDescription">versions 11.0 and higher</p>
+
+          {hiero_features && hiero_features.length && (
+            <div className={styles.card_box}>
+              {hiero_features.map((props, idx) => (
+                <FeatureMedium key={idx} {...props} />
+              ))}
+            </div>
+          )}
+
+          <h3 className=""> Supported Families </h3>
+
+          {hiero_families && hiero_families.length && (
+            <div className={styles.card_box}>
+              {hiero_families.map((props, idx) => (
+                <FeatureSmall key={idx} {...props} />
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+
+      <section className={classnames("section darkBackground")}>
+        <div className={classnames(styles.card_container, "container")}>
+          <h2 id="houdini">Houdini</h2>
+
+          <p className="sectionDescription">versions 16.0 and higher</p>
+
+          <h3 className=""> Supported Families </h3>
+
+          {houdini_families && houdini_families.length && (
+            <div className={styles.card_box}>
+              {houdini_families.map((props, idx) => (
+                <FeatureSmall key={idx} {...props} />
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+
+
+      <section className={classnames("section lightBackground")}>
+        <div className={classnames(styles.card_container, "container")}>
+          <h2>Blender</h2>
+
+          <p className="sectionDescription">versions 2.80 and higher</p>
+
+          <h3 className=""> Supported Families </h3>
+
+          {blender_families && blender_families.length && (
+            <div className={styles.card_box}>
+              {blender_families.map((props, idx) => (
+                <FeatureSmall key={idx} {...props} />
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+
+
+      <section className={classnames("section darkBackground")}>
+        <div className={classnames(styles.card_container, "container")}>
+          <h2>Fusion</h2>
+
+          <p className="sectionDescription">versions 9 and higher</p>
+
+          <h3 className=""> Supported Families </h3>
+
+          {fusion_families && fusion_families.length && (
+            <div className={styles.card_box}>
+              {fusion_families.map((props, idx) => (
+                <FeatureSmall key={idx} {...props} />
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+
+
+      <section className={classnames("section darkBackground")}>
+        <div className={classnames(styles.card_container, "container")}>
+          <h2>Harmony</h2>
+
+          <p className="sectionDescription">versions 17 and higher</p>
+
+          <h3 className=""> Supported Families </h3>
+
+          {harmony_families && harmony_families.length && (
+            <div className={styles.card_box}>
+              {harmony_families.map((props, idx) => (
+                <FeatureSmall key={idx} {...props} />
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+
+
+      <section className={classnames("section darkBackground")}>
+        <div className={classnames(styles.card_container, "container")}>
+          <h2>Photoshop</h2>
+
+          <p className="sectionDescription">versions 2020 and higher</p>
+
+          <h3 className=""> Supported Families </h3>
+
+          {photoshop_families && photoshop_families.length && (
+            <div className={styles.card_box}>
+              {photoshop_families.map((props, idx) => (
+                <FeatureSmall key={idx} {...props} />
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
 
 
     </Layout>

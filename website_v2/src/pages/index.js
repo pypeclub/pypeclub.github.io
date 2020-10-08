@@ -270,57 +270,57 @@ function Home() {
           <div className="container">
               <h2>Pype Integrations</h2>
               <div className={classnames('showcase',)}>
-                <a className="link" href="http://localhost:3000/features#maya">
+                <a className="link" href={useBaseUrl("features#maya")}>
                   <img src="/img/app_maya.png" alt="" title=""></img>
                   <span className="caption">Maya</span>
                 </a>
 
-                <a className="link" href="http://localhost:3000/features#nuke">
+                <a className="link" href={useBaseUrl("features#nuke")}>
                   <img src="/img/app_nuke.png" alt="" title=""></img>
                   <span className="caption">Nuke</span>
                 </a>
 
-                <a className="link" href="http://localhost:3000/features#nuke">
+                <a className="link" href={useBaseUrl("features#hiero")}>
                   <img src="/img/app_nuke.png" alt="" title=""></img>
                   <span className="caption">Nuke Studio</span>
                 </a>
 
-                <a className="link" href="http://localhost:3000/features#nuke">
+                <a className="link" href={useBaseUrl("features#hiero")}>
                   <img src="/img/app_hiero.png" alt="" title=""></img>
                   <span className="caption">Hiero</span>
                 </a>
 
-                <a className="link" href="">
+                <a className="link" href={useBaseUrl("features#houdini")}>
                   <img src="/img/app_houdini.png" alt="" title=""></img>
                   <span className="caption">Houdini</span>
                 </a>
 
-                <a className="link" href="http://localhost:3000/features#maya">
+                <a className="link" href={useBaseUrl("features#blender")}>
                   <img src="/img/app_blender.png" alt="" title=""></img>
                   <span className="caption">Blender</span>
                 </a>
 
-                <a className="link" href="">
+                <a className="link" href={useBaseUrl("features#fusion")}>
                   <img src="/img/app_fusion.png" alt="" title=""></img>
                   <span className="caption">Fusion</span>
                 </a>
 
-                <a className="link" href="http://localhost:3000/features#ftrack">
+                <a className="link" href={useBaseUrl("features#ftrack")}>
                   <img src="/img/app_ftrack.png" alt="" title=""></img>
                   <span className="caption">Ftrack</span>
                 </a>
 
-                <a className="link" href="">
+                <a className="link" href={useBaseUrl("features#clockify")}>
                   <img src="/img/app_clockify.png" alt="" title=""></img>
                   <span className="caption">Clockify</span>
                 </a>
 
-                <a className="link" href="">
+                <a className="link" href={useBaseUrl("features#premiere")}>
                   <img src="/img/app_premiere.png" alt="" title=""></img>
                   <span className="caption">Premiere Pro</span>
                 </a>
 
-                <a className="link" href="">
+                <a className="link" href={useBaseUrl("features#photoshop")}>
                   <img src="/img/app_photoshop.png" alt="" title=""></img>
                   <span className="caption">Photoshop</span>
                 </a>
@@ -340,7 +340,7 @@ function Home() {
                   <span className="caption">Unreal Engine</span>
                 </a>
 
-                <a className="link" href="">
+                <a className="link" href={useBaseUrl("features#harmony")}>
                   <img src="/img/app_toonboom.png" alt="" title=""></img>
                   <span className="caption">Harmony</span>
                 </a>
@@ -351,11 +351,11 @@ function Home() {
 
               <div className={classnames('showcase',)}>
 
-                <a className="link" href="http://localhost:3000/features#storyboardpro">
+                <a className="link" href="">
                   <img src="/img/app_storyboardpro.svg" alt="" title=""></img>
                   <span className="caption">Storyboard Pro</span>
                 </a>
-                <a className="link" href="http://localhost:3000/features#resolve">
+                <a className="link" href="">
                   <img src="/img/app_resolve.png" alt="" title=""></img>
                   <span className="caption">DaVinci Resolve</span>
                 </a>

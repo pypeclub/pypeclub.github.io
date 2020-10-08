@@ -7,10 +7,6 @@ module.exports = {
   projectName: 'pypeclub.github.io',
   favicon: 'img/favicon/favicon.ico',
   customFields: {
-    fonts: {
-      futura: ['futura-pt', 'sans-serif']
-    },
-    markdownPlugins: []
   },
   presets: [
     [
@@ -61,6 +57,7 @@ module.exports = {
     },
     image: '/img/docusaurus.png',
     footer: {
+      style: 'dark',
       links: [
         {
           title: 'Docs',
@@ -97,9 +94,6 @@ module.exports = {
         },
       ],
       copyright: 'Copyright © 2020 Orbi Tools',
-      logo: {
-        src: 'img/favicon/P.png'
-      }
     },
     algolia: {
       apiKey: '5e01ee3bfbb744ca6f25d4b281ce38a9',

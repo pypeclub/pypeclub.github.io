@@ -50,7 +50,8 @@ module.exports = {
                     "admin_presets_tools"],
           "Release Notes":[
               "changelog",
-              "update_notes"
+              "update_notes",
+              "admin_docsexamples"
           ]
     },
 }
