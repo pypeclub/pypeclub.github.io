@@ -1,304 +1,86 @@
-<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Publishing · PYPE</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## What is publishing?"/><meta name="docsearch:version" content="2.12.0"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Publishing · PYPE"/><meta property="og:type" content="website"/><meta property="og:url" content="https://pype.club/"/><meta property="og:description" content="## What is publishing?"/><meta property="og:image" content="https://pype.club//img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://pype.club//img/docusaurus.png"/><link rel="shortcut icon" href="/img/favicon/favicon.ico"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css"/><link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto"/><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"/><link rel="stylesheet" href="https://use.typekit.net/zcf6xee.css"/><script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
-        document.addEventListener('DOMContentLoaded', function() {
-          addBackToTop(
-            {"zIndex":100}
-          )
-        });
-        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/favicon/P.png" alt="PYPE"/><h2 class="headerTitleWithLogo">PYPE</h2></a><a href="/versions"><h3>2.12.0</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/features" target="_self">Features</a></li><li class="siteNavGroupActive"><a href="/docs/artist_getting_started" target="_self">Artist</a></li><li class=""><a href="/docs/manager_naming" target="_self">Manager</a></li><li class=""><a href="/docs/admin_getting_started" target="_self">Admin</a></li><li class=""><a href="/docs/api" target="_self">API</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Workflow</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Workflow</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/artist_getting_started">Getting started</a></li><li class="navListItem"><a class="navItem" href="/docs/artist_concepts">Key Concepts</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/artist_publish">Publishing</a></li><li class="navListItem"><a class="navItem" href="/docs/artist_tools">Tools</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Hosts</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/artist_hosts_nukestudio">Hiero / Nuke Studio</a></li><li class="navListItem"><a class="navItem" href="/docs/artist_hosts_nuke">Nuke</a></li><li class="navListItem"><a class="navItem" href="/docs/artist_hosts_maya">Maya</a></li><li class="navListItem"><a class="navItem" href="/docs/artist_hosts_harmony">Harmony</a></li><li class="navListItem"><a class="navItem" href="/docs/artist_hosts_photoshop">Photoshop</a></li><li class="navListItem"><a class="navItem" href="/docs/artist_hosts_unreal">Unreal</a></li><li class="navListItem"><a class="navItem" href="/docs/artist_ftrack">Ftrack</a></li><li class="navListItem"><a class="navItem" href="/docs/artist_hosts_standalonepubish">Standalone Publish</a></li></ul></div></div></section></div><script>
-            var coll = document.getElementsByClassName('collapsible');
-            var checkActiveCategory = true;
-            for (var i = 0; i < coll.length; i++) {
-              var links = coll[i].nextElementSibling.getElementsByTagName('*');
-              if (checkActiveCategory){
-                for (var j = 0; j < links.length; j++) {
-                  if (links[j].classList.contains('navListItemActive')){
-                    coll[i].nextElementSibling.classList.toggle('hide');
-                    coll[i].childNodes[1].classList.toggle('rotate');
-                    checkActiveCategory = false;
-                    break;
-                  }
-                }
-              }
-
-              coll[i].addEventListener('click', function() {
-                var arrow = this.childNodes[1];
-                arrow.classList.toggle('rotate');
-                var content = this.nextElementSibling;
-                content.classList.toggle('hide');
-              });
-            }
-
-            document.addEventListener('DOMContentLoaded', function() {
-              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
-              createToggler('#tocToggler', 'body', 'tocActive');
-
-              var headings = document.querySelector('.toc-headings');
-              headings && headings.addEventListener('click', function(event) {
-                var el = event.target;
-                while(el !== headings){
-                  if (el.tagName === 'A') {
-                    document.body.classList.remove('tocActive');
-                    break;
-                  } else{
-                    el = el.parentNode;
-                  }
-                }
-              }, false);
-
-              function createToggler(togglerSelector, targetSelector, className) {
-                var toggler = document.querySelector(togglerSelector);
-                var target = document.querySelector(targetSelector);
-
-                if (!toggler) {
-                  return;
-                }
-
-                toggler.onclick = function(event) {
-                  event.preventDefault();
-
-                  target.classList.toggle(className);
-                };
-              }
-            });
-        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Publishing</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="what-is-publishing"></a><a href="#what-is-publishing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>What is publishing?</h2>
-<p>A process of exporting particular data from your work scene to be shared with others.</p>
-<p>Think of publishing as a checkpoint between two people, making sure that we catch mistakes as soon as possible and don’t let them pass through pipeline step that would eventually need to be repeated if these mistakes are not caught.</p>
-<p>Every time you want to share a piece of work with others (be it camera, model, textures, animation or whatever), you need to publish this data. The main reason is to save time down the line and make it very clear what can and cannot be used in production.
-This process should mostly be handled by publishing scripts but in certain cases might have to be done manually.</p>
-<p>Published assets should comply to these rules:</p>
-<ul>
-<li>Clearly named, based on internal naming conventions.</li>
-<li>Versioned (with master version created for certain types of assets).</li>
-<li>Immediately usable, without any dependencies to unpublished assets or work files.</li>
-<li>Immutable</li>
-</ul>
-<p>All of these go into the publish folder for the given entity (shot, asset, sequence)</p>
-
-    <div class="admonition admonition-note">
-      <div class="admonition-heading">
-        <h5><div class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"/></svg></div> note</h5>
-      </div>
-      <div class="admonition-content">
-    <p>Keep in mind that while publishing the data might take you some extra time, it will save much more time in the long run when your colleagues don’t need to dig through your work files trying to understand them and find that model you saved by hand.</p>
-</div></div><h2><a class="anchor" aria-hidden="true" id="families"></a><a href="#families" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Families:</h2>
-<p>The Instances are categorized into ‘families’ based on what type of data they contain. Some instances might have multiple families if needed. A shot camera will for example have families 'camera' and  'review' to indicate that it's going to be used for review quicktime, but also exported into a file on disk.</p>
-<p>Following family definitions and requirements are Pype defaults and what we consider good industry practice, but most of the requirements can be easily altered to suit the studio or project needs.</p>
-<p>Here's a list of supported families</p>
-<table>
-<thead>
-<tr><th>Family</th><th>Comment</th><th>Example Subsets</th></tr>
-</thead>
-<tbody>
-<tr><td><a href="#model">Model</a></td><td>Cleaned geo without materials</td><td>main, proxy, broken</td></tr>
-<tr><td><a href="#look">Look</a></td><td>Package of shaders, assignments and textures</td><td>main, wet, dirty</td></tr>
-<tr><td><a href="#rig">Rig</a></td><td>Characters or props with animation controls</td><td>main, deform, sim</td></tr>
-<tr><td><a href="#assembly">Assembly</a></td><td>A complex model made from multiple other models.</td><td>main, deform, sim</td></tr>
-<tr><td><a href="#setdress">Setdress</a></td><td>Environment containing only referenced assets</td><td>main,</td></tr>
-<tr><td><a href="#camera">Camera</a></td><td>May contain trackers or proxy geo</td><td>main, tracked, anim</td></tr>
-<tr><td><a href="#animation">Animation</a></td><td>Animation exported from a rig.</td><td>characterA, vehicleB</td></tr>
-<tr><td><a href="#cache">Cache</a></td><td>Arbitrary animated geometry or fx cache</td><td>rest, ROM , pose01</td></tr>
-<tr><td>MayaAscii</td><td>Maya publishes that don't fit other categories</td><td></td></tr>
-<tr><td><a href="#render">Render</a></td><td>Rendered frames from CG or Comp</td><td></td></tr>
-<tr><td>Plate</td><td>Ingested, transcode, conformed footage</td><td>raw, graded, imageplane</td></tr>
-<tr><td>Write</td><td>Nuke write nodes for rendering</td><td></td></tr>
-<tr><td>Image</td><td>Any non-plate image to be used by artists</td><td>Reference, ConceptArt</td></tr>
-<tr><td>Matchmove</td><td>Matchmoved camera, potentially with geometry</td><td>main</td></tr>
-<tr><td>Workfile</td><td>Backup of the workfile with all it's content</td><td>uses the task name</td></tr>
-<tr><td>Nukenodes</td><td>Any collection of nuke nodes</td><td>maskSetup, usefulBackdrop</td></tr>
-<tr><td>Yeticache</td><td>Cached out yeti fur setup</td><td></td></tr>
-<tr><td>YetiRig</td><td>Yeti groom ready to be applied to geometry cache</td><td>main, destroyed</td></tr>
-<tr><td>VrayProxy</td><td>Vray proxy geometry for rendering</td><td></td></tr>
-<tr><td>VrayScene</td><td>Vray full scene export</td><td></td></tr>
-<tr><td>ArnodldStandin</td><td>All arnold .ass archives for rendering</td><td>main, wet, dirty</td></tr>
-</tbody>
-</table>
-<h3><a class="anchor" aria-hidden="true" id="model"></a><a href="#model" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Model</h3>
-<p>Clean geometry without any material assignments. Published model can be as small as a single mesh, or as complex as a full building. That is purely up to the artist or the supervisor. Models can contain hierarchy defined by groups or nulls for better organisation.</p>
-<p>Apart from model subsets, we also support LODs as extra level on top of subset. To publish LODs, you just need to prepare subsets for publishing names <code>modelMySubsetName_LOD##</code>, if pype finds <code>_LOD##</code> (hashes replaced with LOD level), it will automatically be considered a LOD of the given subset.</p>
-<p>Example Subsets:
-<code>modelMain</code>, <code>modelProxy</code>, <code>modelSculpt</code>, <code>modelBroken</code>, <code>modelMain_LOD01</code>, <code>modelMain_LOD02</code></p>
-<p>Example representations:
-<code>.ABC</code>, <code>.MA</code>, <code>.MB</code>, <code>.BLEND</code>, <code>.OBJ</code>, <code>.FBX</code></p>
-
-    <div class="admonition admonition-tip">
-      <div class="admonition-heading">
-        <h5><div class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"/></svg></div>  Model MUST:</h5>
-      </div>
-      <div class="admonition-content">
-    <ul>
-<li>Only consist of <strong>transforms</strong>, <strong>poly-meshes</strong> or <strong>subdivision surfaces</strong>.</li>
-<li>Include correct naming suffixes for all the transforms and shapes. (These can be configured differently)
-<ul>
-<li><code>_GEO</code> for geometry</li>
-<li><code>_GRP</code> for groups</li>
-<li><code>_SUBD</code> for subdivision surfaces</li>
-<li>Have frozen and zeroed out transforms</li>
-</ul></li>
-</ul>
-</div></div>
-    <div class="admonition admonition-warning">
-      <div class="admonition-heading">
-        <h5><div class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"/></svg></div>  Model Must NOT:</h5>
-      </div>
-      <div class="admonition-content">
-    <ul>
-<li>Contain any external references</li>
-<li>Contain any zero-length edges</li>
-<li>Contain any non-manifold geometry</li>
-<li>Contain any negative scales</li>
-<li>Contain any lamina faces</li>
-</ul>
-</div></div><h3><a class="anchor" aria-hidden="true" id="look"></a><a href="#look" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Look</h3>
-<p>A package of materials, shaders, assignments, textures and attributes that collectively define a look of a model for rendering or preview purposes. This ca usually be applied only to the model is was authored for, or it's corresponding cache, however material sharing across multiple models is also possible. A look should be fully self-contained and ready for rendering.</p>
-<p>Example Subsets:
-<code>lookMain</code>, <code>lookProxy</code>, <code>lookWet</code>, <code>lookDirty</code>, <code>lookBlue</code>, <code>lookRed</code></p>
-<p>Example Representations:
-<code>.MA + .JSON</code>, <code>.MTLX (yet unsupported)</code>, <code>.BLEND</code></p>
-<p>Please note that a look is almost never a single representation, but a combination of multiple.
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="generator" content="Docusaurus v2.0.0-alpha.64">
+<link rel="search" type="application/opensearchdescription+xml" title="PYPE" href="/opensearch.xml">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"><title data-react-helmet="true">Publishing | PYPE</title><meta data-react-helmet="true" name="docsearch:version" content="current,latest"><meta data-react-helmet="true" property="og:image" content="http://pypeclub.github.io//img/docusaurus.png"><meta data-react-helmet="true" property="twitter:image" content="http://pypeclub.github.io//img/docusaurus.png"><meta data-react-helmet="true" name="twitter:image:alt" content="Image for PYPE"><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"><meta data-react-helmet="true" property="og:title" content="Publishing | PYPE"><meta data-react-helmet="true" name="description" content="What is publishing?"><meta data-react-helmet="true" property="og:description" content="What is publishing?"><meta data-react-helmet="true" property="og:url" content="http://pypeclub.github.io//docs/artist_publish"><link data-react-helmet="true" rel="shortcut icon" href="/img/favicon/favicon.ico"><link data-react-helmet="true" rel="preconnect" href="https://BH4D9OD16A-dsn.algolia.net" crossorigin="true"><link data-react-helmet="true" rel="canonical" href="http://pypeclub.github.io//docs/artist_publish"><link rel="stylesheet" href="/styles.d1543e7d.css">
+<link rel="preload" href="/styles.6bc2fdab.js" as="script">
+<link rel="preload" href="/runtime~main.990a5e00.js" as="script">
+<link rel="preload" href="/main.95be6c84.js" as="script">
+<link rel="preload" href="/1.13845e85.js" as="script">
+<link rel="preload" href="/2.910ce099.js" as="script">
+<link rel="preload" href="/3.ab358325.js" as="script">
+<link rel="preload" href="/1be78505.36fbca8a.js" as="script">
+<link rel="preload" href="/54.19594f19.js" as="script">
+<link rel="preload" href="/f976f453.556ca386.js" as="script">
+<link rel="preload" href="/17896441.622abe92.js" as="script">
+<link rel="preload" href="/cf22177d.85105fea.js" as="script">
+</head>
+<body>
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){var t=null;try{t=localStorage.getItem("theme")}catch(t){}return t}();t(null!==e?e:"light")}()</script><div id="__docusaurus">
+<nav class="navbar navbar--fixed-top navbar--dark"><div class="navbar__inner"><div class="navbar__items"><div aria-label="Navigation bar toggle" class="navbar__toggle" role="button" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" role="img" focusable="false"><title>Menu</title><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></div><a class="navbar__brand" href="/"><img class="navbar__logo" src="/img/favicon/P.png"><strong class="navbar__title">PYPE</strong></a><a class="navbar__item navbar__link" href="/features">Features</a><a class="navbar__item navbar__link" href="/docs/artist_getting_started">User Docs</a><a class="navbar__item navbar__link" href="/docs/admin_getting_started">Admin Docs</a><a class="navbar__item navbar__link" href="/docs/api">API</a></div><div class="navbar__items navbar__items--right"><button type="button" class="DocSearch DocSearch-Button" aria-label="Search"><svg width="20" height="20" class="DocSearch-Search-Icon" viewBox="0 0 20 20"><path d="M14.386 14.386l4.0877 4.0877-4.0877-4.0877c-2.9418 2.9419-7.7115 2.9419-10.6533 0-2.9419-2.9418-2.9419-7.7115 0-10.6533 2.9418-2.9419 7.7115-2.9419 10.6533 0 2.9419 2.9418 2.9419 7.7115 0 10.6533z" stroke="currentColor" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="DocSearch-Button-Placeholder">Search</span><span class="DocSearch-Button-Key">⌘</span><span class="DocSearch-Button-Key">K</span></button></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div><div class="navbar-sidebar"><div class="navbar-sidebar__brand"><a class="navbar__brand" href="/"><img class="navbar__logo" src="/img/favicon/P.png"><strong class="navbar__title">PYPE</strong></a></div><div class="navbar-sidebar__items"><div class="menu"><ul class="menu__list"><li class="menu__list-item"><a class="menu__link" href="/features">Features</a></li><li class="menu__list-item"><a class="menu__link" href="/docs/artist_getting_started">User Docs</a></li><li class="menu__list-item"><a class="menu__link" href="/docs/admin_getting_started">Admin Docs</a></li><li class="menu__list-item"><a class="menu__link" href="/docs/api">API</a></li></ul></div></div></div></nav><div class="main-wrapper"><div class="docPage_2gpo"><div class="docSidebarContainer_3_JD" role="complementary"><div class="sidebar_2urC"><div class="menu menu--responsive menu_5FrY"><button aria-label="Open Menu" aria-haspopup="true" class="button button--secondary button--sm menu__button" type="button"><svg aria-label="Menu" class="sidebarMenuIcon_Dm3K" xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 32 32" role="img" focusable="false"><title>Menu</title><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><ul class="menu__list"><li class="menu__list-item"><a class="menu__link menu__link--sublist menu__link--active" href="#!">Workflow</a><ul class="menu__list"><li class="menu__list-item"><a class="menu__link" tabindex="0" href="/docs/artist_getting_started">Getting started</a></li><li class="menu__list-item"><a class="menu__link" tabindex="0" href="/docs/artist_concepts">Key Concepts</a></li><li class="menu__list-item"><a aria-current="page" class="menu__link menu__link--active active" tabindex="0" href="/docs/artist_publish">Publishing</a></li><li class="menu__list-item"><a class="menu__link" tabindex="0" href="/docs/artist_tools">Tools</a></li><li class="menu__list-item"><a class="menu__link" tabindex="0" href="/docs/manager_naming">Naming Conventions</a></li></ul></li><li class="menu__list-item"><a class="menu__link menu__link--sublist" href="#!">Integrations</a><ul class="menu__list"><li class="menu__list-item"><a class="menu__link" tabindex="0" href="/docs/artist_hosts_nukestudio">Hiero / Nuke Studio</a></li><li class="menu__list-item"><a class="menu__link" tabindex="0" href="/docs/artist_hosts_nuke">Nuke</a></li><li class="menu__list-item"><a class="menu__link" tabindex="0" href="/docs/artist_hosts_maya">Maya</a></li><li class="menu__list-item"><a class="menu__link" tabindex="0" href="/docs/artist_hosts_harmony">Harmony</a></li><li class="menu__list-item"><a class="menu__link" tabindex="0" href="/docs/artist_hosts_photoshop">Photoshop</a></li><li class="menu__list-item"><a class="menu__link" tabindex="0" href="/docs/artist_hosts_unreal">Unreal</a></li><li class="menu__list-item menu__list-item--collapsed"><a class="menu__link menu__link--sublist" href="#!" tabindex="0">Ftrack</a><ul class="menu__list"><li class="menu__list-item"><a class="menu__link" tabindex="-1" href="/docs/artist_ftrack">Artist</a></li><li class="menu__list-item"><a class="menu__link" tabindex="-1" href="/docs/manager_ftrack">Project Manager</a></li><li class="menu__list-item"><a class="menu__link" tabindex="-1" href="/docs/manager_ftrack_actions">Ftrack actions</a></li></ul></li></ul></li></ul></div></div></div><main class="docMainContainer_3EyW"><div class="container padding-vert--lg docItemWrapper_1EkI"><div class="row"><div class="col docItemCol_2ASc"><div class="docItemContainer_3QWW"><article><header><h1 class="docTitle_1Lrw">Publishing</h1></header><div class="markdown"><h2><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_2cZh" id="what-is-publishing"></a>What is publishing?<a aria-hidden="true" tabindex="-1" class="hash-link" href="#what-is-publishing" title="Direct link to heading">#</a></h2><p>A process of exporting particular data from your work scene to be shared with others.</p><p>Think of publishing as a checkpoint between two people, making sure that we catch mistakes as soon as possible and don’t let them pass through pipeline step that would eventually need to be repeated if these mistakes are not caught.</p><p>Every time you want to share a piece of work with others (be it camera, model, textures, animation or whatever), you need to publish this data. The main reason is to save time down the line and make it very clear what can and cannot be used in production.
+This process should mostly be handled by publishing scripts but in certain cases might have to be done manually.</p><p>Published assets should comply to these rules:</p><ul><li>Clearly named, based on internal naming conventions.</li><li>Versioned (with master version created for certain types of assets).</li><li>Immediately usable, without any dependencies to unpublished assets or work files.</li><li>Immutable</li></ul><p>All of these go into the publish folder for the given entity (shot, asset, sequence)</p><div class="admonition admonition-note alert alert--secondary"><div class="admonition-heading"><h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</h5></div><div class="admonition-content"><p>Keep in mind that while publishing the data might take you some extra time, it will save much more time in the long run when your colleagues don’t need to dig through your work files trying to understand them and find that model you saved by hand.</p></div></div><h2><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_2cZh" id="families"></a>Families:<a aria-hidden="true" tabindex="-1" class="hash-link" href="#families" title="Direct link to heading">#</a></h2><p>The Instances are categorized into ‘families’ based on what type of data they contain. Some instances might have multiple families if needed. A shot camera will for example have families &#x27;camera&#x27; and  &#x27;review&#x27; to indicate that it&#x27;s going to be used for review quicktime, but also exported into a file on disk.</p><p>Following family definitions and requirements are Pype defaults and what we consider good industry practice, but most of the requirements can be easily altered to suit the studio or project needs.</p><p>Here&#x27;s a list of supported families
+| Family                | Comment                                          | Example Subsets           |
+| --------------------- | ------------------------------------------------ | ------------------------- |
+| <a href="#model">Model</a>       | Cleaned geo without materials                    | main, proxy, broken       |
+| <a href="#look">Look</a>         | Package of shaders, assignments and textures     | main, wet, dirty          |
+| <a href="#rig">Rig</a>           | Characters or props with animation controls      | main, deform, sim         |
+| <a href="#assembly">Assembly</a> | A complex model made from multiple other models. | main, deform, sim         |
+| <a href="#setdress">Setdress</a> | Environment containing only referenced assets    | main,                     |
+| <a href="#camera">Camera</a>     | May contain trackers or proxy geo                | main, tracked, anim       |
+| <a href="#animation">Animation</a>     | Animation exported from a rig.             | characterA, vehicleB      |
+| <a href="#cache">Cache</a>       | Arbitrary animated geometry or fx cache          | rest, ROM , pose01        |
+| MayaAscii             | Maya publishes that don&#x27;t fit other categories   |                           |
+| <a href="#render">Render</a>     | Rendered frames from CG or Comp                  |                           |
+| Plate                 | Ingested, transcode, conformed footage           | raw, graded, imageplane   |
+| Write                 | Nuke write nodes for rendering                   |                           |
+| Image                 | Any non-plate image to be used by artists        | Reference, ConceptArt     |
+| Matchmove             | Matchmoved camera, potentially with geometry     | main                      |
+| Workfile              | Backup of the workfile with all it&#x27;s content     | uses the task name        |
+| Nukenodes             | Any collection of nuke nodes                     | maskSetup, usefulBackdrop |
+| Yeticache             | Cached out yeti fur setup                        |                           |
+| YetiRig               | Yeti groom ready to be applied to geometry cache | main, destroyed           |
+| VrayProxy             | Vray proxy geometry for rendering                |                           |
+| VrayScene             | Vray full scene export                           |                           |
+| ArnodldStandin        | All arnold .ass archives for rendering           | main, wet, dirty          |</p><h3><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_2cZh" id="model"></a>Model<a aria-hidden="true" tabindex="-1" class="hash-link" href="#model" title="Direct link to heading">#</a></h3><p>Clean geometry without any material assignments. Published model can be as small as a single mesh, or as complex as a full building. That is purely up to the artist or the supervisor. Models can contain hierarchy defined by groups or nulls for better organisation.</p><p>Apart from model subsets, we also support LODs as extra level on top of subset. To publish LODs, you just need to prepare subsets for publishing names <code>modelMySubsetName_LOD##</code>, if pype finds <code>_LOD##</code> (hashes replaced with LOD level), it will automatically be considered a LOD of the given subset.</p><p>Example Subsets:
+<code>modelMain</code>, <code>modelProxy</code>, <code>modelSculpt</code>, <code>modelBroken</code>, <code>modelMain_LOD01</code>, <code>modelMain_LOD02</code></p><p>Example representations:
+<code>.ABC</code>, <code>.MA</code>, <code>.MB</code>, <code>.BLEND</code>, <code>.OBJ</code>, <code>.FBX</code></p><div class="admonition admonition-tip alert alert--success"><div class="admonition-heading"><h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>Model MUST:</h5></div><div class="admonition-content"><ul><li>Only consist of <strong>transforms</strong>, <strong>poly-meshes</strong> or <strong>subdivision surfaces</strong>.</li><li>Include correct naming suffixes for all the transforms and shapes. (These can be configured differently)<ul><li><code>_GEO</code> for geometry</li><li><code>_GRP</code> for groups</li><li><code>_SUBD</code> for subdivision surfaces</li><li>Have frozen and zeroed out transforms</li></ul></li></ul></div></div><div class="admonition admonition-warning alert alert--danger"><div class="admonition-heading"><h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16"><path fill-rule="evenodd" d="M5.05.31c.81 2.17.41 3.38-.52 4.31C3.55 5.67 1.98 6.45.9 7.98c-1.45 2.05-1.7 6.53 3.53 7.7-2.2-1.16-2.67-4.52-.3-6.61-.61 2.03.53 3.33 1.94 2.86 1.39-.47 2.3.53 2.27 1.67-.02.78-.31 1.44-1.13 1.81 3.42-.59 4.78-3.42 4.78-5.56 0-2.84-2.53-3.22-1.25-5.61-1.52.13-2.03 1.13-1.89 2.75.09 1.08-1.02 1.8-1.86 1.33-.67-.41-.66-1.19-.06-1.78C8.18 5.31 8.68 2.45 5.05.32L5.03.3l.02.01z"></path></svg></span>Model Must NOT:</h5></div><div class="admonition-content"><ul><li>Contain any external references</li><li>Contain any zero-length edges</li><li>Contain any non-manifold geometry</li><li>Contain any negative scales</li><li>Contain any lamina faces</li></ul></div></div><h3><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_2cZh" id="look"></a>Look<a aria-hidden="true" tabindex="-1" class="hash-link" href="#look" title="Direct link to heading">#</a></h3><p>A package of materials, shaders, assignments, textures and attributes that collectively define a look of a model for rendering or preview purposes. This ca usually be applied only to the model is was authored for, or it&#x27;s corresponding cache, however material sharing across multiple models is also possible. A look should be fully self-contained and ready for rendering.</p><p>Example Subsets:
+<code>lookMain</code>, <code>lookProxy</code>, <code>lookWet</code>, <code>lookDirty</code>, <code>lookBlue</code>, <code>lookRed</code></p><p>Example Representations:
+<code>.MA + .JSON</code>, <code>.MTLX (yet unsupported)</code>, <code>.BLEND</code></p><p>Please note that a look is almost never a single representation, but a combination of multiple.
 For example in Maya a look consists of <code>.ma</code> file with the shaders, <code>.json</code> file which
-contains the attributes and assignments and <code>/resources</code> folder with all the required textures.</p>
-
-    <div class="admonition admonition-tip">
-      <div class="admonition-heading">
-        <h5><div class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"/></svg></div>  Look MUST:</h5>
-      </div>
-      <div class="admonition-content">
-    <ul>
-<li>Be authored on a model loaded into the scene using Pype Loader.</li>
-</ul>
-</div></div>
-    <div class="admonition admonition-warning">
-      <div class="admonition-heading">
-        <h5><div class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"/></svg></div>  Look Must NOT:</h5>
-      </div>
-      <div class="admonition-content">
-    <ul>
-<li>Contain any default shading (Lambert1 in maya for example).</li>
-<li>Contain any referenced materials</li>
-</ul>
-</div></div><h3><a class="anchor" aria-hidden="true" id="rig"></a><a href="#rig" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Rig</h3>
-<p>Characters or props with animation controls or other parameters, ready to be referenced into a scene and animated. Animation Rigs tend to be very software specific, but in general they tend to consist of Geometry, Bones or Joints, Controllers and Deformers. Pype in maya supports both, self-contained rigs, that include everything in one file, but also rigs that use nested references to bring in geometry, or even skeleton. By default we bake rigs into a single file during publishing, but that behaviour can be turned off to keep the nested references live in the animation scenes.</p>
-<p>Example Subsets:
-<code>rigMain</code>, <code>rigMocap</code>, <code>rigSim</code>, <code>rigCamera</code>, <code>rigMuscle</code></p>
-<p>Example Representations:
-<code>.MA</code>, <code>.MB</code>, <code>.BLEND</code>, <code>.HDA</code></p>
-
-    <div class="admonition admonition-tip">
-      <div class="admonition-heading">
-        <h5><div class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"/></svg></div>  Rig MUST:</h5>
-      </div>
-      <div class="admonition-content">
-    <ul>
-<li>Contain exactly <strong>one</strong> top group with all the rig content parented below it.</li>
-<li>Include model previously published within the same asset.</li>
-<li>Clearly define or tag geometry for later caching (method differs between hosts)</li>
-<li>Clearly define or tag all the animation controllers (method differs between hosts)</li>
-</ul>
-</div></div>
-    <div class="admonition admonition-warning">
-      <div class="admonition-heading">
-        <h5><div class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"/></svg></div>  Rig Must NOT:</h5>
-      </div>
-      <div class="admonition-content">
-    <ul>
-<li>Have any transform values on any of the controllers.</li>
-<li>Have any animation curves attached to controllers.</li>
-</ul>
-</div></div><h3><a class="anchor" aria-hidden="true" id="assembly"></a><a href="#assembly" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Assembly</h3>
-<p>A subset created by combining two or more smaller subsets into a composed bigger asset.
+contains the attributes and assignments and <code>/resources</code> folder with all the required textures.</p><div class="admonition admonition-tip alert alert--success"><div class="admonition-heading"><h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>Look MUST:</h5></div><div class="admonition-content"><ul><li>Be authored on a model loaded into the scene using Pype Loader.</li></ul></div></div><div class="admonition admonition-warning alert alert--danger"><div class="admonition-heading"><h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16"><path fill-rule="evenodd" d="M5.05.31c.81 2.17.41 3.38-.52 4.31C3.55 5.67 1.98 6.45.9 7.98c-1.45 2.05-1.7 6.53 3.53 7.7-2.2-1.16-2.67-4.52-.3-6.61-.61 2.03.53 3.33 1.94 2.86 1.39-.47 2.3.53 2.27 1.67-.02.78-.31 1.44-1.13 1.81 3.42-.59 4.78-3.42 4.78-5.56 0-2.84-2.53-3.22-1.25-5.61-1.52.13-2.03 1.13-1.89 2.75.09 1.08-1.02 1.8-1.86 1.33-.67-.41-.66-1.19-.06-1.78C8.18 5.31 8.68 2.45 5.05.32L5.03.3l.02.01z"></path></svg></span>Look Must NOT:</h5></div><div class="admonition-content"><ul><li>Contain any default shading (Lambert1 in maya for example).</li><li>Contain any referenced materials</li></ul></div></div><h3><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_2cZh" id="rig"></a>Rig<a aria-hidden="true" tabindex="-1" class="hash-link" href="#rig" title="Direct link to heading">#</a></h3><p>Characters or props with animation controls or other parameters, ready to be referenced into a scene and animated. Animation Rigs tend to be very software specific, but in general they tend to consist of Geometry, Bones or Joints, Controllers and Deformers. Pype in maya supports both, self-contained rigs, that include everything in one file, but also rigs that use nested references to bring in geometry, or even skeleton. By default we bake rigs into a single file during publishing, but that behaviour can be turned off to keep the nested references live in the animation scenes.</p><p>Example Subsets:
+<code>rigMain</code>, <code>rigMocap</code>, <code>rigSim</code>, <code>rigCamera</code>, <code>rigMuscle</code></p><p>Example Representations:
+<code>.MA</code>, <code>.MB</code>, <code>.BLEND</code>, <code>.HDA</code></p><div class="admonition admonition-tip alert alert--success"><div class="admonition-heading"><h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>Rig MUST:</h5></div><div class="admonition-content"><ul><li>Contain exactly <strong>one</strong> top group with all the rig content parented below it.</li><li>Include model previously published within the same asset.</li><li>Clearly define or tag geometry for later caching (method differs between hosts)</li><li>Clearly define or tag all the animation controllers (method differs between hosts)</li></ul></div></div><div class="admonition admonition-warning alert alert--danger"><div class="admonition-heading"><h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16"><path fill-rule="evenodd" d="M5.05.31c.81 2.17.41 3.38-.52 4.31C3.55 5.67 1.98 6.45.9 7.98c-1.45 2.05-1.7 6.53 3.53 7.7-2.2-1.16-2.67-4.52-.3-6.61-.61 2.03.53 3.33 1.94 2.86 1.39-.47 2.3.53 2.27 1.67-.02.78-.31 1.44-1.13 1.81 3.42-.59 4.78-3.42 4.78-5.56 0-2.84-2.53-3.22-1.25-5.61-1.52.13-2.03 1.13-1.89 2.75.09 1.08-1.02 1.8-1.86 1.33-.67-.41-.66-1.19-.06-1.78C8.18 5.31 8.68 2.45 5.05.32L5.03.3l.02.01z"></path></svg></span>Rig Must NOT:</h5></div><div class="admonition-content"><ul><li>Have any transform values on any of the controllers.</li><li>Have any animation curves attached to controllers.</li></ul></div></div><h3><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_2cZh" id="assembly"></a>Assembly<a aria-hidden="true" tabindex="-1" class="hash-link" href="#assembly" title="Direct link to heading">#</a></h3><p>A subset created by combining two or more smaller subsets into a composed bigger asset.
 A good example would be a restaurant table asset with the cutlery and chairs included,
 that will eventually be loaded into a restaurant Set. Instead of loading each individual
 fork and knife for each table in the restaurant, we can first prepare <code>assemblyRestaurantTable</code> subset
-which will contain the table itself, with cutlery, flowers, plates and chairs nicely arranged.</p>
-<p>This table can then be loaded multiple times into the restaurant for easier scene management
-and updates.</p>
-<p>Extracted assembly doesn't contain any geometry directly, but rather information about all the individual subsets that are inside the assembly, their version and transformations. On top of that and alembic is exported which only holds any extra transforms and groups that are needed to fully re-create the original assembled scene.</p>
-<p>Assembly ca also be used as a sort of collection of elements that are often used together in the shots. For example if we're set dressing lot's of forest shots, it would make sense to make and assembly of all the forest elements for scattering so we don't have to load them individually into each shot.</p>
-<p>Example Subsets:
-<code>assemblyTable</code>, <code>assemblyForestElements</code>, <code>assemblyRoof</code></p>
-<p>Example Representations:
-<code>.ABC + .JSON</code></p>
-
-    <div class="admonition admonition-tip">
-      <div class="admonition-heading">
-        <h5><div class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"/></svg></div>  Assembly MUST:</h5>
-      </div>
-      <div class="admonition-content">
-    <ul>
-<li>Be only build using other pre-published subsets.</li>
-<li>Only use simple translate, rotate and scale transforms to position the
-individual elements.</li>
-<li>Contain only referenced elements</li>
-<li>Contain exactly <strong>one</strong> top group, with all the content parented under it.</li>
-</ul>
-</div></div><h3><a class="anchor" aria-hidden="true" id="setdress"></a><a href="#setdress" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Setdress</h3>
-<p>Fully prepared environment scene assembled from other previously published assets. Setdress should be ready for rendering as is, including any instancing, material assignments and other complex setups the environment requires. Due to this complexity, setdress is currently only publishable in the native file format of the host where it was created. In maya that would be <code>.ma</code> or <code>.mb</code> file.</p>
-
-    <div class="admonition admonition-tip">
-      <div class="admonition-heading">
-        <h5><div class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"/></svg></div>  Setdress:</h5>
-      </div>
-      <div class="admonition-content">
-    <ul>
-<li>MAY contain geometry built direcly in the scene.</li>
-<li>MUST be ready to render once loaded into a shot.</li>
-<li>MUST be grouped under top level transform (group or locator)</li>
-<li>MAY use particles, instancing or any other tools for achieving the final look of the scene</li>
-</ul>
-</div></div><h3><a class="anchor" aria-hidden="true" id="camera"></a><a href="#camera" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Camera</h3>
-<p>Clean virtual camera without any proprietary rigging, or host specific information. Considering how widely across the hosts published cameras are used in production, published camera should ideally be as simple and clean as possible to ensure consistency when loaded into various hosts.</p>
-<p>Example Representations:
-<code>.MA</code>, <code>.ABC</code></p>
-
-    <div class="admonition admonition-tip">
-      <div class="admonition-heading">
-        <h5><div class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"/></svg></div>  Camera:</h5>
-      </div>
-      <div class="admonition-content">
-    <ul>
-<li>MUST Have all the animation baked in.</li>
-<li>MUST Have name ending with <code>_CAM</code></li>
-<li>MAY contain extra geometry or locators (to mark tracking data for example)</li>
-</ul>
-</div></div><h3><a class="anchor" aria-hidden="true" id="cache"></a><a href="#cache" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Cache</h3>
-<p>Geometry or effect with baked animation. Cache is usually exported as alembic,
+which will contain the table itself, with cutlery, flowers, plates and chairs nicely arranged.</p><p>This table can then be loaded multiple times into the restaurant for easier scene management
+and updates.</p><p>Extracted assembly doesn&#x27;t contain any geometry directly, but rather information about all the individual subsets that are inside the assembly, their version and transformations. On top of that and alembic is exported which only holds any extra transforms and groups that are needed to fully re-create the original assembled scene.</p><p>Assembly ca also be used as a sort of collection of elements that are often used together in the shots. For example if we&#x27;re set dressing lot&#x27;s of forest shots, it would make sense to make and assembly of all the forest elements for scattering so we don&#x27;t have to load them individually into each shot.</p><p>Example Subsets:
+<code>assemblyTable</code>, <code>assemblyForestElements</code>, <code>assemblyRoof</code></p><p>Example Representations:
+<code>.ABC + .JSON</code></p><div class="admonition admonition-tip alert alert--success"><div class="admonition-heading"><h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>Assembly MUST:</h5></div><div class="admonition-content"><ul><li>Be only build using other pre-published subsets.</li><li>Only use simple translate, rotate and scale transforms to position the
+individual elements.</li><li>Contain only referenced elements</li><li>Contain exactly <strong>one</strong> top group, with all the content parented under it.</li></ul></div></div><h3><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_2cZh" id="setdress"></a>Setdress<a aria-hidden="true" tabindex="-1" class="hash-link" href="#setdress" title="Direct link to heading">#</a></h3><p>Fully prepared environment scene assembled from other previously published assets. Setdress should be ready for rendering as is, including any instancing, material assignments and other complex setups the environment requires. Due to this complexity, setdress is currently only publishable in the native file format of the host where it was created. In maya that would be <code>.ma</code> or <code>.mb</code> file.</p><div class="admonition admonition-tip alert alert--success"><div class="admonition-heading"><h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>Setdress:</h5></div><div class="admonition-content"><ul><li>MAY contain geometry built direcly in the scene.</li><li>MUST be ready to render once loaded into a shot.</li><li>MUST be grouped under top level transform (group or locator)</li><li>MAY use particles, instancing or any other tools for achieving the final look of the scene</li></ul></div></div><h3><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_2cZh" id="camera"></a>Camera<a aria-hidden="true" tabindex="-1" class="hash-link" href="#camera" title="Direct link to heading">#</a></h3><p>Clean virtual camera without any proprietary rigging, or host specific information. Considering how widely across the hosts published cameras are used in production, published camera should ideally be as simple and clean as possible to ensure consistency when loaded into various hosts.</p><p>Example Representations:
+<code>.MA</code>, <code>.ABC</code></p><div class="admonition admonition-tip alert alert--success"><div class="admonition-heading"><h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>Camera:</h5></div><div class="admonition-content"><ul><li>MUST Have all the animation baked in.</li><li>MUST Have name ending with <code>_CAM</code></li><li>MAY contain extra geometry or locators (to mark tracking data for example)</li></ul></div></div><h3><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_2cZh" id="cache"></a>Cache<a aria-hidden="true" tabindex="-1" class="hash-link" href="#cache" title="Direct link to heading">#</a></h3><p>Geometry or effect with baked animation. Cache is usually exported as alembic,
 but can be potentially any other representation that makes sense in the given scenario.
-Cache is defined by the artist directly in the fx or animation scene.</p>
-<p>Example Subsets:
-<code>assemblyTable</code>, <code>assemblyForestElements</code>, <code>assemblyRoof</code></p>
-<p>Example Representations:
-<code>.ABC</code>, <code>.VDB</code>, <code>.BGEO</code></p>
-<h3><a class="anchor" aria-hidden="true" id="animation"></a><a href="#animation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Animation</h3>
-<p>Published result of an animation created with a rig. Animation can be extracted
+Cache is defined by the artist directly in the fx or animation scene.</p><p>Example Subsets:
+<code>assemblyTable</code>, <code>assemblyForestElements</code>, <code>assemblyRoof</code></p><p>Example Representations:
+<code>.ABC</code>, <code>.VDB</code>, <code>.BGEO</code></p><h3><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_2cZh" id="animation"></a>Animation<a aria-hidden="true" tabindex="-1" class="hash-link" href="#animation" title="Direct link to heading">#</a></h3><p>Published result of an animation created with a rig. Animation can be extracted
 as animation curves, cached out geometry or even fully animated rig with all the controllers.<br>
 Animation cache is usually defined by a rigger in the rig file of a character or
-by FX TD in the effects rig, to ensure consistency of outputs.</p>
-<p>Example Subsets:
-<code>animationBob_01</code>, <code>animationJack_02</code>, <code>animationVehicleA</code></p>
-<p>Example Representations:
-<code>.MA</code>, <code>.ABC</code>, <code>.JSON</code></p>
-<h3><a class="anchor" aria-hidden="true" id="yeti-cache"></a><a href="#yeti-cache" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Yeti Cache</h3>
-<p>Cached out yeti fur simulation that originates from a yeti rig applied in the shot context.</p>
-<h3><a class="anchor" aria-hidden="true" id="yeti-rig"></a><a href="#yeti-rig" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Yeti Rig</h3>
-<p>Yeti groom setup ready to be applied to a cached out character in the shot context.</p>
-<h3><a class="anchor" aria-hidden="true" id="render"></a><a href="#render" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Render</h3>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/artist_concepts"><span class="arrow-prev">← </span><span>Key Concepts</span></a><a class="docs-next button" href="/docs/artist_tools"><span>Tools</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#what-is-publishing">What is publishing?</a></li><li><a href="#families">Families:</a><ul class="toc-headings"><li><a href="#model">Model</a></li><li><a href="#look">Look</a></li><li><a href="#rig">Rig</a></li><li><a href="#assembly">Assembly</a></li><li><a href="#setdress">Setdress</a></li><li><a href="#camera">Camera</a></li><li><a href="#cache">Cache</a></li><li><a href="#animation">Animation</a></li><li><a href="#yeti-cache">Yeti Cache</a></li><li><a href="#yeti-rig">Yeti Rig</a></li><li><a href="#render">Render</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon/P.png" alt="PYPE" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/artist_getting_started">Artist</a><a href="/docs/en/manager_ftrack">Manager</a><a href="/docs/en/admin_config">Admin</a></div><div><h5>Community</h5><a href="https://gitter.im/getavalon/Lobby">Avalon Chat</a><a href="https://gitter.im/pyblish/pyblish">Pyblish Chat</a><a href="https://discord.gg/cfkbAHM">Pype Chat</a></div><div><h5>More</h5><a href="https://github.com/pypeclub">Github/Pype.club</a><a href="https://github.com/getavalon">Github/Avalon</a><a href="https://github.com/pyblish">Github/Pyblish</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 Orbi Tools</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
-                document.addEventListener('keyup', function(e) {
-                  if (e.target !== document.body) {
-                    return;
-                  }
-                  // keyCode for '/' (slash)
-                  if (e.keyCode === 191) {
-                    const search = document.getElementById('search_input_react');
-                    search && search.focus();
-                  }
-                });
-              </script><script>
-              var search = docsearch({
-                
-                apiKey: '5e01ee3bfbb744ca6f25d4b281ce38a9',
-                indexName: 'pype',
-                inputSelector: '#search_input_react',
-                algoliaOptions: {}
-              });
-            </script></body></html>
+by FX TD in the effects rig, to ensure consistency of outputs.</p><p>Example Subsets:
+<code>animationBob_01</code>, <code>animationJack_02</code>, <code>animationVehicleA</code></p><p>Example Representations:
+<code>.MA</code>, <code>.ABC</code>, <code>.JSON</code></p><h3><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_2cZh" id="yeti-cache"></a>Yeti Cache<a aria-hidden="true" tabindex="-1" class="hash-link" href="#yeti-cache" title="Direct link to heading">#</a></h3><p>Cached out yeti fur simulation that originates from a yeti rig applied in the shot context.</p><h3><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_2cZh" id="yeti-rig"></a>Yeti Rig<a aria-hidden="true" tabindex="-1" class="hash-link" href="#yeti-rig" title="Direct link to heading">#</a></h3><p>Yeti groom setup ready to be applied to a cached out character in the shot context.</p><h3><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_2cZh" id="render"></a>Render<a aria-hidden="true" tabindex="-1" class="hash-link" href="#render" title="Direct link to heading">#</a></h3></div></article><div class="margin-vert--lg"><nav class="pagination-nav" aria-label="Blog list page navigation"><div class="pagination-nav__item"><a class="pagination-nav__link" href="/docs/artist_concepts"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">« Key concepts</div></a></div><div class="pagination-nav__item pagination-nav__item--next"><a class="pagination-nav__link" href="/docs/artist_tools"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Tools »</div></a></div></nav></div></div></div><div class="col col--3"><div class="tableOfContents_3SO_"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#what-is-publishing" class="table-of-contents__link">What is publishing?</a></li><li><a href="#families" class="table-of-contents__link">Families:</a><ul><li><a href="#model" class="table-of-contents__link">Model</a></li><li><a href="#look" class="table-of-contents__link">Look</a></li><li><a href="#rig" class="table-of-contents__link">Rig</a></li><li><a href="#assembly" class="table-of-contents__link">Assembly</a></li><li><a href="#setdress" class="table-of-contents__link">Setdress</a></li><li><a href="#camera" class="table-of-contents__link">Camera</a></li><li><a href="#cache" class="table-of-contents__link">Cache</a></li><li><a href="#animation" class="table-of-contents__link">Animation</a></li><li><a href="#yeti-cache" class="table-of-contents__link">Yeti Cache</a></li><li><a href="#yeti-rig" class="table-of-contents__link">Yeti Rig</a></li><li><a href="#render" class="table-of-contents__link">Render</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="footer footer--dark"><div class="container"><div class="row footer__links"><div class="col footer__col"><h4 class="footer__title">Docs</h4><ul class="footer__items"><li class="footer__item"><a class="footer__link-item" href="/docs/artist_getting_started">Artist</a></li><li class="footer__item"><a class="footer__link-item" href="/docs/manager_ftrack">Manager</a></li><li class="footer__item"><a class="footer__link-item" href="/docs/admin_config">Admin</a></li></ul></div><div class="col footer__col"><h4 class="footer__title">Social</h4><ul class="footer__items"><li class="footer__item"><a href="https://gitter.im/getavalon/Lobby" target="_blank" rel="noopener noreferrer" class="footer__link-item">Avalon Chat</a></li><li class="footer__item"><a href="https://gitter.im/pyblish/pyblish" target="_blank" rel="noopener noreferrer" class="footer__link-item">Pyblish Chat</a></li><li class="footer__item"><a href="https://discord.gg/sFNPWXG" target="_blank" rel="noopener noreferrer" class="footer__link-item">Pype Chat</a></li></ul></div></div><div class="text--center"><div>Copyright © 2020 Orbi Tools</div></div></div></footer></div>
+<script src="/styles.6bc2fdab.js"></script>
+<script src="/runtime~main.990a5e00.js"></script>
+<script src="/main.95be6c84.js"></script>
+<script src="/1.13845e85.js"></script>
+<script src="/2.910ce099.js"></script>
+<script src="/3.ab358325.js"></script>
+<script src="/1be78505.36fbca8a.js"></script>
+<script src="/54.19594f19.js"></script>
+<script src="/f976f453.556ca386.js"></script>
+<script src="/17896441.622abe92.js"></script>
+<script src="/cf22177d.85105fea.js"></script>
+</body>
+</html>
