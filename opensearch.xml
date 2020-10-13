@@ -4,8 +4,8 @@
   <ShortName>PYPE</ShortName>
   <Description>Search PYPE</Description>
   <InputEncoding>UTF-8</InputEncoding>
-  <Image width="16" height="16" type="image/x-icon">http://pypeclub.github.io/img/favicon/favicon.ico</Image>
-  <Url type="text/html" method="get" template="http://pypeclub.github.io//search?q={searchTerms}"/>
-  <Url type="application/opensearchdescription+xml" rel="self" template="http://pypeclub.github.io//opensearch.xml" />
-  <moz:SearchForm>http://pypeclub.github.io/</moz:SearchForm>
+  <Image width="16" height="16" type="image/x-icon">http://pype.club/img/favicon/favicon.ico</Image>
+  <Url type="text/html" method="get" template="http://pype.club//search?q={searchTerms}"/>
+  <Url type="application/opensearchdescription+xml" rel="self" template="http://pype.club//opensearch.xml" />
+  <moz:SearchForm>http://pype.club/</moz:SearchForm>
 </OpenSearchDescription>
