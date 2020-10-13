@@ -1,0 +1,12 @@
+{
+  "unversionedId": "artist_work",
+  "id": "artist_work",
+  "isDocsHomePage": false,
+  "title": "Working on tasks",
+  "description": "Check the documentation for how to use Docusaurus.",
+  "source": "@site/docs\\artist_work.md",
+  "slug": "/artist_work",
+  "permalink": "/docs/artist_work",
+  "version": "current",
+  "sidebar_label": "Working"
+}

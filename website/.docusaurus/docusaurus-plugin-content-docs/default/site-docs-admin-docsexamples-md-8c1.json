@@ -1,0 +1,17 @@
+{
+  "unversionedId": "admin_docsexamples",
+  "id": "admin_docsexamples",
+  "isDocsHomePage": false,
+  "title": "Examples of using notes",
+  "description": "-   This is my note",
+  "source": "@site/docs\\admin_docsexamples.md",
+  "slug": "/admin_docsexamples",
+  "permalink": "/docs/admin_docsexamples",
+  "version": "current",
+  "sidebar_label": "docsexamples",
+  "sidebar": "Admin",
+  "previous": {
+    "title": "Update Notes",
+    "permalink": "/docs/update_notes"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "unversionedId": "admin_getting_started",
+  "id": "admin_getting_started",
+  "isDocsHomePage": false,
+  "title": "Getting Started",
+  "description": "Introduction",
+  "source": "@site/docs\\admin_introduction.md",
+  "slug": "/admin_getting_started",
+  "permalink": "/docs/admin_getting_started",
+  "version": "current",
+  "sidebar_label": "Getting Started",
+  "sidebar": "Admin",
+  "next": {
+    "title": "Pype Setup",
+    "permalink": "/docs/admin_install"
+  }
+}

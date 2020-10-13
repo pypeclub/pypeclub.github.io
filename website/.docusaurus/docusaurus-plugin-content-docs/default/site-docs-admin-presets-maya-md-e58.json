@@ -1,0 +1,21 @@
+{
+  "unversionedId": "admin_presets_maya",
+  "id": "admin_presets_maya",
+  "isDocsHomePage": false,
+  "title": "Presets > Maya",
+  "description": "CAPTURE.json",
+  "source": "@site/docs\\admin_presets_maya.md",
+  "slug": "/admin_presets_maya",
+  "permalink": "/docs/admin_presets_maya",
+  "version": "current",
+  "sidebar_label": "Maya",
+  "sidebar": "Admin",
+  "previous": {
+    "title": "Presets > Ftrack",
+    "permalink": "/docs/admin_presets_ftrack"
+  },
+  "next": {
+    "title": "Presets > Plugins",
+    "permalink": "/docs/admin_presets_plugins"
+  }
+}

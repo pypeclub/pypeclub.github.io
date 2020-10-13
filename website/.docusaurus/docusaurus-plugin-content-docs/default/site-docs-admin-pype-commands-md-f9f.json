@@ -1,0 +1,21 @@
+{
+  "unversionedId": "admin_pype_commands",
+  "id": "admin_pype_commands",
+  "isDocsHomePage": false,
+  "title": "Pype Commands Reference",
+  "description": "Help",
+  "source": "@site/docs\\admin_pype_commands.md",
+  "slug": "/admin_pype_commands",
+  "permalink": "/docs/admin_pype_commands",
+  "version": "current",
+  "sidebar_label": "Pype Commands",
+  "sidebar": "Admin",
+  "previous": {
+    "title": "Hosts Setup",
+    "permalink": "/docs/admin_hosts"
+  },
+  "next": {
+    "title": "Setup Troubleshooting",
+    "permalink": "/docs/admin_setup_troubleshooting"
+  }
+}

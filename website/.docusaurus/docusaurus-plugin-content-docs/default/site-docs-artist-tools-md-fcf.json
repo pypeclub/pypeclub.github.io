@@ -1,0 +1,21 @@
+{
+  "unversionedId": "artist_tools",
+  "id": "artist_tools",
+  "isDocsHomePage": false,
+  "title": "Tools",
+  "description": "Set Context",
+  "source": "@site/docs\\artist_tools.md",
+  "slug": "/artist_tools",
+  "permalink": "/docs/artist_tools",
+  "version": "current",
+  "sidebar_label": "Tools",
+  "sidebar": "artist",
+  "previous": {
+    "title": "Publishing",
+    "permalink": "/docs/artist_publish"
+  },
+  "next": {
+    "title": "Naming Conventions",
+    "permalink": "/docs/manager_naming"
+  }
+}

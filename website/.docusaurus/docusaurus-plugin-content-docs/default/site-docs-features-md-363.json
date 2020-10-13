@@ -1,0 +1,11 @@
+{
+  "unversionedId": "features",
+  "id": "features",
+  "isDocsHomePage": false,
+  "title": "features",
+  "description": "Pype tray",
+  "source": "@site/docs\\features.md",
+  "slug": "/features",
+  "permalink": "/docs/features",
+  "version": "current"
+}

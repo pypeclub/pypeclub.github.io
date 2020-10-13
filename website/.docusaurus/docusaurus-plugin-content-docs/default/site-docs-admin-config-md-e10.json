@@ -1,0 +1,21 @@
+{
+  "unversionedId": "admin_config",
+  "id": "admin_config",
+  "isDocsHomePage": false,
+  "title": "Studio Config",
+  "description": "All of the studio specific configurations are stored as simple JSON files in the pype-config repository.",
+  "source": "@site/docs\\admin_config.md",
+  "slug": "/admin_config",
+  "permalink": "/docs/admin_config",
+  "version": "current",
+  "sidebar_label": "Studio Config",
+  "sidebar": "Admin",
+  "previous": {
+    "title": "Pype Setup",
+    "permalink": "/docs/admin_install"
+  },
+  "next": {
+    "title": "Ftrack Setup",
+    "permalink": "/docs/admin_ftrack"
+  }
+}
