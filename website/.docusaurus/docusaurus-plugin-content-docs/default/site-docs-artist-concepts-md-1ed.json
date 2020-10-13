@@ -1,0 +1,21 @@
+{
+  "unversionedId": "artist_concepts",
+  "id": "artist_concepts",
+  "isDocsHomePage": false,
+  "title": "Key concepts",
+  "description": "Glossary",
+  "source": "@site/docs\\artist_concepts.md",
+  "slug": "/artist_concepts",
+  "permalink": "/docs/artist_concepts",
+  "version": "current",
+  "sidebar_label": "Key Concepts",
+  "sidebar": "artist",
+  "previous": {
+    "title": "Getting started with Pype",
+    "permalink": "/docs/artist_getting_started"
+  },
+  "next": {
+    "title": "Publishing",
+    "permalink": "/docs/artist_publish"
+  }
+}

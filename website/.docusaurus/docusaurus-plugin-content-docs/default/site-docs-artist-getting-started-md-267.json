@@ -1,0 +1,17 @@
+{
+  "unversionedId": "artist_getting_started",
+  "id": "artist_getting_started",
+  "isDocsHomePage": false,
+  "title": "Getting started with Pype",
+  "description": "Basic use",
+  "source": "@site/docs\\artist_getting_started.md",
+  "slug": "/artist_getting_started",
+  "permalink": "/docs/artist_getting_started",
+  "version": "current",
+  "sidebar_label": "Getting started",
+  "sidebar": "artist",
+  "next": {
+    "title": "Key concepts",
+    "permalink": "/docs/artist_concepts"
+  }
+}

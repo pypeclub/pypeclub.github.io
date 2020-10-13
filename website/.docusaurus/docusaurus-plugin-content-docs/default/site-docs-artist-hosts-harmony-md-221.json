@@ -1,0 +1,21 @@
+{
+  "unversionedId": "artist_hosts_harmony",
+  "id": "artist_hosts_harmony",
+  "isDocsHomePage": false,
+  "title": "Harmony",
+  "description": "Available Tools",
+  "source": "@site/docs\\artist_hosts_harmony.md",
+  "slug": "/artist_hosts_harmony",
+  "permalink": "/docs/artist_hosts_harmony",
+  "version": "current",
+  "sidebar_label": "Harmony",
+  "sidebar": "artist",
+  "previous": {
+    "title": "Maya",
+    "permalink": "/docs/artist_hosts_maya"
+  },
+  "next": {
+    "title": "Photoshop",
+    "permalink": "/docs/artist_hosts_photoshop"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "unversionedId": "artist_hosts",
+  "id": "artist_hosts",
+  "isDocsHomePage": false,
+  "title": "Hosts",
+  "description": "Maya",
+  "source": "@site/docs\\artist_hosts.md",
+  "slug": "/artist_hosts",
+  "permalink": "/docs/artist_hosts",
+  "version": "current",
+  "sidebar_label": "Hosts"
+}

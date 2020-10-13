@@ -1,0 +1,21 @@
+{
+  "unversionedId": "changelog",
+  "id": "changelog",
+  "isDocsHomePage": false,
+  "title": "Changelog",
+  "description": "2.12.0",
+  "source": "@site/docs\\changelog.md",
+  "slug": "/changelog",
+  "permalink": "/docs/changelog",
+  "version": "current",
+  "sidebar_label": "Changelog",
+  "sidebar": "Admin",
+  "previous": {
+    "title": "Presets > Tools",
+    "permalink": "/docs/admin_presets_tools"
+  },
+  "next": {
+    "title": "Update Notes",
+    "permalink": "/docs/update_notes"
+  }
+}

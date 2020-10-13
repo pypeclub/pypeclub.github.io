@@ -1,0 +1,21 @@
+{
+  "unversionedId": "artist_hosts_photoshop",
+  "id": "artist_hosts_photoshop",
+  "isDocsHomePage": false,
+  "title": "Photoshop",
+  "description": "Available Tools",
+  "source": "@site/docs\\artist_hosts_photoshop.md",
+  "slug": "/artist_hosts_photoshop",
+  "permalink": "/docs/artist_hosts_photoshop",
+  "version": "current",
+  "sidebar_label": "Photoshop",
+  "sidebar": "artist",
+  "previous": {
+    "title": "Harmony",
+    "permalink": "/docs/artist_hosts_harmony"
+  },
+  "next": {
+    "title": "Unreal",
+    "permalink": "/docs/artist_hosts_unreal"
+  }
+}
