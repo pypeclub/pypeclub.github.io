@@ -25,6 +25,7 @@
   --ifm-font-weight-normal: 300;
   --ifm-font-weight-semibold: 500;
   --ifm-font-weight-bold: 700;
+  --ifm-font-size-base: 95%;
 
   --ifm-button-font-weight: var(--ifm-font-weight-semibold);
 }
@@ -88,6 +89,14 @@ h5, h6 { font-weight: var(--ifm-font-weight-semibold); }
 .navbar__toggle {
       color: white;
   }
+
+.navbar__title {
+      margin-left: 10px;
+  }
+
+.footer__links {
+    text-align: center;
+}
 
 .docusaurus-highlight-code-line {
   background-color: rgb(72, 77, 91);

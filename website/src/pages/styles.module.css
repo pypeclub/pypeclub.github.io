@@ -3,11 +3,6 @@
  * and scoped locally.
  */
 
- h2 {
-     font-size: 30px;
-     margin-bottom: 40px;
- }
-
  .hero__title img {
      border-style: none;
      box-sizing: content-box;

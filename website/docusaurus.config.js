@@ -56,10 +56,22 @@ module.exports = {
         }
       ]
     },
-    image: '/img/docusaurus.png',
     footer: {
       style: 'dark',
       links: [
+        {
+          title: 'Pages',
+          items: [
+            {
+              label: 'Index',
+              to: '/',
+            },
+            {
+              label: 'Features',
+              to: 'features',
+            },
+          ],
+        },
         {
           title: 'Docs',
           items: [
@@ -68,16 +80,12 @@ module.exports = {
               to: 'docs/artist_getting_started',
             },
             {
-              label: 'Manager',
-              to: 'docs/manager_ftrack',
-            },
-            {
               label: 'Admin',
-              to: 'docs/admin_config',
+              to: 'docs/admin_getting_started',
             },
           ],
         },{
-          title: 'Social',
+          title: 'Community',
           items: [
             {
               label: 'Avalon Chat',
