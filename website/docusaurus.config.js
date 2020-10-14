@@ -49,10 +49,6 @@ module.exports = {
           to: 'docs/admin_getting_started',
           label: 'Admin Docs',
           position: 'left'
-        }, {
-          to: 'docs/api',
-          label: 'API',
-          position: 'left'
         }
       ]
     },

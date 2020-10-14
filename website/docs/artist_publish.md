@@ -33,6 +33,7 @@ The Instances are categorized into ‘families’ based on what type of data the
 Following family definitions and requirements are Pype defaults and what we consider good industry practice, but most of the requirements can be easily altered to suit the studio or project needs.
 
 Here's a list of supported families
+
 | Family                | Comment                                          | Example Subsets           |
 | --------------------- | ------------------------------------------------ | ------------------------- |
 | [Model](#model)       | Cleaned geo without materials                    | main, proxy, broken       |

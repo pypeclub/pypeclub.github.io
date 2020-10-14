@@ -552,7 +552,7 @@ function Home() {
       </section>
 
 
-      <section className={classnames("section darkBackground")}>
+      <section className={classnames("section lightBackground")}>
         <div className={classnames(styles.card_container, "container")}>
           <h2>Harmony</h2>
 
