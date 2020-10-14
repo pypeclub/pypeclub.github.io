@@ -198,6 +198,33 @@ const nuke_families = [
     {label: "Prerender"},
 ]
 
+const deadline_features = [
+
+  {
+    label: "Tiled Renders",
+    description:"Send high resolution tiled renders to deadline for single frames and sequences."
+  },
+  {
+    label: "Maya",
+    description:"Render maya scenes ."
+  },
+  {
+    label: "Nuke",
+    description:"Template system for centrally controlled node parameters."
+  },
+  {
+    label: "Vray Standalone",
+    description:"Support for local and farm renders, including baked reviews."
+  },
+  {
+    label: "Publishing",
+    description:"Generate slates and attach them to rendered."
+  }
+]
+
+const deadline_families = [
+]
+
 const hiero_features = [
 
 ]

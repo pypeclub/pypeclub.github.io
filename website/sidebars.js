@@ -8,8 +8,7 @@ module.exports = {
             "artist_getting_started",
             "artist_concepts",
             "artist_publish",
-            "artist_tools",
-            "manager_naming"
+            "artist_tools"
         ]
       },
       {
@@ -50,8 +49,7 @@ module.exports = {
                     "admin_presets_tools"],
           "Release Notes":[
               "changelog",
-              "update_notes",
-              "admin_docsexamples"
+              "update_notes"
           ]
     },
 }

@@ -28,10 +28,15 @@
   --ifm-font-size-base: 95%;
 
   --ifm-button-font-weight: var(--ifm-font-weight-semibold);
+
 }
 
 body {
   font-weight: var(--ifm-font-weight-normal);
+}
+
+h2 {
+  margin-bottom: 2rem;
 }
 
 h5, h6 { font-weight: var(--ifm-font-weight-semibold); }
@@ -48,6 +53,12 @@ h5, h6 { font-weight: var(--ifm-font-weight-semibold); }
   color: var(--ra-color-text-dark);
   border-style: unset;
   border-left: 8px solid var(--ifm-alert-border-color);
+}
+
+.alert a {
+    color: unset;
+    text-decoration: underline;
+    font-weight: var(--ifm-font-weight-semibold);
 }
 
 .alert--primary {
@@ -200,3 +211,29 @@ h5, h6 { font-weight: var(--ifm-font-weight-semibold); }
 .card a{
   color: var(--ifm-font-color-base);
 }
+
+.markdown img {
+    border-radius: calc(0.4rem);
+    box-shadow: var(--ifm-global-shadow-lw);
+}
+
+.markdown .row {
+  margin-top: calc(var(--ifm-h3-vertical-rhythm-top) * var(--ifm-leading));
+}
+
+/* image with caption */
+figure {
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+figure>p {
+    margin-bottom: 0px;
+    background-color: var(--ifm-color-secondary);
+}
+
+figure>figcaption {
+    min-width: 350px;
+    background-color: var(--ifm-color-secondary);
+}
+/* END caption */

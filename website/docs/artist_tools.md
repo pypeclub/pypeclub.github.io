@@ -7,26 +7,24 @@ sidebar_label: Tools
 ## Set Context
 
 
-<div class="ImagePanel" data-image-align='right'>
-
-<div class="ImagePanel.content">
+<div class="row markdown">
+<div class="col col--6 markdown">
 
 Any time your host app is open in defined context it can be changed to different hierarchy, asset or task within a project. This will allow you to change your opened session to any other asset, shot and tasks within the same project. This is useful particularly in cases where your host takes long time to start.
+
+</div>
+<div class="col col--6 markdown">
+
+![workfiles_1](assets/tools_context_manager.png)
+</div>
+</div>
+
+
 
 :::note
 
 Notice that the window doesn't close after hitting `Accept` and confirming the change of context. This behaviour let's you keep the window open and change the context multiple times in a row.
-
 :::
-
-</div>
-
-<div class="ImagePanel.image Screenshot">
-
-![workfiles_1](assets/tools_context_manager.png)
-
-</div>
-</div>
 
 ## Creator
 
@@ -46,6 +44,8 @@ In Nuke it's either converting an existing write node to a publishable one, or s
 4.  Type the name for you export. This name is how others are going to be able to refer to this particular subset when loading it into their scenes. Every assets should have a Main subset, but can have any number of other variants.
 5.  Click on Create
 
+  * * *
+
 ## Loader
 Loader loads published subsets into your current scene or script.
 
@@ -56,72 +56,86 @@ Loader loads published subsets into your current scene or script.
 4. right-click the subset
 5. from action menu select what you want to do *(load, reference, ...)*
 
-<div class="ImagePanel.image Screenshot">
 
-  ![tools_loader_1](assets/tools/tools_loader_1.png)
-</div>
+![tools_loader_1](assets/tools/tools_loader_1.png)
 
-<div class="ImagePanel" data-image-align='right'>
-<div class="ImagePanel.content">
+<div class="row markdown">
+<div class="col col--6 markdown">
 
 ### Refresh data
 Data are not auto-refreshed to avoid database issues. To refresh assets or subsets press refresh button.
+
 </div>
-<div class="ImagePanel.image Screenshot">
+<div class="col col--6 markdown">
 
 ![tools_loader_50](assets/tools/tools_loader_50.png)
+
 </div>
 </div>
 
 ### Load another version
 Loader by default load last version, but you can of course load another versions. Double-click on the subset in the version column to expose the drop down, choose version you want to load and continue from point 4 of the [Usage](#usage-1).
-<div class="ImagePanel">
-<div class="ImagePanel.image Screenshot">
+
+<div class="row markdown">
+<div class="col col--6 markdown">
 
   ![tools_loader_21](assets/tools/tools_loader_21.png)
 </div>
-<div class="ImagePanel.image Screenshot">
+<div class="col col--6 markdown">
 
   ![tools_loader_22](assets/tools/tools_loader_22.png)
 </div>
 </div>
 
+
 ### Filtering
+
 #### Filter Assets and Subsets by name
 To filter assets/subsets by name just type name or part of name to filter text input. Only assets/subsets containing the entered string remain.
 
 - **Assets filtering example** *(it works the same for subsets)*:
-<div class="ImagePanel">
-<div class="ImagePanel.image Screenshot">
 
-  ![tools_loader_4](assets/tools/tools_loader_4-small.png)
-</div>
-<div class="ImagePanel.image Screenshot">
+<div class="row markdown">
+<div class="col col--6 markdown">
 
-  ![tools_loader_5](assets/tools/tools_loader_5-small.png)
+![tools_loader_4](assets/tools/tools_loader_4-small.png)
+
+</div>
+<div class="col col--6 markdown">
+
+![tools_loader_5](assets/tools/tools_loader_5-small.png)
+
 </div>
 </div>
+
 
 #### Filter Subsets by Family
+
+<div class="row markdown">
+<div class="col col--6 markdown">
+
 To filter [subsets](artist_concepts#subset) by their [families](artist_publish#families) you can use families list where you can check families you want to see or uncheck families you are not interested in.
-<div class="ImagePanel.image Screenshot">
+
+</div>
+<div class="col col--6 markdown">
 
 ![tools_loader_30](assets/tools/tools_loader_30-small.png)
+
 </div>
+</div>
+
+
 
 ### Subset groups
 Subsets may be grouped which can help to make the subset list more transparent. You can toggle visibility of groups with `Enable Grouping` checkbox.
-<div class="ImagePanel.image Screenshot">
 
 ![tools_loader_40](assets/tools/tools_loader_40-small.png)
-</div>
+
 
 #### Add to group or change current group
 You can set group of selected subsets with shortcut `Ctrl + G`.
-<div class="ImagePanel.image Screenshot">
 
 ![tools_loader_41](assets/tools/tools_loader_41-small.png)
-</div>
 
 
 :::warning
@@ -134,16 +148,20 @@ Work in progress...
 
 Library loader is extended [loader](#loader) which allows to load published subsets from Library projects. Controls are same but library loader has extra Combo Box which allows you to choose project you want to load from.
 
-<div class="ImagePanel">
-<div class="ImagePanel.image Screenshot">
+<div class="row markdown">
+<div class="col col--6 markdown">
 
-  ![tools_library_1](assets/tools/tools_library_1-small.png)
-</div>
-<div class="ImagePanel.image Screenshot">
+![tools_library_1](assets/tools/tools_library_1-small.png)
 
-  ![tools_library_2](assets/tools/tools_library_2-small.png)
+</div>
+<div class="col col--6 markdown">
+
+![tools_library_2](assets/tools/tools_library_2-small.png)
+
 </div>
 </div>
+
+* * *
 
 ## Publisher
 
@@ -176,6 +194,8 @@ Extractor takes the item and saves it to the disk. Usually to temporary location
 
 Integrator takes the extracted files, categorizes and moves them to a correct location on the disk or on the server.
 
+* * *
+
 ## Inventory
 
 With Scene Inventory, you can browse, update and change subsets loaded with [Loader](#loader) into your scene or script.
@@ -192,52 +212,45 @@ Once a subset is loaded, it turns into a container within a scene. This containe
 
 The scene manager has a simple GUI focused on efficiency. You can see everything that has been previously loaded into the scene, how many time it's been loaded, what version and a lot of other information. Loaded assets are grouped by their asset name, subset name and representation. This grouping gives ability to apply changes for all instances of the loaded asset *(e.g. when __tree__ is loaded 20 times you can easily update version for all of them)*.
 
-<div class="ImagePanel.image Screenshot">
-
 ![tools_scene_inventory_10](assets/tools/tools_scene_inventory_10-small.png)
-</div>
 
 To interact with any container, you need to right click it and you'll see a drop down with possible actions. The key actions for production are already implemented, but more will be added over time.
 
-<div class="ImagePanel.image Screenshot">
-
 ![tools_scene_inventory_20](assets/tools/tools_scene_inventory_20.png)
-</div>
 
 ### Usage
+
 #### Change version
 You can change versions of loaded subsets with scene inventory tool. Version of loaded assets is colored to red when newer version is available.
-<div class="ImagePanel.image Screenshot">
+
 
 ![tools_scene_inventory_40](assets/tools/tools_scene_inventory_40.png)
-</div>
-
 
 ##### Update to the latest version
 Select containers or subsets you want to update, right-click selection and press `Update to latest`.
 
 ##### Change to specific version
 Select containers or subsets you want to change, right-click selection, press `Set version`, select from dropdown version you want change to and press `OK` button to confirm.
-<div class="ImagePanel.image Screenshot">
+
 
 ![tools_scene_inventory_30](assets/tools/tools_scene_inventory_30.png)
-</div>
+
 
 #### Switch Asset
 It's tool in Scene inventory tool that gives ability to switch asset, subset and representation of loaded assets.
 
-<div class="ImagePanel.image Screenshot">
 
-  ![tools_scene_inventory_50](assets/tools/tools_scene_inventory_50.png)
-</div>
+
+![tools_scene_inventory_50](assets/tools/tools_scene_inventory_50.png)
+
 
 Because loaded asset is in fact representation of version published in asset's subset it is possible to switch each of this part *(representation, version, subset and asset)*, but with limitations. Limitations are obvious as you can imagine when you have loaded `.ma` representation of `modelMain` subset from `car` asset it is not possible to switch subset to `modelHD` and keep same representation if `modelHD` does not have published `.ma` representation. It is possible to switch multiple loaded assets at once that makes this tool very powerful helper if all published assets contain same subsets and representations.
 
 Switch tool won't let you cross the border of limitations and inform you when you have to specify more if impossible combination occurs *(It is also possible that there will be no possible combination for selected assets)*. Border is colored to red and confirm button is not enabled when specification is required.
-<div class="ImagePanel.image Screenshot">
 
-  ![tools_scene_inventory_55](assets/tools/tools_scene_inventory_55.png)
-</div>
+
+![tools_scene_inventory_55](assets/tools/tools_scene_inventory_55.png)
+
 
 Possible switches:
 - switch **representation** (`.ma` to `.abc`, `.exr` to `.dpx`, etc.)
@@ -251,38 +264,57 @@ Possible switches:
     - `AND` switch **subset** and **representation** *(with limitations)*
 
 We added one more switch layer above subset for LOD (Level Of Depth). That requires to have published subsets with name ending with **"_LOD{number}"** where number represents level (e.g. modelMain_LOD1). Has the same limitations as mentioned above. This is handy when you want to change only subset but keep same LOD or keep same subset but change LOD for multiple assets. This option is hidden if you didn't select subset that have published subset with LODs.
-<div class="ImagePanel.image Screenshot">
 
-  ![tools_scene_inventory_54](assets/tools/tools_scene_inventory_54.png)
-</div>
+![tools_scene_inventory_54](assets/tools/tools_scene_inventory_54.png)
 
 ### Filtering
+
 #### Filter by name
+
 There is a search bar on the top for cases when you have a complex scene with many assets and need to find a specific one.
 
-<div class="ImagePanel">
-<div class="ImagePanel.image Screenshot">
+<div class="row markdown">
+<div class="col col--6 markdown">
 
-  ![tools_scene_inventory_60](assets/tools/tools_scene_inventory_60-small.png)
-</div>
-<div class="ImagePanel.image Screenshot">
+![tools_scene_inventory_60](assets/tools/tools_scene_inventory_60-small.png)
 
-  ![tools_scene_inventory_61](assets/tools/tools_scene_inventory_61-small.png)
+</div>
+<div class="col col--6 markdown">
+
+![tools_scene_inventory_61](assets/tools/tools_scene_inventory_61-small.png)
+
 </div>
 </div>
+
 
 #### Filter with Cherry-pick selection
-To keep only selected subsets right-click selection and press `Cherry-Pick (Hierarchy)` *(Border of subset list change to **orange** color when Cherry-pick filtering is set so you know filter is applied).*
-<div class="ImagePanel.image Screenshot">
 
-  ![tools_scene_inventory_62-small](assets/tools/tools_scene_inventory_62-small.png)
+<div class="row markdown">
+<div class="col col--6 markdown">
+
+To keep only selected subsets right-click selection and press `Cherry-Pick (Hierarchy)` *(Border of subset list change to **orange** color when Cherry-pick filtering is set so you know filter is applied).*
+
 </div>
+<div class="col col--6 markdown">
+
+![tools_scene_inventory_62-small](assets/tools/tools_scene_inventory_62-small.png)
+
+</div>
+</div>
+
+<div class="row markdown">
+<div class="col col--6 markdown">
 
 To return to original state right-click anywhere in subsets list and press `Back to Full-View`.
-<div class="ImagePanel.image Screenshot">
 
-  ![tools_scene_inventory_63-small](assets/tools/tools_scene_inventory_63-small.png)
 </div>
+<div class="col col--6 markdown">
+
+![tools_scene_inventory_63-small](assets/tools/tools_scene_inventory_63-small.png)
+
+</div>
+</div>
+
 
 :::tip
 You can Cherry-pick from Cherry-picked subsets.
@@ -304,8 +336,8 @@ Let's say that the last version of the comp you published was v003 and now you'r
 
 ### Usage
 
-<div class="ImagePanel" data-image-align='right'>
-<div class="ImagePanel.content">
+<div class="row markdown">
+<div class="col col--6 markdown">
 
 #### To open existing file:
 
@@ -314,12 +346,13 @@ Let's say that the last version of the comp you published was v003 and now you'r
 3. Press `Open` button
 
 </div>
+<div class="col col--6 markdown">
 
-<div class="ImagePanel.image Screenshot">
 ![workfiles_1](assets/workfiles_1.png)
-</div>
 
 </div>
+</div>
+
 
 #### To save new workfile
 1. Open Workfiles tool from pipeline menu
@@ -349,7 +382,3 @@ Look Assigner has GUI is made of two parts. On the left you will see the list of
 4.  Choose "Assign"
 
 At this point you should have a model with all it's shaders applied correctly. The tool automatically loads the latest look available.
-
-[click]: http://click.pocoo.org/
-
-[fissix]: https://github.com/jreese/fissix

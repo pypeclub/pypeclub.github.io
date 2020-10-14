@@ -8,21 +8,6 @@ sidebar_label: Nuke
 After Nuke starts it will automatically **Apply All Settings** for you. If you are sure the settings are wrong just contact your supervisor and he will set them correctly for you in project database.
 :::
 
-:::tip Used elements terminology
-For mode details about the element click on its name.
-
-[asset](artist_concepts.md#asset) - In our context we usually mean **shot** and that is how we will call it bellow in the text (`shot01`).
-
-[subset](artist_concepts.md#subset) - a clip on timeline which is part of a particular shot for example _foreground_, _main_, _background_, _reference_ (`shot01_main`)
-
-[version](artist_concepts.md#version) - version of shot's subset (`shot01_main_v001`)
-
-[representation](artist_concepts.md#representation) - file type of version (`shot01_main_v001.mov`)
-
-[family](artist_concepts.md#family) - Publisher plugin filtering keyword, (if `ftrack` in family, publishing to Ftrack will be performed)
-
-:::
-
 ## Pype global tools
 
 -   [Set Context](artist_tools.md#set-context)
@@ -35,10 +20,10 @@ For mode details about the element click on its name.
 
 ## Nuke specific tools
 
-### Set Frame Ranges
+<div class="row markdown">
+<div class="col col--6 markdown">
 
-<div class="ImagePanel" data-image-align='right'>
-<div class="ImagePanel.content">
+### Set Frame Ranges
 
 Use this feature in case you are not sure the frame range is correct.
 
@@ -48,14 +33,13 @@ Use this feature in case you are not sure the frame range is correct.
 -   setting Frame Range in viewers (timeline)
 
 </div>
-<div class="ImagePanel.image Screenshot">
+<div class="col col--6 markdown">
 
 ![Set Frame Ranges](assets/nuke_setFrameRanges.png)
 
 </div>
 </div>
 
-<div class="ImagePanel.image Screenshot">
 
 <figure>
 
@@ -70,12 +54,11 @@ Use this feature in case you are not sure the frame range is correct.
 </figcaption>
 </figure>
 
-</div>
-
 ### Set Resolution
 
-<div class="ImagePanel" data-image-align='right'>
-<div class="ImagePanel.content">
+<div class="row markdown">
+<div class="col col--6 markdown">
+
 
 This menu item will set correct resolution format for you defined by your production.
 
@@ -85,17 +68,18 @@ This menu item will set correct resolution format for you defined by your produc
 -   sets the new format as used
 
 </div>
-<div class="ImagePanel.image Screenshot">
+<div class="col col--6 markdown">
 
 ![Set Resolution](assets/nuke_setResolution.png)
 
 </div>
 </div>
 
+
 ### Set Colorspace
 
-<div class="ImagePanel" data-image-align='right'>
-<div class="ImagePanel.content">
+<div class="row markdown">
+<div class="col col--6 markdown">
 
 This menu item will set correct Colorspace definitions for you. All has to be configured by your production (Project coordinator).
 
@@ -105,17 +89,18 @@ This menu item will set correct Colorspace definitions for you. All has to be co
 -   set preview LUT to your viewers
 
 </div>
-<div class="ImagePanel.image Screenshot">
+<div class="col col--6 markdown">
 
 ![Set Colorspace](assets/nuke_setColorspace.png)
 
 </div>
 </div>
 
+
 ### Apply All Settings
 
-<div class="ImagePanel" data-image-align='right'>
-<div class="ImagePanel.content">
+<div class="row markdown">
+<div class="col col--6 markdown">
 
 It is usually enough if you once per while use this option just to make yourself sure the workfile is having set correct properties.
 
@@ -126,7 +111,7 @@ It is usually enough if you once per while use this option just to make yourself
 -   set Resolution
 
 </div>
-<div class="ImagePanel.image Screenshot">
+<div class="col col--6 markdown">
 
 ![Apply All Settings](assets/nuke_applyAllSettings.png)
 
@@ -135,30 +120,31 @@ It is usually enough if you once per while use this option just to make yourself
 
 ### Build First Work File
 
-<div class="ImagePanel" data-image-align='right'>
-<div class="ImagePanel.content">
+<div class="row markdown">
+<div class="col col--6 markdown">
 
 This tool will create your first version of workfile and save it to correct folder with correct file name convention. It will look into database and get all last [versions](artist_concepts.md#version) of available [subsets](artist_concepts.md#subset).
 
 </div>
-<div class="ImagePanel.image Screenshot">
-
+<div class="col col--6 markdown">
 ![Build First Work File](assets/nuke_buildFirstWorkfile.png)
 
+
 </div>
 </div>
+
 
 ##### Result
 
-<div class="ImagePanel" data-image-align='left'>
-<div class="ImagePanel.content">
+<div class="row markdown">
+<div class="col col--6 markdown">
 
 -   adds all last versions of subsets (rendered image sequences) as read nodes
 -   adds available color transformations under Read nodes
 -   adds publishable write node as `renderMain` subset
 
 </div>
-<div class="ImagePanel.image Screenshot">
+<div class="col col--6 markdown">
 
 <figure>
 
@@ -170,5 +156,6 @@ Orange arrow is pointing at `Lut` groups.
 
 </figcaption>
 </figure>
+
 </div>
 </div>

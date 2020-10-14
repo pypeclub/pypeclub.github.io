@@ -4,69 +4,63 @@ title: Hiero
 sidebar_label: Hiero / Nuke Studio
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 :::note
 All the information also applies to **_Nuke Studio_**, but for simplicity we only refer to hiero. The workflows are identical for both. We are supporting versions **`11.0`** and above.
 :::
 
-:::tip Terminology
-For mode details about the element click on its name.
-
-[shot](artist_concepts.md#asset) - Shot object that will be created in the database or ftrack.
-
-[subset](artist_concepts.md#subset) - a named clip on timeline tagged for publishing _foreground_, _main_, _background_, _reference_
-
-[representation](artist_concepts.md#representation) - File type of a subset. A plate could for example be published as .exr sequence and .mov, these would be 2 representations
-
-:::
 
 ## Hiero specific tools
 
-### Create Default Tags
 
-<div class="ImagePanel" data-image-align='right'>
-<div class="ImagePanel.content">
+
+<div class="row markdown">
+<div class="col col--6 markdown">
+
+### Create Default Tags
 
 This tool will recreate all necessary pype tags needed for successful publishing. It is automatically ran at start of the hiero. Use this tool to manually re-create all the tags if you accidentaly delete them, or you want to reset them to default values.
 
-#### Result
-
--   Will create tags in Tags bin in case there were none
--   Will set all tags to default values if they have been altered
-
 </div>
-<div class="ImagePanel.image Screenshot">
+<div class="col col--6 markdown">
 
 ![Default Tags](assets/nukestudio_defaultTags.png)
 
 </div>
 </div>
 
+#### Result
+
+-   Will create tags in Tags bin in case there were none
+-   Will set all tags to default values if they have been altered
 
 ## Publishing Shots
+
+
+
+<div class="row markdown">
+<div class="col col--6 markdown">
 
 With Pype, you can use hiero as a starting point for creating project hierarchy in avalon and ftrack database (episodes, sequences, shots, folders etc.), publishing plates, reference quicktimes, audio and various soft effects that will be evailable later on for compositors and 3d artist to use.
 
 There are two ways to `Publish` data and create shots in database from hiero. Use either context menu on right clicking selected clips or go to top `menu > Pype > Publish`.
 
-Keep in mind that the publishing currently works on selected shots
-
-Currently we **do not support encoding** on the fly during publishing so
-all clips have to be previously encoded and cut to correct length.
-
-<div id="noHeadline" class="ImagePanel" data-image-align='left'>
-<div class="ImagePanel.content">
-
-Shot names for all the related plates that you want to publish (subsets) has to be the same to be correctly paired together (as it is shown in image).
-Note the layer **review** which contains `plateMainReview`.
-This media is just h264,1920x1080 video for tha will be used as preview of the actua `plateMain` subset and will be uploaded to Ftrack. We explain how to work with review tag in [**Reviewing**](#reviewing).
-
 </div>
-<div class="ImagePanel.image Screenshot">
+<div class="col col--6 markdown">
 
 ![Clips naming](assets/nukestudio_basic_clipNaming.png)
 
 </div>
 </div>
+
+Keep in mind that the publishing currently works on selected shots
+
+Shot names for all the related plates that you want to publish (subsets) has to be the same to be correctly paired together (as it is shown in image).
+Note the layer **review** which contains `plateMainReview`.
+This media is just h264,1920x1080 video for tha will be used as preview of the actua `plateMain` subset and will be uploaded to Ftrack. We explain how to work with review tag in [**Reviewing**](#reviewing).
+
 
 :::important
 To to successfuly publish a shot from hiero:
@@ -76,15 +70,11 @@ To to successfuly publish a shot from hiero:
 
 ### Tagging
 
-<div class="ImagePanel" data-image-align='right'>
-<div class="ImagePanel.content">
 
 Pype's custom tags are used for defining shot parameters and to define which clips and how they are going to be published.
 
 If you want to add any properties to your clips you'll need to adjust values on the given tag and then drag it onto the clip.
 
-</div>
-<div class="ImagePanel.image Screenshot">
 
 <figure>
 
@@ -99,8 +89,6 @@ If you want to add any properties to your clips you'll need to adjust values on 
 
 </figcaption>
 </figure>
-</div>
-</div>
 
 :::important
 Only clips with `subset` will be directly processed for publishing.
@@ -190,13 +178,16 @@ You can only combine **retime** and with a single **Timewarp**.
 
 ### Reviewing
 
-:::neutral There are two ways to publish reviewable h264 mov into Pype (and ftrack).
-<!--DOCUSAURUS_CODE_TABS-->
+There are two ways to publish reviewable h264 mov into Pype (and ftrack).
 
-<!--Using Review Tag-->
+<Tabs
+  defaultValue="reviewtag"
+  values={[
+    {label: 'Review Tag', value: 'reviewtag'},
+    {label: 'Sidecar File', value: 'sidecar'},
+  ]}>
 
-<div class="ImagePanel" data-image-align='right'>
-<div class="ImagePanel.content">
+<TabItem value="reviewtag">
 
 
 
@@ -206,8 +197,7 @@ This tag metadata has `track` key inside that points to `review` track by defaul
 
 In the image on the right we dropped it to **plateMain** clip. Then we renamed the layer tha hold reviewable quicktime called `plateMainReview`. YOu can see that the clip names are the same.
 
-</div>
-<div class="ImagePanel.image Screenshot">
+
 
 <figure>
 
@@ -223,11 +213,9 @@ In the image on the right we dropped it to **plateMain** clip. Then we renamed t
 </figcaption>
 </figure>
 
-</div>
-</div>
 
-
-<!--Using Sidecar Quicktime-->
+</TabItem>
+<TabItem value="sidecar">
 
 Second way would be to add the **h264 mov 1920x1080** into the same folder
 as image sequence. The name of the file has to be the same as image sequence.
@@ -239,63 +227,58 @@ Example:
 -   img seq: `image_sequence_name.0001.exr`
 -   mov: `image_sequence_name.mov`
 
+</TabItem>
+</Tabs>
 
-<!--END_DOCUSAURUS_CODE_TABS-->
-
-:::
 
 --------------
 
 
 ### LUT Workflow
 
-<div class="ImagePanel" data-image-align='right'>
-<div class="ImagePanel.content">
+
+<div class="row markdown">
+<div class="col col--6 markdown">
 
 It is possible to publish hiero soft effects for compositors to use later on. You can add the effect to a particular clip or to whole layer as shows on the picture. All clips
 below the `Video 6` layer (green arrow) will be published with the **lut** subset which combines all the colour corrections from he soft effects. Any clips above the `Video 6` layer will have no **lut** published with them.  
 
-Any external Lut files used in the soft effects will be copied over to `resources` of the published subset folder `lutPlateMain` (in our example).
 
 </div>
-<div class="ImagePanel.image Screenshot">
+<div class="col col--6 markdown">
 
 ![Reviewing](assets/nukestudio_softEffects.png)
 
 </div>
-
 </div>
+
+Any external Lut files used in the soft effects will be copied over to `resources` of the published subset folder `lutPlateMain` (in our example).
 
 :::note
 
-<div class="ImagePanel" data-image-align='right'>
-<div class="ImagePanel.content">
+<div class="row markdown">
+<div class="col col--6 markdown">
 
 You cannot currently publish soft effects on their own because at the moment we only support soft effects as a part of other subset publishing. Image is demonstrating successful publishing.
 
 </div>
-<div class="ImagePanel.image Screenshot">
+<div class="col col--6 markdown">
 
 ![Reviewing](assets/nukestudio_lutSucess.png)
 
 </div>
 </div>
+
 :::
 
 ## Tutorials
 
-<div id="tutorials">
-<div id="video">
 
 ### Basic publishing with soft effects
 
 <iframe src="https://drive.google.com/file/d/1-BN6ia9ic9om69mq3T4jiwZnbrBGdyNi/preview"></iframe>
-</div>
 
-<div id="video">
 
 ### Extending premade handles tags
 
 <iframe src="https://drive.google.com/file/d/1-BexenWWmSURA-QFgxkoZtyxMEhZHOLr/preview"></iframe>
-</div>
-</div>
