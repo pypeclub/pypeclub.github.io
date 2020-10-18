@@ -127,8 +127,8 @@ This tool will create your first version of workfile and save it to correct fold
 
 </div>
 <div class="col col--6 markdown">
-![Build First Work File](assets/nuke_buildFirstWorkfile.png)
 
+![Build First Work File](assets/nuke_buildFirstWorkfile.png)
 
 </div>
 </div>

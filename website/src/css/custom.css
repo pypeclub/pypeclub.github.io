@@ -233,7 +233,8 @@ figure>p {
 }
 
 figure>figcaption {
-    min-width: 350px;
     background-color: var(--ifm-color-secondary);
+    font-size: 1rem;
 }
+
 /* END caption */
