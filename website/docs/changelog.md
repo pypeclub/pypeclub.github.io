@@ -19,7 +19,7 @@ sidebar_label: Changelog
 - Deadline publish job shows publishing output folder [\#649](https://github.com/pypeclub/pype/pull/649)
 - Get latest version in lib [\#642](https://github.com/pypeclub/pype/pull/642)
 - Improved publishing of multiple representation from SP [\#638](https://github.com/pypeclub/pype/pull/638)
-- Launch TvPaint shot work file from within Ftrack [\#631](https://github.com/pypeclub/pype/pull/631)
+- TvPaint: launch shot work file from within Ftrack [\#631](https://github.com/pypeclub/pype/pull/631)
 - Add mp4 support for RV action. [\#628](https://github.com/pypeclub/pype/pull/628)
 - Maya: allow renders to have version synced with workfile [\#618](https://github.com/pypeclub/pype/pull/618)
 - Renaming nukestudio host folder to hiero [\#617](https://github.com/pypeclub/pype/pull/617)
@@ -35,7 +35,6 @@ sidebar_label: Changelog
 - Store task types in the database [\#572](https://github.com/pypeclub/pype/pull/572)
 - Maya: Tiled EXRs to scanline EXRs render option [\#512](https://github.com/pypeclub/pype/pull/512)
 - Fusion: basic integration refresh [\#452](https://github.com/pypeclub/pype/pull/452)
-- TvPaint: launch shot work file from within Ftrack [\#629](https://github.com/pypeclub/pype/issues/629)
 
 **Fixed bugs:**
 
