@@ -4,7 +4,7 @@ module.exports = {
   url: 'http://pype.club/',
   baseUrl: '/',
   organizationName: 'pypeclub',
-  projectName: 'pype',
+  projectName: 'pypeclub.github.io',
   favicon: 'img/favicon/favicon.ico',
   onBrokenLinks: 'ignore',
   customFields: {
