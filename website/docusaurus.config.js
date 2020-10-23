@@ -45,10 +45,14 @@ module.exports = {
           to: 'docs/artist_getting_started',
           label: 'User Docs',
           position: 'left'
-        },{
+        }, {
           to: 'docs/admin_getting_started',
           label: 'Admin Docs',
           position: 'left'
+        }, {
+          href: 'https://github.com/pypeclub',
+          label: 'Github',
+          position: 'right',
         }
       ]
     },

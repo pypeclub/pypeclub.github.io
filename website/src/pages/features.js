@@ -12,38 +12,35 @@ import {
 
 const key_features = [
   {
+    label: "Workfiles",
+    description: "Save and load workfiles in progress. Change the context inside of the application.",
+    docs: "/docs/artist_tools#workfiles"
+  }, {
     label: "Creator",
-    link: "docs/artist_tools#creator",
     description: "Universal GUI for defining content for publishing from your DCC app.",
     docs: "/docs/artist_tools#creator"
   }, {
     label: "Loader",
-    link: "docs/artist_tools#loader",
     description: "Universal GUI for loading published assets into your DCC app.",
     docs: "/docs/artist_tools#loader"
   }, {
     label: "Publisher",
-    link: "docs/artist_tools#publisher",
     description: "Universal GUI for validating and publishng content from your DCC app.",
     image: "",
     docs: "/docs/artist_tools#publisher"
   }, {
     label: "Inventory",
-    link: "docs/artist_tools#inventory",
-    description: "Universal GUI for managing versions of assets loaded into your working scene."
+    description: "Universal GUI for managing versions of assets loaded into your working scene.",
+    docs: "docs/artist_tools#inventory",
   }, {
-    link: "",
-    label: "Context Switcher",
-    description: "Universal GUI switching between assets, shots and tasks directly from DCC app."
+    label: "Library Loader",
+    description: "A loader GUI that allows yo to load content from dedicated cross project asset library",
+    docs: "docs/artist_tools#library-loader",
+    image: ""
   }, {
     label: "Tray Publisher",
     link: "",
     description: "A standalone GUI for publishing data into pipeline without going though DCC app.",
-    image: ""
-  }, {
-    label: "Library Loader",
-    link: "",
-    description: "A loader GUI that allows yo to load content from dedicated cross project asset library",
     image: ""
   }, {
     label: "Pype Tray",
@@ -70,46 +67,69 @@ const key_features = [
 
 const ftrack = [
   {
-    link: "",
+    docs: "docs/manager_ftrack_actions#applications",
     label: "App launchers",
     description: "Start any DCC application directly from ftrack task, with pype loaded."
   }, {
-    link: "",
+    docs: "docs/manager_ftrack#project-management",
     label: "Project Setup",
     description: "Quickly sets up project with customisable pre-defined structure and attributes."
   }, {
-    link: "",
-    label: "Publisher",
-    description: "Universal GUI for validating and publishng content from your DCC app."
-  }, {
-    link: "",
+    docs: "docs/admin_ftrack#event-server",
     label: "Event Server",
     description: "Built-in ftrack event server takes care of all automation on your ftrack."
   }, {
-    link: "",
+    docs: "",
     label: "Review publishing",
     description: "All reviewables from all DCC aps, including farm renders are pushed to ftrack online review."
   }, {
-    link: "",
+    docs: "",
     label: "Auto Time Tracker",
     description: "Automatically starts and stops ftrack time tracker, base on artist activity."
   }
 ];
 
 const ftrackActions = [
-  {label: "Launch Application"},
-  {link: "", label: "Review in RV Player"},
-  {link: "", label: "Review in DJV view"},
-  {link: "", label: "Propagate Thumbnails"},
-  {link: "", label: "Prepare New Project"},
-  {link: "", label: "Delete Old Subsets"},
-  {link: "", label: "Create Folders"},
-  {link: "", label: "Open Location"},
-  {link: "", label: "Kill old ftrack jobs"},
-  {link: "", label: "Sort Client Review"},
-  {link: "", label: "Start Next Task"},
-  {link: "", label: "Version to Task Status"},
-  {link: "", label: "Autosync to Pype DB"}
+  {
+    docbase: "docs/manager_ftrack_actions",
+    label: "Launch Applications"
+  }, {
+    docbase: "docs/manager_ftrack_actions#",
+    label: "RV Player"
+  }, {
+    docbase: "docs/manager_ftrack_actions#",
+    label: "DJV view"
+  }, {
+    docbase: "docs/manager_ftrack_actions#",
+    label: "Prepare Project"
+  }, {
+    docbase: "docs/manager_ftrack_actions#",
+    label: "Delete Asset/Subset",
+    target: "delete-assetsubset"
+  }, {
+    docbase: "docs/manager_ftrack_actions#",
+    label: "Create Folders"
+  }, {
+    docbase: "docs/manager_ftrack_actions#",
+    label: "Create Project Structure"
+  }, {
+    docbase: "docs/manager_ftrack_actions#",
+    label: "Open File"
+  }, {
+    docbase: "docs/manager_ftrack_actions#",
+    label: "Kill old jobs",
+    target: "job-killer"
+  }, {
+    docbase: "docs/manager_ftrack_actions#",
+    label: "Sort Review"
+  }, {
+    docbase: "docs/manager_ftrack_actions#",
+    label: "Sync to Avalon"
+  }, {
+    docbase: "docs/manager_ftrack_actions#",
+    label: "Propagate Thumbnails",
+    target: "thumbnail"
+  },
 ];
 
 
@@ -117,7 +137,7 @@ const maya_features = [
 
   {
     label: "Look Management",
-    link: "docs/artist_hosts_maya#look-development",
+    docs: "docs/artist_hosts_maya#look-development",
     description:"Publish shading networks with textures and assign them to all assets in the scene at once"
   },
   {
@@ -126,16 +146,18 @@ const maya_features = [
   },
   {
     label: "Playblasts",
-    link: "docs/artist_hosts_maya#reviews",
+    docs: "docs/artist_hosts_maya#reviews",
     description:"Makes all your playblasts consistent, with burnins and correct viewport settings"
   },
   {
     label: "Model > Render",
-    description:"We cover full project data flow from model throght animation, till final render."
+    description:"We cover full project data flow from model throght animation, till final render.",
+    docs: "docs/artist_hosts_maya#working-with-pype-in-maya"
   },
   {
     label: "Plugins Support",
-    description:"Full support for Arnold, Vray, Redshift and Yeti. With more added upon client requests."
+    description:"Full support for Arnold, Vray, Redshift and Yeti. With more added upon client requests.",
+    docs: "docs/artist_hosts_maya#working-with-yeti-in-pype"
   }
 ]
 
@@ -145,7 +167,7 @@ const maya_families = [
     {label:"Rig"},
     {label:"Setdress"},
     {label:"Animation"},
-    {label:"Point Cache"},
+    {label:"Cache"},
     {label:"VDB Cache"},
     {label:"Assembly"},
     {label:"Camera"},
@@ -165,10 +187,12 @@ const nuke_features = [
 
   {
     label: "Color Managed",
-    description:"Fully colour managed outputs for work and review."
+    description:"Fully colour managed outputs for work and review.",
+    docs: "docs/artist_hosts_nuke#set-colorspace"
   }, {
     label: "Script Building",
-    description:"Automatically build first workfiles from published plates or renders."
+    description:"Automatically build first workfiles from published plates or renders",
+    docs: "docs/artist_hosts_nuke#build-first-work-file"
   },
   {
     label: "Node Presets",
@@ -226,7 +250,6 @@ const deadline_families = [
 ]
 
 const hiero_features = [
-
 ]
 
 const hiero_families = [
@@ -359,7 +382,7 @@ class FeatureMedium extends React.Component {
             {description}
           </p>
           </div>
-          <div className={classnames(styles.more_item,
+          <div className={classnames(
                                      "card__footer")}>
            <div class="button-group button-group--block">
              {demo != "" &&
@@ -375,19 +398,20 @@ class FeatureMedium extends React.Component {
   }
 }
 
-class FeatureSmall extends React.Component {
+class FamilyCard extends React.Component {
   render() {
     const label = this.props.label
-    const link = (this.props.link || "")
     const description = this.props.description
+    const docbase = (this.props.docbase || "docs/artist_publish#")
+    const target = (this.props.target || label)
 
     return (
       <div className="card card_small">
-
-        <div className="card__body">
-        <h5>{label}</h5>
-        </div>
-
+        <a href={docbase + target.toLowerCase().replaceAll(" ", "-")}>
+          <div className="card__body">
+          <h5>{label}</h5>
+          </div>
+        </a>
       </div>
     );
   }
@@ -437,7 +461,7 @@ function Home() {
           {ftrack && ftrack.length && (
             <div className={styles.card_box}>
               {ftrackActions.map((props, idx) => (
-                <FeatureSmall key={idx} {...props} />
+                <FamilyCard key={idx} {...props} />
               ))}
             </div>
           )}
@@ -463,7 +487,7 @@ function Home() {
           {maya_families && maya_families.length && (
             <div className={styles.card_box}>
               {maya_families.map((props, idx) => (
-                <FeatureSmall key={idx} {...props} />
+                <FamilyCard key={idx} {...props} />
               ))}
             </div>
           )}
@@ -489,7 +513,7 @@ function Home() {
           {nuke_families && nuke_families.length && (
             <div className={styles.card_box}>
               {nuke_families.map((props, idx) => (
-                <FeatureSmall key={idx} {...props} />
+                <FamilyCard key={idx} {...props} />
               ))}
             </div>
           )}
@@ -502,20 +526,12 @@ function Home() {
 
           <p className="sectionDescription">versions 11.0 and higher</p>
 
-          {hiero_features && hiero_features.length && (
-            <div className={styles.card_box}>
-              {hiero_features.map((props, idx) => (
-                <FeatureMedium key={idx} {...props} />
-              ))}
-            </div>
-          )}
-
           <h3 className=""> Supported Families </h3>
 
           {hiero_families && hiero_families.length && (
             <div className={styles.card_box}>
               {hiero_families.map((props, idx) => (
-                <FeatureSmall key={idx} {...props} />
+                <FamilyCard key={idx} {...props} />
               ))}
             </div>
           )}
@@ -533,7 +549,7 @@ function Home() {
           {houdini_families && houdini_families.length && (
             <div className={styles.card_box}>
               {houdini_families.map((props, idx) => (
-                <FeatureSmall key={idx} {...props} />
+                <FamilyCard key={idx} {...props} />
               ))}
             </div>
           )}
@@ -552,7 +568,7 @@ function Home() {
           {blender_families && blender_families.length && (
             <div className={styles.card_box}>
               {blender_families.map((props, idx) => (
-                <FeatureSmall key={idx} {...props} />
+                <FamilyCard key={idx} {...props} />
               ))}
             </div>
           )}
@@ -571,7 +587,7 @@ function Home() {
           {fusion_families && fusion_families.length && (
             <div className={styles.card_box}>
               {fusion_families.map((props, idx) => (
-                <FeatureSmall key={idx} {...props} />
+                <FamilyCard key={idx} {...props} />
               ))}
             </div>
           )}
@@ -590,7 +606,7 @@ function Home() {
           {harmony_families && harmony_families.length && (
             <div className={styles.card_box}>
               {harmony_families.map((props, idx) => (
-                <FeatureSmall key={idx} {...props} />
+                <FamilyCard key={idx} {...props} />
               ))}
             </div>
           )}
@@ -609,7 +625,7 @@ function Home() {
           {photoshop_families && photoshop_families.length && (
             <div className={styles.card_box}>
               {photoshop_families.map((props, idx) => (
-                <FeatureSmall key={idx} {...props} />
+                <FamilyCard key={idx} {...props} />
               ))}
             </div>
           )}

@@ -35,7 +35,7 @@ Filtering can be more complicated for example a lot of actions can be shown only
 ---
 ## Applications
 
-### DCC applications (Nuke, Maya, Houdini, Fusion etc.)
+### Launch applications
 * Entity types: Task
 * User roles: All
 
