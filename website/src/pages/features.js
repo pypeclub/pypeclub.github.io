@@ -403,11 +403,11 @@ class FamilyCard extends React.Component {
     const label = this.props.label
     const description = this.props.description
     const docbase = (this.props.docbase || "docs/artist_publish#")
-    const target = (this.props.target || label)
+    const target = (this.props.target || label).toLowerCase()
 
     return (
       <div className="card card_small">
-        <a href={docbase + target.toLowerCase().replaceAll(" ", "-")}>
+        <a href={docbase + target.split(" ").join("-")}>
           <div className="card__body">
           <h5>{label}</h5>
           </div>
