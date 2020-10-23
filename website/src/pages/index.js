@@ -51,7 +51,7 @@ const collab = [
     infoLink: 'http://kredenc.studio'
   }, {
     title: 'Bumpybox',
-    image: '/img/bumpybox.png',
+    image: '/img/bumpybox_bw.png',
     infoLink: 'http://bumpybox.com'
   }, {
     title: 'Colorbleed',
