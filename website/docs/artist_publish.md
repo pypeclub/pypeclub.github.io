@@ -31,32 +31,42 @@ Keep in mind that while publishing the data might take you some extra time, it w
 The Instances are categorized into ‘families’ based on what type of data they contain. Some instances might have multiple families if needed. A shot camera will for example have families 'camera' and  'review' to indicate that it's going to be used for review quicktime, but also exported into a file on disk.
 
 Following family definitions and requirements are Pype defaults and what we consider good industry practice, but most of the requirements can be easily altered to suit the studio or project needs.
-
 Here's a list of supported families
 
-| Family                | Comment                                          | Example Subsets           |
-| --------------------- | ------------------------------------------------ | ------------------------- |
-| [Model](#model)       | Cleaned geo without materials                    | main, proxy, broken       |
-| [Look](#look)         | Package of shaders, assignments and textures     | main, wet, dirty          |
-| [Rig](#rig)           | Characters or props with animation controls      | main, deform, sim         |
-| [Assembly](#assembly) | A complex model made from multiple other models. | main, deform, sim         |
-| [Setdress](#setdress) | Environment containing only referenced assets    | main,                     |
-| [Camera](#camera)     | May contain trackers or proxy geo                | main, tracked, anim       |
-| [Animation](#animation)     | Animation exported from a rig.             | characterA, vehicleB      |
-| [Cache](#cache)       | Arbitrary animated geometry or fx cache          | rest, ROM , pose01        |
-| MayaAscii             | Maya publishes that don't fit other categories   |                           |
-| [Render](#render)     | Rendered frames from CG or Comp                  |                           |
-| Plate                 | Ingested, transcode, conformed footage           | raw, graded, imageplane   |
-| Write                 | Nuke write nodes for rendering                   |                           |
-| Image                 | Any non-plate image to be used by artists        | Reference, ConceptArt     |
-| Matchmove             | Matchmoved camera, potentially with geometry     | main                      |
-| Workfile              | Backup of the workfile with all it's content     | uses the task name        |
-| Nukenodes             | Any collection of nuke nodes                     | maskSetup, usefulBackdrop |
-| Yeticache             | Cached out yeti fur setup                        |                           |
-| YetiRig               | Yeti groom ready to be applied to geometry cache | main, destroyed           |
-| VrayProxy             | Vray proxy geometry for rendering                |                           |
-| VrayScene             | Vray full scene export                           |                           |
-| ArnodldStandin        | All arnold .ass archives for rendering           | main, wet, dirty          |
+| Family                  | Comment                                          | Example Subsets           |
+| ----------------------- | ------------------------------------------------ | ------------------------- |
+| [Model](#model)         | Cleaned geo without materials                    | main, proxy, broken       |
+| [Look](#look)           | Package of shaders, assignments and textures     | main, wet, dirty          |
+| [Rig](#rig)             | Characters or props with animation controls      | main, deform, sim         |
+| [Assembly](#assembly)   | A complex model made from multiple other models. | main, deform, sim         |
+| [Layout](#layout)       | Simple representation of the environment         | main,                     |
+| [Setdress](#setdress)   | Environment containing only referenced assets    | main,                     |
+| [Camera](#camera)       | May contain trackers or proxy geo                | main, tracked, anim       |
+| [Animation](#animation) | Animation exported from a rig.                   | characterA, vehicleB      |
+| [Cache](#cache)         | Arbitrary animated geometry or fx cache          | rest, ROM , pose01        |
+| MayaAscii               | Maya publishes that don't fit other categories   |                           |
+| [Render](#render)       | Rendered frames from CG or Comp                  |                           |
+| RenderSetup             | Scene render settings, AOVs and layers           |                           |
+| Plate                   | Ingested, transcode, conformed footage           | raw, graded, imageplane   |
+| Write                   | Nuke write nodes for rendering                   |                           |
+| Image                   | Any non-plate image to be used by artists        | Reference, ConceptArt     |
+| LayeredImage            | Software agnostic layered image with metadata    | Reference, ConceptArt     |
+| Review                  | Reviewable video or image.                       |                           |
+| Matchmove               | Matchmoved camera, potentially with geometry     | main                      |
+| Workfile                | Backup of the workfile with all it's content     | uses the task name        |
+| Nukenodes               | Any collection of nuke nodes                     | maskSetup, usefulBackdrop |
+| Yeticache               | Cached out yeti fur setup                        |                           |
+| YetiRig                 | Yeti groom ready to be applied to geometry cache | main, destroyed           |
+| VrayProxy               | Vray proxy geometry for rendering                |                           |
+| VrayScene               | Vray full scene export                           |                           |
+| ArnodldStandin          | All arnold .ass archives for rendering           | main, wet, dirty          |
+| LUT                     |                                                  |                           |
+| Nukenodes               |                                                  |                           |
+| Gizmo                   |                                                  |                           |
+| Nukenodes               |                                                  |                           |
+| Harmony.template        |                                                  |                           |
+| Harmony.pallette        |                                                  |                           |
+
 
 
 ### Model
@@ -71,24 +81,6 @@ Example Subsets:
 Example representations:
 `.ABC`, `.MA`, `.MB`, `.BLEND`, `.OBJ`, `.FBX`
 
-:::tip Model MUST:
-- Only consist of **transforms**, **poly-meshes** or **subdivision surfaces**.
-- Include correct naming suffixes for all the transforms and shapes. (These can be configured differently)
-  - `_GEO` for geometry
-  - `_GRP` for groups
-  - `_SUBD` for subdivision surfaces
-  - Have frozen and zeroed out transforms
-
-:::
-
-:::warning Model Must NOT:
-
-- Contain any external references
-- Contain any zero-length edges
-- Contain any non-manifold geometry
-- Contain any negative scales
-- Contain any lamina faces
-:::
 
 ### Look
 
@@ -104,14 +96,6 @@ Please note that a look is almost never a single representation, but a combinati
 For example in Maya a look consists of `.ma` file with the shaders, `.json` file which
 contains the attributes and assignments and `/resources` folder with all the required textures.
 
-:::tip Look MUST:
-- Be authored on a model loaded into the scene using Pype Loader.
-:::
-
-:::warning Look Must NOT:
-- Contain any default shading (Lambert1 in maya for example).
-- Contain any referenced materials
-:::
 
 ### Rig
 
@@ -123,17 +107,6 @@ Example Subsets:
 Example Representations:
 `.MA`, `.MB`, `.BLEND`, `.HDA`
 
-:::tip Rig MUST:
-- Contain exactly **one** top group with all the rig content parented below it.
-- Include model previously published within the same asset.
-- Clearly define or tag geometry for later caching (method differs between hosts)
-- Clearly define or tag all the animation controllers (method differs between hosts)
-:::
-
-:::warning Rig Must NOT:
-- Have any transform values on any of the controllers.
-- Have any animation curves attached to controllers.
-:::
 
 ### Assembly
 
@@ -156,25 +129,11 @@ Example Subsets:
 Example Representations:
 `.ABC + .JSON`
 
-:::tip Assembly MUST:
-- Be only build using other pre-published subsets.
-- Only use simple translate, rotate and scale transforms to position the
-individual elements.
-- Contain only referenced elements
-- Contain exactly **one** top group, with all the content parented under it.
-:::
 
 
 ### Setdress
 
 Fully prepared environment scene assembled from other previously published assets. Setdress should be ready for rendering as is, including any instancing, material assignments and other complex setups the environment requires. Due to this complexity, setdress is currently only publishable in the native file format of the host where it was created. In maya that would be `.ma` or `.mb` file.
-
-:::tip Setdress:
-- MAY contain geometry built direcly in the scene.
-- MUST be ready to render once loaded into a shot.
-- MUST be grouped under top level transform (group or locator)
-- MAY use particles, instancing or any other tools for achieving the final look of the scene
-:::
 
 
 ### Camera
@@ -184,12 +143,6 @@ Clean virtual camera without any proprietary rigging, or host specific informati
 
 Example Representations:
 `.MA`, `.ABC`
-
-:::tip Camera:
-- MUST Have all the animation baked in.
-- MUST Have name ending with `_CAM`
-- MAY contain extra geometry or locators (to mark tracking data for example)
-:::
 
 
 ### Cache
