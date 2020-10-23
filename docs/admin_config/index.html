@@ -3,20 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="generator" content="Docusaurus v2.0.0-alpha.65">
+<meta name="generator" content="Docusaurus v2.0.0-alpha.66">
 <link rel="search" type="application/opensearchdescription+xml" title="PYPE" href="/opensearch.xml">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"><title data-react-helmet="true">Studio Config | PYPE</title><meta data-react-helmet="true" name="docsearch:version" content="current,latest"><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"><meta data-react-helmet="true" property="og:title" content="Studio Config | PYPE"><meta data-react-helmet="true" name="description" content="All of the studio specific configurations are stored as simple JSON files in the pype-config repository."><meta data-react-helmet="true" property="og:description" content="All of the studio specific configurations are stored as simple JSON files in the pype-config repository."><meta data-react-helmet="true" property="og:url" content="http://pype.club//docs/admin_config"><link data-react-helmet="true" rel="shortcut icon" href="/img/favicon/favicon.ico"><link data-react-helmet="true" rel="preconnect" href="https://BH4D9OD16A-dsn.algolia.net" crossorigin="anonymous"><link data-react-helmet="true" rel="canonical" href="http://pype.club//docs/admin_config"><link rel="stylesheet" href="/styles.7a932ccf.css">
-<link rel="preload" href="/styles.e023b196.js" as="script">
-<link rel="preload" href="/runtime~main.9272cea1.js" as="script">
-<link rel="preload" href="/main.e6c3c68c.js" as="script">
-<link rel="preload" href="/1.3a4aceed.js" as="script">
-<link rel="preload" href="/2.69730660.js" as="script">
-<link rel="preload" href="/3.62ec7f89.js" as="script">
-<link rel="preload" href="/1be78505.adb4dcdf.js" as="script">
-<link rel="preload" href="/54.fd28c3b0.js" as="script">
-<link rel="preload" href="/f976f453.b6e7309b.js" as="script">
-<link rel="preload" href="/17896441.909a3ef8.js" as="script">
-<link rel="preload" href="/e10593a5.5b83791a.js" as="script">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"><title data-react-helmet="true">Studio Config | PYPE</title><meta data-react-helmet="true" name="docsearch:version" content="current,latest"><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"><meta data-react-helmet="true" property="og:title" content="Studio Config | PYPE"><meta data-react-helmet="true" name="description" content="All of the studio specific configurations are stored as simple JSON files in the pype-config repository."><meta data-react-helmet="true" property="og:description" content="All of the studio specific configurations are stored as simple JSON files in the pype-config repository."><meta data-react-helmet="true" property="og:url" content="http://pype.club//docs/admin_config"><link data-react-helmet="true" rel="shortcut icon" href="/img/favicon/favicon.ico"><link data-react-helmet="true" rel="preconnect" href="https://BH4D9OD16A-dsn.algolia.net" crossorigin="anonymous"><link data-react-helmet="true" rel="canonical" href="http://pype.club//docs/admin_config"><link rel="stylesheet" href="/styles.f009d697.css">
+<link rel="preload" href="/styles.f8838640.js" as="script">
+<link rel="preload" href="/runtime~main.94b01818.js" as="script">
+<link rel="preload" href="/main.f3928f23.js" as="script">
+<link rel="preload" href="/1.44a7dfb3.js" as="script">
+<link rel="preload" href="/2.d8abea64.js" as="script">
+<link rel="preload" href="/3.cb3c2558.js" as="script">
+<link rel="preload" href="/1be78505.55870dbb.js" as="script">
+<link rel="preload" href="/54.995d6f86.js" as="script">
+<link rel="preload" href="/935f2afb.1859cc18.js" as="script">
+<link rel="preload" href="/17896441.a21f9594.js" as="script">
+<link rel="preload" href="/18cb8b9e.56103e51.js" as="script">
 </head>
 <body>
 <script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){var t=null;try{t=localStorage.getItem("theme")}catch(t){}return t}();t(null!==e?e:"light")}()</script><div id="__docusaurus">
@@ -56,16 +56,16 @@ UVs validator in Maya.</p><p>Project name is <em>FooProject</em>.
 Your <code>PYPE_PROJECT_CONFIGS</code> points to <code>/studio/pype/projects</code>.</p><p>Create projects settings directory:</p><div class="mdxCodeBlock_1XEh"><div class="codeBlockContent_1u-d"><button type="button" aria-label="Copy code to clipboard" class="copyButton_10dd">Copy</button><div tabindex="0" class="prism-code language-sh codeBlock_3iAC"><div class="codeBlockLines_b7E3" style="color:#bfc7d5;background-color:#292d3e"><div class="token-line" style="color:#bfc7d5"><span class="token plain">mkdir $PYPE_PROJECT_CONFIGS/FooProject</span></div></div></div></div></div><p>Now you can use plugin overrides to disable validator:</p><p>Put:</p><div class="mdxCodeBlock_1XEh"><div class="codeBlockContent_1u-d"><button type="button" aria-label="Copy code to clipboard" class="copyButton_10dd">Copy</button><div tabindex="0" class="prism-code language-javascript codeBlock_3iAC"><div class="codeBlockLines_b7E3" style="color:#bfc7d5;background-color:#292d3e"><div class="token-line" style="color:#bfc7d5"><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  </span><span class="token string" style="color:rgb(195, 232, 141)">&quot;ValidateMeshHasOverlappingUVs&quot;</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    </span><span class="token string" style="color:rgb(195, 232, 141)">&quot;enabled&quot;</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> </span><span class="token boolean" style="color:rgb(255, 88, 116)">false</span><span class="token plain"></span></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  </span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token plain"></span></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span></div></div></div></div></div><p>into:</p><div class="mdxCodeBlock_1XEh"><div class="codeBlockContent_1u-d"><button type="button" aria-label="Copy code to clipboard" class="copyButton_10dd">Copy</button><div tabindex="0" class="prism-code language-sh codeBlock_3iAC"><div class="codeBlockLines_b7E3" style="color:#bfc7d5;background-color:#292d3e"><div class="token-line" style="color:#bfc7d5"><span class="token plain">$PYPE_PROJECT_CONFIGS/FooPoject/presets/plugins/maya/publish.json</span></div></div></div></div></div><p>And its done. <strong>ValidateMeshHasOverlappingUVs</strong> is a class name of validator - you can
 find that name by looking into python file containing validator code, or in Pyblish GUI.</p><p>That way you can make it optional or set whatever properties you want on plugins and those
 settings will take precedence over the default site-wide settings.</p></div></article><div class="margin-vert--lg"><nav class="pagination-nav" aria-label="Blog list page navigation"><div class="pagination-nav__item"><a class="pagination-nav__link" href="/docs/admin_install"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">« Pype Setup</div></a></div><div class="pagination-nav__item pagination-nav__item--next"><a class="pagination-nav__link" href="/docs/admin_ftrack"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Ftrack Setup »</div></a></div></nav></div></div></div><div class="col col--3"><div class="tableOfContents_3SO_"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#anatomy" class="table-of-contents__link">Anatomy</a><ul><li><a href="#roots" class="table-of-contents__link">Roots</a></li><li><a href="#templates" class="table-of-contents__link">Templates</a></li><li><a href="#required-templates" class="table-of-contents__link">Required templates</a></li><li><a href="#available-keys" class="table-of-contents__link">Available keys</a></li><li><a href="#optional-keys" class="table-of-contents__link">Optional keys</a></li><li><a href="#inner-keys" class="table-of-contents__link">Inner keys</a></li><li><a href="#global-keys" class="table-of-contents__link">Global keys</a></li><li><a href="#combine-inner-keys-with-global-keys" class="table-of-contents__link">Combine Inner keys with Global keys</a></li></ul></li><li><a href="#environments" class="table-of-contents__link">Environments</a></li><li><a href="#launchers" class="table-of-contents__link">Launchers</a></li><li><a href="#presets" class="table-of-contents__link">Presets</a><ul><li><a href="#colorspace" class="table-of-contents__link">colorspace</a></li><li><a href="#dataflow" class="table-of-contents__link">Dataflow</a></li><li><a href="#plugins" class="table-of-contents__link">Plugins</a></li></ul></li><li><a href="#schema" class="table-of-contents__link">Schema</a></li><li><a href="#per-project-configuration" class="table-of-contents__link">Per-project configuration</a><ul><li><a href="#example" class="table-of-contents__link">Example</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="footer footer--dark"><div class="container"><div class="row footer__links"><div class="col footer__col"><h4 class="footer__title">Pages</h4><ul class="footer__items"><li class="footer__item"><a class="footer__link-item" href="/">Index</a></li><li class="footer__item"><a class="footer__link-item" href="/features">Features</a></li></ul></div><div class="col footer__col"><h4 class="footer__title">Docs</h4><ul class="footer__items"><li class="footer__item"><a class="footer__link-item" href="/docs/artist_getting_started">Artist</a></li><li class="footer__item"><a class="footer__link-item" href="/docs/admin_getting_started">Admin</a></li></ul></div><div class="col footer__col"><h4 class="footer__title">Community</h4><ul class="footer__items"><li class="footer__item"><a href="https://gitter.im/getavalon/Lobby" target="_blank" rel="noopener noreferrer" class="footer__link-item">Avalon Chat</a></li><li class="footer__item"><a href="https://gitter.im/pyblish/pyblish" target="_blank" rel="noopener noreferrer" class="footer__link-item">Pyblish Chat</a></li><li class="footer__item"><a href="https://discord.gg/sFNPWXG" target="_blank" rel="noopener noreferrer" class="footer__link-item">Pype Chat</a></li></ul></div></div><div class="text--center"><div>Copyright © 2020 Orbi Tools</div></div></div></footer></div>
-<script src="/styles.e023b196.js"></script>
-<script src="/runtime~main.9272cea1.js"></script>
-<script src="/main.e6c3c68c.js"></script>
-<script src="/1.3a4aceed.js"></script>
-<script src="/2.69730660.js"></script>
-<script src="/3.62ec7f89.js"></script>
-<script src="/1be78505.adb4dcdf.js"></script>
-<script src="/54.fd28c3b0.js"></script>
-<script src="/f976f453.b6e7309b.js"></script>
-<script src="/17896441.909a3ef8.js"></script>
-<script src="/e10593a5.5b83791a.js"></script>
+<script src="/styles.f8838640.js"></script>
+<script src="/runtime~main.94b01818.js"></script>
+<script src="/main.f3928f23.js"></script>
+<script src="/1.44a7dfb3.js"></script>
+<script src="/2.d8abea64.js"></script>
+<script src="/3.cb3c2558.js"></script>
+<script src="/1be78505.55870dbb.js"></script>
+<script src="/54.995d6f86.js"></script>
+<script src="/935f2afb.1859cc18.js"></script>
+<script src="/17896441.a21f9594.js"></script>
+<script src="/18cb8b9e.56103e51.js"></script>
 </body>
 </html>
