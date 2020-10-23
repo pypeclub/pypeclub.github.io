@@ -4,6 +4,20 @@ title: Changelog
 sidebar_label: Changelog
 ---
 
+<a name="2.13.1"></a>
+
+### [2.13.1](https://github.com/pypeclub/pype/tree/2.13.1)
+
+ _**release date:**  _2020-10-23_
+
+[Full Changelog](https://github.com/pypeclub/pype/compare/2.13.0...2.13.1)
+
+**Fixed bugs:**
+
+- Photoshop: Layer name is not propagating to metadata [\#654](https://github.com/pypeclub/pype/issues/654)
+- Photoshop: Loader in fails with "can't set attribute" [\#650](https://github.com/pypeclub/pype/issues/650)
+- Hiero: Review video file adding one frame to the end [\#659](https://github.com/pypeclub/pype/issues/659)
+
 <a name="2.13.0"></a>
 
 ## [2.13.0](https://github.com/pypeclub/pype/tree/2.13.0)
