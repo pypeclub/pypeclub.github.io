@@ -41,6 +41,20 @@ h2 {
 
 h5, h6 { font-weight: var(--ifm-font-weight-semibold); }
 
+.navbar__item.navbar__link[href*="github"] {
+  display: flex;
+  font-size: 0;
+  padding: 0 12px;
+}
+.navbar__item.navbar__link[href*="github"]:before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  background: url("/img/brand-github.svg");
+  background-repeat: no-repeat;
+}
+
+
 .admonition-note {
   --ra-admonition-color: var(--ra-color-text-dark);
 }

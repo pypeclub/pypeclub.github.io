@@ -6,6 +6,8 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
 
+import {BadgesSection} from '../components';
+
 const services = [
   {
     title: <>Training</>,
@@ -204,7 +206,7 @@ function Home() {
                 'button button--outline button--primary',
                 styles.button,
               )}
-              to={'https://pypeclub.atlassian.net/servicedesk'}>
+              to={'https://support.pype.club'}>
               Client Support
             </Link>
 
@@ -214,9 +216,12 @@ function Home() {
             We are your pipeline department, in a remote office.</p>
 
           </div>
+
+
         </div>
       </header>
       <main>
+
         {services && services.length && (
           <section className={classnames(styles.features,
                                         styles.center)}>
@@ -402,6 +407,13 @@ function Home() {
             </div>
           </section>
         )}
+
+
+
+      <div className="container">
+        <BadgesSection/>
+      </div>
+
 
       </main>
     </Layout>
