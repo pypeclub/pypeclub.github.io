@@ -13,8 +13,7 @@ const services = [
     title: <>Training</>,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        From helping your TDs and production managers to complete on-site Ftrack and workflow training.
       </>
     ),
   },
@@ -38,7 +37,7 @@ const services = [
     title: <>Coding</>,
     description: (
       <>
-        We build an open, peer-reviewed pipeline, which can be shared across studio to reduce the cost and speed up the development.
+        We build an open, peer-reviewed pipeline, which can be shared across studios to reduce the cost and speed up the development.
       </>
     ),
   },
