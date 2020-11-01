@@ -108,7 +108,12 @@ module.exports = {
       apiKey: '5e01ee3bfbb744ca6f25d4b281ce38a9',
       indexName: 'pype',
       algoliaOptions: {}
-    }
+    },
+    googleAnalytics: {
+      trackingID: 'G-HHJZ9VF0FG',
+      // Optional fields.
+      anonymizeIP: false, // Should IPs be anonymized?
+    },
   },
   stylesheets: [
         'https://use.fontawesome.com/releases/v5.7.2/css/all.css'
