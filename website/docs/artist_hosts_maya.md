@@ -297,6 +297,29 @@ have any missing dependencies.
 You can load rig with [Loader](artist_tools.md#loader). Go **Pype → Load...**,
 select your rig, right click on it and **Reference** it.
 
+## Point caches
+Pype is using Alembic format for point caches. Workflow is very similar as
+other data types.
+
+### Creating Point Caches
+
+To create point cache just create whatever hierarchy you want and animate it.
+Select its root and Go **Pype → Create...** and select **Point Cache**.
+
+After that, publishing will create corresponding **abc** files.
+
+Example setup:
+
+![Maya - Point Cache Example](assets/maya-pointcache_setup.png)
+
+### Loading Point Caches
+
+Loading point cache means creating reference to **abc** file with Go **Pype → Load...**.
+
+Example result:
+
+![Maya - Point Cache Example](assets/maya-pointcache_loaded.png)
+
 ## Set dressing in Maya
 
 Set dressing is term for easily populate complex scenes with individual parts.
