@@ -1,7 +1,7 @@
 ---
-id: admin_presets_nukestudio
-title: Presets > NukeStudio
-sidebar_label: Nukestudio
+id: admin_presets_hiero
+title: Presets > Hiero / NukeStudio
+sidebar_label: Hiero / Nukestudio
 ---
 
 ## TAGS.json
@@ -28,8 +28,7 @@ Each tag defines defaults in `.json` file. Inside of the file you can change the
 
 path: `pype-config/presets/plugins/nukestudio/publish.json`
 
-### `CollectInstanceVersion` [dict] ###
-
+### `CollectInstanceVersion` [dict]
 
 This plugin is set to `true` by default so it will synchronize version of published instances with the version of the workfile. Set `enabled` to `false` if you wish to let publishing process decide on the next available version.
 
@@ -41,7 +40,7 @@ This plugin is set to `true` by default so it will synchronize version of publis
 }
 ```
 
-### `ExtractReviewCutUpVideo` [dict] ###
+### `ExtractReviewCutUpVideo` [dict]
 
 path: `pype-config/presets/plugins/nukestudio/publish.json`
 
