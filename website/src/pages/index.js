@@ -125,11 +125,12 @@ const clients = [
     image: '/img/filmmore_logotype_bw.png',
     infoLink: 'https://filmmore.nl/'
   },
-  // {
-  //   title: 'Yowza Animation',
-  //   image: '/img/client_yowza_logo.png',
-  //   infoLink: 'https://filmmore.nl/'
-  // }
+  {
+    title: 'Yowza Animation',
+    image: '/img/client_yowza_logo.png',
+    infoLink: 'https://yowzaanimation.com/'
+  },
+  
 ];
 
 function Service({imageUrl, title, description}) {

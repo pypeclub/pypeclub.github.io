@@ -107,7 +107,10 @@ module.exports = {
     algolia: {
       apiKey: '5e01ee3bfbb744ca6f25d4b281ce38a9',
       indexName: 'pype',
-      algoliaOptions: {}
+      // Optional: see doc section bellow
+      contextualSearch: true,
+      // Optional: Algolia search parameters
+      searchParameters: {},
     },
     googleAnalytics: {
       trackingID: 'G-HHJZ9VF0FG',

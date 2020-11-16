@@ -1,5 +1,4 @@
 ---
-id: artist_getting_started
 title: Getting started with Pype
 sidebar_label: Getting started
 ---
