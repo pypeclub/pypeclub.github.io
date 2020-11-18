@@ -144,6 +144,10 @@ You'll set the group in Avalon database so your changes will take effect for all
 
 Work in progress...
 
+
+* * *
+
+
 ## Library Loader
 
 Library loader is extended [loader](#loader) which allows to load published subsets from Library projects. Controls are same but library loader has extra Combo Box which allows you to choose project you want to load from.
@@ -162,6 +166,59 @@ Library loader is extended [loader](#loader) which allows to load published subs
 </div>
 
 * * *
+
+## Standalone Publisher
+
+
+
+<div class="row markdown">
+<div class="col col--9 markdown">
+
+Standalone publisher can be opened from the Pype Tray menu > Publish
+
+</div>
+<div class="col col--3 markdown">
+
+![Open Standalone Publisher](assets/standalonepublisher_open.png)
+
+</div>
+</div>
+
+### GUI overview
+
+![Gui sections](assets/standalonepublisher_sections.png)
+
+
+<div class="row markdown">
+<div class="col col--3 markdown">
+
+#### Context
+
+Choose the context for publishing. Most subsets belong to a shot or asset, however, there are some exceptions (e.g. editorial).
+
+</div>
+<div class="col col--5 markdown">
+
+#### Subset definition
+
+You must choose subset `family` which defines what type of data you are publishing.
+Publish name will be formed by combining chosen family with the Subset name that you type in, or choose from the pre-defined dropdown.
+
+</div>
+
+<div class="col col--4 markdown">
+
+#### File stack
+
+Drag'n'drop files that you want to publish or use the `Browse` button for loading any files. The area automatically recognizes frame sequences, when all the frames are dragged in.
+
+
+</div>
+</div>
+
+
+***
+
 
 ## Publisher
 

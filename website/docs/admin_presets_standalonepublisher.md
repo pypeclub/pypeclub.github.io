@@ -4,67 +4,42 @@ title: Presets > Standalone Publisher
 sidebar_label: Standalone Publisher
 ---
 
-## Open Standalone Publisher
-
-Standalone publisher can be opened from the Pype Tray menu > Publish
-
-![Open Standalone Publisher](assets/standalonepublisher_open.png)
-
-## Sections of Gui
-
-![Gui secitons](assets/standalonepublisher_sections.png)
-
-### Context
-
-To define what context should be instances processed into.
-
-### Subset definition
-
-Each subset is having defined `family` in which publish plugins are filtered.
-Subset name is formed with the `family` name and connected `Subset` input field. Ther result for Family `Camera` and Subset `Main` will be `cameraMain`.
-
-### Instances stack
-
-Drag'n'drop area for a file needed to be published or `Browse` button could also be used for loading any instances.
-
-## Defining Hierarchy
-
-By setting target context the hierarchy is defined unless you are using _Editorial_ family workflow where hierarchy could be bypassed with `CollectHierarchyInstance` onto any Anatomy templated form.
-
-![Gui secitons](assets/standalonepublisher_context.png)
-
-## Configuration of individual family plugins
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 path: `pype-config/presets\plugins\standalonepublisher\publish.json`
 
-<br></br>
+For general standalone publisher usage see [standalone publisher](artist_tools#standalone-publisher)
 
-### `Editorial` [subset definition > family]
+## Editorial
 
-This family is expecting to have instance of EDL in stack. Either one or multiple `.edl` files could be loaded in case multi layer workflow is applied.
-There are two workflows which could be used:
+This family accepts EDL files in the stack. Either one or multiple `.edl` files can be loaded at the same time, if your edit contains multiple video tracks.
 
--   single video file trimming (SVFT)
--   multi relative files (MRF) with use of `source_dir` attribute  
+There are two possible workflows for publishing EDL:
+
+-   `SOV` single offline video
+-   `MP` multiple plates pre-exported into a folders relative to the EDL
 
 ### `CollectEditorial`
 
-#### Attributres:
+#### Attributes:
 
--   **extensions**: list of extensions which are used for SVFT.
--   **source_dir**: path to directory in MRF to be searching for relative files. Searching patterns for expected subset name alternatives are defined in `CollectInstances`.
+-   **extensions**: list of extensions which are accepted for `SOV`.
+-   **source_dir**: path to directory with plates when using `MP` workflow. Searching patterns for expected subset names and alternatives are defined in `CollectInstances`.
 
 #### Example of use:
 
-##### Path:
+##### Path (source_dir):
+
+to define the path to plates you can use:
 
 -   relative path from EDL file: `./pathToDir` and `../pathToDir`
 -   absolute path: `C:/path/to/dir/with/inputs`
 -   pype anatomy template path: `{project[name]}/pathToDir`
 
-##### Name convention:
+##### Naming convention:
 
-Name of clips in `.edl` should be corresponding with either directory name in `./source_dir/[clipName]/` or a single file name `./source_dir/[clipName]_[subsetName].[ext]`. So if name of clip in EDL is **clip01** then folder name should start with `clip01` or in case of file `clip01_plateReference.jpg`
+To correctly match the clips in `.edl`, to their respective plates, they should be correspond to either directory name in `./source_dir/[clipName]/` or a file name `./source_dir/[clipName]_[subsetName].[ext]`. So if name of clip in EDL is **clip01** then folder name should start with `clip01` or in case of file `clip01_plateReference.jpg`
 
 ```json
 {
@@ -77,12 +52,11 @@ Name of clips in `.edl` should be corresponding with either directory name in `.
 
 ### `CollectInstances`
 
-#### Attribures:
+#### Attributes:
 
--   **subsets**: Dictionary with a subset profiles used within MRF and SVFT. By default SVFT workflow is used
--   
+-   **subsets**: Dictionary with a subset profiles used within SOV and MP workflows. By default SOV workflow is used
 
-#### Subset's Attributes:
+#### Subset Attributes:
 
 -   **subsetName**: key which is defining subset name as it will apparel in database
 -   **subsetName.family**: main family. This will be shown in Loader
@@ -92,11 +66,20 @@ Name of clips in `.edl` should be corresponding with either directory name in `.
 
 #### Example of use:
 
-Each of MRF and SVFT workflows are having different way of approaching subset creation. SVFT way is having more simple use as it is directly applying defined set of attributes to a new instance and trimming only part of input video file with FFMPEG. On the other hand the MRF way is trying to find any available alternatives of subset name in folders or files or collection of files. Here only one extension is needed.
+The two workflows have their own way of approaching subset creation. SOV is a simpler case as it directly applies the defined set of attributes to a new instance created by trimming only part of the input video file with FFMPEG. On the other hand the MP workflow tries to find any available alternatives of subset names within folders, files or collection of files placed inside the `source_dir`.
 
-##### SVFT use:
 
-SVFT way is having more simple use as it is directly applying defined set of attributes to a new instance. Here only one extension is needed. Example bellow is showing default preset which part of the plugin and no need for defining those in plugin preset.
+<Tabs
+  defaultValue="SOV"
+  values={[
+    {label: 'Single Offline Video', value: 'SOV'},
+    {label: 'Multiple Plates', value: 'MP'},
+  ]}>
+
+<TabItem value="SOV">
+
+
+This is example of a simple preset for publishing from a single offline video and is a default unless overriden by presets.
 
 ```json
 {
@@ -119,13 +102,14 @@ SVFT way is having more simple use as it is directly applying defined set of att
 }
 ```
 
-##### MRF use:
+</TabItem>
+<TabItem value="MP">
 
-MRF way is more universal as it is using the key and its set of attributes as searching patterns for finding matching folder or file or collection of files.
+MP workflow is a lot more universal as it is using the key and its set of attributes as searching patterns for finding matching folder, file or collection of files.
 
-If `["ftrack", "review"]` is added to **subsetName.families** the subset will be then added to ftrack with preview video. Video could be generated with FFMPEG from any supported image sequence or video file. If a MP4 is in **subsetName.extensions** then it is just simply passed and no need for FFMPEG conversion.
+If `["ftrack", "review"]` is added to **subsetName.families** the subset will be then added to ftrack with preview video. Video could be generated with FFMPEG from any supported image sequence or video file. If a MP4 is in **subsetName.extensions** then it is used directly with no need for FFMPEG conversion.
 
-If `.jpg` is added to **subsetName.extensions** and any variant of word with `thumb` is found in name of single file then this will be used as thumbnail for the new version of subset.
+If `.jpg` is added to **subsetName.extensions** and any variant of word with `thumb` is found in the name of single file then this will be used as thumbnail for the new version of subset.
 
 ```json
 {
@@ -153,15 +137,20 @@ If `.jpg` is added to **subsetName.extensions** and any variant of word with `th
 }
 ```
 
+</TabItem>
+</Tabs>
+
+
+
 ### `CollectHierarchyInstance`
 
-#### Attribures:
+#### Attributes:
 
--   **shot_rename_template**: Anatomy template string formatted with contextual data of selected parents and keys defined in **shot_rename_search_patterns**
--   **shot_rename_search_patterns**: formatting pairs key and value as regex search patterns
--   **shot_add_hierarchy.parents_path**: template string formatted by **shot_add_hierarchy.parents** keys. Order of parts divided by '/' is used for forming hierarchy.
--   **shot_add_hierarchy.parents**: formatting pairs where key is used for formating of parents_path and its values are Anatomy template formattable strings which are formatted by contextual data of selected parents and keys defined in **shot_rename_search_patterns**
--   **shot_add_tasks**: dictionary of task names and allowed task types.
+-   **`shot_rename_template`**: Anatomy template string formatted with contextual data of selected parents and keys defined in `shot_rename_search_patterns`
+-   **`shot_rename_search_patterns`**: formatting pairs key and value as regex search patterns
+-   **`shot_add_hierarchy.parents_path`**: template string formatted by `shot_add_hierarchy.parents` keys. Order of parts divided by '/' is used for forming hierarchy.
+-   **`shot_add_hierarchy.parents`**: formatting pairs where key is used for formating of parents_path and its values are Anatomy template formattable strings which are formatted by contextual data of selected parents and keys defined in `shot_rename_search_patterns`
+-   **`shot_add_tasks`**: dictionary of task names and allowed task types.
 
 #### Example of use:
 
