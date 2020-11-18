@@ -68,8 +68,7 @@ To correctly match the clips in `.edl`, to their respective plates, they should 
 
 The two workflows have their own way of approaching subset creation. SOV is a simpler case as it directly applies the defined set of attributes to a new instance created by trimming only part of the input video file with FFMPEG. On the other hand the MP workflow tries to find any available alternatives of subset names within folders, files or collection of files placed inside the `source_dir`.
 
-
-<Tabs
+&lt;Tabs
   defaultValue="SOV"
   values={[
     {label: 'Single Offline Video', value: 'SOV'},
@@ -77,7 +76,6 @@ The two workflows have their own way of approaching subset creation. SOV is a si
   ]}>
 
 <TabItem value="SOV">
-
 
 This is example of a simple preset for publishing from a single offline video and is a default unless overriden by presets.
 
@@ -140,8 +138,6 @@ If `.jpg` is added to **subsetName.extensions** and any variant of word with `th
 </TabItem>
 </Tabs>
 
-
-
 ### `CollectHierarchyInstance`
 
 #### Attributes:
@@ -175,7 +171,7 @@ If `.jpg` is added to **subsetName.extensions** and any variant of word with `th
     "comp_environ": {
       "type": "Compositing"},
     "matte_paint": {
-      "type": "Art"},
+      "type": "Art"}
   }
 }
 ```
