@@ -161,7 +161,7 @@ If `.jpg` is added to **subsetName.extensions** and any variant of word with `th
 -   **shot_rename_search_patterns**: formatting pairs key and value as regex search patterns
 -   **shot_add_hierarchy.parents_path**: template string formatted by **shot_add_hierarchy.parents** keys. Order of parts divided by '/' is used for forming hierarchy.
 -   **shot_add_hierarchy.parents**: formatting pairs where key is used for formating of parents_path and its values are Anatomy template formattable strings which are formatted by contextual data of selected parents and keys defined in **shot_rename_search_patterns**
--   **shot_add_tasks**: list of task names which should be based on task type (example: task type _Compositing_ will match "compositing_environment")
+-   **shot_add_tasks**: dictionary of task names and allowed task types.
 
 #### Example of use:
 
@@ -180,6 +180,13 @@ If `.jpg` is added to **subsetName.extensions** and any variant of word with `th
             "folder": "shots"
         }
   },
-  "shot_add_tasks": ["animation_rig", "compositing_environ", "compositing_all", "Art"]
+  "shot_add_tasks": {
+    "animation_char": {
+      "type": "Animation"},
+    "comp_environ": {
+      "type": "Compositing"},
+    "matte_paint": {
+      "type": "Art"},
+  }
 }
 ```
