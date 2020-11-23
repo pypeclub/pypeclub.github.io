@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[12],{81:function(t){t.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"We are starting documentation","permalink":"/blog/2016/03/11/blog-post"}]}')}}]);
