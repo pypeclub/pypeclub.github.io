@@ -4,11 +4,132 @@ title: Changelog
 sidebar_label: Changelog
 ---
 
+<a name="2.14.0"></a>
+
+## [2.14.0](https://github.com/pypeclub/pype/tree/2.14.0)
+
+ _**release date:**  2020-11-24_
+
+[Full Changelog](https://github.com/pypeclub/pype/compare/2.13.7...2.14.0)
+
+**Enhancements:**
+
+- Ftrack: Event for syncing shot or asset status with tasks.[\#736](https://github.com/pypeclub/pype/pull/736)
+- Maya: add camera rig publishing option [\#721](https://github.com/pypeclub/pype/pull/721)
+- Maya: Ask user to select non-default camera from scene or create a new. [\#678](https://github.com/pypeclub/pype/pull/678)
+- Maya: Camera name can be added to burnins. [\#674](https://github.com/pypeclub/pype/pull/674)
+- Sort instances by label in pyblish gui  [\#719](https://github.com/pypeclub/pype/pull/719)
+- Synchronize ftrack hierarchical and shot attributes [\#716](https://github.com/pypeclub/pype/pull/716)
+- Standalone Publisher: Publish editorial from separate image sequences [\#699](https://github.com/pypeclub/pype/pull/699)
+- Render publish plugins abstraction [\#687](https://github.com/pypeclub/pype/pull/687)
+- TV Paint: image loader with options [\#675](https://github.com/pypeclub/pype/pull/675)
+- **TV Paint (Beta):** initial implementation of creators and local rendering [\#693](https://github.com/pypeclub/pype/pull/693)
+- **After Effects (Beta):** base integration with loaders [\#667](https://github.com/pypeclub/pype/pull/667)
+- Harmony: Javascript refactoring and overall stability improvements [\#666](https://github.com/pypeclub/pype/pull/666)
+
+**Fixed bugs:**
+
+- TVPaint: extract review fix [\#740](https://github.com/pypeclub/pype/pull/740)
+- After Effects: Review were not being sent to ftrack [\#738](https://github.com/pypeclub/pype/pull/738)
+- Maya: vray proxy was not loading [\#722](https://github.com/pypeclub/pype/pull/722)
+- Maya: Vray expected file fixes [\#682](https://github.com/pypeclub/pype/pull/682)
+
+**Deprecated:**
+
+- Removed artist view from pyblish gui [\#717](https://github.com/pypeclub/pype/pull/717)
+- Maya: disable legacy override check for cameras [\#715](https://github.com/pypeclub/pype/pull/715)
+
+
+<a name="2.13.7"></a>
+
+### [2.13.7](https://github.com/pypeclub/pype/tree/2.13.7)
+
+ _**release date:** 2020-11-19_
+
+[Full Changelog](https://github.com/pypeclub/pype/compare/2.13.6...2.13.7)
+
+**Merged pull requests:**
+
+- fix\(SP\): getting fps from context instead of nonexistent entity  [\#729](https://github.com/pypeclub/pype/pull/729)
+
+
+<a name="2.13.6"></a>
+
+### [2.13.6](https://github.com/pypeclub/pype/tree/2.13.6)
+
+ _**release date:** 2020-11-15_
+
+[Full Changelog](https://github.com/pypeclub/pype/compare/2.13.5...2.13.6)
+
+**Fixed bugs:**
+
+- Maya workfile version wasn't syncing with renders properly [\#711](https://github.com/pypeclub/pype/pull/711)
+- Maya: Fix for publishing multiple cameras with review from the same scene [\#710](https://github.com/pypeclub/pype/pull/710)
+
+
+<a name="2.13.5"></a>
+
+### [2.13.5](https://github.com/pypeclub/pype/tree/2.13.5)
+
+ _**release date:** 2020-11-12_
+
+[Full Changelog](https://github.com/pypeclub/pype/compare/2.13.4...2.13.5)
+
+
+**Fixed bugs:**
+
+- Wrong thumbnail file was picked when publishing sequence in standalone publisher [\#703](https://github.com/pypeclub/pype/pull/703)
+- Fix: Burnin data pass and FFmpeg tool check [\#701](https://github.com/pypeclub/pype/pull/701)
+
+
+<a name="2.13.4"></a>
+
+### [2.13.4](https://github.com/pypeclub/pype/tree/2.13.4)
+
+ _**release date:** 2020-11-09_
+
+[Full Changelog](https://github.com/pypeclub/pype/compare/2.13.3...2.13.4)
+
+
+**Fixed bugs:**
+
+- Photoshop unhiding hidden layers [\#688](https://github.com/pypeclub/pype/issues/688)
+- Nuke: Favorite directories "shot dir" "project dir" - not working \#684 [\#685](https://github.com/pypeclub/pype/pull/685)
+
+
+
+<a name="2.13.3"></a>
+
+### [2.13.3](https://github.com/pypeclub/pype/tree/2.13.3)
+
+ _**release date:** _2020-11-03_
+
+[Full Changelog](https://github.com/pypeclub/pype/compare/2.13.2...2.13.3)
+
+**Fixed bugs:**
+
+- Fix ffmpeg executable path with spaces [\#680](https://github.com/pypeclub/pype/pull/680)
+- Hotfix: Added default version number [\#679](https://github.com/pypeclub/pype/pull/679)
+
+
+<a name="2.13.2"></a>
+
+### [2.13.2](https://github.com/pypeclub/pype/tree/2.13.2)
+
+ _**release date:** 2020-10-28_
+
+[Full Changelog](https://github.com/pypeclub/pype/compare/2.13.1...2.13.2)
+
+**Fixed bugs:**
+
+- Nuke: wrong conditions when fixing legacy write nodes [\#665](https://github.com/pypeclub/pype/pull/665)
+
+
 <a name="2.13.1"></a>
 
 ### [2.13.1](https://github.com/pypeclub/pype/tree/2.13.1)
 
- _**release date:**  _2020-10-23_
+ _**release date:** 2020-10-23_
 
 [Full Changelog](https://github.com/pypeclub/pype/compare/2.13.0...2.13.1)
 
