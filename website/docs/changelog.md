@@ -4,6 +4,152 @@ title: Changelog
 sidebar_label: Changelog
 ---
 
+<a name="2.15.0"></a>
+
+## [2.15.0](https://github.com/pypeclub/pype/tree/2.15.0)
+
+_**release date:**  2021-02-08_
+
+[Full Changelog](https://github.com/pypeclub/pype/compare/2.15.0-rc1...2.15.0)
+
+**Enhancements:**
+
+- Nuke: deadline presets [\#993](https://github.com/pypeclub/pype/pull/993)
+- Maya: Alembic only set attributes that exists. [\#986](https://github.com/pypeclub/pype/pull/986)
+- PSD Bulk export of ANIM group [\#965](https://github.com/pypeclub/pype/pull/965)
+- AE - added prelaunch hook for opening last or workfile from template [\#944](https://github.com/pypeclub/pype/pull/944)
+- PS - safer handling of loading of workfile [\#941](https://github.com/pypeclub/pype/pull/941)
+- Maya: Handling Arnold referenced AOVs [\#938](https://github.com/pypeclub/pype/pull/938)
+- TVPaint: switch layer IDs for layer names during identification [\#903](https://github.com/pypeclub/pype/pull/903)
+- TVPaint audio/sound loader [\#893](https://github.com/pypeclub/pype/pull/893)
+- Clone review session with children. [\#891](https://github.com/pypeclub/pype/pull/891)
+- Simple compositing data packager for freelancers [\#884](https://github.com/pypeclub/pype/pull/884)
+- Harmony deadline submission [\#881](https://github.com/pypeclub/pype/pull/881)
+- Maya: Optionally hide image planes from reviews. [\#840](https://github.com/pypeclub/pype/pull/840)
+- Maya: handle referenced AOVs for Vray [\#824](https://github.com/pypeclub/pype/pull/824)
+- DWAA/DWAB support on windows [\#795](https://github.com/pypeclub/pype/pull/795)
+- Unreal: animation, layout and setdress updates [\#695](https://github.com/pypeclub/pype/pull/695)
+- Photoshop: add option for template.psd and prelaunch hook  [\#894](https://github.com/pypeclub/pype/pull/894)
+
+**Fixed bugs:**
+
+- Maya: Looks - disable hardlinks [\#995](https://github.com/pypeclub/pype/pull/995)
+- Fix Ftrack custom attribute update [\#982](https://github.com/pypeclub/pype/pull/982)
+- Prores ks in burnin script [\#960](https://github.com/pypeclub/pype/pull/960)
+- Extract review handle bizarre pixel aspect ratio [\#990](https://github.com/pypeclub/pype/pull/990)
+- Nuke: add nuke related env var to sumbission  [\#988](https://github.com/pypeclub/pype/pull/988)
+- Nuke: missing preset's variable  [\#984](https://github.com/pypeclub/pype/pull/984)
+- Get creator by name fix [\#979](https://github.com/pypeclub/pype/pull/979)
+- Fix update of project's tasks on Ftrack sync [\#972](https://github.com/pypeclub/pype/pull/972)
+- nuke: wrong frame offset in mov loader  [\#971](https://github.com/pypeclub/pype/pull/971)
+- Create project structure action fix multiroot [\#967](https://github.com/pypeclub/pype/pull/967)
+- PS: remove pywin installation from hook [\#964](https://github.com/pypeclub/pype/pull/964)
+- Subset family is now stored in subset document [\#956](https://github.com/pypeclub/pype/pull/956)
+- DJV new version arguments [\#954](https://github.com/pypeclub/pype/pull/954)
+- TV Paint: Fix single frame Sequence [\#953](https://github.com/pypeclub/pype/pull/953)
+- nuke: missing `file` knob update  [\#933](https://github.com/pypeclub/pype/pull/933)
+- Photoshop: Create from single layer was failing [\#920](https://github.com/pypeclub/pype/pull/920)
+- Nuke: baking mov with correct colorspace inherited from write  [\#909](https://github.com/pypeclub/pype/pull/909)
+- Launcher fix actions discover [\#896](https://github.com/pypeclub/pype/pull/896)
+- Get the correct file path for the updated mov. [\#889](https://github.com/pypeclub/pype/pull/889)
+- Maya: Deadline submitter - shared data access violation [\#831](https://github.com/pypeclub/pype/pull/831)
+- Maya: Take into account vray master AOV switch [\#822](https://github.com/pypeclub/pype/pull/822)
+
+### [2.14.6](https://github.com/pypeclub/pype/tree/2.14.6) 
+
+_**release date:**  2021-01-15_
+
+[Full Changelog](https://github.com/pypeclub/pype/compare/2.14.5...2.14.6)
+
+**Fixed bugs:**
+
+- Nuke: improving of hashing path  [\#885](https://github.com/pypeclub/pype/pull/885)
+
+**Merged pull requests:**
+
+- Hiero: cut videos with correct secons  [\#892](https://github.com/pypeclub/pype/pull/892)
+- Faster sync to avalon preparation [\#869](https://github.com/pypeclub/pype/pull/869)
+
+
+<a name="2.14.5"></a>
+
+### [2.14.5](https://github.com/pypeclub/pype/tree/2.14.5) 
+
+_**release date:**  2021-01-06_
+
+[Full Changelog](https://github.com/pypeclub/pype/compare/2.14.4...2.14.5)
+
+<a name="2.14.4"></a>
+
+### [2.14.4](https://github.com/pypeclub/pype/tree/2.14.4) 
+
+_**release date:**  2020-12-18_
+
+[Full Changelog](https://github.com/pypeclub/pype/compare/2.14.3...2.14.4)
+
+**Merged pull requests:**
+
+- Fix - AE - added explicit cast to int [\#837](https://github.com/pypeclub/pype/pull/837)
+
+
+<a name="2.14.3"></a>
+
+### [2.14.3](https://github.com/pypeclub/pype/tree/2.14.3) 
+
+_**release date:**  2020-12-16_
+
+[Full Changelog](https://github.com/pypeclub/pype/compare/2.14.2...2.14.3)
+
+**Fixed bugs:**
+
+- TVPaint repair invalid metadata [\#809](https://github.com/pypeclub/pype/pull/809)
+- Feature/push hier value to nonhier action [\#807](https://github.com/pypeclub/pype/pull/807)
+- Harmony: fix palette and image sequence loader [\#806](https://github.com/pypeclub/pype/pull/806)
+
+**Merged pull requests:**
+
+- respecting space in path [\#823](https://github.com/pypeclub/pype/pull/823)
+
+<a name="2.14.2"></a>
+
+### [2.14.2](https://github.com/pypeclub/pype/tree/2.14.2)
+
+_**release date:**  2020-12-04_
+
+[Full Changelog](https://github.com/pypeclub/pype/compare/2.14.1...2.14.2)
+
+**Enhancements:**
+
+- AE: load background [\#774](https://github.com/pypeclub/pype/pull/774)
+
+**Fixed bugs:**
+
+- Harmony: template extraction and palettes thumbnails on mac [\#768](https://github.com/pypeclub/pype/pull/768)
+- Extract review audio cut fix [\#763](https://github.com/pypeclub/pype/pull/763)
+
+**Merged pull requests:**
+
+- AE: fix publish after background load [\#781](https://github.com/pypeclub/pype/pull/781)
+- TVPaint store members key [\#769](https://github.com/pypeclub/pype/pull/769)
+
+<a name="2.14.1"></a>
+
+### [2.14.1](https://github.com/pypeclub/pype/tree/2.14.1)
+
+_**release date:**  2020-11-27_
+
+[Full Changelog](https://github.com/pypeclub/pype/compare/2.14.0...2.14.1)
+
+**Fixed bugs:**
+
+- After Effects: frame range, file format and render source scene fixes [\#760](https://github.com/pypeclub/pype/pull/760)
+- Hiero: trimming review with clip event number  [\#754](https://github.com/pypeclub/pype/pull/754)
+- TVPaint: fix updating of loaded subsets [\#752](https://github.com/pypeclub/pype/pull/752)
+- Maya: Vray handling of default aov [\#748](https://github.com/pypeclub/pype/pull/748)
+- Maya: multiple renderable cameras in layer didn't work [\#744](https://github.com/pypeclub/pype/pull/744)
+- Ftrack integrate custom attributes fix [\#742](https://github.com/pypeclub/pype/pull/742)
+
+
 <a name="2.14.0"></a>
 
 ## [2.14.0](https://github.com/pypeclub/pype/tree/2.14.0)
