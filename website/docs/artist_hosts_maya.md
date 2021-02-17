@@ -411,12 +411,12 @@ So now my scene now looks like this:
 
 ![Maya - Render scene Setup](assets/maya-render_setup.jpg)
 
-You can see that it created `renderingMain` set and under it `LAYER_Main`. This set corresponds to
+You can see that it created `renderingMain` set and under it `_renderingMain:Main`. This set corresponds to
 **Main** render layer in Render Setup. This was automatically created because I had not created any
 render layers in scene before. If you already have layers and you use **Use selection**, they will
-appear here, prefixed with `LAYER_`. Those layer set are created whenever you create new layer in
-Render Setup and are deleted if you delete layer in Render Setup. However if you delete `LAYER_` set,
-layer in Render Setup isn't deleted. It just means it won't be published.
+appear here, prefixed with `_renderingMain` namespace (or similar - how you name your rendering instance).
+Those layer set are created whenever you create new layer in Render Setup and are deleted if you delete layer
+in Render Setup. However if you delete layer set, layer in Render Setup isn't deleted. It just means it won't be published.
 
 Creating *Render instance* will also set image prefix in render settings to Pype defaults based on
 renderer you use - for example if you render with Arnold, it is `maya/<Scene>/<RenderLayer>/<RenderLayer>_<RenderPass>`.
@@ -691,3 +691,27 @@ under selected hierarchies and match them with shapes loaded with rig (published
 under `input_SET`). This mechanism uses *cbId* attribute on those shapes.
 If match is found shapes are connected using their `outMesh` and `outMesh`. Thus you can easily connect existing animation to loaded rig.
 :::
+
+## Using V-Ray
+
+V-Ray is supported by Pype in similar way as Arnold is. Rendering works the same, but it is adding support
+for publishing **V-Ray Scenes** and **V-Ray Proxies**.
+
+### Publishing V-Ray Scenes
+
+Publishing scenes works in same way as publishing renders. For every render layer there is a set under
+V-Ray scene instance.
+
+If this set is empty, it will export whole scene in the context of render layer. If you put objects there,
+only those objects will be exported.
+
+![Maya - V-Ray Scene Setup](assets/maya-vrayscene-publishing.jpg)
+
+In this case there are two render layers - `Main` and `Ground`. Publishing this V-Ray scene instance
+will result in two scenes, one from `Main` containing whole scene and `Ground` containing only **ground_GEO**.
+
+### Publishing V-Ray proxy
+
+Publishing V-Ray proxies is straightforward and work like publishing models. Select your geometry, then
+**Pype → Create...** and select **VRay Proxy**. Make sure **Use selected** is checked to automatically put
+selected geometry to instance.
